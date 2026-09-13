@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "answer_review": {
+      "additionalProperties": false,
+      "properties": {
+        "arithmetic": {
+          "enum": ["correct", "error", "not_applicable", "unclear"]
+        },
+        "final_answer": {
+          "enum": ["correct", "incorrect", "missing", "ambiguous"]
+        },
+        "format": {
+          "enum": ["parseable", "unparseable", "ambiguous"]
+        },
+        "notes": {"minLength": 1, "type": "string"},
+        "reasoning": {
+          "enum": ["valid", "invalid", "incomplete", "not_applicable", "unclear"]
+        },
+        "termination": {
+          "enum": ["normal", "abrupt", "repetitive", "length_limited", "unclear"]
+        },
+        "understanding": {"enum": ["correct", "incorrect", "unclear"]}
+      },
+      "required": [
+        "understanding",
+        "reasoning",
+        "arithmetic",
+        "final_answer",
+        "format",
+        "termination",
+        "notes"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "baseline_review": {"$ref": "#/$defs/answer_review"},
+    "confidence": {"enum": ["high", "medium", "low"]},
+    "evidence": {"minLength": 1, "type": "string"},
+    "outcome": {"enum": ["improved", "regressed", "both_wrong"]},
+    "primary_mechanism": {
+      "enum": [
+        "understanding_change",
+        "reasoning_change",
+        "arithmetic_change",
+        "final_answer_selection_change",
+        "format_or_extraction_change",
+        "termination_or_repetition_change",
+        "multiple_changes",
+        "no_material_change",
+        "unclear"
+      ]
+    },
+    "review_index": {"minimum": 1, "type": "integer"},
+    "reviewed_at": {"format": "date-time", "type": "string"},
+    "reviewer": {"minLength": 1, "type": "string"},
+    "reviewer_kind": {"enum": ["human", "ai"]},
+    "row_index": {"minimum": 0, "type": "integer"},
+    "sample_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"},
+    "scorer_error": {"enum": ["none", "baseline", "s1", "both", "unclear"]},
+    "secondary_mechanisms": {
+      "items": {
+        "enum": [
+          "understanding_change",
+          "reasoning_change",
+          "arithmetic_change",
+          "final_answer_selection_change",
+          "format_or_extraction_change",
+          "termination_or_repetition_change"
+        ]
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "trained_review": {"$ref": "#/$defs/answer_review"}
+  },
+  "required": [
+    "review_index",
+    "row_index",
+    "outcome",
+    "sample_sha256",
+    "baseline_review",
+    "trained_review",
+    "primary_mechanism",
+    "secondary_mechanisms",
+    "scorer_error",
+    "evidence",
+    "confidence",
+    "reviewer",
+    "reviewer_kind",
+    "reviewed_at"
+  ],
+  "title": "GSM8K Paired Manual Review Decision v1",
+  "type": "object"
+}
