@@ -1,0 +1,53 @@
+{
+  "validated_at": "2026-09-13T19:42:00+08:00",
+  "status": "passed",
+  "schema_validation": {
+    "decision_count": 54,
+    "unique_review_index_count": 54,
+    "expected_review_index_min": 1,
+    "expected_review_index_max": 54,
+    "sample_hash_matches": 54,
+    "row_index_matches": 54,
+    "outcome_matches": 54
+  },
+  "outcome_counts": {
+    "improved": 18,
+    "regressed": 18,
+    "both_wrong": 18
+  },
+  "primary_mechanism_counts_by_outcome": {
+    "improved": {
+      "understanding_change": 6,
+      "reasoning_change": 5,
+      "final_answer_selection_change": 3,
+      "format_or_extraction_change": 3,
+      "arithmetic_change": 1
+    },
+    "regressed": {
+      "understanding_change": 8,
+      "reasoning_change": 5,
+      "multiple_changes": 2,
+      "arithmetic_change": 2,
+      "termination_or_repetition_change": 1
+    },
+    "both_wrong": {
+      "no_material_change": 8,
+      "termination_or_repetition_change": 6,
+      "arithmetic_change": 2,
+      "understanding_change": 1,
+      "reasoning_change": 1
+    }
+  },
+  "generation_limit_audit": {
+    "tokenizer": "Qwen/Qwen3-0.6B-Base",
+    "add_special_tokens": false,
+    "generation_limit": 256,
+    "baseline_review_indexes_at_limit": [37, 47, 51, 52],
+    "trained_review_indexes_at_limit": [25, 30, 32, 36, 38, 40, 44, 47, 51, 52, 53, 54]
+  },
+  "file_sha256": {
+    "review_samples.jsonl": "b32cfc41d2e198ceb50e0e118436c293bea1da4c83e2a673149135910980fb45",
+    "decisions.jsonl": "1fbb4f92704605847c50d219364214ae53e5cb086d62c094faee9aa5284aba73",
+    "review_schema_v1.json": "0f541f41ae586e61236af224aa4a9effff25beb3291dc090a155d38ba1a7e765"
+  }
+}
