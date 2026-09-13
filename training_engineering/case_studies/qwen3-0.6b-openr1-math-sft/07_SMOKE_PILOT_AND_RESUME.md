@@ -161,5 +161,8 @@ manifest 终态为 paused/completed/failed，而非永久 running
 - [ ] 失败与中断均有机器可读终态。
 - [ ] 正式评测入口至少做过小规模 paired preflight。
 
-本案例前六项大体已有证据，但 CUDA telemetry 实机验证和 MATH-500 paired preflight 仍未
-关闭，所以正式 S1 仍为 `NO-GO`。
+在 pilot 收尾的当时，前六项大体已有证据，但 CUDA telemetry 实机验证和 MATH-500 paired
+preflight 仍未关闭，所以当时的正式 S1 决策是 `NO-GO`。这句话是本阶段历史快照，不是
+当前状态。后续训练记录显示，显存和训练恢复门被关闭后正式 S1 已经完成，但 paired MATH
+评测风险没有被充分关闭，最终在正式评测阶段以长生成和预算超限的形式暴露；详见
+`10_INCIDENTS_AND_REUSABLE_LESSONS.md` 与 `11_FORMAL_S1_RESULTS_AND_RELEASE.md`。

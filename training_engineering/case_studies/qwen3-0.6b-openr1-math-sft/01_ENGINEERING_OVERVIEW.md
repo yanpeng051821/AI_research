@@ -133,20 +133,30 @@ OpenR1 提供数据来源和成熟后训练工程的参考，但正式 S1 不是
 | 20-step smoke | NLL 从同子集 0.8050 降至 0.6754 | 训练路径能学，非正式能力结论 |
 | 100-step pilot | 全量 validation NLL 0.5952246359 | 相对 B0 下降约 23.74% |
 | CPU S1 dry-run | 61,224 records、479 steps、15 warmup | 正式数据与训练计划已冻结 |
+| 正式 S1 | 61,224 records、479 updates、A100 80GB 完成 | 训练、checkpoint、telemetry 和导出均有终态证据 |
+| S1 validation NLL | 0.780483 -> 0.546614 | 目标 completion 分布拟合增强，不等于任务能力全面提升 |
+| S1 GSM8K | 0.476118 -> 0.514784 | 同合同配对提升 +3.87pp，已完成固定样本错误分析 |
+| S1 regression panel | macro 0.543412 -> 0.528562 | 目标任务改善伴随通用能力回退 |
+| S1 MATH-500 | 未形成正式结果 | 长生成和预算门禁导致评测中止，不能填为零分 |
 
 100-step pilot 的 NLL 是可信训练行为证据，但 pilot 的 MATH-500 没有形成可靠终态；
 GSM8K 50 样本和 regression smoke 也不能和完整 B0 直接比较。
 
 ## 7. 当前状态与下一步
 
-当前正式 S1 仍为 `NO-GO`，不是因为训练代码缺失，而是还剩两类实机门禁：
+当前工程状态为 `COMPLETE`，实验结果决策为 `ITERATE`，模型发布级别为
+`RESEARCH CHECKPOINT`。训练前文档中写的 `NO-GO` 是当时的门禁状态，不是当前状态；正式
+S1 的实际结果、证据路径和发布边界以 `11_FORMAL_S1_RESULTS_AND_RELEASE.md` 为准。
 
-1. 用最终 S1 配置完成 1 至 2 个 optimizer update 的 CUDA allocator telemetry，
-   确认最长保留样本、首次 AdamW `m/v` 分配和 checkpoint 均安全。
-2. 让 B0 与 pilot/final-like checkpoint 通过同一个 MATH-500 小规模评测入口，
-   确认 vLLM context、KV cache 和失败终态记录可靠。
+这次回顾还必须保留一个流程偏离：训练前计划把 B0/训练后 checkpoint 的 MATH 小规模 paired
+preflight 作为正式训练硬门，但 pilot 阶段的生成和 vLLM 运行没有形成可靠终态。随后我们
+关闭了训练、显存和恢复相关风险并启动正式 S1，但没有把评测成本与长生成风险真正关闭。
+这个偏离没有让训练结果失效，却直接导致 S1 后的 MATH-500 评测被预算门中止，并推动了
+评测合同 v2 的预算探针、显式 stop token 和 bounded evaluation 设计。
 
-两个门禁关闭后，才从 Base 新建正式 S1；不能从 smoke 或 pilot checkpoint 接着训练。
+当前下一步不是立即追加训练，而是先完成 GSM8K 的 512-token 解码预算敏感性实验，或先做
+训练数据与回归样本的归因分析。两者都必须在新合同下独立记录，不能修改 256-token 的历史
+主结果。
 
 ## 8. 如何把本案例复用到下一次训练
 
