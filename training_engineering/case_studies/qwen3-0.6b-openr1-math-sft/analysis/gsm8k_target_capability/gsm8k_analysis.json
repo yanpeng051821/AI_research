@@ -7,7 +7,7 @@
     "task": "leaderboard|gsm8k|4",
     "trained_details": "D:\\pythonlearning\\training_artifacts\\formal_s1_2026-09-13\\runs\\gate0b-16k-s1\\evaluation\\evals\\gsm8k\\details\\runs_gate0b-16k-s1_final_model\\2026-09-13T04-38-58.023429\\details_leaderboard_gsm8k_4_2026-09-13T04-38-58.023429.parquet"
   },
-  "created_at": "2026-09-13T09:30:48.969497+00:00",
+  "created_at": "2026-09-13T09:33:28.243936+00:00",
   "format_and_length_proxy": {
     "coverage_note": "Only predictions that changed are present; three identical B0/S1 predictions are excluded from this proxy analysis.",
     "covered_changed_predictions": 1316,
