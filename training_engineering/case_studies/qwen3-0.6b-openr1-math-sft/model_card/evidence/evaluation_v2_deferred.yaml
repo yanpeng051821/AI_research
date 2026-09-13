@@ -1,0 +1,97 @@
+contract_version: gate0b-eval-v2
+software:
+  lighteval_commit: d3da6b9bbf38104c8b5e1acc86f83541f9a502d1
+  math_verify: 0.5.2
+suites:
+  math500_probe:
+    task: lighteval|math_500|0|0
+    use_chat_template: true
+    requires_explicit_approval: true
+    max_samples: 50
+    model_args:
+      dtype: bfloat16
+      max_model_length: 4096
+      gpu_memory_utilization: 0.8
+      seed: 1234
+      generation_parameters:
+        max_new_tokens: 2048
+        temperature: 0.6
+        top_p: 0.95
+        seed: 1234
+        stop_tokens:
+          - <|im_end|>
+          - <|endoftext|>
+    evaluation_policy:
+      role: budget_probe
+      status: deferred_after_s1_length_incident
+      expected_total_generations: 2000
+      minimum_probe_generations: 200
+      minimum_stop_rate: 0.90
+      maximum_truncation_rate: 0.10
+      projection_safety_factor: 1.25
+      maximum_projected_gpu_hours: 3.0
+      gpu_hourly_cost_cny: 9.0
+      maximum_projected_cost_cny: 30.0
+  math500:
+    task: lighteval|math_500|0|0
+    use_chat_template: true
+    requires_explicit_approval: true
+    model_args:
+      dtype: bfloat16
+      max_model_length: 8192
+      gpu_memory_utilization: 0.8
+      seed: 1234
+      generation_parameters:
+        max_new_tokens: 4096
+        temperature: 0.6
+        top_p: 0.95
+        seed: 1234
+        stop_tokens:
+          - <|im_end|>
+          - <|endoftext|>
+    evaluation_policy:
+      role: bounded_primary
+      status: deferred_after_s1_length_incident
+      requires_passing_probe: math500_probe
+  math500_reference_32k:
+    task: lighteval|math_500|0|0
+    use_chat_template: true
+    requires_explicit_approval: true
+    model_args:
+      dtype: bfloat16
+      max_model_length: 32768
+      gpu_memory_utilization: 0.8
+      seed: 1234
+      generation_parameters:
+        max_new_tokens: 32768
+        temperature: 0.6
+        top_p: 0.95
+        seed: 1234
+        stop_tokens:
+          - <|im_end|>
+          - <|endoftext|>
+    evaluation_policy:
+      role: openr1_reference
+      status: deferred_after_s1_length_incident
+      requires_passing_probe: math500_probe
+      note: Not the default project metric; run only after an explicit cost decision.
+  gsm8k:
+    task: leaderboard|gsm8k|4|0
+    use_chat_template: false
+    model_args:
+      dtype: bfloat16
+      max_model_length: 4096
+      gpu_memory_utilization: 0.8
+      seed: 1234
+      generation_parameters:
+        max_new_tokens: 256
+        temperature: 0.0
+        seed: 1234
+  regression:
+    task_file: regression_tasks.txt
+    use_chat_template: false
+    model_args:
+      dtype: bfloat16
+      max_model_length: 32768
+      gpu_memory_utilization: 0.8
+      seed: 1234

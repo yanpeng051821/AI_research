@@ -1,0 +1,35 @@
+{
+  "baseline_root": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/gsm8k",
+  "changed_record_count": 1316,
+  "changed_samples": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/b0-vs-s1-gsm8k/changed_samples.jsonl",
+  "created_at": "2026-09-12T20:44:58.851313+00:00",
+  "manifests": {
+    "gsm8k": {
+      "baseline_manifest": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/gsm8k/invocation_manifest.json",
+      "baseline_manifest_sha256": "bfe660155cd5e36a3eff9e319f24a44b84c58df1a2f9a83176dd78f436e384eb",
+      "trained_manifest": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/gsm8k/invocation_manifest.json",
+      "trained_manifest_sha256": "072ef0894fb3e56d801f785cf7dd8d980d54a2ced5a811299db28ccf2dbdd32f"
+    }
+  },
+  "metric_direction": "higher_is_better",
+  "tasks": {
+    "leaderboard|gsm8k|4": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/gsm8k/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-45-37.484248/details_leaderboard|gsm8k|4_2026-09-11T15-45-37.484248.parquet",
+      "baseline_details_sha256": "b803a6f608181d9abcb113a94235d037a54d0c3f3105f44887d149faf7b60eb4",
+      "metrics": {
+        "qem": {
+          "baseline_mean": 0.4761182714177407,
+          "delta_s1_minus_b0": 0.03866565579984832,
+          "improved": 199,
+          "regressed": 148,
+          "trained_mean": 0.514783927217589,
+          "unchanged": 972
+        }
+      },
+      "sample_count": 1319,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/gsm8k/details/runs_gate0b-16k-s1_final_model/2026-09-13T04-38-58.023429/details_leaderboard|gsm8k|4_2026-09-13T04-38-58.023429.parquet",
+      "trained_details_sha256": "1619c60ef0123b8d016c4634e12c40392246e08b68f78b7bd990397e75681229"
+    }
+  },
+  "trained_root": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/gsm8k"
+}

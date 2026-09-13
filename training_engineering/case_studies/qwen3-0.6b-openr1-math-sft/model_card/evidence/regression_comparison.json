@@ -1,0 +1,1037 @@
+{
+  "baseline_root": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression",
+  "changed_record_count": 25256,
+  "changed_samples": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/b0-vs-s1-regression/changed_samples.jsonl",
+  "created_at": "2026-09-13T04:22:13.146975+00:00",
+  "manifests": {
+    "regression": {
+      "baseline_manifest": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/invocation_manifest.json",
+      "baseline_manifest_sha256": "b06c6d0e6c8cad9974eabbcabe157a0d0914159b1947421afc75852c3c3c2c54",
+      "trained_manifest": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/invocation_manifest.json",
+      "trained_manifest_sha256": "fad3191cbaba66f64f236e58a401a3d170c7aead3f16ade4f29d8b322acfc118"
+    }
+  },
+  "metric_direction": "higher_is_better",
+  "tasks": {
+    "leaderboard|arc:challenge|25": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|arc:challenge|25_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "30449b0f0ae3522021331e4f2cce6e7057f613e5a189caa522f520d06eac26e4",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.4189419795221843,
+          "delta_s1_minus_b0": -0.030716723549488067,
+          "improved": 40,
+          "regressed": 76,
+          "trained_mean": 0.38822525597269625,
+          "unchanged": 1056
+        },
+        "acc_norm": {
+          "baseline_mean": 0.4539249146757679,
+          "delta_s1_minus_b0": -0.022184300341296925,
+          "improved": 38,
+          "regressed": 64,
+          "trained_mean": 0.431740614334471,
+          "unchanged": 1070
+        }
+      },
+      "sample_count": 1172,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|arc:challenge|25_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "46ed8dde91c5b4f0a9ae0361fd51e6d33e326a7df632edffc63f586fd42e7ef1"
+    },
+    "leaderboard|hellaswag|10": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|hellaswag|10_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "64a092ac3333b39fb2ca1bdb66c66e1018f800cd6c947eab55f8403a8c81ea65",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.4086835291774547,
+          "delta_s1_minus_b0": -0.007169886476797449,
+          "improved": 188,
+          "regressed": 260,
+          "trained_mean": 0.40151364270065726,
+          "unchanged": 9594
+        },
+        "acc_norm": {
+          "baseline_mean": 0.5334594702250548,
+          "delta_s1_minus_b0": -0.011451902011551551,
+          "improved": 349,
+          "regressed": 464,
+          "trained_mean": 0.5220075682135032,
+          "unchanged": 9229
+        }
+      },
+      "sample_count": 10042,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|hellaswag|10_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "ead133fa6738db54225cc668480e032ca8faf1b14629a8f2041991232ea1d2bd"
+    },
+    "leaderboard|mmlu:abstract_algebra|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:abstract_algebra|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "2419e81a7b2f65df96a69c7462346e57cbed092429c2c9cbf28657314776f5d6",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.36,
+          "delta_s1_minus_b0": 0.010000000000000009,
+          "improved": 14,
+          "regressed": 13,
+          "trained_mean": 0.37,
+          "unchanged": 73
+        }
+      },
+      "sample_count": 100,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:abstract_algebra|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "191b9fe917e99eef2969689d008cd56c6d1fa58dbbe0bf50ee3056ca66b62afc"
+    },
+    "leaderboard|mmlu:anatomy|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:anatomy|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "9dc9b1a1793a9e52d0dcf27179bbb607adef34ea624a72ddac2bb85252fbdcfe",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5037037037037037,
+          "delta_s1_minus_b0": -0.051851851851851816,
+          "improved": 5,
+          "regressed": 12,
+          "trained_mean": 0.45185185185185184,
+          "unchanged": 118
+        }
+      },
+      "sample_count": 135,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:anatomy|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "25f274ce0ac3421b8788fb6943653fba1d9bf107bd59426ee9f5d504171adaa6"
+    },
+    "leaderboard|mmlu:astronomy|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:astronomy|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "b902168121ff4cd0ac6928dcb354743f3c127e4a0d27e722acb53a04d5fb207d",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5526315789473685,
+          "delta_s1_minus_b0": -0.006578947368421129,
+          "improved": 12,
+          "regressed": 13,
+          "trained_mean": 0.5460526315789473,
+          "unchanged": 127
+        }
+      },
+      "sample_count": 152,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:astronomy|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "609e3008fb2eca93338e6d4a85f7e4016c2fd7f896ec362cfe594dafffccbc6b"
+    },
+    "leaderboard|mmlu:business_ethics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:business_ethics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "fc207343f989b4e04458ac9ae240b7de049cd6b2f474667807d76de4687d6b0b",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.58,
+          "delta_s1_minus_b0": -0.07999999999999996,
+          "improved": 5,
+          "regressed": 13,
+          "trained_mean": 0.5,
+          "unchanged": 82
+        }
+      },
+      "sample_count": 100,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:business_ethics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "ce9708bcb4b3889ea9db70f6d85c588d0bebb4848f218ffafbb9c1f2985c0482"
+    },
+    "leaderboard|mmlu:clinical_knowledge|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:clinical_knowledge|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "3c7f112b6810375b11c978551c43364a44dc259d28d9e0f4349482b09933abb5",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6150943396226415,
+          "delta_s1_minus_b0": -0.015094339622641506,
+          "improved": 17,
+          "regressed": 21,
+          "trained_mean": 0.6,
+          "unchanged": 227
+        }
+      },
+      "sample_count": 265,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:clinical_knowledge|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "cd0fd1a16b877bd76ec7be046ff50eb3607afdf15651164824da16029346d909"
+    },
+    "leaderboard|mmlu:college_biology|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:college_biology|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "99735143f96d1b4d49140870e0957be623db1178c5c33ccf9108c53878b08159",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6041666666666666,
+          "delta_s1_minus_b0": -0.04166666666666663,
+          "improved": 4,
+          "regressed": 10,
+          "trained_mean": 0.5625,
+          "unchanged": 130
+        }
+      },
+      "sample_count": 144,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:college_biology|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "852aad12a41cb2f8f67b8ede09e45a04be83d2cb5271f76607c938eaef0bbc9e"
+    },
+    "leaderboard|mmlu:college_chemistry|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:college_chemistry|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "1962274a9741ed9d450ec8083b888e2b082aa012ca2a85c8f65cd74fe4386321",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.47,
+          "delta_s1_minus_b0": 0.040000000000000036,
+          "improved": 12,
+          "regressed": 8,
+          "trained_mean": 0.51,
+          "unchanged": 80
+        }
+      },
+      "sample_count": 100,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:college_chemistry|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "3ff8dfdf7b345192ce9f3d7d5075d51b8c852a23b92a15c2b62301c75d424d9e"
+    },
+    "leaderboard|mmlu:college_computer_science|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:college_computer_science|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "8d40232d9132f2d08a7dc93f45f415f122663488ac53d7e051cd6482f5d8aaee",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.44,
+          "delta_s1_minus_b0": -0.03999999999999998,
+          "improved": 7,
+          "regressed": 11,
+          "trained_mean": 0.4,
+          "unchanged": 82
+        }
+      },
+      "sample_count": 100,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:college_computer_science|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "6197087f36ac029f125d00a3a47a14455eda520826682d82b52e65d9db886090"
+    },
+    "leaderboard|mmlu:college_mathematics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:college_mathematics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "143a2206188d695e2eb79abf74e8726c35dbdc9d2d03d5ab7eb3b44dbebb3dd2",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.35,
+          "delta_s1_minus_b0": -0.009999999999999953,
+          "improved": 10,
+          "regressed": 11,
+          "trained_mean": 0.34,
+          "unchanged": 79
+        }
+      },
+      "sample_count": 100,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:college_mathematics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "c59ec2d6f073ef84ba0a13b6802f39c1c275aa38003ba1eb4278b797481ce571"
+    },
+    "leaderboard|mmlu:college_medicine|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:college_medicine|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "7e9a36e88ff381f4c9cebf5d2869cc7299e629755f574990b6d77bb998716d67",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5202312138728323,
+          "delta_s1_minus_b0": -0.011560693641618491,
+          "improved": 8,
+          "regressed": 10,
+          "trained_mean": 0.5086705202312138,
+          "unchanged": 155
+        }
+      },
+      "sample_count": 173,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:college_medicine|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "dc1d89f5c8aeab5f96a99ccf9763472a41da3ff9d659402cbe668921d490e4ae"
+    },
+    "leaderboard|mmlu:college_physics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:college_physics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "068007e3160cb7011130314e158765e074c01095b24c2d61c5b78e0490e1b047",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.3333333333333333,
+          "delta_s1_minus_b0": -0.039215686274509776,
+          "improved": 4,
+          "regressed": 8,
+          "trained_mean": 0.29411764705882354,
+          "unchanged": 90
+        }
+      },
+      "sample_count": 102,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:college_physics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "5510ebc4e4a23285f1329bff4efd0a96b05fafad3b121e9b78894b02ae724c2f"
+    },
+    "leaderboard|mmlu:computer_security|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:computer_security|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "53c593bd61d7bc4a723603506ca4115a90cd135f2c7c90752af9e3b2b299d79e",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.72,
+          "delta_s1_minus_b0": -0.04999999999999993,
+          "improved": 5,
+          "regressed": 10,
+          "trained_mean": 0.67,
+          "unchanged": 85
+        }
+      },
+      "sample_count": 100,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:computer_security|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "a9cab19a003efc76a7ece65c77545ab151d3d697ecfa70efe625203c624091c0"
+    },
+    "leaderboard|mmlu:conceptual_physics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:conceptual_physics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "c6d2144e2e430dd7de0dbfd4cf31e540c3d143a71a7185ecd117d0e37e683a01",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.49361702127659574,
+          "delta_s1_minus_b0": -0.012765957446808529,
+          "improved": 14,
+          "regressed": 17,
+          "trained_mean": 0.4808510638297872,
+          "unchanged": 204
+        }
+      },
+      "sample_count": 235,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:conceptual_physics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "073b9e504002829fe9a889b157f8b32a939d41869d2fdecc05cf2938500872a7"
+    },
+    "leaderboard|mmlu:econometrics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:econometrics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "1d9ed140e172d2945ce3e019d4f361809620072122a0d73deed409ed3a2b2024",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.39473684210526316,
+          "delta_s1_minus_b0": -0.00877192982456143,
+          "improved": 7,
+          "regressed": 8,
+          "trained_mean": 0.38596491228070173,
+          "unchanged": 99
+        }
+      },
+      "sample_count": 114,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:econometrics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "0f6f324a9552d5e0ad3aa608fa050bcacdd616be482b28199849559be67573b7"
+    },
+    "leaderboard|mmlu:electrical_engineering|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:electrical_engineering|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "f935149cdcfc510b060898ac791f8bb301549bc69ba8d50da56db85b630b29ff",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6137931034482759,
+          "delta_s1_minus_b0": -0.03448275862068961,
+          "improved": 8,
+          "regressed": 13,
+          "trained_mean": 0.5793103448275863,
+          "unchanged": 124
+        }
+      },
+      "sample_count": 145,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:electrical_engineering|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "24af2ff44037f1a621d1ab6743d771b5da68efaa9f4e1220757493ba4fde0997"
+    },
+    "leaderboard|mmlu:elementary_mathematics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:elementary_mathematics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "0de9fb80db20df014538d29728dfd05006e667e78015329fa5c93bd891216f1d",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.46296296296296297,
+          "delta_s1_minus_b0": -0.037037037037037035,
+          "improved": 27,
+          "regressed": 41,
+          "trained_mean": 0.42592592592592593,
+          "unchanged": 310
+        }
+      },
+      "sample_count": 378,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:elementary_mathematics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "4ca078d9d1d5ccab4b467c3f6233874630bca138e686444adccee6090d8d794c"
+    },
+    "leaderboard|mmlu:formal_logic|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:formal_logic|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "5ac667846303b0a7c18196c3c8835450c5ee38c4b6875780ce3cfd3ddca9496d",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.36507936507936506,
+          "delta_s1_minus_b0": -0.007936507936507908,
+          "improved": 14,
+          "regressed": 15,
+          "trained_mean": 0.35714285714285715,
+          "unchanged": 97
+        }
+      },
+      "sample_count": 126,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:formal_logic|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "25aa6792116909d7dc29b9a74aeac8aa6e885b9d6fb167527c4beb6a540f0923"
+    },
+    "leaderboard|mmlu:global_facts|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:global_facts|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "ca20b2294c347cefae84fa849a0f99b66bd71dcb4b2a43afc4e502c7d028086f",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.38,
+          "delta_s1_minus_b0": 0.020000000000000018,
+          "improved": 6,
+          "regressed": 4,
+          "trained_mean": 0.4,
+          "unchanged": 90
+        }
+      },
+      "sample_count": 100,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:global_facts|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "2ac072603d658880a5c52f2b7d3fa3c953230616a2c2083dc3a0ad449ac5c936"
+    },
+    "leaderboard|mmlu:high_school_biology|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_biology|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "f845873e634027f6070922e9bf6d0f994348ff4b4914af6b8bea96a09e5f24b9",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.7064516129032258,
+          "delta_s1_minus_b0": -0.003225806451612856,
+          "improved": 13,
+          "regressed": 14,
+          "trained_mean": 0.7032258064516129,
+          "unchanged": 283
+        }
+      },
+      "sample_count": 310,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_biology|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "82ccd4055fbcef536bbedc9c4f4704bf25a6376457737febb6b4236370d3d316"
+    },
+    "leaderboard|mmlu:high_school_chemistry|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_chemistry|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "64e73b5a09bbab77087634fcad9d4eb2748b832223eca0b1be642a6f40e50c0b",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5517241379310345,
+          "delta_s1_minus_b0": -0.03448275862068961,
+          "improved": 14,
+          "regressed": 21,
+          "trained_mean": 0.5172413793103449,
+          "unchanged": 168
+        }
+      },
+      "sample_count": 203,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_chemistry|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "405c035d66a2b7ff83ba1b8b9e817c46c2e2774bd1550bc46bcb8444f54e7a01"
+    },
+    "leaderboard|mmlu:high_school_computer_science|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_computer_science|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "a39b62f6fefc3b41c55f3edbbeb72344b1daa56db9d3a0ba04ef3eab5b1e1c39",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.61,
+          "delta_s1_minus_b0": -0.010000000000000009,
+          "improved": 6,
+          "regressed": 7,
+          "trained_mean": 0.6,
+          "unchanged": 87
+        }
+      },
+      "sample_count": 100,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_computer_science|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "65ffd74e88200ace2db76907784fd40ccb2037b676a7e1bcff949d662b2ea75f"
+    },
+    "leaderboard|mmlu:high_school_european_history|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_european_history|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "095c6b7b8c59270b6e6ee3ab159384a384be80f9a1da61ee4873f0722db1083b",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6484848484848484,
+          "delta_s1_minus_b0": -0.06060606060606055,
+          "improved": 8,
+          "regressed": 18,
+          "trained_mean": 0.5878787878787879,
+          "unchanged": 139
+        }
+      },
+      "sample_count": 165,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_european_history|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "89c059213ef95f54aa48c9a04deb8168b1b3b1987712fa0f57ffd6a66a812f93"
+    },
+    "leaderboard|mmlu:high_school_geography|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_geography|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "590c0f002c0c4075b3a206a3bfa820f6ed7169055eafdc6c195b66adafb12848",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6919191919191919,
+          "delta_s1_minus_b0": -0.030303030303030276,
+          "improved": 9,
+          "regressed": 15,
+          "trained_mean": 0.6616161616161617,
+          "unchanged": 174
+        }
+      },
+      "sample_count": 198,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_geography|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "118260e59abf8481cb956464e91e81df1b90158ad9eacb7204f31ba07ef38ca2"
+    },
+    "leaderboard|mmlu:high_school_government_and_politics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_government_and_politics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "14fbf37f03f484b7c8291b9489f1ff332ddfa38fe344510763c662888dd0356b",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6580310880829016,
+          "delta_s1_minus_b0": -0.031088082901554404,
+          "improved": 9,
+          "regressed": 15,
+          "trained_mean": 0.6269430051813472,
+          "unchanged": 169
+        }
+      },
+      "sample_count": 193,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_government_and_politics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "524910950ab33549181e80c3ca8f7304439c45e42e3b3ad58d1ee4d78448016b"
+    },
+    "leaderboard|mmlu:high_school_macroeconomics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_macroeconomics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "65fcd6d66de879baaa57595a55624f4c63ad0e7ffc52b7c2dcb146891e376a66",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5256410256410257,
+          "delta_s1_minus_b0": -0.010256410256410331,
+          "improved": 27,
+          "regressed": 31,
+          "trained_mean": 0.5153846153846153,
+          "unchanged": 332
+        }
+      },
+      "sample_count": 390,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_macroeconomics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "83dc80f3e84c5ad3b2eb9b9e5b53eddd11f69fbaf4981ed08ce6e8342409f717"
+    },
+    "leaderboard|mmlu:high_school_mathematics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_mathematics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "f51bdccf255221b44d6520a673e28d5f46357ea55997197cb5c2ac42c3262581",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.3925925925925926,
+          "delta_s1_minus_b0": -0.033333333333333326,
+          "improved": 42,
+          "regressed": 51,
+          "trained_mean": 0.3592592592592593,
+          "unchanged": 177
+        }
+      },
+      "sample_count": 270,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_mathematics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "33884a17dd4661f0e79fb6e0046b0733a9fe54702465e585d983f31cd1554c0e"
+    },
+    "leaderboard|mmlu:high_school_microeconomics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_microeconomics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "ab3ef125d6d1ad792ff672a35701db39b8f6534a04f8e7ba720d9e4c1846d32a",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6302521008403361,
+          "delta_s1_minus_b0": -0.004201680672268893,
+          "improved": 14,
+          "regressed": 15,
+          "trained_mean": 0.6260504201680672,
+          "unchanged": 209
+        }
+      },
+      "sample_count": 238,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_microeconomics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "53ab747b7dc25963d11bf80f86944233c41795ba89f6a46d4b1e072379a76589"
+    },
+    "leaderboard|mmlu:high_school_physics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_physics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "efa8f1a1f36650119867e4d80b36631befb6f355465e757ba3ebfc3992e5aaef",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.33112582781456956,
+          "delta_s1_minus_b0": 0.0331125827814569,
+          "improved": 15,
+          "regressed": 10,
+          "trained_mean": 0.36423841059602646,
+          "unchanged": 126
+        }
+      },
+      "sample_count": 151,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_physics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "eb9c6af48626a390455819868f8ee60f2f545d99243c5950e1fba19d18e740ee"
+    },
+    "leaderboard|mmlu:high_school_psychology|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_psychology|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "75f2be53b0a4cd9fd71eb9a5a749f93ac2ce551db799e50d918e023bceb43a61",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.7669724770642202,
+          "delta_s1_minus_b0": -0.014678899082568808,
+          "improved": 20,
+          "regressed": 28,
+          "trained_mean": 0.7522935779816514,
+          "unchanged": 497
+        }
+      },
+      "sample_count": 545,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_psychology|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "203fdb882669e73742ee7c1da53640398337cde3d0c04282f8d937b6a4e978de"
+    },
+    "leaderboard|mmlu:high_school_statistics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_statistics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "b92d3af08b8d9f04ae460e686f77bb310f5cce9dafe3da2f178235e355422e5e",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5092592592592593,
+          "delta_s1_minus_b0": 0.03703703703703698,
+          "improved": 29,
+          "regressed": 21,
+          "trained_mean": 0.5462962962962963,
+          "unchanged": 166
+        }
+      },
+      "sample_count": 216,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_statistics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "61ff199934442d5083cde4c58a67578ef7e798bddf0e69f7e93919bf4f4894f9"
+    },
+    "leaderboard|mmlu:high_school_us_history|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_us_history|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "01cba5f55be82d6107a68d055ef0e5e6d616af5a12b95c3331ca1fc5171db63a",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5392156862745098,
+          "delta_s1_minus_b0": 0.009803921568627527,
+          "improved": 15,
+          "regressed": 13,
+          "trained_mean": 0.5490196078431373,
+          "unchanged": 176
+        }
+      },
+      "sample_count": 204,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_us_history|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "7f227a2556d1c303082338b5d211ee21304199e9e20fc745716c5cb8355f226f"
+    },
+    "leaderboard|mmlu:high_school_world_history|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:high_school_world_history|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "79f10e6cd2889a3f2ef5c977b8206cf80e54d8c2e3e9dbf351a4348563e51745",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6708860759493671,
+          "delta_s1_minus_b0": -0.029535864978902926,
+          "improved": 10,
+          "regressed": 17,
+          "trained_mean": 0.6413502109704642,
+          "unchanged": 210
+        }
+      },
+      "sample_count": 237,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:high_school_world_history|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "e8826c47690fadaf0856d28a2e9f4e289c604553d1e89f35269de6bd5fa9557f"
+    },
+    "leaderboard|mmlu:human_aging|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:human_aging|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "3e0bbfb54d205e101a6a0264f2ffaccb411f134ac37d0b6d707346041788f8d1",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5112107623318386,
+          "delta_s1_minus_b0": 0.026905829596412523,
+          "improved": 20,
+          "regressed": 14,
+          "trained_mean": 0.5381165919282511,
+          "unchanged": 189
+        }
+      },
+      "sample_count": 223,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:human_aging|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "9afe494a14bbaafd90c5367d59fbc47c12349c83a42b76226c5f4b4d1bfb70c4"
+    },
+    "leaderboard|mmlu:human_sexuality|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:human_sexuality|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "fc7e76eb68b5965df9488a850cdf887e77c9c58b9e6456bbfc58c060ceb1be11",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5954198473282443,
+          "delta_s1_minus_b0": 0.03816793893129766,
+          "improved": 10,
+          "regressed": 5,
+          "trained_mean": 0.6335877862595419,
+          "unchanged": 116
+        }
+      },
+      "sample_count": 131,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:human_sexuality|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "b914f8afb0730d65342cf60a67b01d85d3053501c51bb57ec730e486f62ea451"
+    },
+    "leaderboard|mmlu:international_law|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:international_law|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "29ed5738342ccd113464d4bea5b8f05395ed15496197df3f4e168e4266787a86",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6528925619834711,
+          "delta_s1_minus_b0": 0.03305785123966942,
+          "improved": 10,
+          "regressed": 6,
+          "trained_mean": 0.6859504132231405,
+          "unchanged": 105
+        }
+      },
+      "sample_count": 121,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:international_law|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "a52c9fb90b6011c544fb3ba4c345aa065cefdb3d52044a8733f5e37b2c8ecda1"
+    },
+    "leaderboard|mmlu:jurisprudence|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:jurisprudence|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "c68033abcdb054b77bf84506b23dccad74c6ea3c31eee4a62a73f953dfaa9694",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5925925925925926,
+          "delta_s1_minus_b0": 0.0185185185185186,
+          "improved": 8,
+          "regressed": 6,
+          "trained_mean": 0.6111111111111112,
+          "unchanged": 94
+        }
+      },
+      "sample_count": 108,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:jurisprudence|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "1fbcac2050a7b15c8ff04ff6767b3ba0fa1fe60d9b58ccfa2ba3c2af52dcadcf"
+    },
+    "leaderboard|mmlu:logical_fallacies|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:logical_fallacies|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "e627cb1a619ed4b774cefc581ffe76b9db21b13c64c52d2832706debf3282996",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6257668711656442,
+          "delta_s1_minus_b0": -0.049079754601227044,
+          "improved": 9,
+          "regressed": 17,
+          "trained_mean": 0.5766871165644172,
+          "unchanged": 137
+        }
+      },
+      "sample_count": 163,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:logical_fallacies|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "2e9b053bff373d17b042966e691afac019c605dc00d42b11a25130b55e3202f4"
+    },
+    "leaderboard|mmlu:machine_learning|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:machine_learning|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "27857aa1fef0fe1a075b41a1e3f0a97d5bf824db09daeee6a9af1c33fe19f4ce",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.38392857142857145,
+          "delta_s1_minus_b0": -0.008928571428571452,
+          "improved": 10,
+          "regressed": 11,
+          "trained_mean": 0.375,
+          "unchanged": 91
+        }
+      },
+      "sample_count": 112,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:machine_learning|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "62ce01c34b1d9fbd38a52ca79c56e21c26a3245ffa8e0e217e21615642923e06"
+    },
+    "leaderboard|mmlu:management|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:management|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "e3d293a7bce2da4712fb485135196b0678f1b7337764a0a9bebbc127eacf26a2",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6407766990291263,
+          "delta_s1_minus_b0": 0.06796116504854366,
+          "improved": 8,
+          "regressed": 1,
+          "trained_mean": 0.7087378640776699,
+          "unchanged": 94
+        }
+      },
+      "sample_count": 103,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:management|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "58fdc27d705f5d524d0d6ff2a8cb40ad01ce527e5a8757a87f73eecee7c2026a"
+    },
+    "leaderboard|mmlu:marketing|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:marketing|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "244f30a3a87d9eda9162ff6b7824ec1bb410158c32288006df7f89369990ba37",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.7905982905982906,
+          "delta_s1_minus_b0": 0.008547008547008628,
+          "improved": 12,
+          "regressed": 10,
+          "trained_mean": 0.7991452991452992,
+          "unchanged": 212
+        }
+      },
+      "sample_count": 234,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:marketing|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "4e968ad12246d3b8225df9c2bb1de0819e2c3702453f3d12bea728334859077c"
+    },
+    "leaderboard|mmlu:medical_genetics|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:medical_genetics|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "e566e8eb4f03e9cd85ec00e0c0e5f6b72bbc894e0c7c224770fd20c2141412ca",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.65,
+          "delta_s1_minus_b0": -0.07000000000000006,
+          "improved": 5,
+          "regressed": 12,
+          "trained_mean": 0.58,
+          "unchanged": 83
+        }
+      },
+      "sample_count": 100,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:medical_genetics|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "dc5ef6dc5a79f915ebf56bfdcee81877dfd610af5594a8be0b04c71507106ae6"
+    },
+    "leaderboard|mmlu:miscellaneous|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:miscellaneous|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "2544044820a841b01aa96ebb2efe9cda02b8d3b9c54c480f6b2524e187021e1d",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6155810983397191,
+          "delta_s1_minus_b0": 0.0,
+          "improved": 52,
+          "regressed": 52,
+          "trained_mean": 0.6155810983397191,
+          "unchanged": 679
+        }
+      },
+      "sample_count": 783,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:miscellaneous|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "93948e56a13de45a2e1314f535535ead8415d115a3b323aed0279f9e112f4722"
+    },
+    "leaderboard|mmlu:moral_disputes|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:moral_disputes|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "dc94939e8f54fa271c6f0af57573a177ea6f2ddba46fe875457452dda760f53a",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5722543352601156,
+          "delta_s1_minus_b0": -0.03179190751445082,
+          "improved": 15,
+          "regressed": 26,
+          "trained_mean": 0.5404624277456648,
+          "unchanged": 305
+        }
+      },
+      "sample_count": 346,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:moral_disputes|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "378eaf095f01b150f461d7ef8623db1aac15c65b14b1b7e89236f48e6a02405f"
+    },
+    "leaderboard|mmlu:moral_scenarios|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:moral_scenarios|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "62f0191e6ca42ed3490a21d603dcaa6ec60d553f5b6fa490e705c11ae0808f9e",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.2659217877094972,
+          "delta_s1_minus_b0": -0.03575418994413407,
+          "improved": 197,
+          "regressed": 229,
+          "trained_mean": 0.23016759776536314,
+          "unchanged": 469
+        }
+      },
+      "sample_count": 895,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:moral_scenarios|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "71602dd616a9c0002c37b0220629d166b264bcfd6a8754065cd0008085b16dfd"
+    },
+    "leaderboard|mmlu:nutrition|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:nutrition|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "746c0c08fc534e6c72288533ceffc5502f181dcd37e44a3df510e1a05d504b86",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6013071895424836,
+          "delta_s1_minus_b0": -0.019607843137254832,
+          "improved": 13,
+          "regressed": 19,
+          "trained_mean": 0.5816993464052288,
+          "unchanged": 274
+        }
+      },
+      "sample_count": 306,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:nutrition|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "19ea8b6082477177a808c2659bc219794064bb7b274db6c525e5e57f82517343"
+    },
+    "leaderboard|mmlu:philosophy|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:philosophy|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "e6778180d76d13bf53cf7f1096eebebe80d268113c422c9a08f0413b8086488f",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5530546623794212,
+          "delta_s1_minus_b0": -0.03858520900321549,
+          "improved": 10,
+          "regressed": 22,
+          "trained_mean": 0.5144694533762058,
+          "unchanged": 279
+        }
+      },
+      "sample_count": 311,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:philosophy|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "81e7fe73cfc2ba7ddff82847fe4638cf4b483a34d54c9cc80001b65a7e95b3c9"
+    },
+    "leaderboard|mmlu:prehistory|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:prehistory|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "f85a8063de473a7498ae498da7d5a49849c732455aaa8f154f90e14223292572",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5524691358024691,
+          "delta_s1_minus_b0": -0.04012345679012341,
+          "improved": 15,
+          "regressed": 28,
+          "trained_mean": 0.5123456790123457,
+          "unchanged": 281
+        }
+      },
+      "sample_count": 324,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:prehistory|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "2f3fe0d41c6799284e13c73997281aa1e0eda3da153329c6b48126e1ac65944d"
+    },
+    "leaderboard|mmlu:professional_accounting|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:professional_accounting|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "5f64994f2313aa33d778636bd2a1f27bf7b6b9cd93af7d21406fac58e5f829cf",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.3829787234042553,
+          "delta_s1_minus_b0": 0.014184397163120588,
+          "improved": 30,
+          "regressed": 26,
+          "trained_mean": 0.3971631205673759,
+          "unchanged": 226
+        }
+      },
+      "sample_count": 282,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:professional_accounting|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "4f1d51f8f4f77645759a06bdf2587966bbb359ce7d1a5a7c04070fc2b1334eb8"
+    },
+    "leaderboard|mmlu:professional_law|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:professional_law|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "399b6dfd2f98db81b87d9752aa4228e472cd0b6794a1daba446fbb39b8368336",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.3754889178617992,
+          "delta_s1_minus_b0": -0.012385919165580184,
+          "improved": 99,
+          "regressed": 118,
+          "trained_mean": 0.36310299869621904,
+          "unchanged": 1317
+        }
+      },
+      "sample_count": 1534,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:professional_law|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "809790245b10a3a60c15e39d10d060cdb2c1214b8f6ba5957da0bc9dc70d0ff6"
+    },
+    "leaderboard|mmlu:professional_medicine|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:professional_medicine|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "310b4fa80c9a42f13473c06cb6bbb04e6d0f8ce09aa7f2e14fc2edeb5e6eacc6",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5477941176470589,
+          "delta_s1_minus_b0": -0.03308823529411775,
+          "improved": 11,
+          "regressed": 20,
+          "trained_mean": 0.5147058823529411,
+          "unchanged": 241
+        }
+      },
+      "sample_count": 272,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:professional_medicine|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "6ee33975abde8c9f72b509064fdb36e78d6211dfb92923a3514b51177be14fde"
+    },
+    "leaderboard|mmlu:professional_psychology|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:professional_psychology|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "1a5ca7803d726d3912d01ee90897a056d5d725bbbd873dbe5324c72fede503b0",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5130718954248366,
+          "delta_s1_minus_b0": -0.016339869281045694,
+          "improved": 40,
+          "regressed": 50,
+          "trained_mean": 0.49673202614379086,
+          "unchanged": 522
+        }
+      },
+      "sample_count": 612,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:professional_psychology|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "820beae5e67e1b92da644ad2f1ec692f513f6fdec6aec9460cb001f2d6e5293b"
+    },
+    "leaderboard|mmlu:public_relations|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:public_relations|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "de4d4bae96b223cf89c6e503cffd8ffa29c5f20387150fb5a91b6b1f4eb1dfa0",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6181818181818182,
+          "delta_s1_minus_b0": -0.027272727272727226,
+          "improved": 7,
+          "regressed": 10,
+          "trained_mean": 0.5909090909090909,
+          "unchanged": 93
+        }
+      },
+      "sample_count": 110,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:public_relations|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "b60631ce433c7f18a0f238a0c5f8c13f2fc9e346e1826afcce13f2bef81cf4c6"
+    },
+    "leaderboard|mmlu:security_studies|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:security_studies|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "d4c1f443751d032bdc385ecf1bca5d77d5a2482384f0c040c4a63e4b976c467e",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.6244897959183674,
+          "delta_s1_minus_b0": -0.03673469387755102,
+          "improved": 9,
+          "regressed": 18,
+          "trained_mean": 0.5877551020408164,
+          "unchanged": 218
+        }
+      },
+      "sample_count": 245,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:security_studies|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "e6e6e5d69ffe73397a7d41d0f6becd7a86a6d4f146e734d40e3fb82927525a24"
+    },
+    "leaderboard|mmlu:sociology|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:sociology|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "ad02c356905082db2235827e106ee95ce8c3996a7809a89fb755dda0f056a885",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.681592039800995,
+          "delta_s1_minus_b0": 0.014925373134328401,
+          "improved": 13,
+          "regressed": 10,
+          "trained_mean": 0.6965174129353234,
+          "unchanged": 178
+        }
+      },
+      "sample_count": 201,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:sociology|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "8eaf71a52657ddc4962d9115a1c5272497f4722d95eca4ca8a86404a0562d8a9"
+    },
+    "leaderboard|mmlu:us_foreign_policy|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:us_foreign_policy|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "8df2d3ef9048d8cab87cb1fbef5c72a99b4416c54659ef24d24c5c9449a50917",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.68,
+          "delta_s1_minus_b0": -0.08000000000000007,
+          "improved": 4,
+          "regressed": 12,
+          "trained_mean": 0.6,
+          "unchanged": 84
+        }
+      },
+      "sample_count": 100,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:us_foreign_policy|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "b33b17b2d278472b7b9a58cde0eda42ed4aadbc284417ccbf1632727c4f8ea64"
+    },
+    "leaderboard|mmlu:virology|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:virology|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "be30509f6e8d804acbed50b07600916db0b17a0b096027b8e0b358e7b54f1e41",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.46987951807228917,
+          "delta_s1_minus_b0": -0.01807228915662651,
+          "improved": 8,
+          "regressed": 11,
+          "trained_mean": 0.45180722891566266,
+          "unchanged": 147
+        }
+      },
+      "sample_count": 166,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:virology|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "c88bef94dd5a006883e1deb17177e2a67a5170580a4ffe855853e516fb3200f2"
+    },
+    "leaderboard|mmlu:world_religions|5": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/regression/details/Qwen/Qwen3-0.6B-Base/2026-09-11T15-35-06.081314/details_leaderboard|mmlu:world_religions|5_2026-09-11T15-35-06.081314.parquet",
+      "baseline_details_sha256": "247773a7e8a8ad383c52ef5886b5b8a8801410f1cd6033e1aef54936931aef43",
+      "metrics": {
+        "acc": {
+          "baseline_mean": 0.5847953216374269,
+          "delta_s1_minus_b0": 0.011695906432748537,
+          "improved": 14,
+          "regressed": 12,
+          "trained_mean": 0.5964912280701754,
+          "unchanged": 145
+        }
+      },
+      "sample_count": 171,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression/details/runs_gate0b-16k-s1_final_model/2026-09-13T12-21-23.805193/details_leaderboard|mmlu:world_religions|5_2026-09-13T12-21-23.805193.parquet",
+      "trained_details_sha256": "31fc6b3f689848c3023f1f13057c31007aef46ff8b612ab81446b5ac2a72ede5"
+    }
+  },
+  "trained_root": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/regression"
+}

@@ -1,0 +1,72 @@
+{
+  "backend": "trl-0.18.0",
+  "created_at": "2026-09-12T11:34:33.236747+00:00",
+  "cuda_memory": {
+    "enabled": true,
+    "final_allocated_gib": 6.68004846572876,
+    "final_reserved_gib": 49.02734375,
+    "last_global_step": 479,
+    "peak_allocated_gib": 38.97365140914917,
+    "peak_phase": "before_optimizer_step",
+    "peak_reserved_gib": 76.625,
+    "records": 2198
+  },
+  "environment": {
+    "captured_at": "2026-09-12T20:25:45.063503+00:00",
+    "cuda_available": true,
+    "cuda_driver": "550.127.05",
+    "cuda_version": "12.4",
+    "cudnn_version": 90100,
+    "git": {
+      "commit": "dd7f454e8cee23b60bd0f5aa5b6da5ddb6945b76",
+      "dirty": true
+    },
+    "gpu_count": 1,
+    "gpus": [
+      "NVIDIA A100-SXM4-80GB"
+    ],
+    "packages": {
+      "accelerate": "1.6.0",
+      "datasets": "3.6.0",
+      "flash-attn": "2.7.4.post1",
+      "lighteval": "0.9.1.dev0",
+      "math-verify": "0.5.2",
+      "trl": "0.18.0"
+    },
+    "platform": "Linux-6.2.0-37-generic-x86_64-with-glibc2.35",
+    "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:27:36) [GCC 11.2.0]",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.52.3",
+    "uv_lock_sha256": "61f54629a490990f7f7b4bb8190b0bba45570591efdeed43037c229c97014326"
+  },
+  "finished_at": "2026-09-12T20:25:45.092262+00:00",
+  "global_step": 479,
+  "identity": {
+    "config_hash": "ded2458f55c770b124d91d2b6451050b127613f25fef50fb49528a7453801b50",
+    "experiment_contract_sha256": "ebe60d91edd1ce5e7383390c4ce55d40b1265abfe882667da4d1496aa0a54f7c",
+    "max_steps": 479,
+    "model_name_or_path": "Qwen/Qwen3-0.6B-Base",
+    "model_revision": "311c62e88814bff7206909ccd330bab0a784743b",
+    "record_count": 61224,
+    "runtime_tree_sha256": "a1dc863165a06cfc0cd77ac45d33547fbad28e5a5bc04df9053a1aa57e7c74d9",
+    "sample_order_sha256": "9af3e9338d993471846cc8de3bdca760eaf2f3242c5e536840df8cd5346c2910",
+    "source_git_commit": "e063e04ea5dcedaee4408cda994091d016a2a1c9",
+    "tokenizer_name_or_path": "Qwen/Qwen3-0.6B-Base",
+    "tokenizer_revision": "311c62e88814bff7206909ccd330bab0a784743b",
+    "train_sha256": "34f919f75ef49dcb45d2fa6bead80fa93667d04f709de48653a31f0fe2de3439",
+    "uv_lock_sha256": "61f54629a490990f7f7b4bb8190b0bba45570591efdeed43037c229c97014326",
+    "validation_sha256": "60bbe71d35d86504527ee30860ad54ff83745de1549196c27ba86ea3678f3ff9",
+    "warmup_steps": 15
+  },
+  "metrics": {
+    "cuda_peak_allocated_gib": 38.97365140914917,
+    "cuda_peak_reserved_gib": 76.625,
+    "total_flos": 9.388176680174223e+17,
+    "train_loss": 0.5689256458790168,
+    "train_runtime": 31867.1389,
+    "train_samples_per_second": 1.924,
+    "train_steps_per_second": 0.015
+  },
+  "resume_from": null,
+  "status": "completed"
+}

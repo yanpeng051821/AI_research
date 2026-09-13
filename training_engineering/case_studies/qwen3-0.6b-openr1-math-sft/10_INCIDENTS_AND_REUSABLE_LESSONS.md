@@ -258,7 +258,7 @@ incident note when a gate fails
 
 ## 8. 当前案例的真实结论边界
 
-截至当前，可成立的结论：
+案例收尾时可成立的结论：
 
 - 核心 completion-only SFT loss、mask、gradient accumulation 和 TRL first-batch 对齐已经
   通过本地与真实模型测试。
@@ -267,20 +267,25 @@ incident note when a gate fails
 - 20-step smoke 与 100-step TRL resume pilot 证明训练、保存、恢复和 validation NLL 下降。
 - 100-step pilot 的全量 validation NLL 为 `0.5952246359`，相对同合同 B0
   `0.7804831795` 下降约 23.74%。这是拟合趋势，不是正式能力结论。
-- CPU 正式 S1 dry-run 已确认 61,224 条、479 updates 和 15 warmup updates。
+- 正式 S1 已在 A100 80GB 上完成 61,224 条、479 updates 和 15 warmup updates，训练、
+  checkpoint、最终模型保存及 CUDA telemetry 均有终态证据。
+- 正式 S1 的 token-weighted validation NLL 从 `0.780483` 降至 `0.546614`，GSM8K
+  从 `0.476118` 升至 `0.514784`。
+- 59 项通用回归面板宏平均下降约 1.49 个百分点，说明目标改善伴随可观测副作用。
+- 完整 MATH-500 因长生成导致预计成本超出预算而被主动中止；该行为作为评测合同事故，
+  已推动预算探针、显式 stop token 和受保护入口进入 v2 合同。
 
 当前不能成立的结论：
 
-- 正式 S1 已经完成。
-- 数学能力已经因训练提高。
-- 通用能力没有回退。
-- 80GB 显存在所有阶段都有充足余量。
-- pilot 的 MATH-500 已形成可比较结果。
+- 数学能力已经全面提高。当前只有 validation 拟合和 GSM8K 的正向证据。
+- 通用能力没有回退。现有回归面板反而给出整体负向证据。
+- 80GB 显存在所有模型、长度和后端上都有充足余量。本结论仅适用于冻结配置。
+- 正式 MATH-500 已形成可比较结果。smoke 受截断影响，full 没有完成。
+- EOS 配置差异已经被彻底解释。它仍是后续分析和推理适配需要验证的因素。
 
 ## 9. 从案例提炼 playbook 的条件
 
-这份案例完成正式 S1 和配对评测后，才把共性抽到 `training_engineering/playbooks/`。提炼时
-应满足：
+这份案例已具备从真实证据提炼 `training_engineering/playbooks/` 的条件。提炼时应满足：
 
 1. 规则在本案例至少被真实执行过，不是只写过方案。
 2. 写清适用前提和反例，不把 Qwen3/OpenR1 参数当普遍标准。
@@ -288,5 +293,5 @@ incident note when a gate fails
 4. 能被下一个不同模型或训练阶段复用并再次验证。
 
 候选 playbook 包括数据 artifact 冻结、服务器预飞行、CUDA allocator 观测、checkpoint
-恢复验证和同合同配对评测。正式 S1 未结束前，它们仍以本案例证据为主。
-
+恢复验证、评测成本探针和同合同配对评测。它们仍需在下一种模型或训练阶段复用后，才能
+从案例经验升级为跨项目标准。

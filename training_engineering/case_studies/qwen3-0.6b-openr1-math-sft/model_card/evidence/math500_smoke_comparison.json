@@ -1,0 +1,43 @@
+{
+  "baseline_root": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/math500-smoke-512-local",
+  "changed_record_count": 20,
+  "changed_samples": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/b0-vs-s1-math500-smoke/changed_samples.jsonl",
+  "created_at": "2026-09-12T20:44:46.829526+00:00",
+  "manifests": {
+    "math500": {
+      "baseline_manifest": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/math500-smoke-512-local/invocation_manifest.json",
+      "baseline_manifest_sha256": "16d2091604960ac1efca90a0b9c8fa64b15be372abf3d4869647090e290c7892",
+      "trained_manifest": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/math500-smoke/invocation_manifest.json",
+      "trained_manifest_sha256": "cca8d0586d47d15eb53e02f9e807f1270f4ed82db9ba97e9ed1935b790ddea58"
+    }
+  },
+  "metric_direction": "higher_is_better",
+  "tasks": {
+    "lighteval|math_500|0": {
+      "baseline_details": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/evals/math500-smoke-512-local/details/Qwen/Qwen3-0.6B-Base/2026-09-11T10-28-23.333206/details_lighteval|math_500|0_2026-09-11T10-28-23.333206.parquet",
+      "baseline_details_sha256": "b8b0e2bbec08757665dd634697f3af8fad29e22d8596ce2299aab9d384bf6e20",
+      "metrics": {
+        "math_pass@1:1_samples": {
+          "baseline_mean": 0.25,
+          "delta_s1_minus_b0": -0.2,
+          "improved": 1,
+          "regressed": 5,
+          "trained_mean": 0.05,
+          "unchanged": 14
+        },
+        "math_pass@1:4_samples": {
+          "baseline_mean": 0.3,
+          "delta_s1_minus_b0": -0.22499999999999998,
+          "improved": 1,
+          "regressed": 10,
+          "trained_mean": 0.075,
+          "unchanged": 9
+        }
+      },
+      "sample_count": 20,
+      "trained_details": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/math500-smoke/details/runs_gate0b-16k-s1_final_model/2026-09-13T04-43-14.240777/details_lighteval|math_500|0_2026-09-13T04-43-14.240777.parquet",
+      "trained_details_sha256": "142758cf4fde7fb851698d2455437a718f63c3c742c84b9e46b545b8321bcd70"
+    }
+  },
+  "trained_root": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/evals/math500-smoke"
+}

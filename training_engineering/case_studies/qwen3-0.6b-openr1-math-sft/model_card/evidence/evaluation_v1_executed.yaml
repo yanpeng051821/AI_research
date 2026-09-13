@@ -1,0 +1,38 @@
+contract_version: gate0b-eval-v1
+software:
+  lighteval_commit: d3da6b9bbf38104c8b5e1acc86f83541f9a502d1
+  math_verify: 0.5.2
+suites:
+  math500:
+    task: lighteval|math_500|0|0
+    use_chat_template: true
+    model_args:
+      dtype: bfloat16
+      max_model_length: 32768
+      gpu_memory_utilization: 0.8
+      seed: 1234
+      generation_parameters:
+        max_new_tokens: 32768
+        temperature: 0.6
+        top_p: 0.95
+        seed: 1234
+  gsm8k:
+    task: leaderboard|gsm8k|4|0
+    use_chat_template: false
+    model_args:
+      dtype: bfloat16
+      max_model_length: 4096
+      gpu_memory_utilization: 0.8
+      seed: 1234
+      generation_parameters:
+        max_new_tokens: 256
+        temperature: 0.0
+        seed: 1234
+  regression:
+    task_file: regression_tasks.txt
+    use_chat_template: false
+    model_args:
+      dtype: bfloat16
+      max_model_length: 32768
+      gpu_memory_utilization: 0.8
+      seed: 1234

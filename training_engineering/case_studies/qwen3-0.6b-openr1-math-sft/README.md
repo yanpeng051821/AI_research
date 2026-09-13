@@ -14,8 +14,10 @@
 
 实验仓库：`D:/pythonlearning/small_model_post_training/independent_implementation`
 
-当前状态：正式 S1 为 `NO-GO`。CPU 数据与合同预检已完成；GPU allocator telemetry
-预飞行和 MATH-500 评测入口预飞行尚未关闭。
+当前状态：正式 S1 训练与工程收尾已完成，结果决策为 `ITERATE`。目标 validation NLL
+和 GSM8K 有改善，59 项通用回归面板下降；完整 MATH-500 因 S1 生成长度和付费预算异常
+被主动中止并延期。因此该模型可以作为可复现实验 checkpoint 发布，不能作为“数学能力已
+全面提升”的最终模型发布。
 
 ## 阅读顺序
 
@@ -29,6 +31,7 @@
 8. [`08_PAIRED_EVALUATION_AND_ANALYSIS.md`](08_PAIRED_EVALUATION_AND_ANALYSIS.md)：做同合同评测与错误分析。
 9. [`09_FORMAL_S1_RUNBOOK.md`](09_FORMAL_S1_RUNBOOK.md)：正式 S1 的启动、观察、恢复和收尾手册。
 10. [`10_INCIDENTS_AND_REUSABLE_LESSONS.md`](10_INCIDENTS_AND_REUSABLE_LESSONS.md)：真实波折、诊断过程和复用规则。
+11. [`11_FORMAL_S1_RESULTS_AND_RELEASE.md`](11_FORMAL_S1_RESULTS_AND_RELEASE.md)：正式结果、结论边界和发布记录。
 
 ## 每篇文档的使用方式
 

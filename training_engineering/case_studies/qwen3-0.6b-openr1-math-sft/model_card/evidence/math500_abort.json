@@ -1,0 +1,9 @@
+{
+  "status": "aborted_by_budget_guard",
+  "aborted_at": "2026-09-13T03:41:59.725752+00:00",
+  "reason": "Projected runtime exceeded available paid GPU window; B0/S1 effective EOS behavior differed and S1 outputs were substantially longer.",
+  "completed_result_available": false,
+  "latest_progress": "10%|█         | 204/2000 [2:54:34<17:11:11, 34.45s/it, est. speed input: 6.09 toks/s, output: 632.11 toks/s]",
+  "preserved_log": "runs/gate0b-16k-s1/evaluation/evals/math500.wrapper.log",
+  "follow_up": "Run matched bounded-length B0/S1 diagnostics before retrying any full MATH-500 evaluation."
+}

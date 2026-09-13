@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "final_allocated_gib": 6.68004846572876,
+  "final_reserved_gib": 49.02734375,
+  "last_global_step": 479,
+  "peak_allocated_gib": 38.97365140914917,
+  "peak_phase": "before_optimizer_step",
+  "peak_reserved_gib": 76.625,
+  "records": 2198
+}

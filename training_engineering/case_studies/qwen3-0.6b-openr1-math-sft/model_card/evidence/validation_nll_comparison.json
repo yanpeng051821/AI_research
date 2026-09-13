@@ -1,0 +1,20 @@
+{
+  "baseline_mean_nll": 0.7646780861749023,
+  "baseline_records": "/workspace/small_model_post_training/independent_implementation/runs/gate0b-16k/b0/validation-nll/records.jsonl",
+  "baseline_records_sha256": "8727388ef3369fd8706493795020e822c64b48053c59f78f6db283e547a6475f",
+  "bootstrap_samples": 10000,
+  "created_at": "2026-09-12T20:36:12.391188+00:00",
+  "improved_records": 1968,
+  "mean_paired_delta_s1_minus_b0": -0.25291422989906504,
+  "paired_delta_95pct_ci": [
+    -0.25514794325525786,
+    -0.25067320041591334
+  ],
+  "record_count": 1968,
+  "seed": 1234,
+  "trained_mean_nll": 0.5117638562758371,
+  "trained_records": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/validation-nll/records.jsonl",
+  "trained_records_sha256": "d94b4007f11ff3eef620687aca6ebc0ea24bb21fdacd138ee727f7b56e8b5805",
+  "unchanged_records": 0,
+  "worsened_records": 0
+}

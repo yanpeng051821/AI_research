@@ -125,44 +125,53 @@ B0 对 -> S1 对：保持能力
 -> 检查数据质量、目标答案与 verifier，而不是宣称训练无效
 ```
 
-## 6. 本案例当前可以与不可以比较的结果
+## 6. 正式 S1 已完成的配对结果
 
-可以直接比较：
+以下结果使用冻结 B0 和正式 S1，并保留逐样本证据：
 
 ```text
-B0 full validation NLL 0.7804831795
-vs
-Pilot-100 full validation NLL 0.5952246359
+token-weighted validation NLL: 0.780483 -> 0.546614（-29.96%）
+GSM8K qem:                    0.476118 -> 0.514784（+3.87pp）
+59-task regression macro:    0.543412 -> 0.528562（-1.49pp）
+57-task MMLU macro:          0.545157 -> 0.530376（-1.48pp）
+ARC-Challenge acc_norm:      0.453925 -> 0.431741（-2.22pp）
+HellaSwag acc_norm:          0.533459 -> 0.522008（-1.15pp）
 ```
 
-因为 validation artifact、记录数和有效 token 均相同。
+NLL 证明模型学到了目标 completion 分布；GSM8K 给出目标能力的正向证据；通用面板则
+显示这种改善伴随广泛回退。59 项中按各项主指标统计，15 项改善、43 项下降、1 项不变。
 
-不可以直接比较：
+### MATH-500 的边界
 
-- B0 GSM8K 1,319 题 `0.4761` 与 pilot 50 题 `0.52`；
-- B0 完整 regression 与 pilot 小样本 smoke；
-- B0 完整 MATH-500 与未完成终态的 pilot MATH-500；
-- 20-step 的 128 条 validation 子集与全量 1,968 条 NLL。
+20 题、每题 4 次、512-token 的同合同 smoke 从 pass@1:1 `0.25` 降至 `0.05`，但 S1 的
+80 条生成全部触及 512-token 上限，因此这个结果同时混入了严重截断效应，不能代替完整
+MATH-500。随后启动的 500 题、每题 4 次、32K-token 评测在完成 204/2000 条后，已运行
+约 2 小时 55 分钟且动态剩余时间约 17 小时，因成本门禁主动中止。
 
-## 7. 当前评测阻塞
+这次中止不是模型评测分数，也不能记成失败样本为零分。它证明原 v1 评测合同不适用于
+当前 S1 的生成长度分布。
 
-Pilot MATH-500 一次 invocation 长期保留 `running`，另一次 vLLM KV cache 初始化失败；
-因此没有可靠 pilot MATH-500 结果。正式 S1 前要在 B0 和 pilot/final-like checkpoint 上用
-同一小规模入口验证：
+## 7. 评测合同 v2 修订
 
-- context 不会被压缩为零；
-- vLLM 能分配 KV cache；
-- 成功写 completed；
-- 失败写 failed、return code、命令和 traceback；
-- 输出可以被 paired comparator 读取。
+原 v1 文件保存在 `configs/gate0b/evaluation_v1_executed.yaml`，仅作为本次已执行实验的
+身份凭据，不再作为默认入口。v2 增加：
+
+- 50 题、每题 4 次、2048-token 的预算探针；
+- 停止率、截断率、预计 GPU 小时和预计费用门禁；
+- `<|im_end|>` 与 `<|endoftext|>` 两个显式 stop token；
+- 4K-token 的有界主评测与单独受保护的 32K 参考评测；
+- 所有 MATH 套件当前标记为 `deferred`，必须记录新决策并显式解锁。
+
+用户已决定本阶段不继续 MATH-500。后续只有在新的数据分析提出可验证假设后，才重新
+开启探针；不得为了补齐表格直接运行完整 32K 合同。
 
 ## 8. 验收门与产物
 
-- [ ] B0/S1 所有 suite 合同一致。
-- [ ] 每个运行有终态 invocation manifest。
-- [ ] 聚合指标和逐样本输出都存在。
-- [ ] NLL 配对通过 sample/token 合同检查。
-- [ ] 输出 changed samples 和 regressions。
-- [ ] 结论区分训练行为、目标能力和回归。
-- [ ] 不把 smoke/pilot 子集指标写成正式能力分数。
-- [ ] 下一轮动作来自错误证据而不是主观猜测。
+- [x] Validation NLL、GSM8K 和 regression 的 B0/S1 合同一致。
+- [x] 已完成运行有终态 invocation manifest、聚合指标和逐样本输出。
+- [x] NLL 配对通过 sample/token 合同检查。
+- [x] 输出 changed samples 和 regressions。
+- [x] 结论区分训练行为、目标能力和回归。
+- [x] MATH smoke 未被写成正式能力分数。
+- [x] 不完整的 MATH full 被标记为预算中止，不伪造结果。
+- [ ] 在后续分析形成假设后，再决定是否执行 v2 MATH 探针。

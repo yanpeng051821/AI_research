@@ -1,0 +1,27 @@
+{
+  "checkpoint": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/final_model",
+  "checkpoint_revision": null,
+  "created_at": "2026-09-12T20:53:59.528795+00:00",
+  "decoding": {
+    "attn_implementation": "flash_attention_2",
+    "do_sample": false,
+    "max_new_tokens": 2048,
+    "num_return_sequences": 1,
+    "seed": 0,
+    "stop_token_ids": [
+      151645
+    ],
+    "temperature": null,
+    "top_p": null
+  },
+  "empty_generations": 0,
+  "eos_count": 4,
+  "eos_rate": 1.0,
+  "minimum_eos_rate": 0.0,
+  "passed": true,
+  "records": "/workspace/s1-preflight-20260912/independent_implementation/runs/gate0b-16k-s1/evaluation/generation-health-2048/generations.jsonl",
+  "runtime_errors": 0,
+  "samples": 4,
+  "tokenizer": "/workspace/hf-cache/hub/models--Qwen--Qwen3-0.6B-Base/snapshots/311c62e88814bff7206909ccd330bab0a784743b",
+  "tokenizer_revision": null
+}
