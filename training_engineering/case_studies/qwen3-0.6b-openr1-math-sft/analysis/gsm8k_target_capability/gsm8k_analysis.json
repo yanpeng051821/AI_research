@@ -8,7 +8,7 @@
     "trained_details": "D:\\pythonlearning\\training_artifacts\\formal_s1_2026-09-13\\runs\\gate0b-16k-s1\\evaluation\\evals\\gsm8k\\details\\runs_gate0b-16k-s1_final_model\\2026-09-13T04-38-58.023429\\details_leaderboard_gsm8k_4_2026-09-13T04-38-58.023429.parquet",
     "trained_invocation_manifest": "D:\\pythonlearning\\training_artifacts\\formal_s1_2026-09-13\\runs\\gate0b-16k-s1\\evaluation\\evals\\gsm8k\\invocation_manifest.json"
   },
-  "created_at": "2026-09-13T10:05:48.094412+00:00",
+  "created_at": "2026-09-13T10:19:30.572574+00:00",
   "format_and_length_proxy": {
     "coverage_note": "Only predictions that changed are present; three identical B0/S1 predictions are excluded from this proxy analysis.",
     "covered_changed_predictions": 1316,
@@ -68,8 +68,13 @@
     "unchanged": 972
   },
   "trained_generation": {
+    "cap_hit_equals_missing_final_marker": true,
     "generation_tokens": {
       "at_generation_limit": 105,
+      "at_generation_limit_by_outcome": {
+        "both_wrong": 78,
+        "regressed": 27
+      },
       "at_generation_limit_qem_wrong": 105,
       "generation_limit": 256,
       "max": 256,
@@ -79,6 +84,13 @@
     },
     "lighteval_padded_field_count": 0,
     "lighteval_truncated_field_count": 0,
+    "missing_final_marker_count": 105,
+    "paired_outcome_count": {
+      "both_correct": 480,
+      "both_wrong": 492,
+      "improved": 199,
+      "regressed": 148
+    },
     "sample_count": 1319
   }
 }
