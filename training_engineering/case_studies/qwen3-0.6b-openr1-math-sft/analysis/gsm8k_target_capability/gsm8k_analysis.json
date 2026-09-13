@@ -1,0 +1,81 @@
+{
+  "contract": {
+    "changed_samples": "D:\\pythonlearning\\training_artifacts\\formal_s1_2026-09-13\\runs\\gate0b-16k-s1\\evaluation\\b0-vs-s1-gsm8k\\changed_samples.jsonl",
+    "comparison_summary": "D:\\pythonlearning\\training_artifacts\\formal_s1_2026-09-13\\runs\\gate0b-16k-s1\\evaluation\\b0-vs-s1-gsm8k\\summary.json",
+    "metric": "qem",
+    "sample_count": 1319,
+    "task": "leaderboard|gsm8k|4",
+    "trained_details": "D:\\pythonlearning\\training_artifacts\\formal_s1_2026-09-13\\runs\\gate0b-16k-s1\\evaluation\\evals\\gsm8k\\details\\runs_gate0b-16k-s1_final_model\\2026-09-13T04-38-58.023429\\details_leaderboard_gsm8k_4_2026-09-13T04-38-58.023429.parquet"
+  },
+  "created_at": "2026-09-13T09:30:48.969497+00:00",
+  "format_and_length_proxy": {
+    "coverage_note": "Only predictions that changed are present; three identical B0/S1 predictions are excluded from this proxy analysis.",
+    "covered_changed_predictions": 1316,
+    "final_marker": "####",
+    "groups": {
+      "both_correct": {
+        "baseline_chars_median": 206,
+        "baseline_final_marker_rate": 1,
+        "count": 479,
+        "delta_chars_median": -21,
+        "trained_chars_median": 180,
+        "trained_final_marker_rate": 1
+      },
+      "both_wrong": {
+        "baseline_chars_median": 295.0,
+        "baseline_final_marker_rate": 0.8938775510204081,
+        "count": 490,
+        "delta_chars_median": -5.5,
+        "trained_chars_median": 287.5,
+        "trained_final_marker_rate": 0.8408163265306122
+      },
+      "improved": {
+        "baseline_chars_median": 231,
+        "baseline_final_marker_rate": 0.8894472361809045,
+        "count": 199,
+        "delta_chars_median": -7,
+        "trained_chars_median": 235,
+        "trained_final_marker_rate": 1
+      },
+      "regressed": {
+        "baseline_chars_median": 237.0,
+        "baseline_final_marker_rate": 1,
+        "count": 148,
+        "delta_chars_median": 11.0,
+        "trained_chars_median": 266.5,
+        "trained_final_marker_rate": 0.8175675675675675
+      }
+    },
+    "marker_transitions": {
+      "missing_to_missing": 16,
+      "missing_to_present": 58,
+      "present_to_missing": 89,
+      "present_to_present": 1153
+    }
+  },
+  "paired_effect": {
+    "baseline_mean": 0.4761182714177407,
+    "delta_95_percent_bootstrap_ci": [
+      0.011372251705837756,
+      0.06595905989385899
+    ],
+    "delta_s1_minus_b0": 0.03866565579984832,
+    "exact_mcnemar_pvalue": 0.007184497483577836,
+    "improved": 199,
+    "regressed": 148,
+    "trained_mean": 0.514783927217589,
+    "unchanged": 972
+  },
+  "trained_generation": {
+    "generation_tokens": {
+      "at_512": 0,
+      "max": 256,
+      "mean": 118.84003032600455,
+      "median": 104,
+      "min": 23
+    },
+    "padded_count": 0,
+    "sample_count": 1319,
+    "truncated_count": 0
+  }
+}
