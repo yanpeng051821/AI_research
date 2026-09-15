@@ -11,6 +11,9 @@
 最坏长度样本能完成真实 optimizer step
 ```
 
+本案例状态：`COMPLETE`。22,295-token 的 32K 路径探针失败，之后生成新的 16K artifact
+并重新冻结合同；最终 16K 预飞行通过，正式 S1 在 A100 80GB 上完成。
+
 ## 2. 实例与磁盘规划
 
 本案例使用单卡 A100/A800 80GB。16K 长序列、FP32 主参数、BF16 autocast、gradient
@@ -25,7 +28,8 @@ checkpointing 和 AdamW 的组合在 80GB 上余量不宽，因此不能选择�
 - 至少 50GB 持久盘余量；
 - preflight、训练、保存、评测分别需要的时间。
 
-当前数据盘约有 211GB 可用，训练前仍要重新检查，不能依赖历史截图。
+正式 S1 启动前的数据盘约有 211GB 可用。这个数字只属于当时实例；下次训练仍要重新检查，
+不能依赖本案例的历史截图。
 
 ## 3. 干净环境安装
 
@@ -143,13 +147,13 @@ zero-grad 后、checkpoint/eval 前后。
 
 ## 9. 验收门与落盘物
 
-- [ ] 当前代码检出、import path 和依赖 lock 一致。
-- [ ] `server_preflight.json` 全部通过。
-- [ ] 最长样本完成包含 AdamW 的完整 step。
-- [ ] allocator telemetry 有命名阶段和 GiB/bytes 字段。
-- [ ] 没有 NaN、Inf、OOM 或 silent fallback。
-- [ ] attention backend 与合同一致。
-- [ ] 磁盘和时间预算满足正式运行及恢复。
+- [x] 最终代码检出、import path 和依赖 lock 一致。
+- [x] 16K 正式配置对应的 `server_preflight.json` 全部通过。
+- [x] 16K artifact 的最长样本完成包含 AdamW 的完整 step。
+- [x] allocator telemetry 有命名阶段和 GiB/bytes 字段。
+- [x] 最终 16K 路径没有 NaN、Inf、OOM 或 silent fallback。
+- [x] attention backend 与合同一致。
+- [x] 磁盘和时间预算满足正式训练及 checkpoint 恢复。
 
 必须保存环境报告、命令、stdout/stderr、exit code、显存 JSONL/summary、探针结果和任何失败
-快照。只有这些证据存在，才能进入 smoke。
+快照。本案例依靠这些证据进入了 smoke；下次运行仍必须重新产生，而不是复用本次勾选结果。

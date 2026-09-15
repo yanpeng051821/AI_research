@@ -13,6 +13,8 @@ smoke、pilot 和正式训练解决不同问题：
 
 先小后大不是保守形式，而是让失败发生在便宜、易定位的阶段。
 
+本篇是正式 S1 之前的历史执行记录。它保留当时尚未关闭的门禁；案例当前终态请以 `11` 为准。
+
 ## 2. Smoke 应验证什么
 
 一个有价值的 smoke 至少覆盖：
@@ -152,17 +154,18 @@ manifest 终态为 paused/completed/failed，而非永久 running
 
 ## 8. Pilot 何时允许进入 S1
 
-- [ ] 完整到达预期 step，exit code 0。
-- [ ] checkpoint/resume 通过。
-- [ ] loss、grad norm、LR 和 token count 合理。
-- [ ] validation NLL 使用与 B0 相同的 artifact。
-- [ ] generation/export 基本可用。
-- [ ] 时间和显存成本可接受。
-- [ ] 失败与中断均有机器可读终态。
-- [ ] 正式评测入口至少做过小规模 paired preflight。
+- [x] 完整到达预期 step，exit code 0。
+- [x] checkpoint/resume 通过。
+- [x] loss、grad norm、LR 和 token count 合理。
+- [x] validation NLL 使用与 B0 相同的 artifact。
+- [x] generation/export 基本可用。
+- [x] 时间和显存成本可估算，并据此形成正式 S1 预算。
+- [x] 失败与中断均有机器可读终态。
+- [ ] 正式评测入口的小规模 paired preflight 未形成可靠终态。
 
-在 pilot 收尾的当时，前六项大体已有证据，但 CUDA telemetry 实机验证和 MATH-500 paired
-preflight 仍未关闭，所以当时的正式 S1 决策是 `NO-GO`。这句话是本阶段历史快照，不是
+在 pilot 收尾的当时，训练、恢复、NLL、生成和成本估算已有证据，但 CUDA telemetry 实机
+验证和 MATH-500 paired preflight 仍未关闭，所以当时的正式 S1 决策是 `NO-GO`。这句话是
+本阶段历史快照，不是
 当前状态。后续训练记录显示，显存和训练恢复门被关闭后正式 S1 已经完成，但 paired MATH
 评测风险没有被充分关闭，最终在正式评测阶段以长生成和预算超限的形式暴露；详见
 `10_INCIDENTS_AND_REUSABLE_LESSONS.md` 与 `11_FORMAL_S1_RESULTS_AND_RELEASE.md`。

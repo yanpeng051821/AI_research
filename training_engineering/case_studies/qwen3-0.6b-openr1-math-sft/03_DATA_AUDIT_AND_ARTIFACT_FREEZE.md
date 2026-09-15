@@ -9,6 +9,8 @@
 题目、多个候选 generation、验证结果和来源信息。SFT 最终只能选择一条符合规则的
 回答进入训练，因此需要明确选择策略，而不是默认取第一个候选。
 
+本案例状态：`COMPLETE`。以下流程是方法说明，验收框是本次实际执行结果，不是待办列表。
+
 ## 2. 输入与输出
 
 输入：
@@ -150,17 +152,18 @@ split 和 review 的 salt
 
 ## 8. 验收门
 
-- [ ] 全量审计正常结束，manifest 终态为成功。
-- [ ] 同输入重复执行能得到相同核心 artifact hash。
-- [ ] 所有 review samples 已有明确决定。
-- [ ] train/validation 没有重复 `sample_id`。
-- [ ] 每条保留样本至少有一个有效 assistant token。
-- [ ] EOS 和 chat-template 边界经过抽样核验。
-- [ ] 超长样本被显式隔离或合同明确允许截断。
-- [ ] 服务器文件 hash 与本地 manifest 一致。
-- [ ] 正式训练配置只引用冻结 artifact。
+- [x] 全量审计正常结束，manifest 终态为成功。
+- [x] 同输入重复执行得到相同核心 artifact hash。
+- [x] 所有 review samples 均有明确决定。
+- [x] train/validation 没有重复 `sample_id`。
+- [x] 每条保留样本至少有一个有效 assistant token。
+- [x] EOS 和 chat-template 边界经过抽样核验。
+- [x] 超长样本被显式隔离，没有运行时静默截断。
+- [x] 服务器文件 hash 与本地 manifest 一致。
+- [x] 正式训练配置只引用冻结 artifact。
 
-任一项不满足时，不能进入 B0 或正式训练。
+这些门在本案例中已关闭。下一次数据或 tokenizer 变化时，任一项不满足仍不能进入 B0 或
+正式训练。
 
 ## 9. 可复用边界
 

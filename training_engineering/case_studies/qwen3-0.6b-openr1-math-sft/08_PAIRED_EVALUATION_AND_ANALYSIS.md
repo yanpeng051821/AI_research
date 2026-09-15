@@ -174,4 +174,8 @@ MATH-500。随后启动的 500 题、每题 4 次、32K-token 评测在完成 20
 - [x] 结论区分训练行为、目标能力和回归。
 - [x] MATH smoke 未被写成正式能力分数。
 - [x] 不完整的 MATH full 被标记为预算中止，不伪造结果。
-- [ ] 在后续分析形成假设后，再决定是否执行 v2 MATH 探针。
+- [x] 后续分析完成后，决定本阶段不执行 v2 MATH 探针并保持 `deferred`。
+
+正式评测后已经完成 54 条固定分层 GSM8K 样本的逐条人工复核，包括 improved、regressed
+和 both-wrong 三组；阅读入口为 `analysis/gsm8k_target_capability/README.md`。MATH v2
+的 `deferred` 是一次明确的成本决策，不表示配对结果分析尚未开始或工程收尾未完成。

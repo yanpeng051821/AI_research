@@ -5,6 +5,8 @@
 在真实 GPU 上运行并不能证明训练目标正确。这个节点先用小张量、tiny model 和少量真实
 数据验证每个核心合同，再把成熟框架接入。测试的目标是定位错误，不是为了增加测试数量。
 
+本案例状态：`COMPLETE`。独立实现用于证明计算语义，正式 S1 使用经过对齐的 TRL 入口。
+
 ## 2. 需要验证的完整数据流
 
 ```text
@@ -162,12 +164,12 @@ Level 5：GPU smoke
 
 验收：
 
-- [ ] 单元测试和静态检查通过。
-- [ ] tiny overfit 不只让 loss 下降，也提高目标 token 概率。
-- [ ] full batch 与 accumulation 参数更新对齐。
-- [ ] completion-only mask 与 TRL collator 对齐。
-- [ ] checkpoint/resume 的参数、optimizer、scheduler 和 step 连续。
-- [ ] first-batch shadow 有机器可读报告。
+- [x] 单元测试和静态检查通过。
+- [x] tiny overfit 不只让 loss 下降，也提高目标 token 概率。
+- [x] full batch 与 accumulation 参数更新对齐。
+- [x] completion-only mask 与 TRL collator 对齐。
+- [x] checkpoint/resume 的参数、optimizer、scheduler 和 step 连续。
+- [x] first-batch shadow 有机器可读报告。
 
 落盘：
 
@@ -182,6 +184,7 @@ dependency lock
 
 ## 10. 本案例结论
 
-本机已完成 masked loss、全局 token 归一化、真实 Qwen tokenizer、HF 模型接口、
-optimizer/scheduler、checkpoint/resume 和 TRL 对齐测试。它证明核心语义可进入服务器验证，
-不替代真实最长样本和正式 S1。
+本机完成了 masked loss、全局 token 归一化、真实 Qwen tokenizer、HF 模型接口、
+optimizer/scheduler、checkpoint/resume 和 TRL 对齐测试；随后服务器最长样本探针、pilot
+恢复和正式 479-step S1 也已完成。前者证明计算与接口语义，后者证明真实数据和 GPU 工程
+链路，两类证据不能互相替代。

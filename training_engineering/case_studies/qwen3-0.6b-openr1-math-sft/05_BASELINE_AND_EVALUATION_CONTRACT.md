@@ -5,6 +5,8 @@
 训练后单独得到一个分数，没有办法回答分数变化来自训练、评测配置、模型 revision 还是随机
 采样。B0 是正式训练前、在同一评测合同下对 Base 模型得到的可追溯结果。
 
+本案例状态：`COMPLETE`。本篇保存已经执行并冻结的 B0，不是尚待运行的评测计划。
+
 本案例不只评估一个指标，而是分为三层：
 
 ```text
@@ -97,13 +99,13 @@ MATH-500 的 2,000 次生成耗时约 108.6 分钟。completion token 的中位�
 
 ## 6. 验收门与产物
 
-- [ ] 每个 suite 的 invocation manifest 为终态成功。
-- [ ] 模型和 dataset revision 已记录。
-- [ ] 保存汇总指标和逐样本输出。
-- [ ] 生成健康信息包含 EOS、空输出、运行错误和长度分布。
-- [ ] NLL 保存逐样本 loss sum、valid token count 和 sample ID。
-- [ ] B0 数值量级经过公开模型能力或 sanity test 检查。
-- [ ] 正式 B0 与任何 smoke/probe 目录明确分开。
+- [x] 每个纳入正式 B0 的 suite，其 invocation manifest 为终态成功。
+- [x] 模型和 dataset revision 已记录。
+- [x] 保存汇总指标和逐样本输出。
+- [x] 生成健康信息包含 EOS、空输出、运行错误和长度分布。
+- [x] NLL 保存逐样本 loss sum、valid token count 和 sample ID。
+- [x] B0 数值量级经过公开模型能力或 sanity test 检查。
+- [x] 正式 B0 与任何 smoke/probe 目录明确分开。
 
 只保存终端里的一个百分数，不算完成 B0。
 
