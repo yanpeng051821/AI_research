@@ -57,16 +57,58 @@ test_formal_cli_runs_pauses_and_resumes_offline，查看它如何在离线 tiny 
 uv run python -m pytest tests/test_config.py -q
 ```
 
-练习：从现有配置测试选一个尚未覆盖的边界，先写预期行为和理由，再写最小测试。
-如果已被现有参数化测试覆盖，就解释该测试，不重复添加。此次不直接改正式配置或 hash 规则。
+### 本次发现的真实缺陷
+
+正式入口原先存在两个输出目录来源：YAML 中的 `config.output_dir` 参与
+`semantic_hash`，CLI 的 `--output-dir` 则决定 manifest、checkpoint 和模型的实际
+写入位置。两者不一致时，程序仍会启动，从而出现“合同声明目录 A、产物写入目录 B”。
+
+本次先在 `test_trl_training.py` 增加失败测试，要求目录不一致时：
+
+1. CLI 返回非零退出码；
+2. stderr 包含两个冲突目录；
+3. 实际输出目录中不产生 `run_manifest.json`。
+
+初次执行时测试在 `assert result.returncode != 0` 处失败，证明缺陷真实存在。随后在
+`ExperimentConfig.from_yaml` 之后、扫描数据和创建运行记录之前比较两个目录的
+`resolve()` 结果，不一致立即抛出 `ValueError`。原有暂停/恢复成功路径也同步为同一个
+输出目录，防止新门禁误伤合法运行。
+
+这个练习形成了完整的 RED-GREEN-REGRESSION 链路，而不是先改代码再补一个必然通过
+的测试。最终定向测试、整个 `test_trl_training.py`、Ruff 和 `git diff --check` 均通过。
+
+### 运行身份的边界
+
+- `config_hash`：证明关键训练语义一致，不等同于 YAML 文件字节 hash；
+- 训练/验证文件 hash：证明实际数据文件内容一致；
+- `sample_order_sha256`：证明样本交付顺序一致，不能替代数据内容 hash；
+- runtime tree hash：证明运行时源码身份；
+- `resume_from_checkpoint`：描述执行位置，独立记录和校验，不纳入训练语义 hash；
+- 内部 manifest：记录程序理解的运行语义及 `running/paused/completed/failed` 状态；
+- 外层 launcher：补充保存命令、PID、stdout、stderr 和 exit code，并覆盖 manifest 创建前
+  失败、SIGKILL 或宿主机中断等内部异常处理无法覆盖的边界。
 
 ## 验收与学习记录
 
-- [ ] 能画出正式与独立实现两条入口，指出它们没有串行调用。
-- [ ] 能解释配置身份、数据身份、源码身份分别防什么问题。
-- [ ] 能说明 dry-run 做到哪里、不能证明什么。
-- [ ] 能找到一次早期失败和一次训练期失败各自的落盘边界。
-- [ ] 完成一次测试阅读或小练习。
+- [x] 能画出正式与独立实现两条入口，指出它们没有串行调用。
+- [x] 能解释配置身份、数据身份、源码身份分别防什么问题。
+- [x] 能说明 dry-run 做到哪里、不能证明什么。
+- [x] 能找到一次早期失败和一次训练期失败各自的落盘边界。
+- [x] 完成一次测试驱动的小练习，并对原成功路径执行回归测试。
 
-学习日期、独立完成部分、查询或提示、测试结果、仍不理解的问题：待本主题结束后填写。
+学习日期：2026-09-17。
 
+独立完成部分：阅读入口与配置实现；回答 `seed`、`resume_from_checkpoint`、配置 hash、
+样本顺序以及异常状态问题；编写输出目录冲突的集成测试；根据失败信息修复测试代码并
+完成生产入口门禁。
+
+查询或提示：在调用地图、配置语义边界、测试结构和错误定位上接受了引导；具体测试与
+门禁代码由学习者完成。测试过程中经历了断言失败和测试收集期 `SyntaxError`，并能够
+区分“生产行为不符合合同”与“测试文件无法被 Python 导入”。
+
+测试结果：目录冲突测试通过；暂停/恢复成功路径通过；`test_trl_training.py` 共 7 项
+通过；Ruff 与补丁格式检查通过。
+
+后续改进项：正式实验可增加统一外层 launcher，以便完整记录 manifest 创建前的失败和
+操作系统级非正常退出；共享配置及历史 runbook 中的输出目录写法应在下一次正式运行前
+按新合同统一。
