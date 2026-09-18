@@ -71,17 +71,44 @@ padding input 使用 pad ID，padding labels 为 -100，padding attention 为 0�
 uv run python -m pytest tests/test_sft_data.py tests/test_artifact_data.py -q
 ```
 
-练习：在临时数据上构造两条长度不同的样本，手算 batch 后写断言，覆盖 padding 不参与
-监督、原始 labels 不被 collator 修改。先检查已有测试，选择一个未覆盖的边界。
-然后口头跟踪 sampler 的 position 与 committed_position；恢复细节留到主题 05。
+现有测试已经覆盖变长样本 padding、padding 不参与监督、原始 labels 不被 collator
+修改、冻结顺序与独立 sampler 第一轮一致，以及 checkpoint 保存 committed 而不是
+prefetched 进度。因此没有重复添加同类断言。
+
+本次补充了 `test_indexed_jsonl_dataset_pickle_separates_open_file_streams`：先读取一条记录，
+确保原 Dataset 已打开文件流，再执行 pickle/unpickle。测试验证 pickle 不替换或关闭原
+Dataset 的流，恢复对象初始不继承该流，第一次读取后会打开一个不同的独立流并返回正确
+记录。它补上了原测试仅在 `_stream is None` 时 pickle 的覆盖缺口。
+
+学习过程中还区分了两个容易混淆的进度：`position` 表示 sampler 已交给 DataLoader 的
+索引，可能包含 worker 预取但尚未训练的样本；`committed_position` 表示已经成功纳入
+完整 optimizer step 的样本。checkpoint 字段虽然名为 `position`，实际保存的是后者。
+
+正式 TRL 路径不显式 commit，而是在单卡、单 epoch、固定 batch/accumulation、冻结顺序
+等约束下，用 Trainer `global_step` 推导 `resume_offset`。这些约束变化时必须重新验证
+恢复合同，不能直接复用该公式。
 
 ## 验收与学习记录
 
-- [ ] 能跟踪一个候选回答从原始数据到 batch 的字段变化。
-- [ ] 能区分原始 JSONL、tokenized artifact 和 review decisions。
-- [ ] 能手画两个不同长度样本的三种张量。
-- [ ] 能说明正式与独立 sampler 的差异。
-- [ ] 完成一个小数据断言或补测。
+- [x] 能跟踪一个候选回答从原始数据到 batch 的字段变化。
+- [x] 能区分原始 JSONL、tokenized artifact 和 review decisions。
+- [x] 能手画两个不同长度样本的 `input_ids`、`attention_mask` 和 `labels`。
+- [x] 能说明正式与独立 sampler 的差异。
+- [x] 完成一个真实未覆盖边界的补测。
 
-学习日期、独立完成部分、查询或提示、测试结果、剩余问题：待填写。
+学习日期：2026-09-18。
 
+独立完成部分：推导两层索引和两个 micro-batch 的样本顺序；手算动态 padding 后的三种
+张量；解释冻结顺序不能再次打乱；跟踪 `position/committed_position`；编写已打开文件流
+的 Dataset pickle 隔离测试，并根据第一次失败修正对象属性访问与断言。
+
+查询或提示：在 Dataset/Sampler/DataLoader 职责边界、预取与提交进度、多进程文件流及
+测试缺口选择上接受引导。第一次测试把恢复对象误当字典，失败调用链证明 `obj[key]` 会
+进入 Dataset `__getitem__`；修正为属性访问后通过。
+
+测试结果：`test_sft_data.py`、`test_artifact_data.py` 和 `test_trl_reference.py` 共 29 项
+通过；新增测试单独通过；Ruff 格式、静态检查和补丁格式检查通过。
+
+剩余边界：`__getstate__` 主要保护需要 pickle 的 spawn 路径；Linux fork 还要求 worker
+创建前不持有打开流。远端新增 `_sample_ids/sample_id_at()`，既避免生成顺序清单时重复
+解析完整 JSON，也让正式 DataLoader 创建 worker 前保持 `_stream is None`。
