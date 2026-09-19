@@ -88,6 +88,28 @@ Dataset 的流，恢复对象初始不继承该流，第一次读取后会打开
 等约束下，用 Trainer `global_step` 推导 `resume_offset`。这些约束变化时必须重新验证
 恢复合同，不能直接复用该公式。
 
+人工复核的 `review_decisions.jsonl` 是审计证据和决策输入，不是第二份训练样本。审计流程
+根据这些决定生成最终 train/validation artifact；训练入口只读取冻结后的 artifact，不会把
+review decisions 再追加进去，因此不会因为保留复核记录而重复训练样本。
+
+## 快速问答
+
+**Q：`sample_id` 和 `content_sha256` 分别标识什么？** `sample_id` 标识题目，同一道题只能有
+一个候选进入冻结数据；`content_sha256` 同时约束题目和被选回答，用于确认最终选择的是哪条内容。
+
+**Q：Dataset、Sampler、DataLoader 和 collator 各负责什么？** Dataset 按索引读取样本，
+Sampler 决定索引交付顺序，DataLoader 调度读取和组批，collator 把变长样本 padding 成张量。
+
+**Q：为什么不能用 DataLoader 已经取到的位置作为恢复点？** worker 可能提前预取但这些样本
+尚未完成参数更新；严格恢复应以已经纳入完整 optimizer step 的 committed 位置为准。
+
+**Q：每次 `__getitem__` 都 seek/read JSONL，会不会一定成为严重瓶颈？** 不一定。offset 避免
+全文件重读，顺序 I/O、系统页缓存和 worker 预取会降低成本；只有基准显示供数跟不上 GPU 时，
+才有依据改成 mmap、Arrow、WebDataset 等格式。
+
+**Q：assistant-only labels 把 prompt 设成 `-100`，是否意味着 prompt 不参与模型计算？** 不是。
+prompt token 不产生直接交叉熵项，但仍作为上下文影响 assistant token 的 hidden state 和梯度。
+
 ## 验收与学习记录
 
 - [x] 能跟踪一个候选回答从原始数据到 batch 的字段变化。

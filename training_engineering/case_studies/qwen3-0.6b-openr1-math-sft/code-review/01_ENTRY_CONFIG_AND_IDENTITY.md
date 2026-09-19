@@ -88,6 +88,30 @@ uv run python -m pytest tests/test_config.py -q
 - 外层 launcher：补充保存命令、PID、stdout、stderr 和 exit code，并覆盖 manifest 创建前
   失败、SIGKILL 或宿主机中断等内部异常处理无法覆盖的边界。
 
+当前配置中的 `model_name_or_path` 和固定 `model_revision` 会进入 `semantic_hash`，因此能
+约束“应加载哪个模型版本”。但正式入口没有另外计算模型权重文件和 tokenizer 文件的
+内容 hash。固定到不可变 commit revision 时已经具备较强的可追溯性；若使用可移动分支、
+本地目录或需要字节级审计，则还应记录 resolved revision 或实际文件清单及 hash。不能把
+“模型引用进入配置 hash”表述成“模型和 tokenizer 实体已经做了内容 hash”。
+
+## 快速问答
+
+**Q：数据审计和 `train_sft_trl.py --dry-run` 是同一件事吗？** 不是。审计脚本从原始数据
+构造并划分冻结 artifact；dry-run 消费已经生成的 artifact，检查配置、身份、顺序和正式
+入口能否形成合法训练计划。
+
+**Q：`config_hash` 证明了什么？** 它证明参与 `semantic_hash` 的训练语义字段一致，不证明
+YAML 字节完全相同，也不单独证明远端模型文件的字节内容一致。
+
+**Q：为什么 `seed` 属于训练语义，而 `resume_from_checkpoint` 不属于？** `seed` 会影响冻结
+样本顺序和优化轨迹；checkpoint 路径描述的是同一训练计划从哪个执行位置继续。
+
+**Q：为什么程序内已经有 `try/except/finally`，仍需要 launcher？** 因为部分启动门禁发生在
+`try` 之前，进程还可能遭遇 SIGKILL、宿主机终止等无法由 Python 异常处理落盘的情况。
+
+**Q：YAML 与 CLI 的输出目录为什么必须一致？** 一个参与合同身份，另一个决定真实写入位置；
+不一致会造成“合同指向 A、产物写到 B”，使恢复和审计失去可信依据。
+
 ## 验收与学习记录
 
 - [x] 能画出正式与独立实现两条入口，指出它们没有串行调用。

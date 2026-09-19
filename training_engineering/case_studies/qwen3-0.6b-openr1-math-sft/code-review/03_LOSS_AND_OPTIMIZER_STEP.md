@@ -79,6 +79,27 @@ backward 也可能只让参数对齐断言失败，说明“日志正确”不�
 声称“没有裁剪”或“裁剪后又变大”。AdamW 的 `m/v`、scheduler、RNG 与数据位置共同决定
 可恢复训练状态，只保存模型权重不足以严格续训。
 
+## 快速问答
+
+**Q：为什么要使用 `logits[:, :-1]` 和 `labels[:, 1:]`？** 位置 `t` 的 logits 预测位置
+`t+1` 的 token；最后一个 logits 在当前序列中没有下一个标签，首个标签也没有对应的前置预测。
+
+**Q：为什么先累计 loss sum 和有效 token count，而不是平均每个 micro-batch 的 mean loss？**
+后者会让短 batch 中每个 token 获得更大的系数；`sum(loss)/sum(tokens)` 才让当前更新窗口内
+每个有效 token 使用相同的归一化系数。
+
+**Q：一次累积窗口包含多个 micro-batch，是否要同时保留所有计算图？** 不需要。先确定整个
+窗口的有效 token 总数，再让每个 `loss_sum/total_tokens` 依次 backward，梯度会在线性累加。
+
+**Q：为什么 optimizer step 前检查梯度，step 后检查参数？** step 前梯度已经形成但参数尚未
+更新，适合验证更新输入；step 后参数已经变化，适合检查更新结果是否出现 NaN/Inf。
+
+**Q：日志中的 learning rate 应记录 scheduler 前还是后的值？** 应记录本次
+`optimizer.step()` 实际使用的当前值；随后 `scheduler.step()` 才产生下一次更新使用的值。
+
+**Q：validation NLL 下降是否等于数学答题准确率提高？** 不等于。NLL 衡量 teacher-forced
+目标 token 概率，任务准确率还受到自由生成轨迹、格式和最终答案判定等因素影响。
+
 ## 验收与学习记录
 
 - [x] 能解释每个维度和 shift 后有效 token 的计数。
