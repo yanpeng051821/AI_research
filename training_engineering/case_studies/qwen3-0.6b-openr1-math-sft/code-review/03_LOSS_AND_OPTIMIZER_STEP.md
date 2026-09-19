@@ -63,17 +63,42 @@ uv run python -m pytest tests/test_engine.py -k "optimizer_step or scheduler" -q
 ```
 
 阅读 [test_sft_training.py](D:/pythonlearning/small_model_post_training/independent_implementation/tests/test_sft_training.py) 中已有数值对照。
-练习：用 tiny model 比较同一组样本的 full batch 与不等长 micro-batch 累积。
-step 前比较梯度，step 后比较参数；模型初始参数、精度、optimizer 状态和随机性必须一致。
-可在临时演示代码故意使用 batch mean 平均，预测哪个断言应失败，再运行验证。
+现有测试已经用相同初始参数、输入和 SGD 状态比较 full batch 与有效 token 数不同的
+micro-batch 累积，并在一次更新后比较全部参数，因此没有重复添加同类测试。讨论中进一步
+确认：即使日志仍按正确的 loss sum/count 计算，错误地对每个 micro-batch mean loss
+backward 也可能只让参数对齐断言失败，说明“日志正确”不能证明优化目标正确。
+
+本次新增
+`test_optimizer_step_reports_current_lr_before_scheduler_updates_next_lr`，使用一个每次将 LR
+减半的 scheduler stub，验证 `StepMetrics.learning_rate` 记录本次 `optimizer.step()` 实际
+使用的 0.1，scheduler 只执行一次，并为下一步把 optimizer LR 更新为 0.05。第一次运行
+因类名 `HavingScheduler/HalvingScheduler` 不一致在进入生产函数前失败；修正名称并删除无关
+`tmp_path/config` 后通过。
+
+同时复核了裁剪前 `grad_norm` 的口径：持续高于阈值只能说明原始梯度被强烈裁剪，不能据此
+声称“没有裁剪”或“裁剪后又变大”。AdamW 的 `m/v`、scheduler、RNG 与数据位置共同决定
+可恢复训练状态，只保存模型权重不足以严格续训。
 
 ## 验收与学习记录
 
-- [ ] 能解释每个维度和 shift 后有效 token 的计数。
-- [ ] 能借助 API 文档独立写核心 loss。
-- [ ] 能说明何时清梯度、何时更新参数与学习率。
-- [ ] 能解释数值对齐测试的控制变量和适用边界。
-- [ ] 能区分 loss 下降、生成正确与任务得分提升。
+- [x] 能解释每个维度和 shift 后有效 token 的计数。
+- [x] 能借助现有实现说明核心 loss 的完整计算。
+- [x] 能说明何时清梯度、何时更新参数与学习率。
+- [x] 能解释数值对齐测试的控制变量和适用边界。
+- [x] 能区分 loss 下降、生成正确与任务得分提升。
 
-学习日期、独立实现部分、查询或提示、测试结果、剩余问题：待填写。
+学习日期：2026-09-19。
 
+独立完成部分：手算 causal shift、有效 mask 和 token count；区分 micro-batch mean 与全窗口
+token mean；解释 zero_grad、backward、optimizer 和 scheduler 的时序；计算 tail accumulation
+与 warmup step；编写并修正 LR 时序测试。
+
+查询或提示：在全窗口 backward 分母、裁剪前 grad norm 口径、AdamW `m/v` 恢复语义和
+测试缺口选择上接受引导。能够说明 validation NLL 改善与 GSM8K exact-match 不变并不
+矛盾：前者是 teacher-forced token 概率，后者是完整自由生成后的离散结果。
+
+测试结果：`test_sft_loss.py`、`test_sft_training.py` 和 `test_engine.py` 共 38 项通过；新增
+测试单独通过；Ruff 格式与静态检查通过。
+
+剩余边界：当前对齐测试使用确定性 tiny model 和单设备计算；dropout、多卡归一化、不同
+精度及 batch-dependent 层会改变严格数值对齐条件，不能从本测试直接外推。
