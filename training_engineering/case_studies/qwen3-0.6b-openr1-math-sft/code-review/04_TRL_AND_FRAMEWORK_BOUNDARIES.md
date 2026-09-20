@@ -156,6 +156,6 @@ uv run python -m pytest tests/test_trl_training.py -k "formal_plan or native_trl
 并独立回答了配置、tail accumulation、恢复位置、梯度/参数检查时机等问题。新增
 `test_save_and_stop_callback_rejects_non_finite_gradient`，用真实参数梯度验证非有限值门禁。
 
-验证结果：`tests/test_trl_training.py` 8 个测试通过；
+验证结果：远端规范分支的 `tests/test_trl_training.py` 9 个测试通过；
 `tests/test_reference_alignment.py` 与 `tests/test_shadow.py` 合计 3 个测试通过；Ruff 检查通过。
 剩余的系统性 pytest 学习统一放到主题 07，不阻塞主题 04 验收。
