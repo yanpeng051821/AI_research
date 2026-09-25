@@ -12,7 +12,7 @@ training_engineering/
 └── case_studies/    # 一次具体训练工程的完整过程和证据边界
 ```
 
-案例目录使用以下命名方式：
+模型、数据和训练阶段已经冻结时，案例目录使用以下命名方式：
 
 ```text
 <model>-<data-or-domain>-<training-stage>/
@@ -27,11 +27,20 @@ gemma-4b-domain-sft/
 qwen-small-code-midtrain/
 ```
 
+若案例仍处于 Gate 0、模型尚未冻结，可以暂时使用稳定的任务名；模型与实验合同冻结后，
+由案例 README 记录具体版本，不为了目录整齐提前假定技术选择。
+
 ## 当前案例
 
 - [`qwen3-0.6b-openr1-math-sft`](case_studies/qwen3-0.6b-openr1-math-sft/README.md)：
   使用 Qwen3-0.6B-Base 和 OpenR1-Math 数据建立数学 SFT 的数据、训练、恢复、
-  评测与证据闭环。当前正式 S1 尚未启动。
+  评测与证据闭环。正式 S1、配对评测与结果分析已有记录，完整 MATH-500 延期。
+- [`minglan-roleplay-sft`](case_studies/minglan-roleplay-sft/README.md)：
+  第二个训练工程，研究剧版盛明兰的中文日常对话与多轮一致性。公开剧版语料未通过
+  Gate 0 数据可行性门禁，当前暂停，未进入基座评测或训练。
+- [`small-model-tool-use-post-training`](case_studies/small-model-tool-use-post-training/README.md)：
+  当前训练工程分支，以工具调用为受控任务，计划逐层验证 SFT/LoRA、偏好优化、RLVR
+  和多轮 Agent。当前只进行任务、数据、评测与成本审计，尚未冻结模型或训练合同。
 
 ## 文档与实验仓库的边界
 

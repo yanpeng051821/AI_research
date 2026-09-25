@@ -38,10 +38,11 @@ AI_research/
 
 ## 当前主线
 
-当前可运行主线仍是 `small_model_post_training` 中的真实 SFT 工程与评测闭环。
-本研究库当前只承担方向校准，不启动第二条并行训练主线。
+学习目标、阶段状态与下一步只在 [career_transition/README.md](../career_transition/README.md) 维护。
+本研究库是资料与案例库，不复制目标路线；案例内的未来计划属于当时实验，不自动成为当前任务。
 
 训练工程的体系化入口：
 
 - [`training_engineering/README.md`](training_engineering/README.md)
 - [`Qwen3-0.6B OpenR1-Math SFT 工程案例`](training_engineering/case_studies/qwen3-0.6b-openr1-math-sft/README.md)
+- [`小模型工具调用后训练案例`](training_engineering/case_studies/small-model-tool-use-post-training/README.md)
