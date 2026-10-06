@@ -1,0 +1,12 @@
+{
+  "source_repository": "jingyaogong/minimind",
+  "source_revision": "f659b55761b754d306bd140573493a6543cafd7f",
+  "files": {
+    "tokenizer.json": {
+      "sha256": "71f32c68cf63a15355a8fc171b7594b3d41870fe0ddb54fc6aefa55f73a4a668"
+    },
+    "tokenizer_config.json": {
+      "sha256": "d7cd6a60c9f191c4f9ffec69b2eb289ad2f960366724f328b681ae1e46e4c110"
+    }
+  }
+}

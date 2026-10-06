@@ -1,0 +1,20 @@
+{
+  "source_repo": "jingyaogong/minimind_dataset",
+  "source_revision": "312afb4f76391145c6902f765bb51691c09a12f5",
+  "extraction": {
+    "byte_range": "0-1048575",
+    "selection": "first_20_complete_jsonl_records"
+  },
+  "samples": {
+    "pretrain_sample.jsonl": {
+      "upstream_file": "pretrain_t2t_mini.jsonl",
+      "record_count": 20,
+      "sha256": "a2aa375582bfd2c0bd87be9b031e1b6e187fa48b3b034ac246b177c8319b9db8"
+    },
+    "sft_sample.jsonl": {
+      "upstream_file": "sft_t2t_mini.jsonl",
+      "record_count": 20,
+      "sha256": "525420d6d82b484ddc8e8cb88032b89acefc060e51d31be004b8e64716007d18"
+    }
+  }
+}

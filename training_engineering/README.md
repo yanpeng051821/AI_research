@@ -1,7 +1,8 @@
 # Training Engineering
 
-这个目录沉淀“如何把一次模型训练做成可信实验”的工程方法。它不保存模型权重、
-大数据集和原始运行日志；这些可执行产物仍由对应实验仓库保存。
+这个目录沉淀“如何把一次模型训练做成可信实验”的工程方法。从 2026-09-27 起，
+新训练工程的文档、代码、测试和配置统一放在对应 case_studies 案例下。
+模型权重、大数据集和大日志放忽略目录或外部存储；既有工程保留原代码位置。
 
 ## 分类方式
 
@@ -32,6 +33,8 @@ qwen-small-code-midtrain/
 
 ## 当前案例
 
+- [`minimind`](case_studies/minimind/README.md)：当前实践主线。以原理论笔记和 MiniMind
+  源码为参照，由学习者独立实现算法、数据与训练工程，并亲自完成各阶段实验。
 - [`qwen3-0.6b-openr1-math-sft`](case_studies/qwen3-0.6b-openr1-math-sft/README.md)：
   使用 Qwen3-0.6B-Base 和 OpenR1-Math 数据建立数学 SFT 的数据、训练、恢复、
   评测与证据闭环。正式 S1、配对评测与结果分析已有记录，完整 MATH-500 延期。
@@ -39,14 +42,14 @@ qwen-small-code-midtrain/
   第二个训练工程，研究剧版盛明兰的中文日常对话与多轮一致性。公开剧版语料未通过
   Gate 0 数据可行性门禁，当前暂停，未进入基座评测或训练。
 - [`small-model-tool-use-post-training`](case_studies/small-model-tool-use-post-training/README.md)：
-  当前训练工程分支，以工具调用为受控任务，计划逐层验证 SFT/LoRA、偏好优化、RLVR
-  和多轮 Agent。当前只进行任务、数据、评测与成本审计，尚未冻结模型或训练合同。
+  工具调用候选工程，已有 Gate 0 审计材料，尚未冻结模型或训练合同。当前实践优先级
+  转向 MiniMind，该案例的新增训练暂缓。
 
 ## 文档与实验仓库的边界
 
 - 本目录回答“为什么这样做、完整流程是什么、下次如何独立复用、失败如何判断”。
-- `D:/pythonlearning/small_model_post_training` 保存真实代码、测试、配置、manifest
-  和运行证据。
+- 新案例在自己的 `implementation/` 内保存代码、测试、配置和运行入口，逐步建立。
+- 既有 `small_model_post_training` 实验代码与证据继续保存在原仓库，不随本次规划迁移。
 - 文档中的数值结论必须能追溯到实验仓库中的文件；无法追溯的历史数字只可作为
   线索，不作为 baseline。
 - 案例完成后，再把稳定的共性提炼到 `playbooks/`。不要在第一个案例中急着把

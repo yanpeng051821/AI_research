@@ -1,577 +1,289 @@
 # 自回归语言建模
 
-> 自回归语言模型把一段文本的联合概率，分解为一系列“给定已有前文，预测下一个 token”的条件概率。训练时，完整序列已经存在，模型可以在因果约束下并行计算各位置的预测；生成时，未来 token 尚不存在，只能预测一个、追加一个，再继续预测。
+> 自回归规定如何把序列概率分解成连续预测；神经网络负责计算这些预测。
+> 从这里出发，可以把任务、架构、训练目标与参数更新放进同一套框架。
 
-## 结论
+[系列导航](README.md) · 下一篇：[向量、矩阵与线性层](02_VECTORS_MATRICES_AND_LINEAR_LAYERS.md)
 
-1. 自回归语言建模是一种概率建模方式，不是一种特定的神经网络结构。
-2. 一个 token 序列的联合概率，可以通过概率链式法则拆成一系列 next-token 条件概率。
-3. 模型在序列的每个位置输出整个词表上的 logits，这个位置的 logits 用来预测下一个 token。
-4. 训练时拥有完整的真实序列，因而可以同时计算多个位置；causal mask 保证每个位置只能使用自己及之前的信息。
-5. 生成时未来 token 尚不存在，因此必须根据当前前缀预测一个 token，将其追加到上下文后再继续。
-6. 预训练和 SFT 都可以使用自回归目标，主要区别在于数据分布、消息结构以及哪些 token 被监督。
-7. Decoder-only Transformer 是当前实现自回归语言模型的主流架构，但自回归建模本身并不依赖 Transformer。
+## 任务
 
-## 问题
+假设我们希望模型接着“我喜欢”继续说话。为每一句可能的完整回答建立一个独立类别并不可行：
+序列长度会变化，组合数量又极大。但若把问题拆成“给定前文，预测下一个 token”，
+每次预测就面对固定大小的词表，连续使用这些预测又能组成可变长度的回答。
 
-语言模型面对的不是一个固定类别集合，而是一个由 token 组成的序列。假设一句话经过 tokenizer 后得到：
+因此语言生成与分类并非完全无关。**next-token 预测可以看成依赖上下文的 V 类分类，
+完整生成则是这些条件分布的连续使用。** 单步类别固定，不等于完整回答固定。
+
+以下是教学分词，不代表实际 tokenizer 一定如此切分：
 
 ```text
 <BOS> 我 喜欢 数学 <EOS>
 ```
 
-其中：
+模型看到 `<BOS> 我 喜欢` 后，可能给“数学”0.60、“编程”0.20、“音乐”0.10，
+其余 token 合计0.10。这是分布，不是已经选好的答案。取最大值还是采样，属于解码策略。
+EOS 也要获得概率，因为“什么时候结束”同样是生成行为。
 
-- `<BOS>` 表示序列开始；
-- `<EOS>` 表示序列结束；
-- “我”“喜欢”“数学”是示例 token；
-- 实际模型是否显式添加 `<BOS>`，以及使用哪个结束 token，由 tokenizer 和 chat template 决定。
+## 系统
 
-模型没有直接学习“看到这句话就把整句话背出来”，而是把它拆成连续的预测任务：
+将一次监督学习写为：
 
-```text
-给定 <BOS>                  -> 预测“我”
-给定 <BOS> 我               -> 预测“喜欢”
-给定 <BOS> 我 喜欢          -> 预测“数学”
-给定 <BOS> 我 喜欢 数学     -> 预测 <EOS>
-```
+\[
+\hat y=f_\theta(x),\qquad L=\ell(\hat y,y)
+\]
 
-每一步的输出也不是一个已经确定的 token，而是整个词表上的分数或概率分布。例如，在看到 `<BOS> 我 喜欢` 后，模型可能给出：
+x 是输入，θ 是可训练参数，f 的组织方式是架构，ŷ 是输出，y 是目标标签。
+loss 衡量当前输出在训练标准下的表现；反向传播计算它对参数的局部变化率，
+优化器才据此更新参数。
 
-```text
-数学     0.60
-编程     0.20
-音乐     0.10
-其他     0.10
-```
+以情感分类为例：任务是判断情感，标签可能是正面或负面，模型输出两个分数，
+交叉熵是可用的 loss，准确率是评测指标。CNN、RNN 或 Transformer 都能构建这样的模型，
+但组织信息的方式、成本和适用条件不同。
 
-“数学”只是这个分布中概率最高的候选。最终选择哪个 token，还取决于 greedy、sampling 等解码策略。解码方法属于推理阶段，本文只关注这个概率分布为什么能够构成完整的语言模型。
+换成 next-token 预测时，输出通常变成每个位置的 V 个分数，标签变成后续 token，仍可用交叉熵。
+**同一种 loss 不对应唯一架构，同一种架构也不对应唯一任务。**
+它们需要在输入表示、可见信息、输出含义和监督方式上匹配，而不是名称上相同。
+
+“训练目标”也不等同于“标签”。标签是样本提供的监督内容；
+数学目标可能是最小化数据分布上的平均 NLL；现实目标可能是提高工具调用可靠性。
+三者相关，但训练目标改善不自动代表现实目标达成。
 
 ## 表示
 
-神经网络不能直接处理自然语言字符串。文本首先经过 tokenizer，转换为 token，再映射为整数 token ID：
+tokenizer 将文本转换成离散编号，例如：
 
 ```text
-文本
--> tokenizer
--> token 序列
--> token ID 序列
--> 模型输入
+<BOS> -> 1， 我 -> 10， 喜欢 -> 20， 数学 -> 30， <EOS> -> 2
 ```
 
-例如，假设词表中有以下映射：
+输入成为 `[1,10,20,30,2]`。编号只是索引，30 不比10“语义多三倍”。
+Embedding 将它们映射为可训练向量，后续网络处理这些向量。
+tokenizer 影响建模单位和序列长度，但其分词规则不是模型内部的上下文理解。
+
+一个常见 decoder-only 模型的前向路径为：
 
 ```text
-<BOS> -> 1
-我    -> 10
-喜欢  -> 20
-数学  -> 30
-<EOS> -> 2
+input_ids [B,T]
+    -> Embedding [B,T,D]
+    -> 多层因果上下文计算与特征加工 [B,T,D]
+    -> 最终归一化 [B,T,D]
+    -> LM head [B,T,V]
+    -> logits
 ```
 
-那么示例序列可以表示为：
+logits 是实数分数，还不是概率。对最后的词表维应用 softmax：
 
-```python
-input_ids = [1, 10, 20, 30, 2]
-```
+\[
+p_{t,j}=\frac{\exp(z_{t,j})}{\sum_{k=1}^{V}\exp(z_{t,k})}
+\]
 
-这里需要区分三件事：
-
-1. **文本**是人类看到的字符串。
-2. **token**是 tokenizer 定义的建模单位，不一定等于一个汉字或一个完整单词。
-3. **token ID**是词表中对应 token 的整数编号，是模型真正接收的离散输入。
-
-tokenizer 会影响序列长度、词表大小和模型需要预测的基本单位，但 BPE、Unigram 等 tokenizer 算法不属于本文范围。对于自回归建模来说，关键前提只是：<u>文本已经被表示为一个有顺序的离散 token 序列</u>。
+得到位置 t 对下一个 token 的分布。一个分数的作用取决于它与其他分数的相对关系；
+给全部 logits 加同一个常数不会改变分布。
+内部组件将在后续拆开，此时先确定输入和输出的意义。
 
 ## 分解
 
-### 联合概率
+### 概率链
 
-对于 token 序列：
-
-\[
-x_1,x_2,\ldots,x_T
-\]
-
-模型希望描述整段序列出现的概率：
+对于序列 \(x_1,\ldots,x_T\)，概率链式法则给出：
 
 \[
-P(x_1,x_2,\ldots,x_T)
+P(x_{1:T})=\prod_{t=1}^{T}P(x_t\mid x_{<t})
 \]
 
-概率链式法则可以把这个联合概率分解为：
+链式法则是概率恒等式；建模工作是用带参数的网络 \(P_\theta\) 近似这些条件分布。
+“自回归”不是 Transformer 的别名。RNN 也能用前文预测后文，
+Transformer 也可以使用双向信息与不同目标。
+
+假设固定 BOS 后，“我、喜欢、数学、EOS”分别得到0.5、0.4、0.8、0.5：
 
 \[
-P(x_1,x_2,\ldots,x_T)
-=
-\prod_{t=1}^{T}P(x_t\mid x_1,\ldots,x_{t-1})
+P_\theta(\text{我,喜欢,数学,EOS}\mid\text{BOS})=0.5\times0.4\times0.8\times0.5=0.08
 \]
 
-也可以简写为：
+长序列概率连乘容易变得极小，所以通常使用对数：
 
 \[
-P(x_{1:T})
-=
-\prod_{t=1}^{T}P(x_t\mid x_{<t})
+-\log P_\theta(x_{1:T})=\sum_t-\log P_\theta(x_t\mid x_{<t})
 \]
 
-其中：
+右边是各目标 token 的负对数似然之和。以上四项之和约2.5257，平均约0.6314。
+它是在真实前缀下的预测误差，不是“整段生成正确率”。
 
-- \(x_t\) 是当前需要预测的 token；
-- \(x_{<t}\) 是当前 token 之前的全部 token；
-- \(P(x_t\mid x_{<t})\) 是给定前文后，当前 token 出现的条件概率。
+### 交叉熵
 
-因此，示例序列的概率可以写成：
+若正确目标是编号 y，目标分布 q 为 one-hot，交叉熵化为：
 
 \[
-\begin{aligned}
-P(&\text{我, 喜欢, 数学, EOS}\mid\text{BOS})
-= {} &P(\text{我}\mid\text{BOS}) \\
-&\times P(\text{喜欢}\mid\text{BOS, 我}) \\
-&\times P(\text{数学}\mid\text{BOS, 我, 喜欢}) \\
-&\times P(\text{EOS}\mid\text{BOS, 我, 喜欢, 数学})
-\end{aligned}
+\ell=-\sum_jq_j\log p_j=-\log p_y
 \]
 
-### 数值示例
+此时交叉熵与目标 token 的 NLL 是同一个量，不是两套先后计算的损失。
+正确目标概率0.8对应约0.2231，概率0.1对应约2.3026；概率越低，惩罚越大。
 
-假设模型分配的条件概率为：
-
-```text
-P(我 | BOS)                       = 0.50
-P(喜欢 | BOS, 我)                 = 0.40
-P(数学 | BOS, 我, 喜欢)           = 0.80
-P(EOS | BOS, 我, 喜欢, 数学)      = 0.50
-```
-
-那么整个序列的条件概率为：
-
-```text
-0.50 * 0.40 * 0.80 * 0.50 = 0.08
-```
-
-只要模型能够估计每一步的 next-token 条件概率，就能够计算整个序列的概率。训练语言模型因此可以转化为：不断提高真实下一个 token 的条件概率。
-
-实际计算通常不会直接连乘概率，因为许多小于 1 的数相乘容易变成非常小的数。对数可以把乘法转换为加法：
+对 logits 的导数是 \(p_j-\mathbf{1}[j=y]\)，不仅影响正确类别，也影响其他类别分数。
+这个结果可以从同一公式看出来：
 
 \[
-\log P(x_{1:T})
-=
-\sum_{t=1}^{T}\log P(x_t\mid x_{<t})
+\ell=-z_y+\log\sum_k\exp(z_k)
 \]
 
-训练时使用的负对数似然和交叉熵，正是从这里继续得到的。它们将在 `02_training_objectives/01_CROSS_ENTROPY_NLL_AND_PERPLEXITY.md` 中单独展开。
+第一项对正确类别求导为-1，对其余类别为0；
+第二项对 z_j 求导为 \(\exp(z_j)/\sum_k\exp(z_k)=p_j\)，两者相加便得到上述结果。
+因此“提高正确答案的概率”并不是只更新一个孤立分数，而是调整整个竞争分布。
 
-### 建模含义
+这些梯度再沿 LM head 和骨干传播。
+框架交叉熵通常直接接收 logits，并稳定地计算 log-softmax；不要先 softmax 再把概率当 logits 传入。
+[PyTorch 交叉熵接口](https://docs.pytorch.org/docs/2.14/generated/torch.nn.CrossEntropyLoss.html)
 
-自回归分解有三个重要含义：
+### 聚合
 
-1. **复杂序列被拆成局部预测。** 模型不必直接为所有可能的完整句子分别建立类别，而是反复解决 next-token prediction。
-2. **每一步都依赖已有前缀。** 同一个 token 在不同上下文中的条件概率可以完全不同。
-3. **局部错误会影响后续生成。** 生成阶段一旦选出不合适的 token，后面的预测会以这个 token 为新前缀继续进行。
+若 m 表示是否监督，常见的 token 平均为：
 
-链式分解来自概率论，而不是 Transformer 发明的。RNN、LSTM 和 Decoder-only Transformer 都可以用来参数化这些条件概率。
+\[
+L=\frac{\sum_{b,t}m_{b,t}\ell_{b,t}}{\sum_{b,t}m_{b,t}}
+\]
+
+有效 token 的系数相同，不意味着梯度数值相同，后者还取决于预测和整条计算路径。
+先对每条样本平均，再对样本平均，会赋予不同的 token 权重，这是目标定义差异。
+全 mask 时分母为零，应按合同报错或显式处理，而不是把 NaN 当成正常结果。
+
+相同 tokenizer、数据、mask 和聚合方式下，困惑度为 \(\exp(L)\)。
+它是概率预测指标，不是推理或生成质量的通用分数，也不适合直接跨 tokenizer 比较。
 
 ## 对齐
 
-### 位置语义
+位置 t 已经读到 \(x_t\)，该位置的 logits 应预测 \(x_{t+1}\)：
 
-假设完整输入是：
+| 位置 | 输入 | logits 对应目标 |
+| --- | --- | --- |
+| 0 | BOS | 我 |
+| 1 | 我 | 喜欢 |
+| 2 | 喜欢 | 数学 |
+| 3 | 数学 | EOS |
+| 4 | EOS | 本条样本没有下一个目标 |
 
-```python
-input_ids = [1, 10, 20, 30, 2]
-```
+若 labels 最初与 input_ids 同位置存储，取 logits 前 T-1 项与 labels 后 T-1 项对齐。
+第一个 label 被去掉，因为没有它的前置预测位置；最后一项 logits 被去掉，因为没有对应目标。
+**EOS label 没有被去掉，它由前一位置预测。**
 
-模型接收 batch 后，通常输出：
-
-```text
-logits.shape = [B, T, V]
-```
-
-其中：
-
-- `B` 是 batch size；
-- `T` 是当前 batch 的序列长度；
-- `V` 是词表大小；
-- `logits[b, t, :]` 是第 `b` 条样本在位置 `t` 上，对整个词表给出的未归一化分数。
-
-在 causal language modeling 中，每个位置的 logits 用于预测它后面的 token：
-
-| logits 位置 | 当前可见前缀 | 目标 token |
-|---|---|---|
-| 0 | `<BOS>` | `我` |
-| 1 | `<BOS> 我` | `喜欢` |
-| 2 | `<BOS> 我 喜欢` | `数学` |
-| 3 | `<BOS> 我 喜欢 数学` | `<EOS>` |
-| 4 | 完整序列 | 当前样本中没有后继目标 |
-
-可以把这个关系画成：
-
-```text
-输入位置：   <BOS>      我       喜欢      数学      <EOS>
-                |        |         |         |
-预测目标：      我       喜欢      数学      <EOS>
-```
-
-因此，位置 `t` 的 logits 不是用来重新识别位置 `t` 已经输入的 token，而是用来预测位置 `t+1` 的 token。
-
-### Causal Shift
-
-如果 `logits` 和 `labels` 在序列维度上长度相同，就需要错开一位计算：
+以下实验用40个词表项容纳教学编号，不代表实际词表大小：
 
 ```python
+import torch
+import torch.nn.functional as F
+
+torch.manual_seed(0)
+ids = torch.tensor([[1, 10, 20, 30, 2]])
+labels = ids.clone()
+labels[:, :3] = -100
+logits = torch.randn(1, 5, 40, requires_grad=True)
 shift_logits = logits[:, :-1, :]
 shift_labels = labels[:, 1:]
-```
-
-对示例来说：
-
-```text
-参与计算的 logits 位置：0, 1, 2, 3
-参与计算的 label 位置： 1, 2, 3, 4
-```
-
-它们形成以下配对：
-
-```text
-logits[0] -> label[1] = 我
-logits[1] -> label[2] = 喜欢
-logits[2] -> label[3] = 数学
-logits[3] -> label[4] = EOS
-```
-
-最后一个位置的 logits 被丢弃，是因为当前序列没有提供它应该预测的下一个 token。第一个 label 不参与比较，是因为当前输入中没有更早的位置负责预测它。
-
-不同训练框架可能在不同层次完成 shift：
-
-- 自定义 loss 函数可以显式执行 shift；
-- `AutoModelForCausalLM` 一类模型在收到 `labels` 时，也可能在内部完成 shift。
-
-两种方式不能在同一条路径中重复执行，否则标签会错开两次。判断是否需要手动 shift，必须查看当前模型和 Trainer 的实际合同。
-
-## 训练
-
-### Teacher Forcing
-
-训练数据已经包含完整的正确序列。因此，在预测“数学”时，模型使用的前缀是数据中的真实内容：
-
-```text
-<BOS> 我 喜欢
-```
-
-即使模型在前一个位置原本更倾向于生成“讨厌”，训练过程仍然使用真实 token“喜欢”作为下一位置的上下文。这种做法称为 teacher forcing。
-
-Teacher forcing 带来两个直接好处：
-
-1. 每个位置都能获得稳定、正确的真实前缀；
-2. 一条完整序列中的多个预测位置可以在一次 forward 中计算。
-
-它也带来训练和生成之间的差异：
-
-- 训练时，前缀来自真实数据；
-- 生成时，后续前缀包含模型自己刚刚生成的 token。
-
-因此，生成阶段早期出现的错误可能改变后续条件分布，并继续影响后面的 token。仅仅降低 teacher-forced loss，并不能保证所有自由生成行为都会同步改善。
-
-### Causal Mask
-
-训练时，整个 token 序列虽然一次进入模型，但每个位置不能看到未来 token。以五个位置为例，允许访问的关系可以表示为：
-
-```text
-查询位置 \ 被访问位置   0    1    2    3    4
-0                      yes
-1                      yes  yes
-2                      yes  yes  yes
-3                      yes  yes  yes  yes
-4                      yes  yes  yes  yes  yes
-```
-
-位置 2 可以使用位置 0、1、2 的信息，但不能使用位置 3、4。对应到示例中，模型在位置“喜欢”产生用于预测“数学”的 logits 时，不能提前读取“数学”和 `<EOS>`。
-
-这类下三角可见性约束通常由 causal mask 实现。它解决的是模型内部信息流问题：
-
-> 当前位置在计算 hidden state 和 logits 时，可以读取哪些位置？
-
-causal mask 不等于 SFT 的 completion mask。completion mask 解决的是另一个问题：
-
-> 哪些目标 token 应该参与 loss 并产生训练梯度？
-
-前者限制注意力可见范围，后者限制监督范围。两者可能同时存在，但职责不同。
-
-### 并行计算
-
-自回归概率分解看起来是顺序的，但训练不必逐 token 调用模型。原因是：
-
-1. 完整的真实序列已经存在；
-2. 每个位置需要的真实前缀已经准备好；
-3. causal mask 阻止每个位置读取未来信息；
-4. 因而不同位置的 hidden state 和 logits 可以放在同一次张量计算中完成。
-
-所以，训练中的“并行”不是取消了自回归条件，而是同时计算许多个受到不同前缀约束的条件概率：
-
-```text
-P(我 | BOS)
-P(喜欢 | BOS, 我)
-P(数学 | BOS, 我, 喜欢)
-P(EOS | BOS, 我, 喜欢, 数学)
-```
-
-它们在数学上仍然是不同的条件概率，只是在工程上被组织成一次并行 forward。
-
-## 生成
-
-### 逐步解码
-
-生成时只有 prompt，没有真实的未来 token。假设当前 prompt 是：
-
-```text
-<BOS> 我 喜欢
-```
-
-概念上的生成流程是：
-
-```text
-第 1 步
-输入：<BOS> 我 喜欢
-读取最后一个有效位置的 logits
-选择：数学
-
-第 2 步
-输入：<BOS> 我 喜欢 数学
-读取最后一个有效位置的 logits
-选择：<EOS>
-
-第 3 步
-检测到 <EOS>
-停止生成
-```
-
-可以概括为：
-
-```text
-已有前缀
--> forward
--> next-token logits
--> 选择一个 token
--> 追加到前缀
--> 重复
--> 遇到停止条件
-```
-
-因为第 2 步的输入取决于第 1 步实际选择了什么，所以时间维度上的生成必须逐 token 进行。多个样本仍然可以组成 batch 并行生成，但每条序列内部的后一个 token 依赖前一个生成结果。
-
-成熟框架通常会用 KV Cache 避免在每一步重新计算全部历史 token，但这只改变计算效率，不改变自回归依赖关系。KV Cache 的结构和显存成本属于推理文档。
-
-### 训练对照
-
-| 维度 | 训练 | 生成 |
-|---|---|---|
-| 完整目标序列 | 已知 | 未知 |
-| 前缀来源 | 真实数据 | prompt 与已生成 token |
-| 时间维度计算 | 可并行多个位置 | 逐 token 推进 |
-| 主要输出 | 各位置 logits 与 loss | 下一个 token |
-| 参数更新 | 有 | 无 |
-| 停止边界 | 样本长度 | EOS、长度上限或其他停止条件 |
-
-训练和生成使用的是同一个条件概率模型，但调用方式不同。训练评估的是“给定真实前缀时能否预测真实下一个 token”，生成评估的是“模型沿着自己产生的前缀能否持续得到合适的完整输出”。
-
-## 关系
-
-### 自回归与 Transformer
-
-自回归描述概率如何分解：
-
-```text
-完整序列概率
--> 一系列给定前文的 next-token 概率
-```
-
-Transformer 描述条件概率如何由神经网络计算：
-
-```text
-token IDs
--> embeddings
--> Transformer blocks
--> hidden states
--> LM head
--> logits
-```
-
-两者不在同一个抽象层次。RNN 和 LSTM 也能实现自回归语言模型；Decoder-only Transformer 只是当前更常见的实现。Transformer 内部的数据流将在 `02_DECODER_ONLY_TRANSFORMER.md` 中展开。
-
-### 自回归与 Causal LM
-
-Causal Language Modeling 通常指以下组合：
-
-1. 根据左侧前缀预测后续 token；
-2. 使用 causal mask 阻止未来信息泄漏；
-3. 使用 next-token prediction 构造训练目标。
-
-在当前大语言模型语境中，“自回归语言模型”和“causal LM”经常指向相近的模型，但前者更强调概率分解，后者更强调具体训练任务和因果可见性。
-
-### 自回归与 Decoder-only
-
-Decoder-only Transformer 通常为每个位置产生一个只能依赖过去与当前位置的 hidden state，再通过 LM head 输出 next-token logits。它非常适合实现 causal LM，但“Decoder-only”是架构分类，“自回归”仍然是建模与生成方式。
-
-### 自回归与 SFT
-
-预训练和 SFT 都可以继续使用 next-token prediction：
-
-| 阶段 | 典型数据 | 常见监督范围 | 直接目标 |
-|---|---|---|---|
-| 预训练 | 大规模自然文本 | 大多数非 padding token | 学习文本分布与通用表征 |
-| SFT | prompt 与示范回答 | 常见为 assistant completion token | 学习目标回答、格式与行为 |
-| 推理 | 用户 prompt | 不计算训练 loss | 根据当前前缀生成输出 |
-
-SFT 通常没有把模型改造成另一种概率模型。它仍然让模型预测下一个 token，只是：
-
-- 使用了更有目标的数据分布；
-- 可能只监督 assistant 回答；
-- 通过训练让目标回答中的 token 在对应上下文下获得更高概率。
-
-completion-only loss 如何构造 labels、使用 `-100` 以及统计有效 token，将在 `02_training_objectives/02_COMPLETION_ONLY_LOSS_AND_MASKING.md` 中单独说明。
-
-### 自回归与 Masked LM
-
-自回归 causal LM 根据前文预测后续 token。Masked Language Modeling 则通常遮住输入中的某些 token，再利用遮住位置两侧的信息恢复它们。
-
-```text
-自回归：我 喜欢 -> 预测“数学”
-Masked LM：我 [MASK] 数学 -> 利用左右文预测“喜欢”
-```
-
-二者的数据构造、可见范围和生成方式不同。本文研究的是第一轮 SFT 所使用的自回归 causal LM。
-
-## 映射
-
-第一轮 Qwen3-0.6B OpenR1-Math SFT 中，自回归建模并不只存在于概念层，而是可以在代码和测试中直接定位。
-
-### Loss 对齐
-
-实验仓库中的：
-
-```text
-small_model_post_training/independent_implementation/
-└── src/post_training_core/sft.py
-```
-
-在 `masked_sft_loss_sum_and_count()` 中显式执行：
-
-```python
-shift_logits = logits[:, :-1, :]
-shift_labels = labels[:, 1:]
-```
-
-这对应本文的 next-token 对齐：位置 `t` 的 logits 与位置 `t+1` 的标签比较。函数随后使用 `ignore_index` 排除不需要监督的标签。后一个步骤属于 completion-only SFT，而 shift 本身来自 causal language modeling。
-
-### 行为测试
-
-对应测试位于：
-
-```text
-small_model_post_training/independent_implementation/
-└── tests/test_sft_loss.py
-```
-
-其中：
-
-- `test_applies_causal_shift()` 验证 logits 与下一位置标签正确配对；
-- `test_ignores_masked_targets()` 验证监督范围之外的位置不影响 loss；
-- `test_backward_only_updates_supervised_positions()` 验证只有有效监督位置产生梯度；
-- `test_matches_pytorch_reference()` 验证自定义实现与 PyTorch 参考计算一致。
-
-这些测试把三个层次分开验证：
-
-```text
-自回归位置对齐
--> SFT 监督位置筛选
--> loss 与梯度行为
-```
-
-### 生成调用
-
-checkpoint 生成健康检查位于：
-
-```text
-small_model_post_training/independent_implementation/
-└── scripts/verify_checkpoint_generation.py
-```
-
-脚本先通过 chat template 构造 prompt，再调用：
-
-```python
-output_ids = model.generate(
-    input_ids=input_ids,
-    do_sample=False,
-    max_new_tokens=args.max_new_tokens,
-    eos_token_id=eot_token_id,
-    pad_token_id=tokenizer.pad_token_id,
+assert shift_labels.tolist() == [[-100, -100, 30, 2]]
+losses = F.cross_entropy(
+    shift_logits.reshape(-1, 40),
+    shift_labels.reshape(-1),
+    reduction="none",
+    ignore_index=-100,
 )
+valid = shift_labels.reshape(-1) != -100
+loss = losses[valid].mean()
+loss.backward()
+assert valid.sum().item() == 2
+torch.testing.assert_close(logits.grad[:, :2], torch.zeros(1, 2, 40))
+torch.testing.assert_close(logits.grad[:, -1], torch.zeros(1, 40))
+assert logits.grad[:, 2:4].abs().sum() > 0
 ```
 
-`model.generate()` 在框架内部封装了逐 token 的自回归解码。脚本中的参数分别固定：
+本例证明输出分数哪些位置直接收到 loss 梯度，**不证明 prompt 表示没有梯度**：
+回答位置可以通过 attention 使用 prompt，回答 loss 仍沿依赖传回 prompt 的中间表示。
 
-- `do_sample=False`：使用确定性的非采样解码；
-- `max_new_tokens`：限制最多生成多少新 token；
-- `eos_token_id`：定义正常终止 token；
-- `pad_token_id`：定义 batch 补齐 token。
+Dataset 也可以直接返回错位输入 `[BOS,我,喜欢,数学]` 和目标 `[我,喜欢,数学,EOS]`。
+两种接口都合理，但只能对齐一次。先查清 Dataset、model、loss 谁负责 shift，不能机械重复。
 
-生成后，脚本只截取 prompt 之后的新 token，并保存是否生成 EOS、生成 token 数量和停止原因。这使“模型会不会生成、能不能正常结束”成为可审计证据，而不是只在终端中观察一次输出。
+## 可见性
 
-## 边界
+### 因果约束
 
-### 自回归不等于检索
+完整句子已存在，为什么训练不能偷看答案？因为每层跨位置计算都要限制可见范围。
+因果 attention 中，位置 t 看自己及之前，不能看之后：
 
-模型不是从训练集中搜索一条完全相同的句子，再复制下一个词。它根据参数和当前上下文计算整个词表的条件分布。模型可能记忆训练内容，但自回归计算本身仍然是条件概率预测。
+```text
+          key 位置
+          0 1 2 3
+query 0   1 0 0 0
+query 1   1 1 0 0
+query 2   1 1 1 0
+query 3   1 1 1 1
+```
 
-### 自回归不等于确定性
+“看自己”不泄漏 next-token 答案，因为位置 t 的目标在 t+1。
+如果错对成同位置目标，模型就可能学会复述输入，而非预测后续。
+矩阵运算同时处理所有行，不代表每行都能使用所有列。
 
-同一组 logits 可以通过不同解码方法得到不同 token。模型定义条件分布，解码器决定如何从分布中选择结果。
+### 三种 mask
 
-### 完整输入不等于未来泄漏
+因果 mask 限制未来信息；padding attention mask 限制补齐位置作为有效内容参与注意力；
+loss mask 控制哪些预测进入目标函数。三者作用于不同环节。
 
-训练时可以把完整序列放入同一个张量。是否泄漏取决于每个位置的计算能否访问未来位置，而不是未来 token 是否物理存在于输入张量中。causal mask 正是用来限制这种访问。
+SFT 的 user 文字通常是有效上下文，attention 仍应读取；但在 assistant-only supervision 中，
+它不作为直接监督目标，对应 labels 设为 -100。这个 -100 是 loss 忽略标记，不是 Embedding 的词表编号。
 
-### Causal Mask 不等于 Loss Mask
+动态 padding 到当前 batch 最长长度，是组织张量的办法，与生成允许新增多少 token 不是同一参数。
+“padding 不进入 loss”也不能自动保证 attention 不读取 padding，需分别检查。
 
-- causal mask 控制模型内部的信息可见范围；
-- loss mask 控制哪些目标 token 参与训练损失。
+## 训练与生成
 
-一个位置可以作为上下文被后续 token 读取，但它自己的预测目标仍然被 loss mask 忽略。例如 SFT 中的用户 prompt 通常参与构造上下文，却不一定作为监督目标。
+teacher forcing 使用真实前缀。预测“数学”时，前缀是原文“我喜欢”，
+不是模型在前两个位置自己生成的内容，所以一条序列上的条件预测可以并行计算。
 
-### Teacher-forced Loss 不等于生成质量
+常规自回归生成则先选出一个 token，追加后再计算下一次分布。
+前一次选错，后续输入也随之变化。NLL 改善不保证自由生成改善，因为两者经历的前缀不同。
 
-验证集 NLL 下降说明模型在真实前缀下更会预测目标 token，但不能单独证明：
+生成通常读取最后一个有效位置的 logits。KV cache 缓存历史 attention 的键和值，
+避免重复计算历史部分；它不提前知道未来，也不把普通逐 token 生成变成同时确定整段回答。
+具体缓存、采样和停止规则属于推理实现。
 
-- 自由生成一定更连贯；
-- 数学答案一定更准确；
-- 推理过程一定更合理；
-- EOS 终止一定更稳定；
-- 通用能力没有回退。
+推理通常不需要记录梯度图。model.eval() 与关闭梯度又是两回事：
+前者影响 dropout 等模块模式，后者控制 autograd，详见[第 08 篇](08_AUTOGRAD_AND_PARAMETER_UPDATES.md)。
 
-这些结论需要生成评测、任务指标和逐样本分析共同支持。
+## 阶段与架构
 
-### 上下文不等于长期记忆
+预训练常用大规模文本的 next-token 目标；SFT 使用示范或对话，并选择监督区域。
+二者可以沿用同一骨干、词表头和交叉熵，同时改变数据分布、格式和 mask。
+“进入 SFT”通常不要求重新设计 Transformer。
 
-模型可以条件化于当前上下文窗口中的 token，但这不意味着它天然拥有跨会话的永久记忆。上下文长度、参数记忆和外部检索是不同机制。
+偏好训练可继续用同一语言模型产生序列 log-prob，再用 chosen/rejected 构造另一目标。
+强化学习的奖励可能不可微，需要构造合适的梯度估计或代理目标，而不是直接对任意评分器反向传播。
+改变学习信号不意味着必须更换架构，也不意味着所有训练问题都是逐 token 分类。
 
-### 原始序列概率不宜跨长度直接比较
+更换任务时，需要检查输入、输出和可见信息：分类可能增加分类头；语音需要声学输入表示；
+图像可用 patch 表示或卷积；多模态还需处理表示对齐。
+“神经网络是参数化函数”提供了共同视角，但不能抹平不同任务的结构与成本约束。
 
-序列概率是多个小于等于 1 的条件概率之积。序列越长，原始乘积通常越小。因此，对不同长度序列做比较时，常常需要使用平均 token NLL、长度归一化分数或任务特定指标，而不是直接比较概率乘积。
+## 检验
 
-## 检查
+| 检验 | 防止的错误 | 不能直接证明 |
+| --- | --- | --- |
+| 小序列逐位置对齐 | 同位置复述、重复 shift、漏掉 EOS | 具有语言能力 |
+| 修改未来 token，核对此前 logits | 因果泄漏；测试需固定随机性 | 所有 mask 场景都正确 |
+| 核对忽略位置和 loss | loss mask 错误 | prompt 不参与上下文 |
+| 核对 loss_sum 和有效 token 数 | 平均分母不一致 | 权重适合所有任务 |
+| 对照 NLL 与自由生成 | 把拟合误当成任务效果 | 已确定改善原因 |
 
-1. 对序列 `[BOS, A, B, EOS]`，模型需要完成哪三个 next-token 预测？
-2. 为什么位置 `A` 的 logits 应该与标签 `B` 比较？
-3. 为什么当前序列最后一个位置的 logits 通常不参与 loss？
-4. 训练时完整序列已经进入模型，为什么这不必然构成标签泄漏？
-5. causal mask 与 completion loss mask 分别控制什么？
-6. 为什么训练可以并行计算多个位置，而生成必须逐 token 推进？
-7. teacher forcing 中的前缀来自哪里？它和生成时的前缀有什么不同？
-8. 自回归语言建模、Causal LM 和 Decoder-only Transformer 分别属于什么层次？
-9. 预训练和 completion-only SFT 都可以预测下一个 token，它们的主要差别是什么？
-10. 为什么 `<EOS>` 也是一个需要监督或评测的 token？
-11. 验证集 next-token NLL 下降，能够直接证明哪些事情，又不能直接证明哪些事情？
-12. 在第一轮 SFT 代码中，哪两行实现了 causal shift？哪个测试证明它没有错位？
+Dataset、model 和 loss 可能在正确计算同一个“错误对齐的问题”。
+所以手算目标位置、验证信息访问和参考数值对照需要互补。
 
-能够不依赖本文回答这些问题，并把概率公式、token 对齐和代码实现对应起来，才算真正掌握了自回归语言建模的基础。
+## 复习
+
+**为什么架构不是目标？** 架构规定函数族和信息通路，目标决定训练偏好哪种行为。
+同一 decoder 可以在不同数据上做预训练与 SFT。
+
+**为什么并行训练却逐步生成？** 训练已有真实序列，可以在因果约束下并行计算；
+普通生成中后续输入尚未产生，存在依赖顺序。
+
+**NLL 下降说明什么？** 固定数据、tokenizer、mask 和聚合方式后，
+被监督目标的平均负对数概率降低。不能直接推出事实正确性、推理成功率或终止行为改善。
+
+接下来进入[第 02 篇](02_VECTORS_MATRICES_AND_LINEAR_LAYERS.md)，把“处理向量”落实到矩阵计算。
