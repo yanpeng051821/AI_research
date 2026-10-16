@@ -16,7 +16,7 @@ AI_research/
 ## 与实验仓库的边界
 
 模型原理从[模型架构与算法](model_architecture_and_algorithms/README.md)进入；
-其中[模型基础系列](model_architecture_and_algorithms/01_model_architecture/foundations/README.md)
+其中[模型基础系列](model_architecture_and_algorithms/01_model_architecture/README.md)
 连接预测任务、基础组件、整体信息流和反向传播，与各案例的实践教程互补。
 
 - `AI_research` 保存研究问题、来源、证据、对比、假设和路线决定；从 2026-09-27 起，

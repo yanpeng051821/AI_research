@@ -106,9 +106,9 @@ Embedding 位于这些 block 之前，每一层继续加工上一层的表示。
 参数 + 参数梯度 -> optimizer.step -> 更新后的参数
 ```
 
-原理复习统一从[模型基础系列](../../../../model_architecture_and_algorithms/01_model_architecture/foundations/README.md)进入。
+原理复习统一从[模型基础系列](../../../../model_architecture_and_algorithms/01_model_architecture/README.md)进入。
 八篇文章依次连接任务、矩阵、激活、Embedding、归一化、SwiGLU、残差与整体结构、自动求导。
-其中[整体结构篇](../../../../model_architecture_and_algorithms/01_model_architecture/foundations/07_RESIDUAL_CONNECTIONS_AND_TRANSFORMER_BLOCKS.md)
+其中[整体结构篇](../../../../model_architecture_and_algorithms/01_model_architecture/models/decoder_only_transformer/01_DECODER_ONLY_TRANSFORMER.md)
 专门解释归一化、激活和残差的作用与协作；梯度保存和参数更新集中在
 [自动求导篇](../../../../model_architecture_and_algorithms/01_model_architecture/foundations/08_AUTOGRAD_AND_PARAMETER_UPDATES.md)。
 本篇仍记录实际操作、测试与故障，不将知识导航变成另一份实践路线。

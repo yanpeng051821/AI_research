@@ -5,8 +5,10 @@
 
 ## 阅读入口
 
-从[模型基础：从预测任务到可训练网络](01_model_architecture/foundations/README.md)开始。
+从[模型基础：从预测任务到可训练网络](01_model_architecture/README.md)开始。
 这组文章以语言模型为贯穿案例，把数学、组件和反向传播连成一条链路。
+
+梯度算出之后怎样改变参数，继续看[优化目录](03_optimization/README.md)及[SGD 与 AdamW](03_optimization/01_SGD_ADAMW_AND_PARAMETER_UPDATES.md)。这部分从历史统计、偏差修正到实际更新连接同一个数值例子。
 
 ## 分类原则
 
@@ -21,7 +23,8 @@
 | 训练阶段 | 为了目标能力，怎样组织数据和方法？ | 预训练、SFT、偏好优化、Agent 训练 |
 | 推理 | 参数固定后怎样产生和控制输出？ | 解码、KV cache、停止条件 |
 
-当前已落地的是模型架构下的基础系列；其他类别在形成文章时再扩展。
+模型架构下按 foundations、components、models 分层；Attention 专题已在 components 下展开。
+其他类别在形成正文时再扩展。
 基础系列涉及 loss 和梯度，是为了闭合网络计算；完整的优化算法与阶段比较仍应放在对应类别。
 例如，“SFT 为什么使用示范数据”属于阶段设计，“哪些 token 进入交叉熵”属于目标定义，两者互相链接。
 

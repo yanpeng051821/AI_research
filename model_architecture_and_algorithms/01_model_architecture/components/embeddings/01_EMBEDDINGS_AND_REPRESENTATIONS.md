@@ -3,7 +3,7 @@
 > Embedding 把离散编号转换为可训练向量，是 token 进入连续计算的接口。
 > 它学到的是初始表示；上下文表示由后面的信息交流与特征加工共同形成。
 
-[系列导航](README.md) · 前篇：[激活](03_LINEARITY_NONLINEARITY_AND_ACTIVATIONS.md) · 后篇：[归一化](05_NORMALIZATION_AND_TRAINING_SCALE.md)
+[系列导航](../../README.md) · 前篇：[激活](../../foundations/03_LINEARITY_NONLINEARITY_AND_ACTIVATIONS.md) · 后篇：[归一化](../normalization/01_NORMALIZATION_AND_TRAINING_SCALE.md)
 
 ## 接口
 
@@ -175,7 +175,7 @@ nn.Embedding 的 padding_idx 可让指定行不从查表路径接收梯度，
 
 前向正确不证明梯度正确；梯度正确也不证明表示已经学出有用语义。
 后者需要训练数据、目标与评测共同提供证据。
-已有实践见[Embedding 测试](../../../training_engineering/case_studies/minimind/implementation/tests/test_embedding.py)。
+已有实践见[Embedding 测试](../../../../training_engineering/case_studies/minimind/implementation/tests/test_embedding.py)。
 
 ## 复习
 
@@ -186,4 +186,4 @@ nn.Embedding 的 padding_idx 可让指定行不从查表路径接收梯度，
 **为什么频次高时梯度不一定大？** 梯度是各次使用的学习信号之和，不是只数次数。
 sum 实验把每次信号都设成1，才得到频次等于梯度的特殊结果。
 
-有了初始表示，后面的层开始反复加工它。下一篇解释这种加工为什么需要关注[数值尺度](05_NORMALIZATION_AND_TRAINING_SCALE.md)。
+有了初始表示，后面的层开始反复加工它。下一篇解释这种加工为什么需要关注[数值尺度](../normalization/01_NORMALIZATION_AND_TRAINING_SCALE.md)。

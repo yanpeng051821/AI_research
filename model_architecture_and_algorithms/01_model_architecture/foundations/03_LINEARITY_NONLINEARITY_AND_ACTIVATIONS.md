@@ -3,7 +3,7 @@
 > 线性层学习怎样组合特征；激活函数让组合后的响应随输入区域改变。
 > 这既影响网络能表示什么关系，也影响 loss 怎样向前面的参数传递梯度。
 
-[系列导航](README.md) · 前篇：[矩阵与线性层](02_VECTORS_MATRICES_AND_LINEAR_LAYERS.md) · 后篇：[Embedding](04_EMBEDDINGS_AND_REPRESENTATIONS.md)
+[系列导航](README.md) · 前篇：[矩阵与线性层](02_VECTORS_MATRICES_AND_LINEAR_LAYERS.md) · 后篇：[Embedding](../components/embeddings/01_EMBEDDINGS_AND_REPRESENTATIONS.md)
 
 ## 限制
 
@@ -242,4 +242,4 @@ torch.testing.assert_close(torch.nn.functional.silu(x), x * torch.sigmoid(x))
 **为什么不是在线性层后加什么都可以？** 层间操作的数值与导数决定整个函数和学习过程。
 激活不是泛指“多一步计算”，而是有具体响应机制的非线性映射。
 
-下一篇进入[Embedding](04_EMBEDDINGS_AND_REPRESENTATIONS.md)：在这些连续特征加工之前，离散编号怎样获得可训练表示。
+下一篇进入[Embedding](../components/embeddings/01_EMBEDDINGS_AND_REPRESENTATIONS.md)：在这些连续特征加工之前，离散编号怎样获得可训练表示。

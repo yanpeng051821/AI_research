@@ -30,6 +30,49 @@ minimind/
 Agent 实践待办。历史环境与完成标记不直接当成本轮运行证据。模型权重、完整数据和大日志存放在忽略目录
 或外部存储，Git 保存脚本、配置、数据版本、产物 hash 和必要的小型证据。
 
+## 环境
+
+进入 `implementation/` 后，使用项目独立的 Python 3.12 环境：
+
+```shell
+uv sync --locked --python 3.12
+uv run python -c "import sys, torch; print(sys.executable); print(torch.__version__); print(torch.version.cuda); print(torch.cuda.is_available())"
+uv run pytest -q
+```
+
+`pyproject.toml` 为 Windows 指定官方 PyTorch CUDA 13.0 软件源，macOS 使用 PyPI 的原生版本；
+两边固定 PyTorch 2.14.0，其他依赖由 `uv.lock` 管理。Linux 当前仍使用 PyPI 来源，服务器的 CUDA
+版本需要在部署时根据驱动检查。虚拟环境在各台机器上分别创建，不能复制 Mac 的 `.venv` 到 Windows。
+
+安装 CUDA 版 PyTorch 后，模型和张量仍默认创建在 CPU。实际 GPU 计算需要把模型和输入放在同一设备，
+例如 `model.to("cuda")` 和 `input_ids.to("cuda")`。目前基础组件测试仍以 CPU 为主，便于跨平台复练；
+训练阶段再统一配置设备。`nvidia-smi` 显示的 CUDA 版本代表驱动支持范围，`torch.version.cuda`
+显示 PyTorch 构建使用的 CUDA 版本，两者不要求数字完全相同。
+
+Windows 如果遇到 Scoop 的 `uv` 启动器找不到程序，可执行 `scoop reset uv` 修复链接；
+如果 uv 缓存和项目位于不同盘而出现 hardlink 警告，可用 `uv sync --locked --link-mode copy`。
+
+## 样本恢复
+
+`data/source_samples/*.jsonl` 和 `data/audit/` 不进入 Git，因此换机器后只有来源清单，没有样本和
+`accepted.jsonl` 是可能出现的情况。Windows 在 `implementation/` 中执行：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/restore_source_samples.ps1 -DatasetType pretrain
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/restore_source_samples.ps1 -DatasetType sft
+uv run --locked minimind-audit data/source_samples/pretrain_sample.jsonl --dataset-type pretrain --output-dir data/audit/pretrain
+uv run --locked minimind-audit data/source_samples/sft_sample.jsonl --dataset-type sft --output-dir data/audit/sft
+uv run --locked python scripts/inspect_pretrain_batch.py
+```
+
+恢复脚本按 `manifest.json` 中的固定 revision 下载有限字节，提取前 20 条完整记录，并在写入前校验
+原始字节的 SHA256；已有文件不一致时拒绝覆盖。恢复原样本不等于重新选择训练数据。
+如果需要代理，可在当前终端设置 `HTTP_PROXY` 和 `HTTPS_PROXY` 为本机实际代理地址，再执行下载。
+
+2026-10-11 在 Windows 上完成恢复：两份样本 hash 与原清单一致，Pretrain/SFT 均为 20 条通过、
+0 条拒绝。真实 Pretrain batch 为 `[2, 512]`，shift 后监督 token 共 490 个，logits 为
+`[2, 512, 6400]`，loss 有限且共享权重获得梯度。这次验证没有执行 optimizer 更新，也不是正式训练。
+
 ## 协作
 
 实践教程：
@@ -37,6 +80,8 @@ Agent 实践待办。历史环境与完成标记不直接当成本轮运行证�
 - [第 1 周：数据入口与审计](practice_notes/week_01_data_audit.md)。
 - [第 2 周：Tokenizer 与训练数据](practice_notes/week_02_tokenizer_dataset.md)，已完成 BPE、官方 tokenizer、Pretrain Dataset、collator 和真实 batch 验证。
 - [第 3 周：模型基础组件](practice_notes/week_03_model_components.md)，代码验收完成，包含组件、配置、初始化、参数统计与组合 smoke 的实践过程，全项目101项测试通过。
+- [第 4 周：Attention 与完整 Decoder](practice_notes/week_04_attention_and_decoder.md)，验收完成：模型、单步训练、greedy 生成与 tiny 序列过拟合通过，全项目 221 项测试通过。
+- [第 5 周：单设备训练系统](practice_notes/week_05_training_system.md)，进行中：train_update 完整更新对照通过，下一步完成外层循环与尾部窗口验收。
 
 学习者亲手完成环境、工程结构、算法、数据处理、测试、运行、分析与归档。
 助手负责讲解、提出验收问题、审查实现和协助定位错误；默认不代写核心实现或代跑实验。

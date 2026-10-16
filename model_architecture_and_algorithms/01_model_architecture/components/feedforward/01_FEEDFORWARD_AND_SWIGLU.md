@@ -3,7 +3,7 @@
 > Transformer 的前馈子层对每个位置的表示进行非线性加工。
 > SwiGLU 用两组特征投影形成输入相关的乘法调制，再将结果组合回模型宽度。
 
-[系列导航](README.md) · 前篇：[归一化](05_NORMALIZATION_AND_TRAINING_SCALE.md) · 后篇：[残差与整体结构](07_RESIDUAL_CONNECTIONS_AND_TRANSFORMER_BLOCKS.md)
+[系列导航](../../README.md) · 前篇：[归一化](../normalization/01_NORMALIZATION_AND_TRAINING_SCALE.md) · 后篇：[残差连接](../residual/01_RESIDUAL_CONNECTIONS.md)
 
 ## 职责
 
@@ -30,7 +30,7 @@ y=W_{\mathrm{down}}h+b_{\mathrm{down}}
 
 输入宽度 D，中间宽度 H，输出回到 D。
 第一层形成多个特征组合，激活使这些组合有非线性响应，第二层汇总响应。
-如果去掉中间非线性，两层整体仍是一个仿射变换，见[第 03 篇](03_LINEARITY_NONLINEARITY_AND_ACTIVATIONS.md)。
+如果去掉中间非线性，两层整体仍是一个仿射变换，见[第 03 篇](../../foundations/03_LINEARITY_NONLINEARITY_AND_ACTIVATIONS.md)。
 
 H 通常比 D 大，给模型更多中间计算通道。
 这并不是获得更多外部信息，而是用更多可学习组合和非线性响应处理原有信息。
@@ -184,12 +184,12 @@ assert output.shape == (1, 1, 2)
 官方还有 MoE 路径，本篇只讨论 dense 子层，不将 MoE 的专家路由与这里的逐通道门控混为一谈。
 
 当前实现的对应关系见
-[手写 feedforward.py](../../../training_engineering/case_studies/minimind/implementation/src/minimind_lab/models/feedforward.py)；
-官方见[模型文件](../../../../minimind/model/model_minimind.py)的 FeedForward。
+[手写 feedforward.py](../../../../training_engineering/case_studies/minimind/implementation/src/minimind_lab/models/feedforward.py)；
+官方对照见[固定版本模型文件](https://github.com/jingyaogong/minimind/blob/3f1a7cc25b19a861cd1bd6ed313be526b9ecdaf8/model/model_minimind.py)的 FeedForward。
 
 ## 检验
 
-现有[三个测试](../../../training_engineering/case_studies/minimind/implementation/tests/test_feedforward.py)各有不同职责：
+现有[三个测试](../../../../training_engineering/case_studies/minimind/implementation/tests/test_feedforward.py)各有不同职责：
 
 1. 固定权重的前向对照，验证投影、SiLU、相乘、down 的连接与数值。
 2. 独立参考路径的梯度对照，验证输入与三组参数的反向通路。
@@ -210,4 +210,4 @@ assert output.shape == (1, 1, 2)
 它是输入相关的数值调制分支，其有用行为由整体任务训练形成。
 
 前馈输出下一步不是孤立替代全部表示，而是加入残差路径。
-这正是[下一篇](07_RESIDUAL_CONNECTIONS_AND_TRANSFORMER_BLOCKS.md)要连接的结构关系。
+这正是[下一篇残差连接](../residual/01_RESIDUAL_CONNECTIONS.md)要连接的结构关系。

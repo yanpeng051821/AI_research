@@ -3,7 +3,7 @@
 > RMSNorm 调整每个位置的特征向量尺度，再施加可学习的逐特征缩放。
 > 它服务于后续计算的数值条件，不负责引入上下文，也不把不同内容变成相同语义。
 
-[系列导航](README.md) · 前篇：[Embedding](04_EMBEDDINGS_AND_REPRESENTATIONS.md) · 后篇：[SwiGLU](06_FEEDFORWARD_AND_SWIGLU.md)
+[系列导航](../../README.md) · 前篇：[Embedding](../embeddings/01_EMBEDDINGS_AND_REPRESENTATIONS.md) · 后篇：[SwiGLU](../feedforward/01_FEEDFORWARD_AND_SWIGLU.md)
 
 ## 需求
 
@@ -179,7 +179,7 @@ assert torch.isfinite(reference(torch.zeros(1, 1, 2))).all()
 全零测试保护 ε 行为；低精度测试另行检查输出 dtype 和有限值。
 只有 shape 正确或结果有限，还不足以证明公式正确。
 
-这些是现有[实践测试](../../../training_engineering/case_studies/minimind/implementation/tests/test_rmsnorm.py)背后的理由。
+这些是现有[实践测试](../../../../training_engineering/case_studies/minimind/implementation/tests/test_rmsnorm.py)背后的理由。
 单组数据与框架一致不代表覆盖所有极端数值条件。
 
 ## 结构位置
@@ -194,8 +194,8 @@ y=x+\operatorname{FFN}(\operatorname{RMSNorm}(x))
 这样分支能读取尺度受控的表示，同时残差路径仍携带原表示。
 这不等于“归一化会在整个模型中删除所有幅度信息”，也不保证残差流永远不会增长。
 
-归一化、激活、残差的合作将在[第 07 篇](07_RESIDUAL_CONNECTIONS_AND_TRANSFORMER_BLOCKS.md)完整连接。
-先进入[前馈网络](06_FEEDFORWARD_AND_SWIGLU.md)，看分支拿到这个输入后具体加工什么。
+归一化、激活、残差的合作将在[残差篇](../residual/01_RESIDUAL_CONNECTIONS.md)完整连接。
+先进入[前馈网络](../feedforward/01_FEEDFORWARD_AND_SWIGLU.md)，看分支拿到这个输入后具体加工什么。
 
 ## 复习
 

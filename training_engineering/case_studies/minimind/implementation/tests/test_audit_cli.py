@@ -66,4 +66,4 @@ def test_main_returns_two_for_missing_input(tmp_path, capsys):
     assert exit_code == 2
     assert captured.out == ""
     assert "Error:" in captured.err
-    assert str(input_path) in captured.err  
+    assert repr(str(input_path)) in captured.err
