@@ -1,369 +1,979 @@
-# 第 5 周：单设备训练系统实践
+# 第 5 周：单设备训练系统实践教程
 
-> 更新：2026-10-16。进行中：train_update 完整更新及边界检查通过，待完成外层循环与尾部窗口验收。
+> 教程重写：2026-10-19。本周把第四周的短循环整理成一次更新和整轮训练两个接口；QA 在文末。
 
-通用原理见[自动求导与梯度](../../../../model_architecture_and_algorithms/01_model_architecture/foundations/08_AUTOGRAD_AND_PARAMETER_UPDATES.md)和[从梯度到参数更新：SGD 与 AdamW](../../../../model_architecture_and_algorithms/03_optimization/01_SGD_ADAMW_AND_PARAMETER_UPDATES.md)。本文保留实施过程与运行证据。
+## 1. 本周任务与准备
 
-## 1. 阶段目标
+第四周已经能前向、计算语言模型 loss、反向并更新参数。本周不是再写模型，而是弄清一次更新由什么决定，以及怎样把多个小 batch 正确组织成一轮训练。
 
-第四周已经连接数据、模型、loss、反向传播、参数更新和最小生成。本周沿着同一条链深入：梯度怎样成为参数变化，以及多次更新怎样组成一个可解释的训练循环。
+~~~text
+micro-batch → model → loss_sum → backward
+    下一批 → model → loss_sum → backward（参数尚未更新）
+                                  ↓
+                         按本窗口有效 token 数归一化
+                                  ↓
+                           梯度裁剪 → optimizer.step
+                                  ↓
+                         scheduler.step → 更新记录
+~~~
 
-```text
-batch -> model -> logits -> loss -> backward -> gradient
-                                                |
-                          clipping -> optimizer.step -> scheduler
-```
+### 1.1 环境与接口
 
-梯度累积发生在多个 micro-batch 的 backward 之间；是否裁剪、何时更新学习率，都要围绕一次完整参数更新组织。后续逐步实现，不在第一步同时加入所有机制。
+命令在 implementation 目录执行，PowerShell，先 uv sync --locked。默认 CPU，小模型与人工 token 即可，不依赖服务器或大语料。
 
-| 顺序 | 内容 | 需要解释的问题 |
+复用第四周的 MinimindForCausalLM 和 causal_lm_loss_sum_and_count。当前 loss.py 已把均值拆成 sum/count；若从早期副本开始，按第四周教程的完整接口补齐。train_update 期望每个 batch 包含 input_ids、attention_mask、labels，且每批 shift 后至少有一个有效目标。模型与张量必须已放在同一设备。
+
+训练核心在自己的练习副本中实现，现有 tests 可用来核对。观察脚本说明“为什么”，正式测试保护后续修改，两者不必逐行重复。
+
+
+**分步测试约定**：下面的 pytest 命令用于已有完整仓库的复练核验。从空文件逐步实现时，先执行本步给出的手算或最小断言；现有测试文件可能在收集时就导入后续类，-k 不会跳过这些导入。相关模块完成后再运行对应测试文件，不为通过尚未实现的后期测试提前增加功能。
+
+### 1.2 实践顺序
+
+| 步骤 | 本步产物 | 判断标准 |
 | --- | --- | --- |
-| 1 | AdamW 与参数组 | 同样的梯度怎样产生不同更新；哪些参数使用 weight decay |
-| 2 | 学习率调度 | 当前更新用什么学习率，何时设置下一次学习率 |
-| 3 | token 平均与梯度累积 | 多个小 batch 如何组成正确的整体训练目标 |
-| 4 | 梯度裁剪与循环装配 | 怎样安排清梯度、backward、裁剪、step 和日志 |
+| 2–4. 梯度、AdamW、衰减 | inspect_optimizer.py | 手算和实际更新对齐 |
+| 5. 参数组 | inspect_parameter_groups.py | 无遗漏、无重复，衰减按组生效 |
+| 6. 调度 | 两个学习率观察脚本 | 当前与下一学习率区分清楚 |
+| 7–8. 梯度累积 | 标量和 token 两个对照 | 与同目标的大 batch 一致 |
+| 9. 裁剪 | inspect_gradient_clipping.py | 梯度被统一缩放 |
+| 10. 单次更新 | training/step.py | 计算、更新、指标一致 |
+| 11. 整轮循环 | training/loop.py | 完整与尾部窗口都执行 |
+| 12. 验收 | tests/test_training.py | 参数、时序和边界受保护 |
 
-本周完成标准是单设备训练循环及关键数值、行为对照。保存与恢复沿原路线安排在第六周。
+完成标准是数值与行为闭环，不是 loss 必须下降到某个固定值。验证、checkpoint 和样本恢复留到第六周。
 
-## 2. SGD 与 AdamW 的单步对照
+## 2. 梯度与更新对象
 
-### 2.1 实验问题
+### 2.1 从 Loss 到导数
 
-此前观察到参数只变化了 0.001，学习者问这是否说明梯度接近 1。这个推断依赖更新规则：普通 SGD 的变化量是学习率乘以梯度，AdamW 还使用历史梯度统计。为了看清区别，本实验固定同样的起点、目标和学习率，只改变优化器。
+L(w)=w²，w=2 时 loss=4，梯度 dL/dw=2w=4，这次只是数值碰巧相等。w=3 时两者是 9 和 6。梯度给出局部变化率：ΔL≈gradient×Δw，不能由一个 loss 数值倒推出梯度。
 
-入口是 [inspect_optimizer.py](../implementation/scripts/inspect_optimizer.py)。两个独立的标量 Parameter 初值均为 2.0，目标为 `loss = parameter.square()`，学习率均为 0.1；SGD 使用无动量默认行为，AdamW 显式设置 `weight_decay=0.0`。
+前向记录运算关系，反向用链式法则传回参数。例如 y=2w、L=(y-1)²，dL/dw=2(y-1)×2。共享路径的贡献相加，多次 backward 默认也累加到 .grad。
 
-用两个独立 Parameter 是为了让两条路径拥有相同起点；若共用同一个参数，先执行的更新会改变另一条路径的输入条件。
+### 2.2 参数范围
 
-### 2.2 实现流程
+标量的梯度是一个数；矩阵参数的梯度与参数同形状，保存各元素的一阶偏导；全部参数的这些偏导共同构成模型梯度。“某个参数的梯度”与“完整梯度向量”只是范围不同。
 
-学习者创建参数和优化器，再逐个执行：
+optimizer 持有参数对象集合。即使只有一个 Parameter，也传 [parameter]；不是把参数数值交进去，也不是每次 step 重新创建参数。接下来用同样的梯度比较两种更新规则。
 
-```text
-保存更新前的数值 -> zero_grad -> loss -> backward
--> 查看 gradient -> optimizer.step -> 查看参数变化
-```
+## 3. SGD 与 AdamW
 
-`parameter.item()` 保存的是 Python 数值，可用来比较更新前后。`backward()` 将梯度累积到 `.grad`，不直接改变参数；`step()` 按优化规则更新参数。
+### 3.1 同起点对照
 
-优化器接收的是参数集合，即使只有一个 Parameter，也应写 `SGD([w_sgd], ...)` 和 `AdamW([w_adam], ...)`。方括号只构造列表，不复制参数。真实模型的 `model.parameters()` 也提供可遍历的参数集合。
+在 scripts/inspect_optimizer.py 先写下面的独立实验。固定起点、目标、学习率，只改变优化器；两条路径使用不同对象，防止先更新的一条影响另一条。
 
-### 2.3 排错与运行证据
+~~~python
+import torch
+from torch import nn
 
-首次实现直接传入 `w_sgd`、`w_adam`，创建优化器时出现 `TypeError`：要求参数是可迭代的 Tensor 或参数组集合。学习者改为列表后，2026-10-12 助手执行：
+for kind in ("sgd", "adamw"):
+    parameter = nn.Parameter(torch.tensor(2.0))
+    if kind == "sgd":
+        optimizer = torch.optim.SGD([parameter], lr=0.1)
+    else:
+        optimizer = torch.optim.AdamW([parameter], lr=0.1, weight_decay=0.0)
+    before = parameter.item()
+    optimizer.zero_grad(set_to_none=True)
+    loss = parameter.square()
+    loss.backward()
+    print(kind, "loss:", loss.item(), "gradient:", parameter.grad.item())
+    optimizer.step()
+    print("before/after:", before, parameter.item())
+    if kind == "adamw":
+        state = optimizer.state[parameter]
+        print({key: value.item() for key, value in state.items()})
+~~~
 
-```powershell
+~~~powershell
 uv run --locked python scripts/inspect_optimizer.py
-```
+~~~
 
-程序退出码为 0，实际输出约为：
+两边梯度均为 4。SGD 得到 2-0.1×4=1.6；AdamW 约得到 1.9。这说明不能从“参数变化 0.001”直接反推梯度接近 1，必须知道更新规则。
 
-| 优化器 | 更新前 | 更新后 | after - before |
-| --- | --- | --- | --- |
-| SGD | 2.0 | 1.60000002 | -0.39999998 |
-| AdamW | 2.0 | 1.89999998 | -0.10000002 |
+### 3.2 递推、修正与更新
 
-SGD 的结果符合 `2 - 0.1 * 4 = 1.6`。首次运行尚未打印梯度；随后学习者加入打印，助手再次运行确认两个分支的梯度均为 4.0。
+AdamW 为每个参数保留 m、v，默认 beta1=0.9、beta2=0.999，初始为零：
 
-这个对照证明相同起点、目标和学习率下，两种更新规则产生不同变化量。它不比较模型质量，也不能说明 AdamW 每一步都固定变化一个学习率大小。
+~~~text
+m_t = beta1*m_(t-1) + (1-beta1)*g_t
+v_t = beta2*v_(t-1) + (1-beta2)*g_t²
 
-## 3. 梯度与反向传播回顾
-
-### 3.1 Loss 与梯度
-
-本实验的目标是 `L(w)=w²`。前向计算在 `w=2` 时得到 loss=4；梯度是 loss 对 w 的导数 `dL/dw=2w=4`。二者这次碰巧相同，含义不同。若 w=3，loss=9，梯度=6。
-
-梯度表示当前位置附近的变化率：`ΔL ≈ (dL/dw) * Δw`。在 w=2 附近增加 0.01，loss 实际增加 0.0401，一阶估计为 4×0.01=0.04。它是局部近似，不能用来保证任意大步长都能下降。
-
-### 3.2 参数梯度的范围
-
-学习者问：梯度定义是一组偏导，为什么平时说某个参数的梯度？二者指向不同范围。
-
-| 对象 | 梯度 |
-| --- | --- |
-| 一个标量参数 w | loss 对 w 的一个导数 |
-| 一个参数矩阵 W | loss 对每个 W[i,j] 的偏导，按原形状保存 |
-| 全部模型参数 | 所有参数元素对应的偏导，整体组成梯度 |
-
-因此 `weight.grad` 与 `weight` 形状相同。PyTorch 通常分别保存每个 Parameter 的梯度，优化器遍历参数集合并利用对应 `.grad`。
-
-### 3.3 计算图与链式法则
-
-知道 loss 的数值本身还不足以反推梯度。前向记录运算关系和反向所需的数值，反向从标量 loss 出发，按链式法则传回参数。
-
-例如 `y=2w`、`L=(y-1)²`，反向结合 `dL/dy=2(y-1)` 和 `dy/dw=2`，得到 `dL/dw=(dL/dy)*(dy/dw)`。同一变量若通过多条路径影响 loss，路径贡献相加；对 `.grad` 的多次 backward 也默认累积，因此要按更新窗口安排清零。
-
-## 4. AdamW 状态观察
-
-### 4.1 实现任务
-
-在已有脚本中打印 backward 后的 `parameter.grad`；在 AdamW 的 step 后读取 `optimizer.state[parameter]`，打印 `step`、`exp_avg` 和 `exp_avg_sq`。
-
-| 键 | 作用 |
-| --- | --- |
-| step | 当前参数已经参与的更新次数 |
-| exp_avg | 梯度的指数移动平均，通常记为 m |
-| exp_avg_sq | 梯度平方的指数移动平均，通常记为 v |
-
-本机 PyTorch 的实现为参数分别保存状态，并在首次有梯度的更新时创建它们。当前先观察一次更新，随后再结合默认 beta、偏差修正和更新公式解释数值。
-
-### 4.2 状态读取与字典索引
-
-学习者问 `state = optimizer.state[parameter]` 是什么用法。这里的方括号是字典按键取值：`optimizer.state` 为每个参数对象分别保存状态，键是当前 Parameter 对象，值是这个参数对应的状态字典。
-
-```text
-optimizer.state
-  当前 Parameter 对象 -> {step, exp_avg, exp_avg_sq}
-```
-
-它不按参数的数值或位置查找。传入优化器的原参数对象才对应这份状态；另建一个数值相同的 Parameter 仍是另一个对象。局部变量 `state` 引用取出的状态字典，读取操作不复制参数，也不更新参数或统计。
-
-随后 `state['exp_avg']` 是在第二层字典中用字符串键取得 m，`.item()` 再把单元素 Tensor 转成 Python 数值，方便打印。真实矩阵参数的 m/v 通常也是同形状矩阵，不能直接对多元素状态调用 `.item()`。
-
-本机优化器实现使用 `defaultdict(dict)`：若读取未登记的参数键，会创建空字典。本实验在该参数执行完第一次 step 后读取，因此预期三个键已经存在。
-
-### 4.3 实际运行
-
-学习者加入梯度和状态打印后，2026-10-12 助手重新执行原脚本，退出码为 0。两条路径梯度均为 4.0，参数变化与上一轮一致；AdamW 输出为：
-
-```text
-step: 1.0
-m: 0.4000000059604645
-v: 0.01600000075995922
-```
-
-这一步证明当前参数的首次更新状态可以正确读取。后续把这些状态连接到递推、偏差修正和参数更新公式。
-
-### 4.4 历史梯度统计
-
-默认 beta1=0.9、beta2=0.999，初始 m0=v0=0。每次有梯度的更新采用：
-
-```text
-m_t = beta1 * m_(t-1) + (1-beta1) * g_t
-v_t = beta2 * v_(t-1) + (1-beta2) * g_t²
-```
-
-本实验 g1=4，所以 m1=0.4、v1=0.016，与打印结果一致。m 保留梯度的正负号，v 汇总梯度平方，不能直接称作方差。
-
-学习者把它理解为惯性。其适用范围是历史梯度参与当前统计：假设下一次梯度为 -2，m2=0.16，v2=0.019984；即使当前梯度已为负，m 仍可为正。这个 -2 是解释用假设，当前目标更新到 w≈1.9 后的真实下一步梯度应约为 3.8。
-
-惯性不意味着更新一定很小或稳定。更新量还受学习率、v 和历史梯度关系影响，当前单步结果也不证明 AdamW 在所有情况下都比 SGD 移动得少。
-
-### 4.5 零初始化与偏差修正
-
-第一步的 m1=0.4，并不意味着观测到的梯度只有 0.4；唯一观测是 4。初始零状态占用了权重，使统计在训练起步时向零收缩。
-
-展开 m 的递推，真实梯度的系数总和为 `1-beta1**t`；v 的对应系数总和为 `1-beta2**t`。于是修正为：
-
-```text
 m_hat = m_t / (1-beta1**t)
 v_hat = v_t / (1-beta2**t)
-```
 
-t 是当前参数参与更新的次数。这里校正的是零初始化导致的偏差，不保证历史平均等于当前梯度，也不消除数据波动。优化器保存的 m/v 仍是未修正的递推状态，修正值用于计算更新。
+adaptive_update = lr*m_hat/(sqrt(v_hat)+eps)
+w_new = w_old - adaptive_update          （本节 weight_decay=0）
+~~~
 
-本实验 t=1，得到 m_hat=0.4/0.1=4、v_hat=0.016/0.001=16。
+这是三层操作：先更新历史统计，再校正零初始化偏差，最后计算参数变化。m/v 是保存状态，hat 值用于本次计算，不是把历史状态永久改成 hat。
 
-### 4.6 参数更新与下一任务
+首步 g=4，得到 m=0.4、v=0.016；修正后 m_hat=4、v_hat=16，因此更新约 0.1。m 保留正负方向，v 是平方的移动平均，不直接称为方差。
 
-当前 weight_decay=0，更新规则是：
+### 3.3 数值核对
 
-```text
-update = lr * m_hat / (sqrt(v_hat) + eps)
-w_new = w_old - update
-```
+在上面 AdamW 分支的 step 后追加以下代码，注意 before 必须来自更新前：
 
-代入 lr=0.1、m_hat=4、v_hat=16、默认 eps=1e-8，update≈0.1，w_new≈1.9。eps 用于避免分母为零。这里解释的是一个标量首次更新，不说明未来更新量固定为 lr。
+~~~python
+group = optimizer.param_groups[0]
+beta1, beta2 = group["betas"]
+t = state["step"].item()
+m_hat = state["exp_avg"].item() / (1 - beta1 ** t)
+v_hat = state["exp_avg_sq"].item() / (1 - beta2 ** t)
+update = group["lr"] * m_hat / (v_hat ** 0.5 + group["eps"])
+predicted_after = before - update
+torch.testing.assert_close(
+    parameter.detach(),
+    torch.tensor(predicted_after, dtype=parameter.dtype),
+)
+~~~
+
+忘记 lr 会得到约 1 而不是 1.9；程序正常退出不代表公式正确，所以需要与实际参数对照。历史梯度参与统计可以理解为惯性，但不保证参数每步都小幅变化或训练必然稳定。
+
+## 4. 解耦权重衰减
+
+### 4.1 隔离实验
+
+新建一个初始值仍为 2 的参数，AdamW 使用 lr=0.1、weight_decay=0.2，目标仍为 w²。不要在已更新的 1.9 上接着做“同起点对照”。
+
+~~~python
+parameter = nn.Parameter(torch.tensor(2.0))
+optimizer = torch.optim.AdamW([parameter], lr=0.1, weight_decay=0.2)
+before = parameter.item()
+optimizer.zero_grad(set_to_none=True)
+parameter.square().backward()
+optimizer.step()
+state = optimizer.state[parameter]
+group = optimizer.param_groups[0]
+beta1, beta2 = group["betas"]
+t = state["step"].item()
+m_hat = state["exp_avg"].item() / (1 - beta1 ** t)
+v_hat = state["exp_avg_sq"].item() / (1 - beta2 ** t)
+adaptive = group["lr"] * m_hat / (v_hat ** 0.5 + group["eps"])
+decay = group["lr"] * group["weight_decay"] * before
+expected = before - decay - adaptive
+torch.testing.assert_close(parameter.detach(), torch.tensor(expected))
+print("expected/actual:", expected, parameter.item())
+~~~
+
+### 4.2 结果含义
+
+梯度仍为 4，m/v 仍约为 0.4、0.016，衰减量为 0.04，最终约 1.86。衰减没有加入本次 loss 梯度和 m/v，而是另行按旧参数缩小，所以称为解耦。
+
+~~~text
+w_new = w_old - lr*weight_decay*w_old - adaptive_update
+      = w_old*(1-lr*weight_decay) - adaptive_update
+~~~
+
+两种写法只是提取公因式，不是两套更新规则。下一步把同一规则施加到不同参数组。
+
+## 5. 参数分组
+
+### 5.1 规则与引用完整性
+
+本实验将二维及以上参数设 weight_decay=0.02，一维参数设为零。这是当前实验约定，不是所有模型的普遍最优策略。共享 embedding/lm_head 只能进入一次，冻结参数不进入可训练组。
+
+在 scripts/inspect_parameter_groups.py 按以下顺序实现：构造 tiny 模型，按 ndim 分组，检查对象身份集合，创建 AdamW，再做零梯度隔离实验。完整参考：
+
+~~~python
+import torch
+
+from minimind_lab.models.config import ModelConfig
+from minimind_lab.models.model import MinimindForCausalLM
+
+config = ModelConfig(
+    vocab_size=20,
+    hidden_size=16,
+    intermediate_size=32,
+    num_layers=2,
+    num_heads=4,
+    kv_heads=2,
+)
+
+model = MinimindForCausalLM(config)
+
+decay_names = []
+decay_params = []
+
+no_decay_names = []
+no_decay_params = []
+
+for name, param in model.named_parameters():
+    if not param.requires_grad:
+        continue
+
+    if param.ndim >= 2:
+        decay_names.append(name)
+        decay_params.append(param)
+    else:
+        no_decay_names.append(name)
+        no_decay_params.append(param)
+
+optimizer = torch.optim.AdamW(
+    [
+        {"params": decay_params, "weight_decay": 0.02},
+        {"params": no_decay_params, "weight_decay": 0.0}
+    ],
+    lr=1e-3
+)
+
+print("decay names:")
+for name in decay_names:
+    print("  ", name)
+
+print("no decay names:")
+for name in no_decay_names:
+    print("  ", name)
+
+for index, group in enumerate(optimizer.param_groups):
+    print(
+        f"group={index}, "
+        f"weight_decay={group['weight_decay']}, "
+        f"parameter_count={len(group['params'])}, "
+        f"numel={sum(parameter.numel() for parameter in group['params'])}"
+    )
+
+
+trainable_ids = {
+    id(parameter)
+    for parameter in model.parameters()
+    if parameter.requires_grad
+}
+decay_ids = {id(parameter) for parameter in decay_params}
+no_decay_ids = {id(parameter) for parameter in no_decay_params}
+# 组里都没有重复参数
+assert len(decay_ids) == len(decay_params)
+assert len(no_decay_ids) == len(no_decay_params)
+
+# 两个组之间没有交叉
+assert decay_ids.isdisjoint(no_decay_ids)
+
+# 两组参数身份的并集等于全部可训练参数，没有遗漏或混入
+assert decay_ids | no_decay_ids == trainable_ids
+assert len(decay_ids) + len(no_decay_ids) == len(trainable_ids)
+
+
+before = {
+    name: param.detach().clone()
+    for name, param in model.named_parameters()
+    }
+optimizer.zero_grad(set_to_none=True)
+
+zero_loss = sum(
+    (parameter * 0.0).sum()
+    for parameter in model.parameters()
+)
+
+zero_loss.backward()
+
+# 预期每个参数都是：grad max = 0
+for name, param in model.named_parameters():
+    assert param.grad is not None
+    print(
+        f"{name}: "
+        f"grad_max={param.grad.abs().max().item()}"
+    )
 
-学习者在现有脚本中读取 beta、lr、eps、step 和 m/v，计算 m_hat、v_hat、update、predicted_after；用已保存的更新前数值 `befored` 计算预测参数，并与实际更新后参数比较。不要用已更新参数再减一次 update。
+optimizer.step()
+for name, param in model.named_parameters():
+    max_change = (
+        param.detach() -before[name]
+    ).abs().max().item()
+
+    group_name = (
+        "decay"
+        if id(param) in decay_ids
+        else "no_decay"
+    )
+
+    print(
+        f"{group_name}: "
+        f"{name}, "
+        f"max_change={max_change}"
+    )
+
+    if id(param) in decay_ids:
+        expected = before[name] * (1.0 - 1e-3 * 0.02)
+        torch.testing.assert_close(
+            param.detach(),
+            expected,
+            rtol=1e-5,
+            atol=1e-7,
+        )
+    else:
+        torch.testing.assert_close(
+            param.detach(),
+            before[name],
+        )
+~~~
+
+### 5.2 为什么用零梯度
+
+这次从新优化器的零历史开始，构造与每个参数相连但数值为零的 loss，让 .grad 是零张量而不是 None。自适应项因此为零，可以单独核对衰减：
+
+~~~text
+decay 参数：before * (1-lr*weight_decay)
+不衰减参数：before
+~~~
+
+已有历史 m/v 时，当前梯度为零不保证自适应项为零；不要把这个新优化器实验推广到所有后续步。
+
+~~~powershell
+uv run --locked python scripts/inspect_parameter_groups.py
+~~~
+
+当前配置得到 15 个衰减参数、5 个不衰减参数，共 4928 和 80 个标量。断言既检查名单，也检查实际更新。若数量不符，先查共享对象是否重复、模型配置是否改变，不直接修改预期数凑通过。
+
+## 6. 学习率调度
+
+### 6.1 当前更新与下一更新
+
+optimizer 使用 param_groups 中当前 lr；scheduler 按进度修改它。Warmup 与线性衰减是变化规则，scheduler 是执行规则的对象，不是三套彼此独立的算法。
+
+先在 scripts/inspect_scheduler.py 用 StepLR 做短实验：
+
+~~~python
+import torch
+
+from torch import nn
+
+
+parameter = nn.Parameter(torch.tensor(2.0))
+
+optimizer = torch.optim.SGD(
+    [parameter],
+    lr=0.1
+)
 
-### 4.7 手算对照发现遗漏学习率
+scheduler = torch.optim.lr_scheduler.StepLR(
+    optimizer,
+    step_size=2,
+    gamma=0.5,
+)
 
-2026-10-13，助手运行学习者新增的计算，脚本退出码为 0，但输出未对齐：
+used_lrs = []
+next_lrs = []
 
-```text
-m_hat: 4.000000059604646
-v_hat: 16.000000759959207
-update: 0.9999999886524368
-predicted_after: 1.0000000113475633
-actual_param: 1.899999976158142
-```
+for update_step in range(1, 5):
+    optimizer.zero_grad(set_to_none=True)
 
-实际代码为 `update = m_hat / (v_hat**0.5 + eps)`，遗漏学习率 lr。m_hat 与 v_hat 的计算正确，但归一化后的量还不是完整的参数变化量；应为 `lr * m_hat / (v_hat**0.5 + eps)`。补上 lr=0.1 后预期 update≈0.1、predicted_after≈1.9。
+    before = parameter.item()
+    loss = parameter.square()
+    loss.backward()
+
+    lr_used = optimizer.param_groups[0]["lr"]
+    used_lrs.append(lr_used)
+
+    optimizer.step()
+
+    after = parameter.item()
+
+    scheduler.step()
 
-修正留给学习者。当时只确认程序运行与定位遗漏，尚未将手算对照标记为通过。程序退出码和数学正确性需要分别核验。
+    lr_next = optimizer.param_groups[0]["lr"]
+    next_lrs.append(lr_next)
+
+    print(
+        f"update_step={update_step}, "
+        f"before={before}, "
+        f"grad={parameter.grad.item()}, "
+        f"lr_used={lr_used}, "
+        f"after={after}, "
+        f"next_lr={lr_next}"
+    )
 
-### 4.8 修正后的首次更新对照
+
+expected_used_lrs = torch.tensor([
+    0.1,
+    0.1,
+    0.05,
+    0.05,
+])
 
-学习者随后把更新量改为 `lr * m_hat / (v_hat**0.5 + eps)`。2026-10-13，助手重新运行同一脚本，退出码为 0，得到：
+expected_next_lrs = torch.tensor([
+    0.1,
+    0.05,
+    0.05,
+    0.025,
+])
 
-```text
-lr: 0.1
-eps: 1e-08
-m_hat: 4.000000059604646
-v_hat: 16.000000759959207
-update: 0.09999999886524367
-predicted_after: 1.9000000011347564
-actual_param: 1.899999976158142
-```
+torch.testing.assert_close(
+    torch.tensor(used_lrs),
+    expected_used_lrs,
+)
 
-预测参数与 PyTorch 实际参数相差约 `2.5e-8`。这里一边使用由 float32 状态张量取出的数值，一边使用 Python 浮点数继续计算，出现这一量级的舍入差异是正常的；两者在本实验精度下对齐。因此，AdamW 首次更新的 `m/v` 递推、偏差修正、学习率缩放和参数更新已经通过单步数值对照。
+torch.testing.assert_close(
+    torch.tensor(next_lrs),
+    expected_next_lrs,
+)
+~~~
 
-到这一步，结论只覆盖 `weight_decay=0.0` 的标量首次更新；下一节继续验证权重衰减。多步历史状态、参数分组和完整训练循环仍未完成，本次也没有重新运行全项目测试。
+~~~powershell
+uv run --locked python scripts/inspect_scheduler.py
+~~~
 
-## 5. 解耦权重衰减
+四次实际使用 [0.1,0.1,0.05,0.05]，更新后准备的下一学习率是 [0.1,0.05,0.05,0.025]。记录 lr_used 要放在 optimizer.step 前，scheduler.step 放在参数更新后。
 
-### 5.1 对照设计
+### 6.2 Warmup 与线性衰减
 
-学习者在原有 `weight_decay=0.0` 的 AdamW 分支之外，新建起点同为 2.0 的独立参数，并配置 `lr=0.1`、`weight_decay=0.2`。两条分支使用相同目标 `loss=w²`，因此可以观察权重衰减是否会改变梯度与 AdamW 的历史状态。
+在 scripts/inspect_warmup_decay.py 规定六次更新、前两次 warmup，基准学习率 0.1。这里采用一份明确的教学端点约定：
 
-完整的单步更新拆为：
+~~~text
+调度索引 s=0..6
+warmup:    multiplier=(s+1)/2                         s<2
+decay:     multiplier=max(0,(6-s)/(6-2+1))           s>=2
+实际 lr = base_lr * multiplier
+~~~
 
-```text
-adaptive_update = lr * m_hat / (sqrt(v_hat) + eps)
-decay_update = lr * weight_decay * w_old
-w_new = w_old - decay_update - adaptive_update
-```
+六次更新使用 [0.05,0.10,0.08,0.06,0.04,0.02]，结束后下一 lr 为零。分母加一来自选择的端点：最后一次仍做正步长更新；不是所有线性衰减都必须这样写。
 
-### 5.2 运行结果
+完整观察代码如下：
 
-2026-10-13，助手运行学习者修改后的脚本，退出码为 0。两条 AdamW 分支的梯度均为 4.0，`m≈0.4`、`v≈0.016`；有衰减分支得到：
+~~~python
+import torch
+from torch import nn
 
-```text
-weight_decay: 0.2
-decay_update: 0.04000000000000001
-adaptive_update: 0.09999999886524367
-predicted_after: 1.8600000011347564
-actual_param: 1.8600000143051147
-```
 
-预测值与实际值相差约 `1.3e-8`，在当前 float32 数值精度下对齐。对照结果说明，AdamW 的权重衰减没有进入 loss 的梯度，也没有进入 `m/v`；它依据更新前参数另行产生衰减项，再与自适应梯度更新共同改变参数。这是当前标量首次更新对“解耦”的直接验证。
+base_lr = 0.1
+warm_ups = 2
+total_steps = 6
 
-脚本暂时同时打印旧的自适应更新预测和包含衰减的完整预测，数值正确但输出重复；后续整理时可删除旧打印。当前结论仍不覆盖多步更新和真实模型的参数分组。
+def warmup_decay_multiplier(s: int) -> float:
+    if s < warm_ups:
+        return ( s + 1 ) / warm_ups
 
-## 6. 真实模型参数分组
+    return max(0.0, (total_steps - s) / (total_steps - warm_ups + 1))
 
-### 6.1 分组规则与完整性
+for s in range(total_steps + 1):
+    multiplier = warmup_decay_multiplier(s)
+    lr = base_lr * multiplier
+    print(f"s={s}, multiplier={multiplier:.2f}, lr={lr:.2f}")
 
-学习者在 `inspect_parameter_groups.py` 中实例化当前 tiny MiniMind，将 `ndim>=2` 的 embedding、Attention 和 SwiGLU 权重放入 `weight_decay=0.02` 的组，将一维 RMSNorm 权重放入 `weight_decay=0.0` 的组。实际得到 15 个衰减参数、5 个不衰减参数，分别包含 4928 和 80 个标量。
 
-脚本以 Parameter 对象的 `id` 构造集合，并检查组内无重复、组间无交叉、两组并集等于全部可训练参数。共享的 embedding/lm_head 权重由 `named_parameters()` 去重，只进入优化器一次。
+parameter = nn.Parameter(torch.tensor(2.0))
+optimizer = torch.optim.SGD(
+    [parameter],
+    lr=base_lr
+)
 
-### 6.2 零梯度隔离实验
+scheduler = torch.optim.lr_scheduler.LambdaLR(
+    optimizer,
+    lr_lambda=warmup_decay_multiplier
+)
 
-为了排除不同参数梯度本身造成的更新差异，学习者保存更新前快照，再构造与全部参数相连但数值为 0 的 loss。`backward()` 后所有参数都拥有数值为 0 的梯度张量，而不是 `grad=None`，因此 AdamW 会处理这些参数；此时自适应梯度更新为 0，只剩参数组配置的权重衰减。
+print(
+    f"after_init: index={scheduler.last_epoch}, "
+    f"lr={optimizer.param_groups[0]['lr']}"
+)
 
-2026-10-14，助手运行脚本，退出码为 0。全部参数的 `grad_max` 都是 0；15 个 decay 参数发生变化，最大变化随参数原值大小而异，约为 `3.5e-6` 到 `2.0e-5`；5 个 no-decay 参数的最大变化均为 0。脚本逐参数验证：
+used_lrs = []
+next_lrs = []
 
-```text
-decay:    expected = before * (1 - lr * weight_decay)
-no_decay: expected = before
-```
+for step in range(1, total_steps + 1):
+    print(f"step={step}")
+    optimizer.zero_grad(set_to_none=True)
 
-所有 `torch.testing.assert_close` 均通过。这证明参数列表不仅分类正确，AdamW 也确实根据每个 `param_group` 的配置执行了不同更新规则。该实验隔离的是权重衰减机制，不代表零梯度是正常训练目标，也尚未验证带有真实梯度的完整训练循环。
+    before = parameter.item()
+    print(f"before={before}")
 
-## 7. 学习率调度时序
+    loss = parameter.square()
+    loss.backward()
 
-### 7.1 当前学习率与下一学习率
+    lr_used = optimizer.param_groups[0]["lr"]
+    used_lrs.append(lr_used)
+    print(f"lr_used={lr_used}")
+    optimizer.step()
 
-学习者在 `inspect_scheduler.py` 中使用标量参数、平方目标、SGD 和 `StepLR(step_size=2, gamma=0.5)` 完成四次更新。每次先从 optimizer 参数组读取 `lr_used`，执行 `optimizer.step()`，再调用 `scheduler.step()` 并读取 `next_lr`。
+    after = parameter.item()
+    print(f"after={after}")
 
-2026-10-14，助手运行脚本，退出码为 0。实际使用的学习率为 `[0.1, 0.1, 0.05, 0.05]`，调度后写入的下一学习率为 `[0.1, 0.05, 0.05, 0.025]`；两组序列的 `assert_close` 均通过。参数也依次约为 1.6、1.28、1.152 和 1.0368，与 `w_new=w-lr*2w` 对齐。
+    scheduler.step()
+    lr_next = optimizer.param_groups[0]["lr"]
+    next_lrs.append(lr_next)
+    print(f"lr_next={lr_next}")
 
-该实验验证了调用顺序：`optimizer.step()` 使用当前参数组中的学习率，随后 `scheduler.step()` 修改参数组，为下一次更新准备学习率。若在 scheduler 更新后才记录日志，记录到的是下一次学习率，不能误称为当前更新实际使用的学习率。
+expected_used_lrs = torch.tensor([
+    0.05, 0.10, 0.08, 0.06, 0.04, 0.02,
+])
 
-### 7.2 Warmup 与线性衰减
+expected_next_lrs = torch.tensor([
+    0.10, 0.08, 0.06, 0.04, 0.02, 0.00,
+])
 
-学习者在讲解与提示下编写 `inspect_warmup_decay.py`，先实现倍率函数，再接入 LambdaLR。教学计划设基准学习率为 0.1，总更新次数为 6，前 2 次 warmup；六次更新实际使用的学习率约定为 `[0.05, 0.10, 0.08, 0.06, 0.04, 0.02]`，结束后下一学习率为 0。这份短计划用于观察机制，未通过效果实验认定为 MiniMind 的最佳配置。
+torch.testing.assert_close(expected_used_lrs, torch.tensor(used_lrs))
+torch.testing.assert_close(expected_next_lrs, torch.tensor(next_lrs))
 
-对于调度索引 s，warmup 倍率为 `(s+1)/warm_ups`，衰减倍率为 `max(0, (total_steps-s)/(total_steps-warm_ups+1))`。分母中的加一对应选定端点：最后一次更新仍使用正学习率，完成后降到零。LambdaLR 每次使用基准学习率乘以倍率，创建时即使用索引 0，因而第一次参数更新前的学习率已经是 0.05。
 
-首次接入时，学习率序列符合预期，但循环缺少 loss/backward，参数梯度为 None，SGD 没有更新参数。结尾的 `assert_allclose` 提示是旧接口的 FutureWarning，退出码仍为 0。学习者随后补上 loss/backward，并将比较改为 Tensor 之间的 `assert_close`。
+print(f"optimizer.param_groups:{optimizer.param_groups}")
+~~~
 
-2026-10-14，助手重新运行修复后的脚本，退出码为 0，无旧接口警告。实际使用和下一次学习率的两条序列断言均通过；参数从 2.0 依次约变为 1.8、1.44、1.2096、1.064448、0.97929216、0.94012047，输出与 SGD 的 `w_new=w*(1-2*lr_used)` 数值对照一致。此项确认调度规则已实际用于参数更新；还没有装配梯度累积或裁剪。
+~~~powershell
+uv run --locked python scripts/inspect_warmup_decay.py
+~~~
 
-### 7.3 对象结构与规则依据
+LambdaLR 创建时就使用索引 0，所以第一次更新前 lr 已经变为 0.05。只打印调度表不能证明训练发生，循环里必须有 loss 和 backward，参数也应随之变化。
 
-`optimizer.param_groups` 是由参数组字典组成的列表，每组的 `params` 保存 Parameter 引用，`lr` 保存当前更新使用的学习率。LambdaLR 使用的 `initial_lr` 保存基准学习率。`defaults` 保存默认配置，`state` 保存各参数的更新历史，与参数组配置分开。
+Warmup 控制早期步长，衰减减小后期步长，但曲线是否改善效果仍需实验。这里验证机制，不从六步玩具例子推断最优超参数。
 
-Warmup 与衰减描述学习率规则，scheduler 根据进度执行规则。Warmup 用来控制早期更新幅度，衰减用来逐渐缩小后期步长；具体必要性和曲线要结合架构、优化器、数据与预算验证。不能由规则实现正确推断训练效果更好。讨论的原始依据包括 [Adam warmup 分析](https://arxiv.org/abs/1910.04209)、[Transformer 归一化位置与 warmup](https://proceedings.mlr.press/v119/xiong20b.html)及 [BERT 的训练配置](https://arxiv.org/pdf/1810.04805)。
+## 7. 标量梯度累积
 
-## 8. 梯度累积与整体目标
+### 7.1 实验目标
 
-### 8.1 标量累积与一次性计算对照
+先验证 backward 会相加，而不是立即更新参数。两个样本目标为 0、1，参数 w=2，loss 分别为 (w-target)²。两次梯度贡献是 4、2，累加为 6，除以样本数得到平均梯度 3。
 
-本实验先隔离 backward 的累积机制：两个独立 Parameter 均从 2.0 开始，样本目标为 `[0.0, 1.0]`，每个样本的 loss 为 `(w-target)²`，两条路径都使用 lr=0.1 的无动量 SGD。实验问题是：分别反向再平均梯度，能否得到与一次性计算平均 loss 相同的梯度及参数更新？
+在 scripts/inspect_gradient_accumulation.py 实现两条路径：逐样本 backward 后平均梯度；一次计算平均 loss 后 backward。两边各更新一次。
 
-累积路径只在窗口开始清梯度，分别对两个样本 backward。两次计算之间保持参数不变，梯度贡献分别为 4 和 2，`.grad` 依次为 4、6。除以两个样本后得到平均梯度 3，再执行一次参数更新。参考路径先计算两个 loss 的平均，再 backward 一次并更新一次。
+~~~python
+import torch
 
-学习者依据提示完成累积、参考路径和两个数值断言。2026-10-14，助手实际运行 `inspect_gradient_accumulation.py`，退出码为 0：两条路径的平均梯度均为 3.0，更新后参数均为 1.7000000476837158，梯度与参数对照均通过。此项只验收等权标量样本，语言模型中不同有效 token 数的累积仍待验证。
+from torch import nn
 
-### 8.2 求导与张量操作答疑
+parameter = nn.Parameter(torch.tensor(2.0))
+reference_param = nn.Parameter(torch.tensor(2.0))
 
-首次脚本在清梯度后读取 `parameter.grad.item()`，由于 `set_to_none=True` 将梯度置为 None 而报错；清梯度与 step 还放在每次循环内，构成多次更新。学习者随后把清梯度移到窗口开始、step 移到窗口末尾，改为遍历目标并在更新前统一归一化。
+optimizer = torch.optim.SGD([parameter], lr=0.1)
+reference_optimizer = torch.optim.SGD([reference_param], lr=0.1)
 
-对 `(w-target)²` 求导时，令 u=w-target，链式法则给出 `dL/dw=2u*1=2(w-target)`。目标作为常量并不使交叉项消失；展开为 `w²-2*target*w+target²` 后，导数仍为 `2w-2*target`。第二次打印的 6 是已有梯度 4 加上当前贡献 2，不能当作第二个样本自身的梯度。
+targets = [0.0, 1.0]
 
-Tensor 支持与 Python 数字逐元素运算，计算结果仍为 Tensor 并可参与自动求导。直接打印 Tensor 无需调用 `.item()`；只有需要取出单元素 Tensor 的 Python 数值时才使用它，多元素矩阵不能直接调用 `.item()`。保存梯度快照可用 `detach().clone()`；当前脚本直接在 SGD step 后比较 `.grad` 也有效，因为该 step 没有清空梯度，后续清梯度前应完成比较或保存快照。
+optimizer.zero_grad(set_to_none=True)
+for target in targets:
+    loss = (parameter - target).square()
+    loss.backward()
 
-### 8.3 全局 token 平均的下一验证目标
+    print(f"parameter: {parameter.item()}, accumulated grad: {parameter.grad.item()}")
 
-若 micro-batch 的 loss sum 分别为 S_i，有效标签数分别为 N_i，整体目标为 `sum(S_i)/sum(N_i)`。有效标签按 causal shift 后参与 loss 的位置计数。可以提前用统一的总 token 数归一化各个 loss sum 再 backward，也可以先对各个 loss sum backward，再将累计梯度除以总 token 数；后一归一化必须在裁剪与参数更新之前完成。
+# 归一化前的累积梯度
+print(f"accumulated grad before div: {parameter.grad.item()}")
 
-不能把不同 token 数 micro-batch 的平均 loss 再等权平均。例如有效 token 数为 2 与 6 时，两批在全局 token 平均中应占 2/8 与 6/8，而非各占 1/2。后续将与一次性计算的参考路径对照，验证这一行为；当前未标记为完成。
+# 计算两个样本的平均梯度
+parameter.grad.div_(len(targets))
+print(f"归一化后的梯度:{parameter.grad.item()}")
 
-### 8.4 语言模型的 loss sum 接口与正确累积
+# 更新参数
+optimizer.step()
+print(f"updated parameter: {parameter.item()}\n\n")
 
-学习者将 `causal_lm_loss` 的 shift、忽略标签检查和交叉熵主体提取为 `causal_lm_loss_sum_and_count`，使用 sum reduction，返回 loss sum 与 shift 后的有效标签数，原函数调用该接口并相除。计数保留为标量 Tensor，类型注解与返回值一致。2026-10-15，助手运行现有 loss 测试，12 项通过；额外临时检查确认两条序列的有效标签数分别为 2 和 6，合批为 8，loss 总和可分解，平均 loss 及梯度与包装函数一致。
 
-随后学习者编写 `inspect_token_accumulation.py`，在同一个 tiny MiniMind 上先运行大 batch 参考路径，保存梯度副本。参考 loss sum 为 23.20144582466185，有效 token 数为 8，平均 loss 为 2.900180728082731。模型参数使用 float64，但 RMSNorm 内部显式采用 float32，比较时保留相应容差。
+### 参考路径
+print("### 参考路径")
+reference_optimizer.zero_grad(set_to_none=True)
+loss_sum = sum(
+    (reference_param - target).square()
+    for target in targets
+)
 
-累积路径在开始时清梯度，分别处理两条序列，对各自的 loss sum backward，再统一将梯度除以总有效 token 数。首次前向误将布尔 attention mask 作为 input_ids，并将第二个位置参数传给 causal，导致 Embedding 布尔索引形状报错；学习者改用明确的 input_ids、attention_mask 关键字传参，并用 count.item() 累加 Python 整数计数。
+loss_avg = loss_sum / len(targets)
+loss_avg.backward()
+print(f"parameter: {reference_param.item()}, accumulated grad: {reference_param.grad.item()}")
 
-助手重新运行修复后的脚本，退出码为 0；全部参数的累积梯度与大 batch 参考梯度在 rtol=1e-5、atol=1e-7 下通过对照。当前验收的是固定权重下的梯度等价性，尚未执行模型参数更新，也未完成错误归一化的反例。
+reference_optimizer.step()
+print(f"reference updated parameter: {reference_param.item()}")
 
-其中“全局”指一次 optimizer update 所覆盖的累积窗口。整个 epoch 的 token 平均训练 loss 是另一种日志统计，混合了不同更新时刻的模型表现；验证集 NLL 则通常在固定参数下遍历验证集计算，三者需要区分范围和用途。`assert_close` 的 msg 回调接收框架生成的默认错误说明，再添加当前参数名，便于定位不一致的参数。
+torch.testing.assert_close(
+    parameter.grad,
+    reference_param.grad,
+)
 
-### 8.5 错误归一化对照
+torch.testing.assert_close(
+    parameter.detach(),
+    reference_param.detach(),
+)
+~~~
 
-学习者继续在相同参数上实现反例：每个 micro-batch 先计算 token 平均 loss，再除以 micro-batch 数量进行等权累积，形成 `(S1/2+S2/6)/2`，而正确目标为 `(S1+S2)/8`。两批有效 token 数不同，等权平均会改变每个 token 的权重。
+~~~powershell
+uv run --locked python scripts/inspect_gradient_accumulation.py
+~~~
 
-2026-10-15，助手运行三条路径，退出码为 0；正确累积路径全部参数的梯度断言仍通过。大 batch 参考 mean loss 为 2.900180728082731，错误路径 mean loss 为 2.477675084681082，错误路径相对参考路径的最大梯度绝对差为 0.19431820724126597。反例当前以打印数值观察差异，未新增自动反例断言；它说明前面的等价性检查能够区分这次具体的归一化错误。
+两边更新后参数约为 1.7。清梯度只在窗口开始，step 只在窗口结束，否则变成两次小更新，不再等价。
 
-本轮完成固定参数下的 token 平均梯度对照，后续接入裁剪、参数更新与训练循环；尚未验收尾部不足一个累积窗口的处理。
+### 7.2 从样本平均到 Token 平均
+
+标量样本每条同权，除以 len(targets) 合理。语言模型每个 batch 的有效 token 数不同，这个分母不能直接照搬。下一步把目标明确为一次更新窗口中的所有有效 token 平均。
+
+## 8. 语言模型的全局 Token 平均
+
+### 8.1 目标范围
+
+micro-batch i 的损失和为 S_i，有效目标数为 N_i，本次更新目标是：
+
+~~~text
+L = sum(S_i) / sum(N_i)
+gradient = sum(gradient_of_S_i) / sum(N_i)
+~~~
+
+“全局”在此指一个 optimizer update 的全部累积窗口，不是整轮 epoch。整个 epoch 的训练日志混合不同更新时刻的参数，而验证 NLL 是固定参数的另一个目标统计。
+
+两个 micro-batch 分别有 2、6 个目标时，它们权重应为 2/8、6/8，不是各 1/2。先 backward loss sum，再统一除总 token 数，与先用同一总数归一化各 loss 再 backward 数学上等价；浮点顺序仍允许微小误差。
+
+### 8.2 对照代码
+
+在 scripts/inspect_token_accumulation.py 使用固定权重，先大 batch，再正确累积，最后故意错误地平均 batch 均值：
+
+~~~python
+import torch
+
+from minimind_lab.models.config import ModelConfig
+from minimind_lab.models.model import MinimindForCausalLM
+from minimind_lab.models.loss import causal_lm_loss_sum_and_count
+
+torch.manual_seed(42)
+
+config = ModelConfig(
+    vocab_size=8,
+    hidden_size=16,
+    intermediate_size=32,
+)
+
+model = MinimindForCausalLM(config).double()
+
+input_ids = torch.tensor([
+    [1, 3, 2, 0, 0, 0, 0],
+    [1, 4, 5, 6, 7, 3, 2],
+])
+
+attention_mask = input_ids != 0
+
+labels = input_ids.clone()
+labels[~attention_mask] = -100
+
+logits = model(input_ids=input_ids,attention_mask=attention_mask)
+
+loss_sum, token_count = causal_lm_loss_sum_and_count(logits, labels)
+
+mean_loss = loss_sum / token_count
+print(f"loss_sum:{loss_sum}, token_count:{token_count}, mean_loss:{mean_loss}")
+
+mean_loss.backward()
+
+reference_grads = {
+    name: param.grad.detach().clone()
+    for name, param in model.named_parameters()
+}
+
+# 实际路径
+model.zero_grad(set_to_none=True)
+
+total_tokens = 0
+total_loss_sum = 0.0
+
+for i in range(input_ids.shape[0]):
+    micro_input_ids = input_ids[i:i+1]
+    micro_labels = labels[i:i+1]
+    micro_attention_mask = attention_mask[i:i+1]
+
+    logits = model(input_ids=micro_input_ids, attention_mask=micro_attention_mask)
+    loss, count = causal_lm_loss_sum_and_count(logits, micro_labels)
+    total_loss_sum += loss.item()
+    total_tokens += count.item()
+
+    loss.backward()
+
+for param in model.parameters():
+    param.grad.div_(total_tokens)
+
+
+for name, parameter in model.named_parameters():
+    torch.testing.assert_close(
+        parameter.grad,
+        reference_grads[name],
+        rtol=1e-5,
+        atol=1e-7,
+        msg=lambda message: f"{name}: {message}",
+    )
+
+model.zero_grad(set_to_none=True)
+wrong_mean_loss = 0.0
+
+for i in range(input_ids.shape[0]):
+    micro_input_ids = input_ids[i:i+1]
+    micro_labels = labels[i:i+1]
+    micro_attention_mask = attention_mask[i:i+1]
+
+    logits = model(input_ids=micro_input_ids, attention_mask=micro_attention_mask)
+    loss, count = causal_lm_loss_sum_and_count(logits, micro_labels)
+    wrong_contribution = loss / count / input_ids.shape[0]
+    wrong_mean_loss += wrong_contribution.item()
+    wrong_contribution.backward()
+
+
+max_grad_error = max(
+    (parameter.grad - reference_grads[name]).abs().max().item()
+    for name, parameter in model.named_parameters()
+)
+
+print(f"reference mean loss: {mean_loss.item()}")
+print(f"wrong mean loss: {wrong_mean_loss}")
+print(f"wrong max gradient error: {max_grad_error}")
+~~~
+
+### 8.3 结果解释与边界
+
+~~~powershell
+uv run --locked python scripts/inspect_token_accumulation.py
+~~~
+
+固定实验参考平均 loss 约 2.90018，错误均值约 2.47768，错误梯度最大差约 0.19432。正确路径逐参数 assert_close；错误路径当前通过打印观察差异，没有单独的反例断言。
+
+本步不执行 optimizer.step，隔离的是梯度目标。模型 .double() 减小部分舍入误差，但 RMSNorm 仍显式用 float32，所以不能声称全部内部计算为双精度；使用 rtol=1e-5、atol=1e-7。
+
+保存参考梯度后必须清零，再重建前向图。只调用 zero_grad 不会改变参数，因而三条路径仍在相同参数点计算。下一步在归一化之后加入裁剪。
 
 ## 9. 梯度裁剪
 
 ### 9.1 范数与统一缩放
 
-学习者编写 `inspect_gradient_clipping.py`，使用参数向量 `[1,2]` 与目标 `L=3w1+4w2`，通过 backward 得到梯度 `[3,4]`，其 L2 范数为 5。调用 `clip_grad_norm_([parameter], max_norm=1.0, error_if_nonfinite=True)` 后，助手实际运行确认返回值为 5.0，梯度约为 `[0.6,0.8]`，裁剪后范数为 0.9999998211860657，退出码为 0。差异来自实现中的防除零小量与浮点计算。当前是单参数向量的观察实验，还未验证多个参数的共同范数、阈值内不变或非有限梯度报错分支。
+在 scripts/inspect_gradient_clipping.py 使用 L=3w1+4w2，梯度 [3,4]，L2 范数为 5，阈值 1。完整观察：
 
-### 9.2 返回裁剪前范数的用途
+~~~python
+import torch
 
-函数先计算总梯度范数，再依据阈值原地缩放 `.grad`，返回的范数记录裁剪前的状态。若只观察裁剪后的值，原始范数为 5、100 或 1000 时都可能看到约 1，无法判断原始梯度的变化程度。训练日志可记录返回值，观察是否经常触发裁剪及异常突增；裁剪后范数需要时可从修改后的梯度重新计算。高于阈值本身不等于训练失败。
+from torch import nn
 
-累积训练中的顺序为：累计 loss sum 的梯度，按窗口总有效 token 数归一化，对全部待更新参数统一裁剪，然后 optimizer.step。此顺序留待循环装配验证。
+parameter = nn.Parameter(torch.tensor([1.0, 2.0]))
 
-## 10. 一次完整参数更新
+coefficient = torch.tensor([3.0, 4.0])
 
-### 10.1 训练更新与模型模式
+loss = (parameter * coefficient).sum()
+loss.backward()
 
-学习者在 `training/step.py` 实现 `train_update`，接收一个累积窗口内的 batch 列表，依次执行 train 模式设置、清梯度、多次 loss sum backward、总 token 归一化、全参数梯度裁剪、optimizer 更新、scheduler 推进，返回平均 loss、token 数、micro-batch 数、裁剪前梯度范数与更新前后学习率。
+print(f"before:grad={parameter.grad},norm={parameter.grad.norm()}")
 
-`model.train()` 与 `model.eval()` 切换模块及子模块的 training 标记，使 Dropout、BatchNorm 等按相应模式工作；它不修改参数的 requires_grad，也不关闭或开启全局自动求导。当前 MiniMind 没有这些依赖模式切换的层，保留明确模式设置作为训练入口约定。
+norm_before = torch.nn.utils.clip_grad_norm_(
+    [parameter],
+    max_norm=1.0,
+    error_if_nonfinite=True,
+)
+print(f"norm_before:{norm_before}")
+print(f"after:grad={parameter.grad},norm={parameter.grad.norm()}")
+~~~
 
-### 10.2 实现复核与修正
+~~~powershell
+uv run --locked python scripts/inspect_gradient_clipping.py
+~~~
 
-首次正常路径与大 batch 完整更新对照通过，但空列表只检查 None，冻结参数仍直接访问 None 梯度，日志范数未转 Python 数值，下一学习率键包含多余冒号。学习者补上空列表检查、跳过无梯度参数和 norm.item()；助手只清理最后残留的 `next_lr:` 字段拼写，保留其余核心实现。
+裁剪后约 [0.6,0.8]，保持方向，整体缩小；实际数值因防除零常数可能略小于理想值。它不是把每个分量分别截到 1。
 
-2026-10-16，助手以相同权重的两个 CPU float64 MiniMind 进行定向验证：参考路径对大 batch 平均 loss backward，累积路径调用 train_update 处理有效 token 数为 2 和 6 的两个 batch；两边均使用二维矩阵衰减 0.02、一维参数不衰减的 AdamW、lr=0.001、max_grad_norm=0.5，以及每更新一次学习率减半的 StepLR。
+### 9.2 放置顺序
 
-两条路径所有参数在 rtol=1e-5、atol=1e-7 下对齐，最大参数绝对差为 2.7755575615628914e-17；loss=2.900180728082731，归一化后裁剪前 norm 约 3.38195755，有效 token 数为 8，scheduler 只推进一次，学习率由 0.001 变为 0.0005。全部日志字段为 Python 数值。
+累计梯度 → 按有效 token 总数归一化 → 对全部待更新参数统一裁剪 → optimizer.step。若归一化前先裁剪，阈值相对于目标梯度的意义改变；若各 micro-batch 分别裁剪，通常也不再等于大 batch。
 
-另行验证 None 与空列表均提前抛出 ValueError，scheduler 不推进；冻结共享 embedding/lm_head 权重后训练仍可执行，冻结权重逐元素不变、梯度为 None，其他可训练参数发生更新。这些为助手临时定向检查，尚未写成正式 pytest，也未验收外层循环与尾部窗口。
+返回值是裁剪前范数，方便观测原始梯度多大。日志显示超过 max_grad_norm 不等于没裁剪，也不直接证明训练失败。
 
-## 11. 协助范围
+## 10. 单次更新接口
 
-学习者依据讲解和代码提示编写观察脚本，修复参数集合传入、手算更新遗漏学习率、训练循环遗漏 backward、旧断言接口和模型前向参数误传等问题，完成权重衰减、参数分组、调度、标量累积及语言模型全局 token 平均的正确与错误路径对照；助手提供任务说明、原理讲解、报错定位、复核运行和本篇整理。loss 接口修改后执行了 12 项已有定向测试。
+### 10.1 职责和完整实现
 
-2026-10-16，按学习者请求准备 Git 同步时，助手执行 `uv run --locked pytest -q`，全项目 221 项测试通过，耗时 7.54 秒。当前 train_update 的额外数值与边界检查仍为临时验证，尚未成为正式 pytest；外层循环与尾部窗口仍待实现，因此第五周尚未结束。
+新建 src/minimind_lab/training/__init__.py（可为空）与 training/step.py。train_update 接收一个累积窗口，完成该窗口全部计算，返回本次记录：
+
+
+~~~python
+import torch
+
+from torch import nn
+
+from minimind_lab.models.loss import causal_lm_loss_sum_and_count
+
+
+def train_update(
+    model,
+    optimizer,
+    micro_batches,
+    scheduler,
+    max_grad_norm=1.0,
+):
+    if not micro_batches:
+        raise ValueError("micro batches must be not empty")
+
+    # 准备累积， 初始化
+    model.train()
+    optimizer.zero_grad(set_to_none=True)
+
+    total_tokens=0
+    total_loss_sum=0.0
+
+    # 准备遍历
+    for micro_batch in micro_batches:
+        logits = model(input_ids=micro_batch["input_ids"], attention_mask=micro_batch["attention_mask"])
+
+        loss_sum, token_count = causal_lm_loss_sum_and_count(logits, micro_batch["labels"])
+        total_loss_sum += loss_sum.item()
+        total_tokens += token_count.item()
+
+        loss_sum.backward()
+
+    parameters = []
+    for param in model.parameters():
+        if param.grad is None:
+            continue
+        param.grad.div_(total_tokens)
+        parameters.append(param)
+
+    grad_norm = nn.utils.clip_grad_norm_(
+        parameters,
+        max_norm=max_grad_norm,
+        error_if_nonfinite=True,
+    )
+
+    lr_used = optimizer.param_groups[0]["lr"]
+
+    optimizer.step()
+    scheduler.step()
+
+    lr_next = optimizer.param_groups[0]["lr"]
+
+    return {
+        "loss": total_loss_sum / total_tokens,
+        "valid_tokens": total_tokens,
+        "micro_batches": len(micro_batches),
+        "grad_norm": grad_norm.item(),
+        "lr_used": lr_used,
+        "next_lr": lr_next,
+    }
+~~~
+
+参数梯度为 None 时跳过，支持已经冻结的参数；没有数据时提前拒绝，不能推进 optimizer/scheduler。每个 micro-batch 在 loss 层保证至少一个有效目标，因此当前窗口总 token 数为正。
+
+model.train() 设置模块模式，不解冻参数，也不代替 backward。指标转为 Python 数值，避免日志引用计算图；多参数组时这里仅记录第零组 lr，是当前日志接口的范围。
+
+### 10.2 与大 Batch 的独立对照
+
+~~~powershell
+uv run --locked pytest tests/test_training.py -q -k train_update
+~~~
+
+参考路径用相同初始模型、同数据和优化器，整批平均 loss backward；待测路径拆成两个不同 token 数的 micro-batch。两边都必须先归一化再裁剪，再更新并推进 scheduler，最后比较参数、loss、token 数、裁剪前 norm 和学习率。
+
+曾经参考路径漏掉裁剪，使两个“看似相同”的更新实际不同。排错时先核对两边操作顺序，不一开始就放宽容差。另检查空输入与冻结共享权重，避免正常路径掩盖 None 梯度错误。
+
+## 11. 整轮循环与尾部窗口
+
+### 11.1 组织职责
+
+train_update 管一个更新窗口；train_epoch 只负责把 DataLoader 交付的 micro-batch 分成窗口，不能在外层重复 backward 或 scheduler.step。
+
+在 training/loop.py 写下面的第五周基础版本。当前仓库已经为第六周加上 sampler=None 和 commit；复练时理解本版本即可，不要覆盖已有恢复逻辑。
+
+~~~python
+from minimind_lab.training.step import train_update
+
+def train_epoch(
+    model, optimizer, dataloader, scheduler,
+    gradient_accumulation_steps=2, max_grad_norm=1.0,
+):
+    if gradient_accumulation_steps <= 0:
+        raise ValueError("gradient_accumulation_steps must be greater than 0")
+    pending_batches = []
+    history = []
+    for batch in dataloader:
+        pending_batches.append(batch)
+        if len(pending_batches) == gradient_accumulation_steps:
+            history.append(train_update(
+                model, optimizer, pending_batches, scheduler,
+                max_grad_norm=max_grad_norm,
+            ))
+            pending_batches = []
+    if pending_batches:
+        history.append(train_update(
+            model, optimizer, pending_batches, scheduler,
+            max_grad_norm=max_grad_norm,
+        ))
+    return history
+~~~
+
+### 11.2 尾部验证
+
+五个 micro-batch，累积步数为 2，应形成 [2,2,1] 三个窗口。最后一个按自己的真实 token 数归一化，不再额外除以计划的 2，也不能丢掉它。
+
+~~~powershell
+uv run --locked pytest tests/test_training.py -q -k train_epoch
+~~~
+
+参考测试手动调用三次 train_update，与外层循环比较。用尾部前后的参数快照、AdamW step=3、scheduler 推进三次共同证明最后一批实际参与更新。空 epoch 应返回空 history，不改变状态。
+
+## 12. 验收与衔接
+
+### 12.1 回归检查
+
+~~~powershell
+uv run --locked pytest tests/test_loss.py tests/test_training.py -q
+~~~
+
+| 行为 | 验证理由 |
+| --- | --- |
+| 整批与累积更新一致 | 同一个 token 平均目标没有被改写 |
+| 空列表/None 提前报错 | 无数据时不产生一次更新 |
+| 冻结参数不变 | train 模式不是解冻，None 梯度能处理 |
+| 尾部实际更新 | 不静默丢弃最后一个窗口 |
+| 空 epoch 不变 | 没有输入就没有训练进度 |
+| 非法累积步数拒绝 | 错误配置在计算前暴露 |
+
+历史第五周验收是训练测试 8 项、全仓 229 项；当前 test_training.py 还包含第六周 evaluate 测试，全部执行也应通过。测试数量不是算法理解程度的分数。
+
+### 12.2 实践边界
+
+当前是小模型、单设备、batch 已放到正确设备的训练计算；没有 autocast/scaler、分布式同步、数据指纹、周期保存或恢复。训练输入以一个完整窗口的 batch 列表交付，但每次 backward 后不要求保留此前计算图，不能把梯度累积理解为同时保存全部 micro-batch 的图。
+
+核心与观察实验由学习者在提示下完成；补充边界测试由助手按授权整理，不能全部记作学习者独立实现。下一周在这个训练循环上增加验证、checkpoint、随机状态与样本消费位置，不再重新发明参数更新链路。
+
+## 13. 学习问答
+
+### 13.1 为什么参数的梯度也是 Tensor，可以 detach？
+
+Parameter 是 Tensor 的特殊形式，.grad 通常也是 Tensor。两者都可以使用 Tensor 操作。梯度快照 detach().clone() 用于独立保存数值，不是删除参数本身或让未来训练永久停止求导。
+
+### 13.2 id(parameter) 是什么，为什么用集合检查？
+
+id 表示当前对象生命周期中的身份，不是参数数值。set 去重后可检查组内重复；isdisjoint 检查组间无交叉；竖线表示并集。两个参数数值相同也可能是不同对象，优化器是否重复持有同一对象才是这里关注的问题。
+
+### 13.3 param_groups 和 state 是两套参数吗？
+
+不是。param_groups 持有 Parameter 引用和学习率、衰减等分组配置；state 保存该 Parameter 的 m/v、step 等历史。共享配置不等于共享历史。同一个参数对象被两处引用，也不应因此更新两次。
+
+### 13.4 为什么权重衰减写成 before*(1-lr*weight_decay)？
+
+它等于 before-lr*weight_decay*before。只在自适应项为零的隔离实验里，最终参数就是这部分；正常 AdamW 还要减自适应更新，不能漏掉。
+
+### 13.5 Warmup 的 2 是固定算法常数吗？
+
+不是。本例 warmup 两次是为了手算六步计划，真实 warmup 长度属于实验配置。LambdaLR 接收倍率函数，StepLR 有自己的分段规则，“实际学习率=基准×倍率”不决定倍率必须长什么样。
+
+### 13.6 调度曲线正确就能证明训练更好吗？
+
+不能。规则正确是实现验证，效果更好需要与基线比较。学习率形状受架构、优化器、数据和预算影响；本周不将教学端点当成最佳配置，也不新增一轮超参数搜索。
+
+### 13.7 (w-target)² 的导数为什么不是 2w？
+
+对 w 求导得到 2(w-target)。target 为常量意味着其导数为零，不表示表达式中的 target 可以先删掉。展开后交叉项 -2*target*w 的导数仍为 -2*target。
+
+### 13.8 Tensor 为什么能和数字相减，打印都要 item 吗？
+
+Tensor 支持与 Python 标量逐元素运算，结果仍参与计算图。可以直接 print(tensor)；item 只在需要 Python 单元素数值时使用，多元素矩阵不能整体 item。
+
+### 13.9 为什么清梯度后 grad.item 报错？
+
+zero_grad(set_to_none=True) 把梯度设为 None，首次 backward 才创建或填充它。要观察上一轮梯度，应在清理前保存副本，而不是假设 None 就是零张量。
+
+### 13.10 全局 Token 平均是一个 epoch 的平均吗？
+
+这里指一次 optimizer update 的累积窗口。训练 epoch 的日志平均和固定模型的验证 NLL 可以另算，但不能用它们替代本次更新的梯度分母。
+
+### 13.11 为什么 double 后还保留相对和绝对容差？
+
+double 使相应浮点参数转为 float64，但模块内部仍可能显式转为 float32，计算顺序也会引入舍入差。容差需要结合具体实现，而不是因为写了 double 就要求逐位完全相同。
+
+### 13.12 pytest.approx 为什么同时有 rel 和 abs？
+
+对普通有限标量，近似判断允许的差约为 max(rel*abs(expected), abs)。rel 随量级变化，abs 保护接近零的值。torch.testing.assert_close 使用不同的容差组合规则，不要把两个接口的数学条件混用。
+
+### 13.13 grad_norm 为什么返回裁剪前数值？
+
+需要知道原梯度到底多大。若只返回裁剪后数值，原来是 5 还是 1000 都可能显示约 1，异常程度被隐藏。实际梯度已原地修改，必要时可另算裁剪后范数。
+
+### 13.14 model.train 会开启冻结参数吗？
+
+不会。它改变依赖 training 标志的模块行为，如 Dropout、BatchNorm；requires_grad 控制求导，optimizer 的参数集合控制更新对象。三者职责不同。
+
+### 13.15 为什么同一批更新后 loss 没变，或者变大？
+
+先重新 forward，旧 loss 不会自动刷新；再查是否有 backward、参数是否真的被更新、学习率是否为零。单次更新也不保证任意目标都下降，尤其存在较大学习率、随机性或额外衰减时。这里用确定性小实验先排除实现错误，再讨论训练策略。

@@ -9,6 +9,7 @@ def train_epoch(
     scheduler,
     gradient_accumulation_steps=2,
     max_grad_norm=1.0,
+    sampler=None,
 ):
     if gradient_accumulation_steps <= 0:
         raise ValueError("gradient_accumulation_steps must be greater than 0")
@@ -26,6 +27,12 @@ def train_epoch(
                 scheduler,
                 max_grad_norm=max_grad_norm,
             )
+            if sampler is not None:
+                sampler_count = sum(
+                    batch["input_ids"].shape[0]
+                    for batch in pending_batches
+                )
+                sampler.commit(sampler_count)
             history.append(result)
             pending_batches = []
     
@@ -37,6 +44,12 @@ def train_epoch(
             scheduler,
             max_grad_norm=max_grad_norm,
         )
+        if sampler is not None:
+            sampler_count = sum(
+                batch["input_ids"].shape[0]
+                for batch in pending_batches
+            )
+            sampler.commit(sampler_count)
         history.append(result)
     
     return history
