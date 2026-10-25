@@ -1,0 +1,19 @@
+{
+  "status": "paused",
+  "started_at_utc": "2026-10-24T16:08:49.307319+00:00",
+  "global_step": 20,
+  "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+  "purpose": "pretrain",
+  "checkpoint_dir": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_resume_gate_v1\\resumed",
+  "resume_from": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_resume_gate_v1\\resumed\\checkpoint-4.pt",
+  "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4",
+  "model_parameters": 63912192,
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 4060 Ti",
+  "validation_records": 5000,
+  "validation_scope": "full_frozen_validation",
+  "committed_samples": 5120,
+  "valid_tokens_seen": 1223955,
+  "last_checkpoint": "checkpoint-20.pt",
+  "finished_at_utc": "2026-10-24T16:15:18.188205+00:00"
+}

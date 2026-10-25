@@ -1,0 +1,63 @@
+{
+  "reference_revision": "f659b55761b754d306bd140573493a6543cafd7f",
+  "reference_source_sha256": "548f1203282dccb3be43227b11463f469b976afbab614df52828bdd246c3786f",
+  "reference_source_url": "https://raw.githubusercontent.com/jingyaogong/minimind/f659b55761b754d306bd140573493a6543cafd7f/model/model_minimind.py",
+  "local_model_file_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "attention.py": "d0d5a3c3dd968b61f7c858618283739818b1009cbe236a2c78b0d9a4505404ba",
+    "block.py": "fffa78eb31efc59f5031f928a23dce806638fbdfc121d8c374c2086d0b04ed58",
+    "bpe.py": "3fc92e62fc1145b08f4901833c1e3b12be0ad29f36eae1859bd918405fabc285",
+    "config.py": "0335b8b3730c459e1e7145ccf042e34b40857182ce38bec59a02871d3b604529",
+    "embedding.py": "eb2d1ebe10e11062aaf3cffe721c8506ee99dc6a59f386d664ca38d20342736b",
+    "feedforward.py": "bfcf2e8768afdca1d3194444acab60cbe4305b4b4a62954d2dec483a55ba4954",
+    "generation.py": "7e998937e67f2f4ffaa00d2505432b9a0359d82ed81d1efa9b30d871ebff510d",
+    "initialization.py": "a97ef700cc2dbd3f2bc30cc7375f0cbc7fdbf39253b3a560567cfe9620f86c6d",
+    "loss.py": "d25bfe029b3a256626e34247bd314d3a0a05f5a33df0b9c01740c49609ee8657",
+    "model.py": "0a632bb110af1c9bfa3c75f92451f694b02c831477d4093553b1c7d221aeacae",
+    "rmsnorm.py": "6577dd8f51187e4bd86d1b9877e2747dd83e2d19625735d30a0a83ca081095f5",
+    "rope.py": "ab5d1d98a73934a10477cd8a1e9c366f76a4c99c3a1c17445fcddd0107b047c8"
+  },
+  "comparison_script_sha256": "361a1c60c0775bf0efa7d7da3ded69de490f10cec1c06fc2ea2b42a983db27d7",
+  "torch": "2.14.0+cu130",
+  "transformers": "4.57.6",
+  "device": "cpu",
+  "dtype": "float32",
+  "seed": 42,
+  "profile": "tiny",
+  "model_dimensions": {
+    "layers": 2,
+    "hidden_size": 16,
+    "intermediate_size": 32,
+    "vocab_size": 32,
+    "query_heads": 4,
+    "kv_heads": 2
+  },
+  "local_unique_parameters": 5216,
+  "compared_parameter_tensors": 24,
+  "flash_attention": false,
+  "atol": 0.000001,
+  "rtol": 0.0001,
+  "cases": [
+    {
+      "case": "no_padding",
+      "valid_targets": 6,
+      "logits_max_abs_error": 0,
+      "local_loss": 3.445465087890625,
+      "official_loss": 3.445465087890625,
+      "loss_abs_error": 0,
+      "gradient_max_abs_error": 5.960464477539063e-8,
+      "status": "passed"
+    },
+    {
+      "case": "right_padding",
+      "valid_targets": 5,
+      "logits_max_abs_error": 0,
+      "local_loss": 3.4650702476501465,
+      "official_loss": 3.4650702476501465,
+      "loss_abs_error": 0,
+      "gradient_max_abs_error": 2.9802322387695312e-8,
+      "status": "passed"
+    }
+  ],
+  "scope": "Forward, loss and gradients; no optimizer update or training."
+}

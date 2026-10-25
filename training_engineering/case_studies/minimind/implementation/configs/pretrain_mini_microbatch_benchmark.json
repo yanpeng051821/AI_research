@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "purpose": "microbatch_benchmark",
+  "source_config": "configs/pretrain_mini_probe.json",
+  "source_config_sha256": "43cb29f1eedcf01b87246f785092481724819f9c960eda8d40507d3bbb3ea35a",
+  "effective_batch_records": 256,
+  "candidates": [2, 4, 8],
+  "excluded_candidates": [
+    {
+      "micro_batch_size": 16,
+      "gradient_accumulation_steps": 16,
+      "status": "rejected_shared_memory_spill",
+      "reason": "The preliminary run held dedicated VRAM near 7.91/8.19 GiB and the Python process grew to about 16.1 GB private memory without completing for several minutes. It was terminated as operationally unusable."
+    }
+  ],
+  "warmup_updates": 1,
+  "measured_updates": 2,
+  "minimum_device_free_ratio": 0.1
+}

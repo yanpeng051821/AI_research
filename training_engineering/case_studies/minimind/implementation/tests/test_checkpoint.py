@@ -128,10 +128,11 @@ def test_failed_checkpoint_write_preserves_previous_file(tmp_path, monkeypatch):
     before = path.read_bytes()
 
     def fail_save(state, target):
-        target.write_bytes(b'incomplete')
+        target.write(b'incomplete')
         raise OSError('simulated write failure')
 
     monkeypatch.setattr(checkpoint.torch, 'save', fail_save)
     with pytest.raises(OSError, match='simulated write failure'):
         checkpoint.save_checkpoint(path, *objects, 1)
     assert path.read_bytes() == before
+    assert not path.with_name(path.name + '.tmp').exists()

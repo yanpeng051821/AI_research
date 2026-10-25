@@ -8,11 +8,14 @@ class ModelConfig:
     hidden_size: int = 64
     intermediate_size: int = 128
     rms_norm_eps: float = 1e-5
+    qk_norm: bool = False
 
     num_layers: int = 2
     num_heads: int = 4
     kv_heads: int = 2
     rope_base: float = 1e6
+    
+    
 
     def __post_init__(self):
         if self.vocab_size <= 0:

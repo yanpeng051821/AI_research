@@ -1,0 +1,32 @@
+{
+  "status": "completed",
+  "started_at_utc": "2026-10-24T10:00:47.183617+00:00",
+  "global_step": 8,
+  "contract_sha256": "213197bb6f965a2aeef755f739141f41e774c926ec13416daac2a39c1b931c9a",
+  "purpose": "engineering_probe",
+  "resume_from": null,
+  "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4",
+  "model_parameters": 63912192,
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 4060 Ti",
+  "validation_records": 64,
+  "validation_scope": "fixed_prefix_engineering_subset",
+  "committed_samples": 64,
+  "valid_tokens_seen": 15597,
+  "last_checkpoint": "checkpoint-8.pt",
+  "finished_at_utc": "2026-10-24T10:01:00.641495+00:00",
+  "updates_this_launch": 8,
+  "initial_or_resume_validation": {
+    "nll": 8.909696075564275,
+    "valid_tokens": 12469
+  },
+  "final_validation": {
+    "nll": 7.845093546839913,
+    "valid_tokens": 12469
+  },
+  "median_update_seconds_excluding_first": 0.37985150000895374,
+  "peak_allocated_bytes_this_launch": 2653085184,
+  "limitations": [
+    "Engineering probe and validation subset do not establish full-data convergence or natural-language ability."
+  ]
+}

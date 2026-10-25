@@ -107,6 +107,31 @@ def test_direct_and_rotate_half_forms_match_forward_and_backward():
     )
 
 
+def test_apply_rope_preserves_bfloat16_dtype_and_gradients_with_fp32_angles():
+    torch.manual_seed(42)
+    q = torch.randn(1, 2, 260, 4, dtype=torch.bfloat16, requires_grad=True)
+    k = torch.randn(1, 1, 260, 4, dtype=torch.bfloat16, requires_grad=True)
+    angles = build_rope_angles(260, 4, dtype=torch.float32)
+
+    q_rotated, k_rotated = apply_rope(q, k, angles)
+
+    assert q_rotated.dtype == q.dtype
+    assert k_rotated.dtype == k.dtype
+    assert angles[257, 0].item() == 257
+    expected = torch.tensor([torch.cos(torch.tensor(257.0)), 0.0,
+                             torch.sin(torch.tensor(257.0)), 0.0]).to(q.dtype)
+    probe = torch.tensor([1.0, 0.0, 0.0, 0.0], dtype=q.dtype)
+    probe = probe.expand(1, 1, 260, 4)
+    probe_rotated, _ = apply_rope(probe, probe, angles)
+    torch.testing.assert_close(probe_rotated[0, 0, 257], expected, rtol=0, atol=0)
+
+    (q_rotated.float().square().mean() + k_rotated.float().square().mean()).backward()
+    for tensor in (q, k):
+        assert tensor.grad is not None
+        assert torch.isfinite(tensor.grad).all()
+        assert tensor.grad.abs().sum() > 0
+
+
 def test_apply_rope_supports_different_query_and_key_head_counts():
     torch.manual_seed(42)
     q = torch.randn(2, 4, 3, 4, dtype=torch.float64, requires_grad=True)

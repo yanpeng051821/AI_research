@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "created_at_utc": "2026-10-24T08:36:25.926535+00:00",
+  "scope": "full_train_and_validation_encoding_not_model_training_or_quality_evaluation",
+  "split_manifest_sha256": "6254a2b940450fb53d9c28c6fa4e598e86530861cfc35d38d4024bfa8cb6e6a6",
+  "split_files_sha256": {
+    "train": "b8870b10df24c37a606e64913d6b891a148a96762c98b1458289ba151f4ba9dc",
+    "validation": "7b2b831781669348b756841de2c31abf2ddee91eb72fab1cb53e52a9909e8b70",
+    "excluded": "0856f0d46d535c309ee05385443851b63ab6314f6b964f8d12dd10ebddc3848d"
+  },
+  "max_length": 768,
+  "content_budget": 766,
+  "encoding_policy": "BOS + first (max_length - 2) body tokens + EOS; fixed right padding by collator",
+  "special_token_ids": {
+    "bos_token_id": 1,
+    "eos_token_id": 2,
+    "pad_token_id": 0
+  },
+  "statistics": {
+    "validation": {
+      "records": 5000,
+      "body_tokens": 1310713,
+      "retained_body_tokens": 1201758,
+      "dropped_tail_tokens": 108955,
+      "truncated_records": 201,
+      "active_input_positions": 1211758,
+      "valid_causal_targets": 1206758,
+      "records_with_pad_id_in_retained_body": 0,
+      "empty_encoded_bodies": 0,
+      "fixed_length_positions": 3840000,
+      "active_position_fraction": 0.3155619791666667,
+      "truncated_record_fraction": 0.0402,
+      "min_body_tokens": 5,
+      "max_body_tokens": 2327,
+      "body_length_percentiles": {
+        "p50": 212.0,
+        "p90": 420.10000000000036,
+        "p95": 569.0500000000002,
+        "p99": 1417.0400000000009
+      }
+    },
+    "train": {
+      "records": 1265235,
+      "body_tokens": 328643558,
+      "retained_body_tokens": 300545455,
+      "dropped_tail_tokens": 28098103,
+      "truncated_records": 49628,
+      "active_input_positions": 303075925,
+      "valid_causal_targets": 301810690,
+      "records_with_pad_id_in_retained_body": 0,
+      "empty_encoded_bodies": 0,
+      "fixed_length_positions": 971700480,
+      "active_position_fraction": 0.31190261941622177,
+      "truncated_record_fraction": 0.03922433381940904,
+      "min_body_tokens": 2,
+      "max_body_tokens": 11800,
+      "body_length_percentiles": {
+        "p50": 209.0,
+        "p90": 418.0,
+        "p95": 571.0,
+        "p99": 1433.0
+      }
+    }
+  },
+  "unique_validation_input_sequences": 5000,
+  "train_records_with_exact_validation_input": 0,
+  "overlap_examples": [],
+  "limitations": [
+    "SHA256 compares exact full unpadded input token IDs; no near-duplicate or document lineage guarantee.",
+    "Candidate length only; GPU memory, throughput and final training recipe remain unverified.",
+    "Raw text files are not modified by this audit; any overlap requires an explicit split-policy revision."
+  ],
+  "tokenizer_files_sha256": {
+    "manifest.json": "ba6d90df750b83465959c28fc4f756282cd25c5e39f803736d4e5082db6a73e4",
+    "tokenizer.json": "8bf5868abfc7ea919186b57e2b411adefe3b0922b53052c5839937e166b9d395",
+    "tokenizer_config.json": "e42b762555734279158ca292431c831fa387c48c35d9b1b205f4fc6c83b79d34"
+  },
+  "runtime": {
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "numpy": "2.5.3"
+  },
+  "code_sha256": {
+    "audit": "ac13a1e371f97cd039b0cf2f6cdad5fa76a90248c5c37aceaf219a29fc18dedd",
+    "dataset_and_collator": "e0800dae5dda1c3db54ed87afee18316499b69bd3752ce1b4795376649b67e0a"
+  }
+}

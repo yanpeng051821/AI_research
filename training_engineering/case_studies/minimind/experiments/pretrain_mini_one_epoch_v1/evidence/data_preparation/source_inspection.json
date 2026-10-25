@@ -1,0 +1,134 @@
+{
+  "scope": "full_source_structure_and_exact_text_identity_not_fact_check_or_split",
+  "source_repo": "jingyaogong/minimind_dataset",
+  "source_revision": "312afb4f76391145c6902f765bb51691c09a12f5",
+  "source_sha256": "6dd6716c84ab36897bdbfc7f88e04f4441c48c1ab7ecee88ce0b0e7d4685560c",
+  "source_bytes": 1241043656,
+  "analysis_script_sha256": "54a53b3b769014ef359049006e156a0d4361c039e3e46ddf9d5475f0401c5039",
+  "physical_lines": 1270238,
+  "valid_records": 1270238,
+  "invalid_records": 0,
+  "errors_by_code": {},
+  "error_examples": [],
+  "schemas": [
+    {
+      "keys": [
+        "text"
+      ],
+      "records": 1270238
+    }
+  ],
+  "total_text_characters": 486491829,
+  "unique_exact_texts": 1270047,
+  "duplicate_extra_records": 191,
+  "duplicate_text_groups": 191,
+  "largest_exact_text_group": 2,
+  "duplicate_examples": [
+    {
+      "source_line": 1193967,
+      "first_source_line": 227125,
+      "text_sha256": "67b88a0af4c28a8e82e6561e5e46771faf75773b246e7da5c1fc13869ee4104c"
+    },
+    {
+      "source_line": 1193969,
+      "first_source_line": 227275,
+      "text_sha256": "d9b3e553c64850a86e3e7302ea193bfe1b4c494c70278ddd5665811c859da818"
+    },
+    {
+      "source_line": 1193972,
+      "first_source_line": 450035,
+      "text_sha256": "bbb401b30917d34ee555b1a29634a3573e979d73a897ff23e2a25f99d77df9ee"
+    },
+    {
+      "source_line": 1193978,
+      "first_source_line": 450364,
+      "text_sha256": "d221b30127f6a01e98e566808f1cb8025c93b5e0e64c0570513f1904546ce579"
+    },
+    {
+      "source_line": 1193980,
+      "first_source_line": 450374,
+      "text_sha256": "dfe87aeadbc0c2ebd4b49eb4aa8235d2d1b23d0dac8e1af0fa03b735c0b7ed30"
+    },
+    {
+      "source_line": 1193981,
+      "first_source_line": 450392,
+      "text_sha256": "468d8f5f6742c4b0f71f9066b58b8a79cd832f31554195ce21c23d93eee2d6d4"
+    },
+    {
+      "source_line": 1193986,
+      "first_source_line": 1041344,
+      "text_sha256": "23861fb72b1add5caa41afdc507afb22961e051a1924925cfdd7882be59f0c68"
+    },
+    {
+      "source_line": 1193995,
+      "first_source_line": 450691,
+      "text_sha256": "4c2a90fedf6cc89fe2f08d8fef37ab357e6a34916a675bfe96565056a3451b8a"
+    },
+    {
+      "source_line": 1194004,
+      "first_source_line": 450992,
+      "text_sha256": "71f8b2c8bd8afebe2ef291d42fd5505f3a4dc2328a21c946ceae201faa7ec542"
+    },
+    {
+      "source_line": 1194020,
+      "first_source_line": 473983,
+      "text_sha256": "e1c40e7bcaa3e7cb1a85cd6b12ee4b5659145dbbc718b06d1a9c174254e9da15"
+    },
+    {
+      "source_line": 1194021,
+      "first_source_line": 474030,
+      "text_sha256": "2bc2f34ea0c427bd7b300ab24440271af93d1ee155889962bda5a4ac420eb84a"
+    },
+    {
+      "source_line": 1194022,
+      "first_source_line": 474047,
+      "text_sha256": "ae611ee1db119a5ac27d1eae2663caa73f809987404f417bbfe96d4b83bb53b6"
+    },
+    {
+      "source_line": 1194023,
+      "first_source_line": 474122,
+      "text_sha256": "9c048a57c58ef239f25b354b3c53a76a416dd80e5ab26f44fe2b743913e1f559"
+    },
+    {
+      "source_line": 1194024,
+      "first_source_line": 474125,
+      "text_sha256": "98a387c13399ffb06c986b4dbd2a3f8a33617880bd9680516241a625b9b1e531"
+    },
+    {
+      "source_line": 1194025,
+      "first_source_line": 474158,
+      "text_sha256": "a1b0ba53297e43e3ebf77490a0af3f596d5274c4d999b94d134fc15a2dd7c73b"
+    },
+    {
+      "source_line": 1194026,
+      "first_source_line": 474166,
+      "text_sha256": "ad8a26cae52278c66307b172d2c730b52380c60c45b9685c5fdd7d7c24948872"
+    },
+    {
+      "source_line": 1194027,
+      "first_source_line": 474221,
+      "text_sha256": "9097b08a9b4017d0d06a65f0f04e7b02b8b1c810379f48c7e29b2a616f2a6fa4"
+    },
+    {
+      "source_line": 1194028,
+      "first_source_line": 474237,
+      "text_sha256": "a29f0d8b46c729e56fdd8cefd2174f962045dac41ec7b03111fe80ee8b9ce00b"
+    },
+    {
+      "source_line": 1194029,
+      "first_source_line": 474276,
+      "text_sha256": "4bb45281d1a4c16a1110bf84f96cb41decf96f7fb7997f906f3c96f6fb1c4839"
+    },
+    {
+      "source_line": 1194030,
+      "first_source_line": 474283,
+      "text_sha256": "525fcf14381a3d1e214ffd504590cf329eff40246026e82c741d2bc12f7b7eba"
+    }
+  ],
+  "limitations": [
+    "Exact UTF-8 text identity only; no normalization or near-duplicate analysis.",
+    "Original document/conversation lineage is not inferred from text equality.",
+    "Token length statistics and post-truncation token-prefix overlap require separate checks.",
+    "No factual correctness or licensing review is performed by this structural scan."
+  ]
+}

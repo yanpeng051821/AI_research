@@ -1,0 +1,22 @@
+# Preserve exact bytes for experiment contracts and their hashed inputs.
+training_engineering/case_studies/minimind/experiments/** -text
+training_engineering/case_studies/minimind/implementation/src/** -text
+training_engineering/case_studies/minimind/implementation/scripts/audit_pretrain_encoding.py -text
+training_engineering/case_studies/minimind/implementation/scripts/benchmark_pretrain_microbatch.py -text
+training_engineering/case_studies/minimind/implementation/scripts/build_pretrain_mini.py -text
+training_engineering/case_studies/minimind/implementation/scripts/build_pretrain_splits.py -text
+training_engineering/case_studies/minimind/implementation/scripts/compare_minimind3_reference.py -text
+training_engineering/case_studies/minimind/implementation/scripts/compare_pretrain_lengths.py -text
+training_engineering/case_studies/minimind/implementation/scripts/compare_pretrain_resume.py -text
+training_engineering/case_studies/minimind/implementation/scripts/freeze_pretrain_recipe.py -text
+training_engineering/case_studies/minimind/implementation/scripts/inspect_minimind3.py -text
+training_engineering/case_studies/minimind/implementation/scripts/inspect_pretrain_data.py -text
+training_engineering/case_studies/minimind/implementation/scripts/inspect_pretrain_recovery.py -text
+training_engineering/case_studies/minimind/implementation/scripts/inspect_pretrain_source.py -text
+training_engineering/case_studies/minimind/implementation/scripts/prepare_pretrain_subset.py -text
+training_engineering/case_studies/minimind/implementation/scripts/train_frozen_pretrain.py -text
+training_engineering/case_studies/minimind/implementation/scripts/train_pretrain.py -text
+training_engineering/case_studies/minimind/implementation/assets/minimind_tokenizer/** -text
+training_engineering/case_studies/minimind/implementation/configs/*.json -text
+training_engineering/case_studies/minimind/implementation/pyproject.toml -text
+training_engineering/case_studies/minimind/implementation/uv.lock -text

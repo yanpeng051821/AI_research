@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "snapshot_scope": "dataset_split_only_not_training_contract",
+  "source": {
+    "source_repo": "jingyaogong/minimind_dataset",
+    "source_revision": "312afb4f76391145c6902f765bb51691c09a12f5",
+    "source_path": "data/raw/minimind/pretrain_t2t_mini.jsonl",
+    "source_sha256": "6dd6716c84ab36897bdbfc7f88e04f4441c48c1ab7ecee88ce0b0e7d4685560c"
+  },
+  "inputs_sha256": {
+    "candidates": "471d2e48665b0d5c4e8e3da07c7b3cda2f486d1281426568a40192b8553fe73b",
+    "source_manifest": "a461684c003f5e30ddbdbd6da19f4dc201d6d03e3a4a319d0422897f21a5a4d5",
+    "analysis_report": "997f434fe903866996c8fd25446b2b905036b9c947aff72dfe2e0e7566e68a97",
+    "retained_rows": "8ab05aaac3907a2d9fd3eb4da0caaec83f470b2923fa0d0043fb12fb8d26c1a6",
+    "length_filtered_rows": "42b6f0babd7197899ba652914be2b0997c167e9aa4322e55c37ab1e4dae73b79",
+    "review_decisions": "caf1adb66e530c9d581000b82ce1cb9ce4d53db849d0bf99679ab12374a546da"
+  },
+  "tokenizer_files_sha256": {
+    "manifest.json": "ba6d90df750b83465959c28fc4f756282cd25c5e39f803736d4e5082db6a73e4",
+    "tokenizer.json": "8bf5868abfc7ea919186b57e2b411adefe3b0922b53052c5839937e166b9d395",
+    "tokenizer_config.json": "e42b762555734279158ca292431c831fa387c48c35d9b1b205f4fc6c83b79d34"
+  },
+  "builder_sha256": "8893bfd53a4fbb792c31240949fa0b9a1bb1be6bafd42073858d59dff33c497c",
+  "python_version": "3.12.13",
+  "max_length": 512,
+  "content_budget": 510,
+  "long_record_policy": "exclude_whole_record_without_modifying_text",
+  "split_unit": "candidate_record_identified_by_source_line",
+  "split_seed": 43,
+  "validation_size": 500,
+  "sampling_method": "random.sample_from_sorted_eligible_unreviewed_source_lines",
+  "file_order": "source_line_ascending",
+  "train_only_reviewed_source_lines": [
+    356,
+    500450,
+    674454,
+    817876,
+    826594,
+    869146,
+    871597,
+    1025075,
+    1200854
+  ],
+  "counts": {
+    "candidates": 10000,
+    "length_eligible": 9410,
+    "length_excluded": 590,
+    "review_excluded": 3,
+    "eligible": 9407,
+    "validation_pool": 9398,
+    "excluded_unique": 593
+  },
+  "train": {
+    "record_count": 8907,
+    "content_tokens": 1860620,
+    "valid_tokens_after_shift": 1869527,
+    "min_content_tokens": 6,
+    "max_content_tokens": 510
+  },
+  "validation": {
+    "record_count": 500,
+    "content_tokens": 100545,
+    "valid_tokens_after_shift": 101045,
+    "min_content_tokens": 22,
+    "max_content_tokens": 500
+  },
+  "outputs_sha256": {
+    "train.jsonl": "5d830eee4aeba27c649fb5ed2409018849a97259d909245013f0f5f5fa407556",
+    "validation.jsonl": "6286923fed78ca864effb36416f2bc861a247df9bb84ee5a05f725593579944e",
+    "exclusions.jsonl": "f052b8a2680dd3014c2e8ef1ca24c095858e2866637eee6d6813c49288c60271"
+  },
+  "limitations": [
+    "Content has not been fact-checked in full; validation may contain errors.",
+    "Exact text overlap is checked; near duplicates and original document groups are not guaranteed isolated.",
+    "Reviewed kept records are training-only; no independent final test set is created."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "created_at_utc": "2026-10-24T16:08:13.344852+00:00",
+  "scope": "same_machine_same_contract_pause_resume_exact_equivalence_not_cross_hardware_guarantee",
+  "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+  "updates_compared": 4,
+  "global_step": 4,
+  "committed_samples": 1024,
+  "valid_tokens_seen": 245140,
+  "exactly_equal_tensor_leaves": 363,
+  "checked_state": [
+    "model",
+    "optimizer",
+    "scheduler",
+    "sampler",
+    "torch_rng",
+    "cuda_rng",
+    "metadata"
+  ],
+  "exact_update_fields": [
+    "global_step",
+    "loss",
+    "valid_tokens",
+    "micro_batches",
+    "grad_norm",
+    "lr_used",
+    "next_lr",
+    "committed_samples"
+  ],
+  "continuous_checkpoint_sha256": "5eba8ae2ddff5e67eb72a66b206df37f533a046a921eb5ac44fdd2d33f30a973",
+  "resumed_checkpoint_sha256": "5eba8ae2ddff5e67eb72a66b206df37f533a046a921eb5ac44fdd2d33f30a973",
+  "parameter_dtypes": [
+    "torch.float32"
+  ],
+  "continuous_steady_median_update_seconds": 11.233401800000138,
+  "continuous_peak_allocated_gib": 3.7726035118103027,
+  "validation_scope": "full_frozen_validation",
+  "initial_validation": {
+    "nll": 8.912246169216113,
+    "valid_tokens": 1206758
+  },
+  "final_validation": {
+    "nll": 7.851118193106291,
+    "valid_tokens": 1206758
+  },
+  "comparison_script_sha256": "129a69784ccaa91a5ec8e805031446d2a72897b56afa4e85bda877dae4fb3838"
+}

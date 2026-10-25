@@ -1,0 +1,138 @@
+{
+  "contract_sha256": "213197bb6f965a2aeef755f739141f41e774c926ec13416daac2a39c1b931c9a",
+  "identity": {
+    "schema_version": 1,
+    "purpose": "engineering_probe",
+    "data": {
+      "split_manifest_sha256": "6254a2b940450fb53d9c28c6fa4e598e86530861cfc35d38d4024bfa8cb6e6a6",
+      "encoding_report_sha256": "edebc5cc495cfba936749f5b60629c8e6fa6c5a7828462174d3e7c6ad500a44a",
+      "max_length": 768
+    },
+    "model": {
+      "vocab_size": 6400,
+      "hidden_size": 768,
+      "intermediate_size": 2432,
+      "rms_norm_eps": 1e-06,
+      "qk_norm": true,
+      "num_layers": 8,
+      "num_heads": 8,
+      "kv_heads": 4,
+      "rope_base": 1000000.0
+    },
+    "training": {
+      "device": "cuda",
+      "precision": "bf16",
+      "seed": 42,
+      "sampler_seed": 42,
+      "micro_batch_size": 2,
+      "gradient_accumulation_steps": 4,
+      "max_updates": 8,
+      "learning_rate": 0.0005,
+      "weight_decay": 0.01,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "warmup_updates": 0,
+      "min_lr_ratio": 0.1,
+      "max_grad_norm": 1.0,
+      "checkpoint_interval": 4,
+      "num_workers": 0
+    },
+    "evaluation": {
+      "batch_size": 2,
+      "sample_limit": 64,
+      "interval": 4
+    },
+    "max_updates_resolved": 8,
+    "effective_batch_records": 8,
+    "loss_normalization": "sum loss / valid causal targets across the entire accumulation window",
+    "optimizer_parameter_policy": "all unique trainable parameters in one AdamW group",
+    "scheduler": "optimizer-update indexed warmup then cosine to min_lr_ratio",
+    "runtime": {
+      "torch": "2.14.0+cu130",
+      "transformers": "4.57.6",
+      "tokenizers": "0.22.2",
+      "datasets": "3.6.0"
+    },
+    "code_sha256": {
+      "src/minimind_lab/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/minimind_lab/audit_cli.py": "34f7d62068d10667d1895a27753611cdb27056141362969f0aeb6323f7bb4c97",
+      "src/minimind_lab/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/minimind_lab/data/pipeline.py": "1e53808ca1f32558c989e643e4f4a5458d53d749855a3545a24c9af3352ac425",
+      "src/minimind_lab/data/pretrain.py": "e0800dae5dda1c3db54ed87afee18316499b69bd3752ce1b4795376649b67e0a",
+      "src/minimind_lab/data/reader.py": "c57236120266ddb608ac86def96935c149a0e1c492d92b55fcbaf69b879b2448",
+      "src/minimind_lab/data/sampler.py": "987bd45af537ebab0ac9e4ea1c34eb3185aba39f41888e1c7d9530dcde9c35ce",
+      "src/minimind_lab/data/validator.py": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46",
+      "src/minimind_lab/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/minimind_lab/models/attention.py": "d0d5a3c3dd968b61f7c858618283739818b1009cbe236a2c78b0d9a4505404ba",
+      "src/minimind_lab/models/block.py": "fffa78eb31efc59f5031f928a23dce806638fbdfc121d8c374c2086d0b04ed58",
+      "src/minimind_lab/models/bpe.py": "3fc92e62fc1145b08f4901833c1e3b12be0ad29f36eae1859bd918405fabc285",
+      "src/minimind_lab/models/config.py": "0335b8b3730c459e1e7145ccf042e34b40857182ce38bec59a02871d3b604529",
+      "src/minimind_lab/models/embedding.py": "eb2d1ebe10e11062aaf3cffe721c8506ee99dc6a59f386d664ca38d20342736b",
+      "src/minimind_lab/models/feedforward.py": "bfcf2e8768afdca1d3194444acab60cbe4305b4b4a62954d2dec483a55ba4954",
+      "src/minimind_lab/models/generation.py": "7e998937e67f2f4ffaa00d2505432b9a0359d82ed81d1efa9b30d871ebff510d",
+      "src/minimind_lab/models/initialization.py": "a97ef700cc2dbd3f2bc30cc7375f0cbc7fdbf39253b3a560567cfe9620f86c6d",
+      "src/minimind_lab/models/loss.py": "d25bfe029b3a256626e34247bd314d3a0a05f5a33df0b9c01740c49609ee8657",
+      "src/minimind_lab/models/model.py": "0a632bb110af1c9bfa3c75f92451f694b02c831477d4093553b1c7d221aeacae",
+      "src/minimind_lab/models/rmsnorm.py": "6577dd8f51187e4bd86d1b9877e2747dd83e2d19625735d30a0a83ca081095f5",
+      "src/minimind_lab/models/rope.py": "ab5d1d98a73934a10477cd8a1e9c366f76a4c99c3a1c17445fcddd0107b047c8",
+      "src/minimind_lab/training/checkpoint.py": "3c93a2731386ff775d3d794d38dffacc4b728ce71c7c20eb6aaaacb1a6c603ac",
+      "src/minimind_lab/training/evaluate.py": "0a72642f541ed2a907d53121c80c5e7d9af0f09d57990d1f254dcc91bc5b8f33",
+      "src/minimind_lab/training/experiment.py": "c7d6431297cfaa1f5a52b31eb74994ba5bb80b622f11cd26c2010ba08a5e88bc",
+      "src/minimind_lab/training/loop.py": "8d2c366efcde494f3ca285996bd78a976ddff569384ccf1363a8f608a3df366e",
+      "src/minimind_lab/training/step.py": "962acf7a90d3b5e963dd05eea4fdcd557708815a05b24f12eb7f123b99223a98",
+      "scripts/train_pretrain.py": "e0a27632f9bae3eff13e2f096c76a3c624a90c4eff06717a59b4d17140c21d5f"
+    }
+  },
+  "resolved_config": {
+    "schema_version": 1,
+    "purpose": "engineering_probe",
+    "data": {
+      "split_manifest": "data/processed/pretrain_mini_v1/split_seed43_v1/manifest.json",
+      "split_manifest_sha256": "6254a2b940450fb53d9c28c6fa4e598e86530861cfc35d38d4024bfa8cb6e6a6",
+      "encoding_report": "data/processed/pretrain_mini_v1/split_seed43_v1/encoding_audit_768.json",
+      "encoding_report_sha256": "edebc5cc495cfba936749f5b60629c8e6fa6c5a7828462174d3e7c6ad500a44a",
+      "tokenizer_dir": "assets/minimind_tokenizer",
+      "max_length": 768
+    },
+    "model": {
+      "vocab_size": 6400,
+      "hidden_size": 768,
+      "intermediate_size": 2432,
+      "rms_norm_eps": 1e-06,
+      "qk_norm": true,
+      "num_layers": 8,
+      "num_heads": 8,
+      "kv_heads": 4,
+      "rope_base": 1000000.0
+    },
+    "training": {
+      "device": "cuda",
+      "precision": "bf16",
+      "seed": 42,
+      "sampler_seed": 42,
+      "micro_batch_size": 2,
+      "gradient_accumulation_steps": 4,
+      "max_updates": 8,
+      "learning_rate": 0.0005,
+      "weight_decay": 0.01,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "warmup_updates": 0,
+      "min_lr_ratio": 0.1,
+      "max_grad_norm": 1.0,
+      "checkpoint_interval": 4,
+      "num_workers": 0
+    },
+    "evaluation": {
+      "batch_size": 2,
+      "sample_limit": 64,
+      "interval": 4
+    }
+  }
+}

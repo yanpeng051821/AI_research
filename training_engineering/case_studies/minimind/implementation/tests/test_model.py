@@ -5,6 +5,50 @@ import torch
 
 from minimind_lab.models.config import ModelConfig
 from minimind_lab.models.model import MinimindBackbone, MinimindForCausalLM
+from minimind_lab.models.loss import causal_lm_loss
+from minimind_lab.models.rmsnorm import RMSNorm
+
+
+@pytest.mark.parametrize("qk_norm", [False, True])
+def test_causal_lm_propagates_qk_norm_config_and_backpropagates(qk_norm):
+    torch.manual_seed(42)
+    config = ModelConfig(
+        vocab_size=32,
+        hidden_size=16,
+        intermediate_size=32,
+        num_layers=2,
+        num_heads=4,
+        kv_heads=2,
+        rms_norm_eps=3e-4,
+        qk_norm=qk_norm,
+    )
+    model = MinimindForCausalLM(config)
+
+    for block in model.backbone.blocks:
+        for norm in (block.attention.q_norm, block.attention.k_norm):
+            if qk_norm:
+                assert isinstance(norm, RMSNorm)
+                assert norm.eps == config.rms_norm_eps
+                assert norm.weight.shape == (4,)
+            else:
+                assert isinstance(norm, torch.nn.Identity)
+
+    input_ids = torch.tensor([[1, 3, 4, 2], [1, 5, 2, 0]])
+    mask = torch.tensor([[1, 1, 1, 1], [1, 1, 1, 0]])
+    labels = input_ids.masked_fill(mask == 0, -100)
+    logits = model(input_ids, attention_mask=mask)
+    assert logits.shape == (2, 4, 32)
+    loss = causal_lm_loss(logits, labels)
+    assert torch.isfinite(loss)
+    loss.backward()
+
+    for name, parameter in model.named_parameters():
+        assert parameter.grad is not None, name
+        assert torch.isfinite(parameter.grad).all(), name
+    if qk_norm:
+        for block in model.backbone.blocks:
+            assert block.attention.q_norm.weight.grad.abs().sum() > 0
+            assert block.attention.k_norm.weight.grad.abs().sum() > 0
 
 
 def test_backbone_constructor_propagates_config_and_registers_independent_layers():

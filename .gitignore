@@ -1,3 +1,4 @@
 .env
 .env.*
 !.env.example
+training_engineering/case_studies/minimind/implementation/data/reference/

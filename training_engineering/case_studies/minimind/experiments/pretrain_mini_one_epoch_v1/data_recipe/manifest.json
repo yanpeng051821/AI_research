@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "text_split_complete_encoding_not_checked",
+  "created_at_utc": "2026-10-24T08:33:15.551919+00:00",
+  "source_repo": "jingyaogong/minimind_dataset",
+  "source_revision": "312afb4f76391145c6902f765bb51691c09a12f5",
+  "source_file": "pretrain_t2t_mini.jsonl",
+  "source_total_lines": 1270238,
+  "inputs": {
+    "source": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\raw\\minimind\\pretrain_t2t_mini.jsonl",
+      "sha256": "6dd6716c84ab36897bdbfc7f88e04f4441c48c1ab7ecee88ce0b0e7d4685560c"
+    },
+    "reviews": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\pretrain_512_v1\\review_decisions.jsonl",
+      "sha256": "caf1adb66e530c9d581000b82ce1cb9ce4d53db849d0bf99679ab12374a546da"
+    },
+    "source_manifest": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\pretrain_candidate_v1\\manifest.json",
+      "sha256": "a461684c003f5e30ddbdbd6da19f4dc201d6d03e3a4a319d0422897f21a5a4d5"
+    },
+    "review_candidates": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\pretrain_candidate_v1\\candidates.jsonl",
+      "sha256": "471d2e48665b0d5c4e8e3da07c7b3cda2f486d1281426568a40192b8553fe73b"
+    }
+  },
+  "split_policy": {
+    "group_identity": "SHA256 of exact original text encoded as UTF-8",
+    "duplicate_policy": "retain all copies within the same split",
+    "validation_method": "random.Random(seed).sample(sorted(eligible_text_hashes), size)",
+    "validation_groups": 5000,
+    "seed": 43,
+    "record_order": "original source_line ascending",
+    "manual_constraints": "exclude_all or train_only applied to entire text group"
+  },
+  "counts": {
+    "train": 1265235,
+    "validation": 5000,
+    "excluded": 3
+  },
+  "files": {
+    "train": {
+      "file": "train.jsonl",
+      "sha256": "b8870b10df24c37a606e64913d6b891a148a96762c98b1458289ba151f4ba9dc",
+      "bytes": 1265364275
+    },
+    "validation": {
+      "file": "validation.jsonl",
+      "sha256": "7b2b831781669348b756841de2c31abf2ddee91eb72fab1cb53e52a9909e8b70",
+      "bytes": 5052085
+    },
+    "excluded": {
+      "file": "exclusions.jsonl",
+      "sha256": "0856f0d46d535c309ee05385443851b63ab6314f6b964f8d12dd10ebddc3848d",
+      "bytes": 1904
+    }
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "code_sha256": {
+      "builder": "941b781959eaa6d685d97088d7b955b190ee95fb8c98dbf540be8d41e09e5150",
+      "reader": "c57236120266ddb608ac86def96935c149a0e1c492d92b55fcbaf69b879b2448",
+      "validator": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46"
+    }
+  },
+  "limitations": [
+    "Exact original text isolation only; no original-document or near-duplicate guarantee.",
+    "Candidate file is the historical manual-review anchor, not the full training population.",
+    "Tokenization, truncation overlap, factual quality and training readiness are not certified here."
+  ]
+}

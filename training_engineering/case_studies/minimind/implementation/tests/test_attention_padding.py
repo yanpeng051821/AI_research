@@ -8,6 +8,33 @@ from minimind_lab.models.attention import (
 )
 
 
+@pytest.mark.parametrize("dtype", [torch.bfloat16, torch.float16])
+def test_low_precision_attention_uses_fp32_weights_and_preserves_masks(dtype):
+    torch.manual_seed(42)
+    q, k, v = [
+        torch.randn(2, 2, 4, 4, dtype=dtype, requires_grad=True)
+        for _ in range(3)
+    ]
+    mask = torch.tensor([[1, 1, 1, 1], [1, 1, 0, 0]])
+    output, weights = scaled_dot_product_attention(q, k, v, attention_mask=mask)
+    allowed = mask[:, None, None, :].bool() & torch.ones(4, 4, dtype=torch.bool).tril()
+    expected = F.scaled_dot_product_attention(
+        q, k, v, attn_mask=allowed, dropout_p=0.0,
+    )
+
+    assert weights.dtype == torch.float32
+    assert output.dtype == dtype
+    torch.testing.assert_close(weights.sum(-1), torch.ones_like(weights.sum(-1)))
+    assert torch.count_nonzero(weights.masked_select(~allowed)) == 0
+    # SDPA and the explicit matmuls round at different intermediate operations.
+    tolerance = 0.02 if dtype == torch.bfloat16 else 0.003
+    torch.testing.assert_close(output, expected, atol=tolerance, rtol=tolerance)
+    output.float().square().sum().backward()
+    for tensor in (q, k, v):
+        assert tensor.grad is not None
+        assert torch.isfinite(tensor.grad).all()
+
+
 @pytest.mark.parametrize("causal", [True, False])
 def test_padding_and_causal_masks_match_known_values(causal):
     q = torch.zeros((1, 3, 2), dtype=torch.float64)

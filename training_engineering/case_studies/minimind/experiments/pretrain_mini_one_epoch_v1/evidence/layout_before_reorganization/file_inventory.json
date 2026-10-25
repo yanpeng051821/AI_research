@@ -1,0 +1,177 @@
+[
+  {
+    "source": "experiments\\pretrain_mini_preparation\\split_seed43_v1\\data_contract_freeze.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\data_recipe\\data_contract_freeze.json",
+    "sha256": "77ac40067b7700b94fbb09d6a4e8841ef760761abdbf8a4f2472f2ac7b44d628"
+  },
+  {
+    "source": "experiments\\pretrain_mini_preparation\\split_seed43_v1\\DATA_CONTRACT.md",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\data_recipe\\DATA_CONTRACT.md",
+    "sha256": "6f8c1c6201f230c4c093f7b51860d99c73c3e49789634aa63ccea9633e7d158a"
+  },
+  {
+    "source": "experiments\\pretrain_mini_preparation\\split_seed43_v1\\encoding_audit_768.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\data_recipe\\encoding_audit_768.json",
+    "sha256": "edebc5cc495cfba936749f5b60629c8e6fa6c5a7828462174d3e7c6ad500a44a"
+  },
+  {
+    "source": "experiments\\pretrain_mini_preparation\\split_seed43_v1\\manifest.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\data_recipe\\manifest.json",
+    "sha256": "6254a2b940450fb53d9c28c6fa4e598e86530861cfc35d38d4024bfa8cb6e6a6"
+  },
+  {
+    "source": "experiments\\pretrain_mini_preparation\\split_seed43_v1\\README.md",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\data_recipe\\README.md",
+    "sha256": "76dac43fcf5ede79274f1ec4e233da89414dd7fd8a1eac8cad3e474cb4e03ecc"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\candidate_config.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\candidate_config.json",
+    "sha256": "36d3978f54f2612c18ba4ad87070d2078d762fb9c4a885a3562cf0c864206876"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\comparison.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\comparison.json",
+    "sha256": "105906319c3134497c1d6712080a8810608764f35ce41b35fe0daf022f5f5e82"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\README.md",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\README.md",
+    "sha256": "23ced07cf1d08f25e6ea020a7529bff83f3f7b68b411c2b2fdc9f213558ddbab"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\contract.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\contract.json",
+    "sha256": "6396450dddb0526927911bdcecf2ace5de4a0250a111512cfa3bb322784e2e61"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\metrics.jsonl",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\metrics.jsonl",
+    "sha256": "dacfdd4d15886e008cd6c198cc7a44725e3f7871c49aaec3acbbfc206b9e8a7e"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\recovery-inspection.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\recovery-inspection.json",
+    "sha256": "b306f93be0033e52effbe879cfa8400880b9440160ee422ea8cb34a4ca0e51e1"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\resolved_config.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\resolved_config.json",
+    "sha256": "c77a58dea864e97ae8edc7a7c884009d61dac7836c1868a2a8dd0f5ac8ef5256"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\result.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\result.json",
+    "sha256": "c056c32bf56d36301f2d4ceb3b0b3f072f8755df48afe3c9bfe8ec72f89fa1c0"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\run_manifest.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_early_stability_v1\\run_manifest.json",
+    "sha256": "c734fb715785142f3a6b22377f6bee9b2b0945fba60a30e47a0476359642855e"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_continuous_v1\\contract.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_continuous_v1\\contract.json",
+    "sha256": "6396450dddb0526927911bdcecf2ace5de4a0250a111512cfa3bb322784e2e61"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_continuous_v1\\metrics.jsonl",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_continuous_v1\\metrics.jsonl",
+    "sha256": "66fd4def35964cb4dce296f08f77b4a5def27d071c4c3c930f9507dca49bb8ea"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_continuous_v1\\resolved_config.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_continuous_v1\\resolved_config.json",
+    "sha256": "c77a58dea864e97ae8edc7a7c884009d61dac7836c1868a2a8dd0f5ac8ef5256"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_continuous_v1\\result.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_continuous_v1\\result.json",
+    "sha256": "0368f80a8b6b25ae049985228d8e5b66c196f7d75b9b6a91e3055962b388ef9a"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_continuous_v1\\run_manifest.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_continuous_v1\\run_manifest.json",
+    "sha256": "7b591ac28a0a04db509dccc156d4a7289a4656c706acb06528644c9648cbbe50"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\contract.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\contract.json",
+    "sha256": "6396450dddb0526927911bdcecf2ace5de4a0250a111512cfa3bb322784e2e61"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\metrics.jsonl",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\metrics.jsonl",
+    "sha256": "5a7aea472734fa6cc6b9877a7b4b64c04acf129a61f7ce866954994279e71a4e"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\recovery-inspection.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\recovery-inspection.json",
+    "sha256": "71cd8586d14ff6b5153a4594ba81df1cce079cf14c01acb538471d7f4b55fec6"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\resolved_config.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\resolved_config.json",
+    "sha256": "c77a58dea864e97ae8edc7a7c884009d61dac7836c1868a2a8dd0f5ac8ef5256"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\result.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\result.json",
+    "sha256": "de145c89a0eb1bb91030133735965fde56aa0f17b42e1658e1643b6413d8e874"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\run_manifest.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_paused_v1\\run_manifest.json",
+    "sha256": "bb876608dace98b12310484eb8b275c948669665c236cd2e39b3ac121d822ab4"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_resumed_v1\\contract.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_resumed_v1\\contract.json",
+    "sha256": "6396450dddb0526927911bdcecf2ace5de4a0250a111512cfa3bb322784e2e61"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_resumed_v1\\metrics.jsonl",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_resumed_v1\\metrics.jsonl",
+    "sha256": "c71a72d32cf82fe56e27cce7a50764e612c361d670e4c5e053546ac502dbc894"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_resumed_v1\\resolved_config.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_resumed_v1\\resolved_config.json",
+    "sha256": "c77a58dea864e97ae8edc7a7c884009d61dac7836c1868a2a8dd0f5ac8ef5256"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_resumed_v1\\result.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_resumed_v1\\result.json",
+    "sha256": "895d8876b53c845824e7686e64b9f7079510c419e644c1bb2242b1df5a2ad8fc"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\pretrain_mini_resume_gate_resumed_v1\\run_manifest.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\pretrain_mini_resume_gate_resumed_v1\\run_manifest.json",
+    "sha256": "25089d9bc48175921d4205071bb34df8b8e749a4e4bc05e13dbc2d897039d100"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\receipts\\continuous\\checkpoint-4.pt.receipt.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\receipts\\continuous\\checkpoint-4.pt.receipt.json",
+    "sha256": "15bf396ba5c091bb53eb117351d7563e760b42cf0df95ad31ba563d7e5f6b850"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\receipts\\resumed\\checkpoint-2.pt.receipt.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\receipts\\resumed\\checkpoint-2.pt.receipt.json",
+    "sha256": "95ffea77b86c58b6102c90ec857935d546e656708303825f1c306527f4f120a1"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\receipts\\resumed\\checkpoint-20.pt.receipt.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\receipts\\resumed\\checkpoint-20.pt.receipt.json",
+    "sha256": "78fe803521c8e8d27f83b0bc7025d93de125c02eca53b5cf7b640fe390cbc283"
+  },
+  {
+    "source": "experiments\\pretrain_mini_resume_gate_v1\\evidence\\receipts\\resumed\\checkpoint-4.pt.receipt.json",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\resume_gate_v1\\evidence\\receipts\\resumed\\checkpoint-4.pt.receipt.json",
+    "sha256": "15bf396ba5c091bb53eb117351d7563e760b42cf0df95ad31ba563d7e5f6b850"
+  },
+  {
+    "source": "experiments\\pretrain_mini_runtime_budget_v1\\README.md",
+    "destination": "experiments\\pretrain_mini_one_epoch_v1\\evidence\\runtime_budget_v1\\README.md",
+    "sha256": "25d3dad4bd546a716bfd7873e40b40d650bb0463ee10bec363285b4e1831c402"
+  }
+]

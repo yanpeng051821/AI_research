@@ -1,10 +1,11 @@
 
 
+import os
 from pathlib import Path
 
 import torch
 
-def save_checkpoint(path, model, optimizer, scheduler, global_step, sampler=None):
+def save_checkpoint(path, model, optimizer, scheduler, global_step, sampler=None, *, metadata=None):
     save_path = Path(path)
     save_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -20,20 +21,28 @@ def save_checkpoint(path, model, optimizer, scheduler, global_step, sampler=None
             else None
         ),
         "sampler_state": sampler.state_dict() if sampler is not None else None,
+        "metadata": metadata or {},
     }
 
     # 临时文件路径
     tmp_path = save_path.with_name(save_path.name + ".tmp")
 
-    # 保存权重到临时文件
-    torch.save(checkpoint, tmp_path)
+    # Flush the complete temporary file before exposing it as a checkpoint.
+    try:
+        with tmp_path.open("wb") as stream:
+            torch.save(checkpoint, stream)
+            stream.flush()
+            os.fsync(stream.fileno())
+    except BaseException:
+        tmp_path.unlink(missing_ok=True)
+        raise
 
     # 将完整文件替换到正式路径
     tmp_path.replace(save_path)
 
     return save_path
 
-def load_checkpoint(path, model, optimizer, scheduler, sampler=None):
+def load_checkpoint(path, model, optimizer, scheduler, sampler=None, *, expected_metadata=None, return_metadata=False):
     load_path = Path(path)
 
     checkpoint = torch.load(
@@ -41,6 +50,10 @@ def load_checkpoint(path, model, optimizer, scheduler, sampler=None):
         map_location="cpu",
         weights_only=True,
     )
+    metadata = checkpoint.get("metadata", {})
+    for key, expected in (expected_metadata or {}).items():
+        if metadata.get(key) != expected:
+            raise ValueError(f"checkpoint metadata mismatch: {key}")
 
     cuda_states = checkpoint["cuda_rng_state_all"]
     if cuda_states is not None:
@@ -66,7 +79,7 @@ def load_checkpoint(path, model, optimizer, scheduler, sampler=None):
     if cuda_states is not None:
         torch.cuda.set_rng_state_all(cuda_states)
     
-    return global_step
+    return (global_step, metadata) if return_metadata else global_step
 
 
 

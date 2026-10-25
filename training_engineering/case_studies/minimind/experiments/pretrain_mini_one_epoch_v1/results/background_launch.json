@@ -1,0 +1,21 @@
+{
+    "status":  "running",
+    "supervisor_pid":  10352,
+    "python_pid":  1640,
+    "started_at_utc":  "2026-10-25T02:43:04.7642460Z",
+    "working_directory":  "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation",
+    "stdout":  "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\runs\\pretrain_mini_one_epoch_v1.process\\stdout.log",
+    "stderr":  "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\runs\\pretrain_mini_one_epoch_v1.process\\stderr.log",
+    "exit_code":  null,
+    "prevent_idle_sleep":  true,
+    "command":  [
+                    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\.venv\\Scripts\\python.exe",
+                    "-u",
+                    "scripts/train_frozen_pretrain.py",
+                    "--freeze",
+                    "../experiments/pretrain_mini_one_epoch_v1/training_recipe/training_freeze.json",
+                    "--run",
+                    "--report",
+                    "runs/pretrain_mini_one_epoch_v1.frozen-launch.json"
+                ]
+}

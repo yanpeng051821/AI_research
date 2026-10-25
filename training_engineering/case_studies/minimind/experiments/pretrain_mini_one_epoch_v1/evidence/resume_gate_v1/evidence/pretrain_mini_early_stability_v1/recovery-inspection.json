@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "checkpoint_dir": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_resume_gate_v1\\resumed",
+  "expected_contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+  "artifact_counts": {
+    "valid": 3
+  },
+  "latest_valid_checkpoint": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_resume_gate_v1\\resumed\\checkpoint-20.pt",
+  "latest_valid_step": 20,
+  "artifacts": [
+    {
+      "step": 2,
+      "checkpoint": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_resume_gate_v1\\resumed\\checkpoint-2.pt",
+      "receipt": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_resume_gate_v1\\resumed\\checkpoint-2.pt.receipt.json",
+      "checkpoint_sha256": "0d720f32c0e639c58cbf1db31c7fce8702d65055c81c362ea099af91bac057ea",
+      "status": "valid",
+      "reason": "receipt, contract, hash and serialized training state passed",
+      "committed_samples": 512,
+      "valid_tokens_seen": 122429,
+      "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4"
+    },
+    {
+      "step": 4,
+      "checkpoint": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_resume_gate_v1\\resumed\\checkpoint-4.pt",
+      "receipt": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_resume_gate_v1\\resumed\\checkpoint-4.pt.receipt.json",
+      "checkpoint_sha256": "5eba8ae2ddff5e67eb72a66b206df37f533a046a921eb5ac44fdd2d33f30a973",
+      "status": "valid",
+      "reason": "receipt, contract, hash and serialized training state passed",
+      "committed_samples": 1024,
+      "valid_tokens_seen": 245140,
+      "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4"
+    },
+    {
+      "step": 20,
+      "checkpoint": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_resume_gate_v1\\resumed\\checkpoint-20.pt",
+      "receipt": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_resume_gate_v1\\resumed\\checkpoint-20.pt.receipt.json",
+      "checkpoint_sha256": "c80de6910e6ed3052f3702c1e462e74f672186a15ef5b1be2c05fa0ced5ce141",
+      "status": "valid",
+      "reason": "receipt, contract, hash and serialized training state passed",
+      "committed_samples": 5120,
+      "valid_tokens_seen": 1223955,
+      "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4"
+    }
+  ]
+}

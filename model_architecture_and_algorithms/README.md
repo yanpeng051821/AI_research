@@ -10,6 +10,8 @@
 
 梯度算出之后怎样改变参数，继续看[优化目录](03_optimization/README.md)及[SGD 与 AdamW](03_optimization/01_SGD_ADAMW_AND_PARAMETER_UPDATES.md)。这部分从历史统计、偏差修正到实际更新连接同一个数值例子。
 
+参数、前向、梯度和优化器状态的精度如何配合，见[训练数值精度与混合精度](03_optimization/02_NUMERICAL_PRECISION_AND_MIXED_PRECISION.md)。这篇从完整训练数据流出发，解释 FP32/BF16、敏感运算、autocast 与数值验证。
+
 ## 分类原则
 
 按“正在解释什么”归类，而不是按“在哪一次聊天中提到”归类：
@@ -18,7 +20,7 @@
 | --- | --- | --- |
 | 模型架构 | 信息如何表示和流动？ | Embedding、Attention、FFN、残差、具体模型结构 |
 | 训练目标 | 什么行为受到奖励或惩罚？ | NLL、SFT masking、DPO 目标、策略梯度目标 |
-| 优化 | 如何根据梯度改变参数？ | SGD、AdamW、学习率、裁剪 |
+| 优化 | 如何根据梯度可靠地改变参数？ | SGD、AdamW、学习率、裁剪、训练数值精度 |
 | 参数适配 | 更新哪些参数，怎样表示更新量？ | 全参、冻结、LoRA、QLoRA |
 | 训练阶段 | 为了目标能力，怎样组织数据和方法？ | 预训练、SFT、偏好优化、Agent 训练 |
 | 推理 | 参数固定后怎样产生和控制输出？ | 解码、KV cache、停止条件 |

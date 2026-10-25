@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "freeze_id": "pretrain_mini_one_epoch_v1",
+  "status": "frozen",
+  "frozen_at_utc": "2026-10-25T02:15:40.313624+00:00",
+  "files": {
+    "training_config": {
+      "file": "training_config.json",
+      "sha256": "36d3978f54f2612c18ba4ad87070d2078d762fb9c4a885a3562cf0c864206876"
+    },
+    "training_contract": {
+      "file": "TRAINING_CONTRACT.md",
+      "sha256": "2026a64a07e4166497d592b66937beabeb630fc6e9f53a1e107d2e7d2055b0cd"
+    },
+    "data_freeze": {
+      "file": "../pretrain_mini_preparation/split_seed43_v1/data_contract_freeze.json",
+      "sha256": "77ac40067b7700b94fbb09d6a4e8841ef760761abdbf8a4f2472f2ac7b44d628"
+    },
+    "data_contract": {
+      "file": "../pretrain_mini_preparation/split_seed43_v1/DATA_CONTRACT.md",
+      "sha256": "6f8c1c6201f230c4c093f7b51860d99c73c3e49789634aa63ccea9633e7d158a"
+    },
+    "split_manifest": {
+      "file": "../pretrain_mini_preparation/split_seed43_v1/manifest.json",
+      "sha256": "6254a2b940450fb53d9c28c6fa4e598e86530861cfc35d38d4024bfa8cb6e6a6"
+    },
+    "encoding_audit": {
+      "file": "../pretrain_mini_preparation/split_seed43_v1/encoding_audit_768.json",
+      "sha256": "edebc5cc495cfba936749f5b60629c8e6fa6c5a7828462174d3e7c6ad500a44a"
+    },
+    "resume_comparison": {
+      "file": "../pretrain_mini_resume_gate_v1/comparison.json",
+      "sha256": "105906319c3134497c1d6712080a8810608764f35ce41b35fe0daf022f5f5e82"
+    },
+    "stability_result": {
+      "file": "../pretrain_mini_resume_gate_v1/evidence/pretrain_mini_early_stability_v1/result.json",
+      "sha256": "c056c32bf56d36301f2d4ceb3b0b3f072f8755df48afe3c9bfe8ec72f89fa1c0"
+    },
+    "launcher": {
+      "file": "../../implementation/scripts/train_frozen_pretrain.py",
+      "sha256": "cc703a46e6c3881265bf44b0debb5458c1a9e7361b94733245cd425dfe6e88cf"
+    },
+    "freeze_builder": {
+      "file": "../../implementation/scripts/freeze_pretrain_recipe.py",
+      "sha256": "0a82864480ac5650403f178691e3a5de4da6ff0ce5b402e8807d6d5e1714ada4"
+    },
+    "dependency_lock": {
+      "file": "../../implementation/uv.lock",
+      "sha256": "053f5aca9f234a6774f255ea9185ad82c1919cfe099c9774eef5c58648f3cad9"
+    },
+    "dependency_specification": {
+      "file": "../../implementation/pyproject.toml",
+      "sha256": "7348d430bc554c2c5cbbbfe86261364a7595bb18dd020616fd682f25afb2a74d"
+    },
+    "resolved_contract": {
+      "file": "contract.json",
+      "sha256": "6396450dddb0526927911bdcecf2ace5de4a0250a111512cfa3bb322784e2e61"
+    }
+  },
+  "expected": {
+    "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+    "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4",
+    "model_parameters": 63912192,
+    "train_records": 1265235,
+    "validation_records": 5000,
+    "train_valid_targets": 301810690,
+    "validation_valid_targets": 1206758,
+    "max_updates": 4943,
+    "initial_validation_nll": 8.912246169216113
+  },
+  "storage": {
+    "initial_run_dir": "runs/pretrain_mini_one_epoch_v1",
+    "checkpoint_dir": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_one_epoch_v1"
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Windows",
+    "cuda_build": "13.0",
+    "gpu_name": "NVIDIA GeForce RTX 4060 Ti",
+    "gpu_driver_versions": [
+      "591.86"
+    ]
+  },
+  "checks": {
+    "resume_gate": "passed",
+    "early_stability_through_step": 20
+  }
+}

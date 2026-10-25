@@ -1,0 +1,23 @@
+{
+  "source_path": "data/processed/pretrain_candidate_v1/candidates.jsonl",
+  "max_length": 512,
+  "content_budget": 510,
+  "sample_count": 10000,
+  "total_tokens": 2584015,
+  "min_tokens": 6,
+  "max_tokens": 6287,
+  "mean_tokens": 258.4015,
+  "truncated_count": 590,
+  "total_dropped": 321373,
+  "unique_text_count": 10000,
+  "duplicate_record_count": 0,
+  "retained_count": 9410,
+  "length_filtered_count": 590,
+  "length_percentiles": {
+    "p50": 210.0,
+    "p90": 414.0,
+    "p95": 557.0,
+    "p99": 1416.0300000000007
+  },
+  "percentile_method": "linear"
+}

@@ -119,7 +119,7 @@ def apply_rope(
             f"{expected_angles_shape}, got {tuple(angles.shape)}"
         )
 
-    q_rotated = rotate_features(q, angles)
-    k_rotated = rotate_features(k, angles)
+    q_rotated = rotate_features(q, angles).to(dtype=q.dtype)
+    k_rotated = rotate_features(k, angles).to(dtype=k.dtype)
 
     return q_rotated, k_rotated

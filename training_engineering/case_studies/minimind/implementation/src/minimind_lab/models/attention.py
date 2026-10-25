@@ -2,6 +2,7 @@ import torch
 
 from torch import nn
 from minimind_lab.models.rope import (build_rope_angles, apply_rope)
+from minimind_lab.models.rmsnorm import RMSNorm
 
 def scaled_dot_product_attention(
     q: torch.Tensor,
@@ -11,7 +12,15 @@ def scaled_dot_product_attention(
     attention_mask: torch.Tensor | None = None,
 ) -> tuple[torch.Tensor, torch.Tensor]:
     k_t = k.transpose(-2, -1)
-    scaled_scores = q @ k_t / (q.shape[-1] ** 0.5)
+
+    # 精度转换成32位
+    scaled_scores = q @ k_t
+    
+    if scaled_scores.dtype in (torch.float16, torch.bfloat16):
+        scaled_scores = scaled_scores.float()
+    
+    scaled_scores = scaled_scores/ (q.shape[-1] ** 0.5)
+
     # scores: [B, T, T]
     allowed = torch.ones_like(
         scaled_scores,
@@ -64,7 +73,7 @@ def scaled_dot_product_attention(
     weights = torch.softmax(masked_scores, dim=-1)
     # weights：[B, T, T]
 
-    output = weights @ v
+    output = weights.to(dtype=v.dtype) @ v
     # output:[B, T, d_v]
 
     return output, weights
@@ -174,7 +183,9 @@ class GroupQueryAttention(nn.Module):
         hidden_size,
         num_heads,
         kv_heads,
-        rope_base: float = 1e6
+        rope_base: float = 1e6,
+        qk_norm: bool = False,
+        rms_norm_eps: float = 1e-6,
     ) -> None:
         super().__init__()
         if hidden_size <= 0 or num_heads <= 0 or kv_heads <=0 or hidden_size % num_heads != 0 or num_heads % kv_heads != 0:
@@ -190,6 +201,14 @@ class GroupQueryAttention(nn.Module):
         self.head_dim = hidden_size // num_heads
         self.n_rep = num_heads // kv_heads
         self.rope_base = rope_base
+
+        if qk_norm:
+            self.q_norm = RMSNorm(self.head_dim, eps=rms_norm_eps)
+            self.k_norm = RMSNorm(self.head_dim, eps=rms_norm_eps)
+        else:
+            self.q_norm = nn.Identity()
+            self.k_norm = nn.Identity()
+
 
         if self.head_dim % 2 != 0:
             raise ValueError(
@@ -219,13 +238,17 @@ class GroupQueryAttention(nn.Module):
         v_split = v.reshape(B, T, self.kv_heads, self.head_dim)
         # q_split: [B, T, H, head_dim]; kv_split: [B, T, kv_head, head_dim]
 
+        # 归一化
+        q_norm = self.q_norm(q_split)
+        k_norm = self.k_norm(k_split)
+
         # 重复k / v
-        k_repeat = repeat_kv(k_split, n_rep=self.n_rep)
+        k_repeat = repeat_kv(k_norm, n_rep=self.n_rep)
         v_repeat = repeat_kv(v_split, n_rep=self.n_rep)
         # kv_repeat:[B, T, H, head_dim]
 
         # 换轴
-        q_trans = q_split.transpose(1, 2)
+        q_trans = q_norm.transpose(1, 2)
         k_trans = k_repeat.transpose(1, 2)
         v_trans = v_repeat.transpose(1, 2)
         # [B, H, T, head_dim]
@@ -235,7 +258,10 @@ class GroupQueryAttention(nn.Module):
             seq_len=T,
             head_dim=self.head_dim,
             rope_base=self.rope_base,
-            dtype=q_trans.dtype,
+            dtype=(torch.float64
+                if q_trans.dtype==torch.float64
+                else torch.float32
+                ),
             device=q_trans.device,
         )
 

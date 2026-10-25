@@ -383,6 +383,36 @@ def test_gqa_rejects_invalid_configuration(
             rope_base=rope_base,
         )
 
+def test_gqa_builds_fp32_rope_angles_for_bfloat16_inputs(monkeypatch):
+    import minimind_lab.models.attention as attention_module
+
+    torch.manual_seed(42)
+    original_builder = attention_module.build_rope_angles
+    observed = []
+
+    def capture_angles(*args, **kwargs):
+        angles = original_builder(*args, **kwargs)
+        observed.append(angles)
+        return angles
+
+    monkeypatch.setattr(attention_module, "build_rope_angles", capture_angles)
+    model = GroupQueryAttention(16, 4, 2, qk_norm=True).to(dtype=torch.bfloat16)
+    x = torch.randn(1, 260, 16, dtype=torch.bfloat16, requires_grad=True)
+    output, _ = model(x)
+
+    assert len(observed) == 1
+    assert observed[0].dtype == torch.float32
+    assert observed[0][257, 0].item() == 257
+    assert output.dtype == torch.bfloat16
+    assert torch.isfinite(output).all()
+    output.float().square().mean().backward()
+    assert x.grad is not None
+    assert torch.isfinite(x.grad).all()
+    for name, parameter in model.named_parameters():
+        assert parameter.grad is not None, name
+        assert torch.isfinite(parameter.grad).all(), name
+
+
 @pytest.mark.parametrize("causal", [True, False])
 def test_gqa_shapes_and_gradients(causal):
     torch.manual_seed(42)

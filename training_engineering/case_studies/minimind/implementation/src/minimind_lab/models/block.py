@@ -32,10 +32,18 @@ class DecoderBlock(nn.Module):
         kv_heads: int,
         eps: float = 1e-5,
         rope_base : float = 1e6,
+        qk_norm: bool = False,
         ) -> None:
         super().__init__()
         self.attention_norm = RMSNorm(hidden_size, eps)
-        self.attention = GroupQueryAttention(hidden_size, num_heads, kv_heads, rope_base)
+        self.attention = GroupQueryAttention(
+            hidden_size, 
+            num_heads, 
+            kv_heads, 
+            rope_base, 
+            qk_norm=qk_norm, 
+            rms_norm_eps=eps
+            )
         self.feed_forward = ResidualFeedForward(hidden_size, intermediate_size, eps)
 
     def forward(

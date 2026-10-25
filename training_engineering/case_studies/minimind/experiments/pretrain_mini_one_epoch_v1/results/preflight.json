@@ -1,0 +1,12 @@
+{
+  "status": "frozen_recipe_verified_not_trained",
+  "freeze_id": "pretrain_mini_one_epoch_v1",
+  "freeze_sha256": "b496d4fb257bae495d6a3a86552d948206227bd5a8a78a08fbccfd425cc35828",
+  "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+  "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4",
+  "model_parameters": 63912192,
+  "max_updates": 4943,
+  "files_verified": 13,
+  "training_config": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\pretrain_mini_one_epoch_v1\\training_recipe\\training_config.json",
+  "mode": "check_only"
+}

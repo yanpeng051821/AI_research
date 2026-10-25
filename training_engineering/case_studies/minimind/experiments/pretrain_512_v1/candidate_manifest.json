@@ -1,0 +1,13 @@
+{
+  "source_repo": "jingyaogong/minimind_dataset",
+  "source_revision": "312afb4f76391145c6902f765bb51691c09a12f5",
+  "source_path": "data/raw/minimind/pretrain_t2t_mini.jsonl",
+  "source_sha256": "6dd6716c84ab36897bdbfc7f88e04f4441c48c1ab7ecee88ce0b0e7d4685560c",
+  "source_total_lines": 1270238,
+  "sampling_method": "random.sample_without_replacement",
+  "seed": 42,
+  "record_count": 10000,
+  "record_order": "source_line_ascending",
+  "candidate_file": "candidates.jsonl",
+  "candidate_sha256": "471d2e48665b0d5c4e8e3da07c7b3cda2f486d1281426568a40192b8553fe73b"
+}

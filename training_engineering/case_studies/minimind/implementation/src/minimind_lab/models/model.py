@@ -6,6 +6,7 @@ from minimind_lab.models.config import ModelConfig
 from minimind_lab.models.embedding import TokenEmbedding
 from minimind_lab.models.block import DecoderBlock
 from minimind_lab.models.rmsnorm import RMSNorm
+from minimind_lab.models.initialization import initialize_weights
 
 class MinimindBackbone(nn.Module):
     def __init__(self, config: ModelConfig) -> None:
@@ -20,6 +21,7 @@ class MinimindBackbone(nn.Module):
                 kv_heads=config.kv_heads,
                 eps=config.rms_norm_eps,
                 rope_base=config.rope_base,
+                qk_norm=config.qk_norm,
                 ) 
             for _ in range(config.num_layers)
         ])
@@ -44,6 +46,7 @@ class MinimindForCausalLM(nn.Module):
         self.backbone = MinimindBackbone(config)
         self.lm_head = nn.Linear(config.hidden_size, config.vocab_size, bias=False)
         self.lm_head.weight = self.backbone.embedding.weight
+        self.apply(initialize_weights)
     
     def forward(
         self,

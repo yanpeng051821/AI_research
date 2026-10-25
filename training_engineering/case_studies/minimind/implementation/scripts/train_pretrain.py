@@ -21,12 +21,25 @@ def parse_args():
         description="Run a small single-epoch pretraining experiment."
     )
 
-    parser.add_argument("--train-data", type=Path, required=True)
-    parser.add_argument("--validation-data", type=Path, required=True)
+    parser.add_argument("--config", type=Path)
+    parser.add_argument("--train-data", type=Path)
+    parser.add_argument("--validation-data", type=Path)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--checkpoint-dir", type=Path)
     parser.add_argument("--resume", type=Path, default=None)
-
-    return parser.parse_args()
+    parser.add_argument("--prepare-only", action="store_true")
+    parser.add_argument("--stop-after-updates", type=int)
+    args = parser.parse_args()
+    if args.config is None:
+        if args.train_data is None or args.validation_data is None:
+            parser.error("legacy smoke requires --train-data and --validation-data; otherwise use --config")
+        if args.prepare_only or args.stop_after_updates is not None:
+            parser.error("prepare/stop controls require --config")
+        if args.checkpoint_dir is not None:
+            parser.error("external checkpoint storage requires --config")
+    elif args.train_data is not None or args.validation_data is not None:
+        parser.error("configuration data paths cannot be overridden by legacy smoke arguments")
+    return args
 
 def build_data(train_path, validation_path):
     root = Path(__file__).resolve().parents[1]
@@ -152,6 +165,16 @@ def run_training(args):
 
 def main():
     args = parse_args()
+    if args.config is not None:
+        from minimind_lab.training.experiment import run_experiment
+
+        result = run_experiment(
+            args.config, args.output_dir, Path(__file__).resolve().parents[1],
+            resume=args.resume, stop_after_updates=args.stop_after_updates,
+            prepare_only=args.prepare_only, checkpoint_dir=args.checkpoint_dir,
+        )
+        print(json.dumps({"status": result["status"], "global_step": result["global_step"]}, indent=2))
+        return
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
     if any(args.output_dir.iterdir()):
