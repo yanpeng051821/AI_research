@@ -1,0 +1,15 @@
+{
+  "status": "prepared_for_user_authorized_research_publication",
+  "repo_id": "yanpeng051821/minimind-dense-64m-mini-pretrain",
+  "code_revision": "34a26c3b33ed91486343ac11964eac317e8ed72b",
+  "source_export_manifest_sha256": "14cf9c04a2af19aa33c5b0ef928fa17cdb8e78f9effe6904d371bc17a4ccb11c",
+  "public_export_manifest_sha256": "3e015898ffccd3fff63e8abf8070d5d2b09fae727fe1c5af445095b68df717b9",
+  "scan": {
+    "text_files_checked": 30,
+    "findings": [],
+    "scope": "Candidate bundle text plus model-card draft only; not full Git history, raw training data, PII analysis, or memorization testing. No matching secret values are included in this report."
+  },
+  "model_weights_unchanged": true,
+  "license_scope_fully_established": false,
+  "hf_upload": "not_yet_performed"
+}

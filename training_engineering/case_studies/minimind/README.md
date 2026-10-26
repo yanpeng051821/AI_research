@@ -6,7 +6,7 @@
 ## 路线
 
 每周安排、当前状态、数据合同、设备预算与验收统一见 [实践路线](PRACTICE_ROADMAP.md)。
-当前使用自己的工程对齐 MiniMind-3 Dense，采用官方 mini 数据路线完成 Pretrain/SFT；后续再按阶段确定 LoRA、蒸馏、DPO、在线 RL 和 Agent 实验。正式预训练已于北京时间 2026-10-26 02:56 完成完整一个 epoch，分析、归档与原生 FP32 导出检查通过。发布前初查和模型卡草稿已整理，许可、公开附件及 HF 发布未完成，独立恢复备份未验证。运行证据、配方和发布说明统一见[实验目录](experiments/pretrain_mini_one_epoch_v1/README.md)。
+当前使用自己的工程对齐 MiniMind-3 Dense，采用官方 mini 数据路线推进 Pretrain/SFT；后续再按阶段确定 LoRA、蒸馏、DPO、在线 RL 和 Agent 实验。本次单轮预训练、分析、归档、模型导出及研究发布已完成，[HF 模型](https://huggingface.co/yanpeng051821/minimind-dense-64m-mini-pretrain)的固定 revision 下载加载核对通过。许可范围仍未全部确立，独立恢复备份未验证；运行证据、配方和发布说明统一见[实验目录](experiments/pretrain_mini_one_epoch_v1/README.md)。
 
 ## 目录
 

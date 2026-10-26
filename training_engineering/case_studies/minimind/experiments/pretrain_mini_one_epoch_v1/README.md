@@ -1,6 +1,6 @@
 # MiniMind mini 单轮预训练实验
 
-> 本目录集中管理本次实验的数据配方、训练配方、证据与结果。正式一个 epoch 已于北京时间 2026-10-26 02:56:35 完成；分析、归档及原生 FP32 导出验证完成，发布前初查和模型卡草稿已整理；许可与 HF 发布待确认。启动方式见[启动记录](results/LAUNCH_RECORD.md)。
+> 本次单轮预训练于北京时间 2026-10-26 02:56:35 完成；分析、归档、原生 FP32 导出和研究 checkpoint 公开发布完成，HF 固定 revision 下载加载检查通过。许可范围未全部确立，独立恢复备份未验证，不将工程闭环写成所有权利或能力已通过。发布入口见[实际记录](release/public_v1/README.md)，历史启动方式见[启动记录](results/LAUNCH_RECORD.md)。
 
 本轮[学习曲线](results/learning_curves_v1/learning_curves.png)和[统计证据](results/learning_curves_v1/curve_summary.json)已生成，读法与结论见[第七周教程第 11.2 节](../../practice_notes/week_07_pretrain_experiment.md#112-结果分析)。验证 NLL 从 8.9122 降至 1.9985；这不是独立测试或下游能力评测。
 
@@ -10,7 +10,7 @@
 
 [模型导出记录](results/export_fp32_v2/README.md)已生成：约 256 MB 的原生 FP32 包位于 implementation/exports，被 Git 忽略；本地新进程加载后，全部状态、共享关系及短前缀 logits/续写一致，独立 UTF-8 续写命令通过。v2 修正 v1 的 Windows 标准输出编码问题；它不是完整恢复文件或 AutoModel 适配，发布前初查见下一段。
 
-[发布前审查与模型卡](release/README.md)已落盘：22 个模型包文件身份核对通过，有限文本扫描未发现所检查的凭据或本机路径模式。数据集混合许可、原创代码与权重许可、第三方声明及公开附件仍需处理；当前未批准上传，不改写前述历史报告的 pending 状态。
+[发布前审查与模型卡](release/README.md)保留审查过程，用户确认后已完成另建公开包及上传。[HF 模型与模型卡](https://huggingface.co/yanpeng051821/minimind-dense-64m-mini-pretrain)包含三条用户亲自运行的续写；[固定 revision 的 33 文件核对与加载结果](release/public_v1/download_verification.json)通过。许可不确定性在公开说明中保留，不改写历史报告的 pending 状态。
 
 ## 1. 先看关系
 

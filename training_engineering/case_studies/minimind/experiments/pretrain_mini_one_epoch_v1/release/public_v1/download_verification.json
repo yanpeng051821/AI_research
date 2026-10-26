@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "device": "cpu",
+  "dtype": "float32",
+  "cpu_threads": 1,
+  "autocast": false,
+  "fresh_process": true,
+  "offline": true,
+  "runtime_loaded_from_bundle": true,
+  "parameter_state_exact": true,
+  "parameter_state_sha256": "8d10d76090b2714c055a95123c3583c6941b1ecb6af84a10f0f68dbe21cb783f",
+  "embedding_lm_head_same_parameter": true,
+  "parameters": 63912192,
+  "standalone_cli_utf8_success": true,
+  "exact_probe_equality": {
+    "input_ids": true,
+    "attention_mask": true,
+    "logits": true,
+    "generated_ids": true
+  },
+  "max_abs_logit_difference": 0.0,
+  "input_shape": [
+    2,
+    12
+  ],
+  "logits_shape": [
+    2,
+    12,
+    6400
+  ],
+  "probe_texts": [
+    "春天的风吹过田野，",
+    "人工智能"
+  ],
+  "generated_ids": [
+    [
+      1,
+      3102,
+      993,
+      296,
+      1018,
+      335,
+      153,
+      472,
+      321,
+      144,
+      4507,
+      294,
+      2373,
+      3039,
+      369,
+      1887,
+      1018,
+      388,
+      5451,
+      1845
+    ]
+  ],
+  "scope": "Two short right-padded prefixes and one 8-token-budget greedy continuation; not full validation NLL, CUDA/BF16 parity, or downstream ability evaluation.",
+  "repo_id": "yanpeng051821/minimind-dense-64m-mini-pretrain",
+  "revision": "f764fe9f62c864caa5510fc73a5e8cd5af6cef07",
+  "downloaded_files_verified": 33,
+  "fresh_download_cache": true,
+  "export_manifest_sha256": "3e015898ffccd3fff63e8abf8070d5d2b09fae727fe1c5af445095b68df717b9",
+  "code_revision": "34a26c3b33ed91486343ac11964eac317e8ed72b",
+  "license_scope_fully_established": false,
+  "independent_resumable_checkpoint_backup": "not_verified"
+}
