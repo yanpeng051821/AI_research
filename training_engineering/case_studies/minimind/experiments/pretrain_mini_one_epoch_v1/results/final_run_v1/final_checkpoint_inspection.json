@@ -1,0 +1,11 @@
+{
+  "step": 4943,
+  "checkpoint": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_one_epoch_v1\\checkpoint-4943.pt",
+  "receipt": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_one_epoch_v1\\checkpoint-4943.pt.receipt.json",
+  "checkpoint_sha256": "8d3cb52867e0c74b35c5931bfb9c90de3a7b6589fd9466fd68d00c9593431e38",
+  "status": "valid",
+  "reason": "receipt, contract, hash and serialized training state passed",
+  "committed_samples": 1265235,
+  "valid_tokens_seen": 301810690,
+  "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4"
+}

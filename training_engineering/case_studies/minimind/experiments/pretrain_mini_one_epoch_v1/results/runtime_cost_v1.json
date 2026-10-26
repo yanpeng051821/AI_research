@@ -1,0 +1,85 @@
+{
+  "wall_seconds": 58405.895212,
+  "wall_hours": 16.223859781111113,
+  "components": {
+    "training_windows": {
+      "seconds": 56073.463015800044,
+      "percent_of_wall": 96.00651237733149
+    },
+    "validation": {
+      "seconds": 957.0631443999982,
+      "percent_of_wall": 1.6386413407860263
+    },
+    "checkpoint_save_hash_receipt": {
+      "seconds": 1359.0256042000028,
+      "percent_of_wall": 2.3268637511111705
+    },
+    "unattributed_run_overhead": {
+      "seconds": 16.3434475999602,
+      "percent_of_wall": 0.027982530771315524
+    }
+  },
+  "training_window_detail": {
+    "updates": 4943,
+    "update_path_seconds": 55432.18690130013,
+    "other_window_seconds": 641.2761144999167,
+    "median_update_seconds_excluding_first": 11.191869349999251
+  },
+  "validation": {
+    "events": 11,
+    "mean_seconds": 87.00574039999984,
+    "min_seconds": 86.44533009999941,
+    "max_seconds": 88.58542570000009
+  },
+  "checkpoint": {
+    "events": 50,
+    "mean_seconds": 27.180512084000057,
+    "min_seconds": 24.116394499997114,
+    "max_seconds": 28.579914299999473
+  },
+  "throughput": {
+    "training_window_records_per_second": 22.563881949711035,
+    "training_window_targets_per_second": 5382.415741202886,
+    "end_to_end_records_per_second": 21.66279611685579,
+    "end_to_end_targets_per_second": 5167.469634777387
+  },
+  "memory_observations_gib": {
+    "max_peak_allocated": 3.7726035118103027,
+    "min_update_end_allocated": 0.7885599136352539,
+    "max_update_end_allocated": 0.7885599136352539,
+    "min_update_end_reserved": 3.365234375,
+    "max_update_end_reserved": 3.884765625,
+    "min_logged_device_free": 2.9716796875
+  },
+  "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+  "generated_at_utc": "2026-10-26T00:59:25.905633+00:00",
+  "source": {
+    "run_id": "pretrain_mini_one_epoch_v1",
+    "metrics_sha256": "1c876ce2a8be35de331226d52c71c3235d191d1d15a19ca2fda116483e06ebfa",
+    "result_sha256": "f5f7728f17bb13b692be16848b0f22245a1262e9d72875b6531b9fda9a98b7d3",
+    "analysis_script_sha256": "fe54aa1ba418bf41d658587ea2b4992c1a0e585de6900dc9418f691d61dff884"
+  },
+  "estimate_comparison": {
+    "estimated_hours_approximate": 16.3,
+    "actual_minus_estimated_seconds": -274.1047879999969
+  },
+  "storage_snapshot": {
+    "checkpoint_files": 50,
+    "receipt_files": 50,
+    "checkpoint_bytes": 38663221350,
+    "receipt_bytes": 11849,
+    "total_gib": 36.007941885851324,
+    "temporary_files": [],
+    "scope": "file counts and sizes; not a content audit of every checkpoint"
+  },
+  "electricity_or_rental_cost": null,
+  "limitations": [
+    "Wall interval is the training run; excludes earlier data work, probes, and later release work.",
+    "Update path is nested inside training window; do not add both to wall time.",
+    "Update time includes host/device transfer, Python dispatch, and CUDA synchronization; not pure GPU kernel time.",
+    "Other window time includes batching, synchronization, sampler commit, and gradient cleanup; not pure data I/O time.",
+    "Unattributed residual includes setup and logging outside measured regions; no per-operation attribution.",
+    "Reserved/free-device memory are update-end snapshots; allocated peak is reset each update.",
+    "No integrated power or billing measurements were collected; monetary cost is not estimated."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "device": "cpu",
+  "dtype": "float32",
+  "cpu_threads": 1,
+  "autocast": false,
+  "fresh_process": true,
+  "offline": true,
+  "runtime_loaded_from_bundle": true,
+  "parameter_state_exact": true,
+  "parameter_state_sha256": "8d10d76090b2714c055a95123c3583c6941b1ecb6af84a10f0f68dbe21cb783f",
+  "embedding_lm_head_same_parameter": true,
+  "parameters": 63912192,
+  "standalone_cli_utf8_success": true,
+  "exact_probe_equality": {
+    "input_ids": true,
+    "attention_mask": true,
+    "logits": true,
+    "generated_ids": true
+  },
+  "max_abs_logit_difference": 0.0,
+  "input_shape": [
+    2,
+    12
+  ],
+  "logits_shape": [
+    2,
+    12,
+    6400
+  ],
+  "probe_texts": [
+    "春天的风吹过田野，",
+    "人工智能"
+  ],
+  "generated_ids": [
+    [
+      1,
+      3102,
+      993,
+      296,
+      1018,
+      335,
+      153,
+      472,
+      321,
+      144,
+      4507,
+      294,
+      2373,
+      3039,
+      369,
+      1887,
+      1018,
+      388,
+      5451,
+      1845
+    ]
+  ],
+  "scope": "Two short right-padded prefixes and one 8-token-budget greedy continuation; not full validation NLL, CUDA/BF16 parity, or downstream ability evaluation.",
+  "bundle_location": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\exports\\pretrain_mini_one_epoch_v1_fp32_v2",
+  "export_manifest_sha256": "14cf9c04a2af19aa33c5b0ef928fa17cdb8e78f9effe6904d371bc17a4ccb11c",
+  "model_safetensors_sha256": "3f1d1e6f585d516149d62d33670ef20cb29caa11c1759786586879e19fa3cc22",
+  "weights_bytes": 255659304,
+  "bundle_bytes": 256196322,
+  "source_checkpoint_unchanged": true,
+  "hf_upload": "not_performed",
+  "independent_resumable_checkpoint_backup": "not_verified"
+}

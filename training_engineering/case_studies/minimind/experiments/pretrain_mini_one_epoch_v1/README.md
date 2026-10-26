@@ -1,6 +1,16 @@
 # MiniMind mini 单轮预训练实验
 
-> 本目录集中管理本次实验的数据配方、训练配方、证据与结果。数据和训练约定均已冻结；正式一个 epoch 已于北京时间 2026-10-25 10:43 后台启动。运行入口与日志见 [启动记录](results/LAUNCH_RECORD.md)。
+> 本目录集中管理本次实验的数据配方、训练配方、证据与结果。正式一个 epoch 已于北京时间 2026-10-26 02:56:35 完成；分析、归档及原生 FP32 导出验证完成，发布前初查和模型卡草稿已整理；许可与 HF 发布待确认。启动方式见[启动记录](results/LAUNCH_RECORD.md)。
+
+本轮[学习曲线](results/learning_curves_v1/learning_curves.png)和[统计证据](results/learning_curves_v1/curve_summary.json)已生成，读法与结论见[第七周教程第 11.2 节](../../practice_notes/week_07_pretrain_experiment.md#112-结果分析)。验证 NLL 从 8.9122 降至 1.9985；这不是独立测试或下游能力评测。
+
+[资源成本统计](results/runtime_cost_v1.json)已生成：本次 run 约 16.22 小时，训练窗口占约 96.01%，保存占 2.33%，验证占 1.64%；完整 checkpoint 与 receipt 合计约 36.01 GiB。计时口径、执行命令与限制同样见教程第 11.2 节。
+
+[最终归档清单](results/final_run_v1/archive_manifest.json)关联原始运行记录、退出记录与验收报告，记录文件约 5.5 MB；归档步骤见[教程第 11.3 节](../../practice_notes/week_07_pretrain_experiment.md#113-小文件归档与大文件备份)。权重未复制进归档，独立备份尚未验证，E 盘原件须保留；本次新产物尚未 Git 提交或推送。
+
+[模型导出记录](results/export_fp32_v2/README.md)已生成：约 256 MB 的原生 FP32 包位于 implementation/exports，被 Git 忽略；本地新进程加载后，全部状态、共享关系及短前缀 logits/续写一致，独立 UTF-8 续写命令通过。v2 修正 v1 的 Windows 标准输出编码问题；它不是完整恢复文件或 AutoModel 适配，发布前初查见下一段。
+
+[发布前审查与模型卡](release/README.md)已落盘：22 个模型包文件身份核对通过，有限文本扫描未发现所检查的凭据或本机路径模式。数据集混合许可、原创代码与权重许可、第三方声明及公开附件仍需处理；当前未批准上传，不改写前述历史报告的 pending 状态。
 
 ## 1. 先看关系
 
@@ -10,7 +20,8 @@ pretrain_mini_one_epoch_v1/
 ├── data_recipe/           数据合同、切分清单、编码审计与冻结身份
 ├── training_recipe/       最终配置、训练合同、解析合同与冻结清单
 ├── evidence/              数据准备分析、短跑、运行预算及历史冻结快照
-└── results/               当前启动核验；正式运行后归档结果与分析
+├── results/               启动核验、完整运行归档、曲线与成本分析
+└── release/               模型卡草稿、发布前审查及未决事项
 ```
 
 “配方”是本次实验的一套规则，可以由多份各司其职的文件表达。把 JSON、合同和报告全部叫作“配置”，会掩盖它们的作用。
@@ -122,4 +133,4 @@ E:\AI_research_checkpoints\minimind\pretrain_mini_one_epoch_v1\
 
 2026-10-25 按实验集中整理了目录。此次仅调整归档位置与文档引用，完整 JSONL、tokenizer、本机训练代码和 E 盘 checkpoint 均保持原位。数据合同和核心运行合同身份不变；新路径对应的外层训练冻结清单重新生成。此前冻结版本保存在 [layout_before_reorganization](evidence/layout_before_reorganization/README.md)，用于解释路径及文档哈希的变化，不作为现行启动入口。
 
-本次产物整理、冻结工具、门禁验证和后台启动由助手按委托完成。正式长训练正在进行；短跑通过不替代完整训练后的验收与结果分析。
+本次产物整理、冻结工具、门禁验证、后台启动及结果归档由助手按委托完成。正式训练与本轮验收分析已完成；短跑证据与最终运行证据分别保留，不以短跑替代完整运行。

@@ -1,0 +1,465 @@
+{
+  "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+  "updates": 4943,
+  "validation_records": 5000,
+  "validation_targets": 1206758,
+  "validation_points": [
+    {
+      "step": 0,
+      "nll": 8.912246169216113,
+      "drop_since_previous": null,
+      "step_gap": null,
+      "drop_per_100_updates": null,
+      "share_of_observed_total_drop": 0.0
+    },
+    {
+      "step": 500,
+      "nll": 2.940288252897829,
+      "drop_since_previous": 5.971957916318283,
+      "step_gap": 500,
+      "drop_per_100_updates": 1.1943915832636567,
+      "share_of_observed_total_drop": 0.8637859493170652
+    },
+    {
+      "step": 1000,
+      "nll": 2.5056765143783455,
+      "drop_since_previous": 0.43461173851948365,
+      "step_gap": 500,
+      "drop_per_100_updates": 0.08692234770389673,
+      "share_of_observed_total_drop": 0.9266483335471326
+    },
+    {
+      "step": 1500,
+      "nll": 2.3441513843279096,
+      "drop_since_previous": 0.1615251300504359,
+      "step_gap": 500,
+      "drop_per_100_updates": 0.03230502601008718,
+      "share_of_observed_total_drop": 0.950011381270214
+    },
+    {
+      "step": 2000,
+      "nll": 2.243930308703938,
+      "drop_since_previous": 0.10022107562397142,
+      "step_gap": 500,
+      "drop_per_100_updates": 0.020044215124794287,
+      "share_of_observed_total_drop": 0.9645073904789997
+    },
+    {
+      "step": 2500,
+      "nll": 2.1704803106328945,
+      "drop_since_previous": 0.07344999807104369,
+      "step_gap": 500,
+      "drop_per_100_updates": 0.014689999614208738,
+      "share_of_observed_total_drop": 0.9751312222608295
+    },
+    {
+      "step": 3000,
+      "nll": 2.112398719785385,
+      "drop_since_previous": 0.058081590847509634,
+      "step_gap": 500,
+      "drop_per_100_updates": 0.011616318169501927,
+      "share_of_observed_total_drop": 0.9835321625874472
+    },
+    {
+      "step": 3500,
+      "nll": 2.0678488457927537,
+      "drop_since_previous": 0.044549873992631106,
+      "step_gap": 500,
+      "drop_per_100_updates": 0.008909974798526222,
+      "share_of_observed_total_drop": 0.9899758709554399
+    },
+    {
+      "step": 4000,
+      "nll": 2.0341845103707343,
+      "drop_since_previous": 0.03366433542201941,
+      "step_gap": 500,
+      "drop_per_100_updates": 0.006732867084403882,
+      "share_of_observed_total_drop": 0.9948450914586823
+    },
+    {
+      "step": 4500,
+      "nll": 2.011046554517052,
+      "drop_since_previous": 0.02313795585368217,
+      "step_gap": 500,
+      "drop_per_100_updates": 0.004627591170736433,
+      "share_of_observed_total_drop": 0.9981917729729168
+    },
+    {
+      "step": 4943,
+      "nll": 1.9985450132296212,
+      "drop_since_previous": 0.012501541287430973,
+      "step_gap": 443,
+      "drop_per_100_updates": 0.0028220183493072176,
+      "share_of_observed_total_drop": 1.0
+    }
+  ],
+  "validation_nll_strictly_decreases_at_logged_points": true,
+  "training_window_updates": 100,
+  "training_windows": [
+    {
+      "first_step": 1,
+      "last_step": 100,
+      "updates": 100,
+      "valid_targets": 6093498,
+      "token_weighted_training_loss": 6.5989667005062715
+    },
+    {
+      "first_step": 101,
+      "last_step": 200,
+      "updates": 100,
+      "valid_targets": 6131242,
+      "token_weighted_training_loss": 4.884837776577801
+    },
+    {
+      "first_step": 201,
+      "last_step": 300,
+      "updates": 100,
+      "valid_targets": 6153806,
+      "token_weighted_training_loss": 3.8777928337566876
+    },
+    {
+      "first_step": 301,
+      "last_step": 400,
+      "updates": 100,
+      "valid_targets": 6093342,
+      "token_weighted_training_loss": 3.4046959568582866
+    },
+    {
+      "first_step": 401,
+      "last_step": 500,
+      "updates": 100,
+      "valid_targets": 6119052,
+      "token_weighted_training_loss": 3.074497483110531
+    },
+    {
+      "first_step": 501,
+      "last_step": 600,
+      "updates": 100,
+      "valid_targets": 6089731,
+      "token_weighted_training_loss": 2.865191825362795
+    },
+    {
+      "first_step": 601,
+      "last_step": 700,
+      "updates": 100,
+      "valid_targets": 6156520,
+      "token_weighted_training_loss": 2.735896911212641
+    },
+    {
+      "first_step": 701,
+      "last_step": 800,
+      "updates": 100,
+      "valid_targets": 6099543,
+      "token_weighted_training_loss": 2.6599668994164616
+    },
+    {
+      "first_step": 801,
+      "last_step": 900,
+      "updates": 100,
+      "valid_targets": 6087956,
+      "token_weighted_training_loss": 2.5783604077273203
+    },
+    {
+      "first_step": 901,
+      "last_step": 1000,
+      "updates": 100,
+      "valid_targets": 6129797,
+      "token_weighted_training_loss": 2.536272486531932
+    },
+    {
+      "first_step": 1001,
+      "last_step": 1100,
+      "updates": 100,
+      "valid_targets": 6121253,
+      "token_weighted_training_loss": 2.484136537319374
+    },
+    {
+      "first_step": 1101,
+      "last_step": 1200,
+      "updates": 100,
+      "valid_targets": 6119195,
+      "token_weighted_training_loss": 2.449870994732766
+    },
+    {
+      "first_step": 1201,
+      "last_step": 1300,
+      "updates": 100,
+      "valid_targets": 6108398,
+      "token_weighted_training_loss": 2.41501617389924
+    },
+    {
+      "first_step": 1301,
+      "last_step": 1400,
+      "updates": 100,
+      "valid_targets": 6054539,
+      "token_weighted_training_loss": 2.399120338773822
+    },
+    {
+      "first_step": 1401,
+      "last_step": 1500,
+      "updates": 100,
+      "valid_targets": 6146046,
+      "token_weighted_training_loss": 2.3582462665441
+    },
+    {
+      "first_step": 1501,
+      "last_step": 1600,
+      "updates": 100,
+      "valid_targets": 6098908,
+      "token_weighted_training_loss": 2.3350730863876845
+    },
+    {
+      "first_step": 1601,
+      "last_step": 1700,
+      "updates": 100,
+      "valid_targets": 6134673,
+      "token_weighted_training_loss": 2.3148475950148746
+    },
+    {
+      "first_step": 1701,
+      "last_step": 1800,
+      "updates": 100,
+      "valid_targets": 6085212,
+      "token_weighted_training_loss": 2.2884051678590445
+    },
+    {
+      "first_step": 1801,
+      "last_step": 1900,
+      "updates": 100,
+      "valid_targets": 6127642,
+      "token_weighted_training_loss": 2.2763577418473924
+    },
+    {
+      "first_step": 1901,
+      "last_step": 2000,
+      "updates": 100,
+      "valid_targets": 6162397,
+      "token_weighted_training_loss": 2.253826108336603
+    },
+    {
+      "first_step": 2001,
+      "last_step": 2100,
+      "updates": 100,
+      "valid_targets": 6134608,
+      "token_weighted_training_loss": 2.2345782715989593
+    },
+    {
+      "first_step": 2101,
+      "last_step": 2200,
+      "updates": 100,
+      "valid_targets": 6075011,
+      "token_weighted_training_loss": 2.2313798300540273
+    },
+    {
+      "first_step": 2201,
+      "last_step": 2300,
+      "updates": 100,
+      "valid_targets": 6128469,
+      "token_weighted_training_loss": 2.212961711691944
+    },
+    {
+      "first_step": 2301,
+      "last_step": 2400,
+      "updates": 100,
+      "valid_targets": 6079283,
+      "token_weighted_training_loss": 2.194410884490032
+    },
+    {
+      "first_step": 2401,
+      "last_step": 2500,
+      "updates": 100,
+      "valid_targets": 6126912,
+      "token_weighted_training_loss": 2.189064766719072
+    },
+    {
+      "first_step": 2501,
+      "last_step": 2600,
+      "updates": 100,
+      "valid_targets": 6102232,
+      "token_weighted_training_loss": 2.1683573128283067
+    },
+    {
+      "first_step": 2601,
+      "last_step": 2700,
+      "updates": 100,
+      "valid_targets": 6065201,
+      "token_weighted_training_loss": 2.157234422868211
+    },
+    {
+      "first_step": 2701,
+      "last_step": 2800,
+      "updates": 100,
+      "valid_targets": 6108152,
+      "token_weighted_training_loss": 2.142864561136328
+    },
+    {
+      "first_step": 2801,
+      "last_step": 2900,
+      "updates": 100,
+      "valid_targets": 6081643,
+      "token_weighted_training_loss": 2.134323736950177
+    },
+    {
+      "first_step": 2901,
+      "last_step": 3000,
+      "updates": 100,
+      "valid_targets": 6092931,
+      "token_weighted_training_loss": 2.1206165148910516
+    },
+    {
+      "first_step": 3001,
+      "last_step": 3100,
+      "updates": 100,
+      "valid_targets": 6104958,
+      "token_weighted_training_loss": 2.1138904680953594
+    },
+    {
+      "first_step": 3101,
+      "last_step": 3200,
+      "updates": 100,
+      "valid_targets": 6104754,
+      "token_weighted_training_loss": 2.098929007073495
+    },
+    {
+      "first_step": 3201,
+      "last_step": 3300,
+      "updates": 100,
+      "valid_targets": 6114169,
+      "token_weighted_training_loss": 2.1001543433056375
+    },
+    {
+      "first_step": 3301,
+      "last_step": 3400,
+      "updates": 100,
+      "valid_targets": 6076976,
+      "token_weighted_training_loss": 2.0879622035214607
+    },
+    {
+      "first_step": 3401,
+      "last_step": 3500,
+      "updates": 100,
+      "valid_targets": 6067315,
+      "token_weighted_training_loss": 2.0765568331543127
+    },
+    {
+      "first_step": 3501,
+      "last_step": 3600,
+      "updates": 100,
+      "valid_targets": 6128034,
+      "token_weighted_training_loss": 2.064688032435558
+    },
+    {
+      "first_step": 3601,
+      "last_step": 3700,
+      "updates": 100,
+      "valid_targets": 6126203,
+      "token_weighted_training_loss": 2.056211612372631
+    },
+    {
+      "first_step": 3701,
+      "last_step": 3800,
+      "updates": 100,
+      "valid_targets": 6065217,
+      "token_weighted_training_loss": 2.055308222412997
+    },
+    {
+      "first_step": 3801,
+      "last_step": 3900,
+      "updates": 100,
+      "valid_targets": 6104214,
+      "token_weighted_training_loss": 2.0457995963945734
+    },
+    {
+      "first_step": 3901,
+      "last_step": 4000,
+      "updates": 100,
+      "valid_targets": 6104375,
+      "token_weighted_training_loss": 2.045874348841683
+    },
+    {
+      "first_step": 4001,
+      "last_step": 4100,
+      "updates": 100,
+      "valid_targets": 6109782,
+      "token_weighted_training_loss": 2.035534532009337
+    },
+    {
+      "first_step": 4101,
+      "last_step": 4200,
+      "updates": 100,
+      "valid_targets": 6129071,
+      "token_weighted_training_loss": 2.032389436338437
+    },
+    {
+      "first_step": 4201,
+      "last_step": 4300,
+      "updates": 100,
+      "valid_targets": 6101492,
+      "token_weighted_training_loss": 2.0234587973186415
+    },
+    {
+      "first_step": 4301,
+      "last_step": 4400,
+      "updates": 100,
+      "valid_targets": 6069658,
+      "token_weighted_training_loss": 2.018298633654587
+    },
+    {
+      "first_step": 4401,
+      "last_step": 4500,
+      "updates": 100,
+      "valid_targets": 6092811,
+      "token_weighted_training_loss": 2.0157506795074713
+    },
+    {
+      "first_step": 4501,
+      "last_step": 4600,
+      "updates": 100,
+      "valid_targets": 6128856,
+      "token_weighted_training_loss": 2.0067147517500024
+    },
+    {
+      "first_step": 4601,
+      "last_step": 4700,
+      "updates": 100,
+      "valid_targets": 6092833,
+      "token_weighted_training_loss": 2.011806296923239
+    },
+    {
+      "first_step": 4701,
+      "last_step": 4800,
+      "updates": 100,
+      "valid_targets": 6090211,
+      "token_weighted_training_loss": 2.005263543027735
+    },
+    {
+      "first_step": 4801,
+      "last_step": 4900,
+      "updates": 100,
+      "valid_targets": 6118469,
+      "token_weighted_training_loss": 1.999670488909308
+    },
+    {
+      "first_step": 4901,
+      "last_step": 4943,
+      "updates": 43,
+      "valid_targets": 2574100,
+      "token_weighted_training_loss": 1.9964622682565705
+    }
+  ],
+  "interpretation_limits": [
+    "Training loss uses changing batches and parameters; validation uses fixed data.",
+    "Window averages reconstruct loss sums from rounded logged loss values.",
+    "No fixed-checkpoint training-set NLL was measured for a generalization gap.",
+    "Declining validation NLL does not prove convergence or downstream ability.",
+    "Curve shape alone does not identify the causal effect of the LR schedule."
+  ],
+  "source": {
+    "run_id": "pretrain_mini_one_epoch_v1",
+    "metrics_sha256": "1c876ce2a8be35de331226d52c71c3235d191d1d15a19ca2fda116483e06ebfa",
+    "result_sha256": "f5f7728f17bb13b692be16848b0f22245a1262e9d72875b6531b9fda9a98b7d3",
+    "analysis_script_sha256": "81e76c44487e66619ffcff012242e83e24a9f45b18ef3e1282a0ef14226bb29d"
+  },
+  "generated_at_utc": "2026-10-26T00:51:20.784885+00:00",
+  "plot_sha256": "0ad1ed5f3816d0f205e881fb9f88cd2094a20a00791e78f47b587ec3d12456d9"
+}

@@ -6,7 +6,7 @@
 ## 路线
 
 每周安排、当前状态、数据合同、设备预算与验收统一见 [实践路线](PRACTICE_ROADMAP.md)。
-当前使用自己的工程对齐 MiniMind-3 Dense，采用官方 mini 数据路线完成 Pretrain/SFT；后续再按阶段确定 LoRA、蒸馏、DPO、在线 RL 和 Agent 实验。2026-10-25，数据与训练配方、初始化及环境身份均已冻结，正式短跑通过；北京时间 10:43 已后台启动完整一个 epoch。实时日志入口见[启动记录](experiments/pretrain_mini_one_epoch_v1/results/LAUNCH_RECORD.md)，配方见[实验目录](experiments/pretrain_mini_one_epoch_v1/README.md)。
+当前使用自己的工程对齐 MiniMind-3 Dense，采用官方 mini 数据路线完成 Pretrain/SFT；后续再按阶段确定 LoRA、蒸馏、DPO、在线 RL 和 Agent 实验。正式预训练已于北京时间 2026-10-26 02:56 完成完整一个 epoch，分析、归档与原生 FP32 导出检查通过。发布前初查和模型卡草稿已整理，许可、公开附件及 HF 发布未完成，独立恢复备份未验证。运行证据、配方和发布说明统一见[实验目录](experiments/pretrain_mini_one_epoch_v1/README.md)。
 
 ## 目录
 

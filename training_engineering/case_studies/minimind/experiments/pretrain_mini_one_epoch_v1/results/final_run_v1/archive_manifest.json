@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "status": "evidence_archived_final_checkpoint_checked",
+  "created_at_utc": "2026-10-26T14:51:30.783846+00:00",
+  "run_id": "pretrain_mini_one_epoch_v1",
+  "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+  "freeze_sha256": "b496d4fb257bae495d6a3a86552d948206227bd5a8a78a08fbccfd425cc35828",
+  "archive_script_sha256": "482ab43270c0b52d6dde428115df370635fb4baca78778c11e93cef999e37f32",
+  "code_reference": {
+    "head_at_archiving": "500d31868bf04f1572281c730d5ddd2a413708a7",
+    "frozen_runtime_sources_match_head_bytes": true,
+    "scope": "This commit contains the verified runtime sources; it is not asserted to be launch-time HEAD."
+  },
+  "files": [
+    {
+      "path": "checkpoint-4943.pt.receipt.json",
+      "bytes": 238,
+      "sha256": "fbf306577b8fba37d0a6b2d2642c5ecfe98f1ee8c2f69ea0e7165ba72fdeb348"
+    },
+    {
+      "path": "checkpoint_inventory.json",
+      "bytes": 25183,
+      "sha256": "df6db45c98f94c9fc0cc76cd176b7d8451a4ccc7424cdf60dc9435c10486945f"
+    },
+    {
+      "path": "final_checkpoint_inspection.json",
+      "bytes": 588,
+      "sha256": "dcb1cf1518f07a353a5d29c782a4692801f0d84214258fde7809698a5a33a740"
+    },
+    {
+      "path": "frozen_launch.json",
+      "bytes": 647,
+      "sha256": "c03e23e7086392aa08f35ba2e7d5b7ad5e3789178aee0348cf1aed8e05f0d8a6"
+    },
+    {
+      "path": "postflight_verification.json",
+      "bytes": 697,
+      "sha256": "c6678406f84740bda7451707d579de6fbff6db2ad7e02ea0b10c6c33de9d347c"
+    },
+    {
+      "path": "process/process.json",
+      "bytes": 1270,
+      "sha256": "d0d3d39d0b0fb8b7196a3847dc99309707208ae961f1d09b669cafafddc4a3ac"
+    },
+    {
+      "path": "process/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "process/stdout.log",
+      "bytes": 2732216,
+      "sha256": "82513aa06dde5d1d68e6809fcd397fb4e67316597759effa83f0ba08bef89164"
+    },
+    {
+      "path": "run/contract.json",
+      "bytes": 6508,
+      "sha256": "6396450dddb0526927911bdcecf2ace5de4a0250a111512cfa3bb322784e2e61"
+    },
+    {
+      "path": "run/metrics.jsonl",
+      "bytes": 2726498,
+      "sha256": "1c876ce2a8be35de331226d52c71c3235d191d1d15a19ca2fda116483e06ebfa"
+    },
+    {
+      "path": "run/resolved_config.json",
+      "bytes": 1330,
+      "sha256": "c77a58dea864e97ae8edc7a7c884009d61dac7836c1868a2a8dd0f5ac8ef5256"
+    },
+    {
+      "path": "run/result.json",
+      "bytes": 1237,
+      "sha256": "f5f7728f17bb13b692be16848b0f22245a1262e9d72875b6531b9fda9a98b7d3"
+    },
+    {
+      "path": "run/run_manifest.json",
+      "bytes": 768,
+      "sha256": "10b7496990358c846a5d93f1a8461a276f3e5e22f5b9719d52bfb4702fcde92f"
+    }
+  ],
+  "related_results_relative_to_results_directory": [
+    {
+      "path": "learning_curves_v1/curve_summary.json",
+      "bytes": 12605,
+      "sha256": "3768a742946eb9444c4e78068f168ad942c6037f9b2ac6fef09f0dcc751a1097"
+    },
+    {
+      "path": "runtime_cost_v1.json",
+      "bytes": 3364,
+      "sha256": "68f1dd6d7688b494d97bba58f1f91431deece9daa0d93fa39777e405fca61baa"
+    },
+    {
+      "path": "learning_curves_v1/learning_curves.png",
+      "bytes": 190487,
+      "sha256": "0ad1ed5f3816d0f205e881fb9f88cd2094a20a00791e78f47b587ec3d12456d9"
+    }
+  ],
+  "acceptance": {
+    "engineering_budget_and_evidence": "passed",
+    "validation_nll_improved": true,
+    "independent_test_and_downstream_ability": "not_evaluated"
+  },
+  "backup_and_release": {
+    "checkpoint_location": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_one_epoch_v1",
+    "checkpoint_tensors_copied_into_git_archive": false,
+    "independent_checkpoint_backup_verified": false,
+    "datasets_copied_into_git_archive": false,
+    "dataset_identity_and_rebuild": "See data_recipe and the fixed-source preparation scripts.",
+    "hf_model_export_and_release": "pending",
+    "git_commit_containing_this_archive": "pending_at_generation"
+  },
+  "limitations": [
+    "Hashes and Git provenance are not cryptographic signatures.",
+    "Archive copies retain original local paths; prepare a separate reviewed public release if needed.",
+    "A failed archive may leave a partial directory; require a complete, hash-verified manifest.",
+    "Only the final checkpoint was read and hashed; other points received inventory/receipt checks."
+  ]
+}

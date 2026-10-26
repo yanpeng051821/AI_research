@@ -1,0 +1,33 @@
+{
+  "status": "completed",
+  "started_at_utc": "2026-10-25T02:43:09.875266+00:00",
+  "global_step": 4943,
+  "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+  "purpose": "pretrain",
+  "checkpoint_dir": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_one_epoch_v1",
+  "resume_from": null,
+  "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4",
+  "model_parameters": 63912192,
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 4060 Ti",
+  "validation_records": 5000,
+  "validation_scope": "full_frozen_validation",
+  "committed_samples": 1265235,
+  "valid_tokens_seen": 301810690,
+  "last_checkpoint": "checkpoint-4943.pt",
+  "finished_at_utc": "2026-10-25T18:56:35.770478+00:00",
+  "updates_this_launch": 4943,
+  "initial_or_resume_validation": {
+    "nll": 8.912246169216113,
+    "valid_tokens": 1206758
+  },
+  "final_validation": {
+    "nll": 1.9985450132296212,
+    "valid_tokens": 1206758
+  },
+  "median_update_seconds_excluding_first": 11.191869349999251,
+  "peak_allocated_bytes_this_launch": 4050802176,
+  "limitations": [
+    "Engineering probe and validation subset do not establish full-data convergence or natural-language ability."
+  ]
+}

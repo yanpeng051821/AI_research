@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "draft_not_approved_for_upload",
+  "reviewed_at_utc": "2026-10-26T16:05:48.537295+00:00",
+  "review_script_sha256": "afa34a43ae8c0e51d1fd096ad98cd86f8c23ddea6f44da2fcce82021890f5319",
+  "model_card_draft_sha256": "0c7180d6ffd6818e3f960d29d0a00076fa02cb52722668ccd282668ce5d89f0e",
+  "export_manifest_sha256": "14cf9c04a2af19aa33c5b0ef928fa17cdb8e78f9effe6904d371bc17a4ccb11c",
+  "source_checkpoint_sha256": "8d3cb52867e0c74b35c5931bfb9c90de3a7b6589fd9466fd68d00c9593431e38",
+  "bundle_files_verified": 22,
+  "local_export_validation": "passed",
+  "credential_and_path_scan": {
+    "text_files_checked": 23,
+    "findings": [],
+    "scope": "Candidate bundle text plus model-card draft only; not full Git history, raw training data, PII analysis, or memorization testing. No matching secret values are included in this report."
+  },
+  "upstream_code": {
+    "repo": "jingyaogong/minimind",
+    "revision": "f659b55761b754d306bd140573493a6543cafd7f",
+    "license_declaration": "Apache-2.0",
+    "license_api_url": "https://api.github.com/repos/jingyaogong/minimind/contents/LICENSE?ref=f659b55761b754d306bd140573493a6543cafd7f",
+    "license_file_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "scope": "Code repository declaration; not an automatic model-weight license."
+  },
+  "tokenizer": {
+    "repo": "jingyaogong/minimind",
+    "revision": "f659b55761b754d306bd140573493a6543cafd7f",
+    "files": [
+      {
+        "file": "tokenizer.json",
+        "upstream_api_url": "https://api.github.com/repos/jingyaogong/minimind/contents/model/tokenizer.json?ref=f659b55761b754d306bd140573493a6543cafd7f",
+        "upstream_sha256": "71f32c68cf63a15355a8fc171b7594b3d41870fe0ddb54fc6aefa55f73a4a668",
+        "export_sha256": "8bf5868abfc7ea919186b57e2b411adefe3b0922b53052c5839937e166b9d395",
+        "same_bytes": false,
+        "json_content_equal": true,
+        "newline_normalized_equal": true
+      },
+      {
+        "file": "tokenizer_config.json",
+        "upstream_api_url": "https://api.github.com/repos/jingyaogong/minimind/contents/model/tokenizer_config.json?ref=f659b55761b754d306bd140573493a6543cafd7f",
+        "upstream_sha256": "d7cd6a60c9f191c4f9ffec69b2eb289ad2f960366724f328b681ae1e46e4c110",
+        "export_sha256": "e42b762555734279158ca292431c831fa387c48c35d9b1b205f4fc6c83b79d34",
+        "same_bytes": false,
+        "json_content_equal": true,
+        "newline_normalized_equal": true
+      }
+    ],
+    "separate_asset_license_found": false,
+    "scope": "Repository tree has no separately named tokenizer license; not a legal conclusion about grant scope."
+  },
+  "dataset": {
+    "repo": "jingyaogong/minimind_dataset",
+    "revision": "312afb4f76391145c6902f765bb51691c09a12f5",
+    "file": "pretrain_t2t_mini.jsonl",
+    "readme_url": "https://huggingface.co/datasets/jingyaogong/minimind_dataset/raw/312afb4f76391145c6902f765bb51691c09a12f5/README.md",
+    "readme_sha256": "b97a44561592f96a5872d1450b93b65817f756bebd1be94c186802ee22039d09",
+    "declared_licenses": [
+      "apache-2.0",
+      "cc-by-nc-2.0"
+    ],
+    "per_file_weight_redistribution_rights": "not_established_by_this_review"
+  },
+  "own_repository": {
+    "url": "https://github.com/yanpeng051821/AI_research",
+    "public": true,
+    "github_detected_license": null,
+    "local_root_license_files": []
+  },
+  "unresolved_before_upload": [
+    "Clarify the applicable terms for pretrain_t2t_mini.jsonl and resulting weight redistribution; dataset-level mixed labels are not a per-file license mapping.",
+    "User must choose explicit terms for original code and model weights, after source review; no new project-wide license was selected automatically.",
+    "Add applicable upstream license/attribution materials to a separately versioned release payload.",
+    "Commit/push the new export tools and evidence, then pin actual accessible GitHub links.",
+    "Assemble and recheck the public payload; do not upload raw local-path logs by default.",
+    "Upload and verify a specific HF revision only after release decisions are resolved."
+  ],
+  "hf_upload": "not_performed",
+  "source_bundle_modified": false,
+  "limitations": [
+    "This records source declarations and release risks; it is not legal advice.",
+    "A private or noncommercial label does not by itself supply missing permissions.",
+    "No HF model identifier, license choice, or public-release permission was invented."
+  ]
+}

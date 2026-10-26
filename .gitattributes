@@ -2,6 +2,13 @@
 training_engineering/case_studies/minimind/experiments/** -text
 training_engineering/case_studies/minimind/implementation/src/** -text
 training_engineering/case_studies/minimind/implementation/scripts/audit_pretrain_encoding.py -text
+training_engineering/case_studies/minimind/implementation/scripts/analyze_pretrain_curves.py -text
+training_engineering/case_studies/minimind/implementation/scripts/analyze_pretrain_cost.py -text
+training_engineering/case_studies/minimind/implementation/scripts/archive_pretrain_run.py -text
+training_engineering/case_studies/minimind/implementation/scripts/export_pretrain_bundle.py -text
+training_engineering/case_studies/minimind/implementation/scripts/load_exported_pretrain.py -text
+training_engineering/case_studies/minimind/implementation/scripts/audit_pretrain_release.py -text
+training_engineering/case_studies/minimind/implementation/scripts/publish_pretrain_bundle.py -text
 training_engineering/case_studies/minimind/implementation/scripts/benchmark_pretrain_microbatch.py -text
 training_engineering/case_studies/minimind/implementation/scripts/build_pretrain_mini.py -text
 training_engineering/case_studies/minimind/implementation/scripts/build_pretrain_splits.py -text

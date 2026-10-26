@@ -1,0 +1,508 @@
+{
+  "checkpoint_directory": "E:\\AI_research_checkpoints\\minimind\\pretrain_mini_one_epoch_v1",
+  "checkpoint_count": 50,
+  "total_checkpoint_bytes": 38663221350,
+  "records": [
+    {
+      "file": "checkpoint-100.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "63ff70f24d9fdbe6fc349663c4c7875aa5174114184983cd5e2cda36d96837ca",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 100,
+      "committed_samples": 25600,
+      "checkpoint_sha256": "964b57e75e5fa4ec2737da5936860cdb05a5e3ff170857cd75e10874c07ad888",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-200.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "77db52fdc1999b9fdd0b2b91655b94f629f7a75aea5f56900b27e410cc10d470",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 200,
+      "committed_samples": 51200,
+      "checkpoint_sha256": "b64a2d5e4b9838a1d95d95e77a0e2aca3b75857a71c940e914a1acdc31df9283",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-300.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "bc1227c7417a14352dea12c6438adc3f0fb5b7d6cb5ea7880c18bd3bbf3c2e48",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 300,
+      "committed_samples": 76800,
+      "checkpoint_sha256": "e39df8e133d9c61f46d4926134f4201c9af3ea64bb4934a2a71e5fe29179b27f",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-400.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "f843e1db4f6073a798b26e1079bada40760b01ad5d7427bd135c3c579bd04e2a",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 400,
+      "committed_samples": 102400,
+      "checkpoint_sha256": "f8247e4884ffb1a448078fdc509a121be8c16d0c09232e3cef54538a738a0d81",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-500.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "38403dbeadeb35cfca74dad37a833bfc86bde0655d04c06e92dbba161c58dc06",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 500,
+      "committed_samples": 128000,
+      "checkpoint_sha256": "a116da8bc4ac3fa1efd7ad24cabaf851d7e449e52cfd451d7b287dab19f2fa12",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-600.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "74d283f171034403cabf9f39c67203c3c23a9cca81884dce493b9ead0f394cbe",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 600,
+      "committed_samples": 153600,
+      "checkpoint_sha256": "0c42c481d4cef320d01c8897baba0d2d69eb809341328c6b02d19a70e53da60c",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-700.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "38a0604ff18ed8311039e95a2533cec2f3547b7bb6ed77e3aa4b11c70278ff7b",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 700,
+      "committed_samples": 179200,
+      "checkpoint_sha256": "6d068dfd0ed64185b6715b638219d1f8fc1e5ff49a58ab3bde15a5f047dcf8d6",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-800.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "976a6fb13c5048c93b4b50df338b14fa561f8da7c73fed85c653a80b47bac77d",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 800,
+      "committed_samples": 204800,
+      "checkpoint_sha256": "1c92956321f3c0188ca3f9c3a73228a08fcda505431eb11e6ab35f4f507afb71",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-900.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "92c584359c8a0150f14dbfd07e2fdc638547068663a64486e87c6a893d231303",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 900,
+      "committed_samples": 230400,
+      "checkpoint_sha256": "fdb833b0fec53c96abab3dedd29c20b01a691dea7381ee74508f5803aa2738a9",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-1000.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "b3a4ef209e63fac81c7e60612cf079307247e99c440c5887f69236a4371b6197",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 1000,
+      "committed_samples": 256000,
+      "checkpoint_sha256": "82bf4aaef1144b5316bc0aa3bae9922f6209c3c7e03423c6a9a8b0f7da00fbff",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-1100.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "e0b1190ff6b6d9330f634f369b019de2c2da1a40fc399b96cc52de25b6594a28",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 1100,
+      "committed_samples": 281600,
+      "checkpoint_sha256": "b23cb4ee787c32b3b71a51228e33d5ad6cf07840e8008ef12bcfbeab9f0f4b24",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-1200.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "671cce00ff59f02e5b84c2770f034b1004c976b440317aedb378accd150e3599",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 1200,
+      "committed_samples": 307200,
+      "checkpoint_sha256": "401aba75675694233f128337d221df2773142b94780ef91d659a6f3c7a73e280",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-1300.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "4e40bb30f2cc7f4c71332396766ac912d744b3cfc46900b3a219aaa3a0681473",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 1300,
+      "committed_samples": 332800,
+      "checkpoint_sha256": "264d65fc6bdaa77201ff5e991466c349251ab3ce526d7e5e7e033691ca762509",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-1400.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "8f78e300d4ab84ade03cfccd0c6cb5790b2eb26c78e0f4327b4323cb9ffb9ce8",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 1400,
+      "committed_samples": 358400,
+      "checkpoint_sha256": "59c28bcce65b40e519991470a51bb61b09f8d9e5a88ab8bbd5c255ac882a9787",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-1500.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "25045b7ab8af20ec3744cfac2feffd0eceb1ed2e4f8445708f63b0dca15af132",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 1500,
+      "committed_samples": 384000,
+      "checkpoint_sha256": "382da1635e59bac0d9bfe9b47ad9389a88a7c83ae837b0ac66674854c8ac74c5",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-1600.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "22abab25e5e087f121e18665a851e3a9316838c89636a37d8f32b7e2d829fb94",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 1600,
+      "committed_samples": 409600,
+      "checkpoint_sha256": "cea5692f32b1d2f22a148d5016f32813d97a482755cda2c14c2e7fc32aab62ab",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-1700.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "828eb05fd9ff0cd3334b7e30df93089f1b4fc1b068cd2424ff7fb4f2f2148a88",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 1700,
+      "committed_samples": 435200,
+      "checkpoint_sha256": "99e61b0ff70b556f2a6f08cb139aba217a6b0fb515a742eb929bc4c925954cda",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-1800.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "46e0c7f4415297001c3d9ac7713f43db9c41c3e0cb28aba89ededb8acd0d797c",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 1800,
+      "committed_samples": 460800,
+      "checkpoint_sha256": "023f654b15b4a97e78d516afc3a70ed1c5ae97b57ea99dfd48ca9481e307b8c9",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-1900.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "78d0bc1ef778a21ddc9eb2d3a6cedd6f230a0b2f4bcd6947a6cdef0d355e31c5",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 1900,
+      "committed_samples": 486400,
+      "checkpoint_sha256": "86cadaf75178f782c514bf17cf5d012274eb654111c627cf64d089d7d4dbf402",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-2000.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "13663893281a396a5882dc602c7cbc85bd46eb917faacae7e961f7f5eb1c6fce",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 2000,
+      "committed_samples": 512000,
+      "checkpoint_sha256": "af135a115e2a51af14753e56aa8a172caaea377c1de702f4729d1f3130d02a3b",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-2100.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "c9ae5d0a3ef2b7637115054c3fa76abe7d0fc82a9fe18bd48f8ee66173129421",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 2100,
+      "committed_samples": 537600,
+      "checkpoint_sha256": "2b8d044d654fcb9686d617328e3247e29adc9a166b69044d74a4868f42862cb3",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-2200.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "438c264eceb80f23381a7c650caf31f5e4154af3220faa15e929fb22a68e4139",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 2200,
+      "committed_samples": 563200,
+      "checkpoint_sha256": "c7163a0cf7eb8a5dc6f7ef380703898c08e357f80289e1281f423f45f8aa8d80",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-2300.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "990fe7718b77e9769f24fd14863f65d18575ebb59f47b13a1251e7b55479774b",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 2300,
+      "committed_samples": 588800,
+      "checkpoint_sha256": "f0fb55b8523baa02455cfcf045ab318746b9ac6d54fcf06a47441e3bb8fa64c4",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-2400.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "74f50c7dcf40b6cb78d795ca2bf26a0fa595a39f25d4f12eec0e2905306a980a",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 2400,
+      "committed_samples": 614400,
+      "checkpoint_sha256": "eeae6829901dd9b79fae1398c2ef0056e68799d76d69e948dc52de47247078d0",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-2500.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "139e2b4bf7a6aebe592b6867d310a6f573f32303dad3e23f66d5b560073de039",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 2500,
+      "committed_samples": 640000,
+      "checkpoint_sha256": "a5cc25745860d839c57d7d34dae6c53e80286a7075eec1b2950a9d2cf5401913",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-2600.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "6769ec48ff3fc8d5da3ddd2a1337ce4f86eabf271958457806083d376b9c9c88",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 2600,
+      "committed_samples": 665600,
+      "checkpoint_sha256": "8cea43ffdd07c6eb0604bc3031d70cd2f3c322f51ddbca4e85111287f54197fa",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-2700.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "644ec52a26647e846167d15ac2819a02fd3c8443f029d2b18ac847e338bef1da",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 2700,
+      "committed_samples": 691200,
+      "checkpoint_sha256": "395250bfc46ef567339671d7974235f6d0c4af5e2702a3b2fa4e62c22fe04126",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-2800.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "9bb03c06fdd18179162255b1359d5f8d8969c959efd9fe7a8d42a3a508d8b80a",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 2800,
+      "committed_samples": 716800,
+      "checkpoint_sha256": "2164e8a92ba85b689226aa7d4d6e2e6994418bc421924cf5c411df4b7c8470ad",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-2900.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "247621340586d764f352f3ff6097a9f98dc056bcd0b10150bdfaaf29f144d86a",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 2900,
+      "committed_samples": 742400,
+      "checkpoint_sha256": "3c587d00c4fc70fae4294a165d722b21a1201c037966638dde7abd759860d3a4",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-3000.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "a44af716f6ade157916fbb41416ee5eb8c4b4d1d6395f1903fb11709401891f6",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 3000,
+      "committed_samples": 768000,
+      "checkpoint_sha256": "87dc90d1e375676f7c756c92f3bae1e9dfa8ab2b4558c4d113c05159229831a7",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-3100.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "4e5ee58711440d1c2f17066d5ee2d36d9261e946806f342a2778bfcd55a64dd0",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 3100,
+      "committed_samples": 793600,
+      "checkpoint_sha256": "97d68ab606674a015b963ff66c39eadda05779d7b522838bae8b0f51918f00d3",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-3200.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "af464d411f91ee72ff73965a420927e98c302bc74cb9ea19e7c63f6c13145eec",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 3200,
+      "committed_samples": 819200,
+      "checkpoint_sha256": "cdd121e4b46a8159d449e3b0e89df5e688955c4e7293575ca5d78ce4b228c874",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-3300.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "6e436f765e415d7daa8b2ca4b4c2d6c76269e5e58525a29d4573b25913fe6daf",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 3300,
+      "committed_samples": 844800,
+      "checkpoint_sha256": "8529c41180f31e980d18c7e911126ff6b94af55f2f6e6bdc06bfba9fd885ca51",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-3400.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "ec1c197bb6814fb254fa4a4a324fdd711b2564c52d8a2ad9eb5b3bcb967b35fc",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 3400,
+      "committed_samples": 870400,
+      "checkpoint_sha256": "e2220d9e4755cd90287da815a52dacea519222c7c28ad4343ecea29729a591da",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-3500.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "d1d87b5faf5945a12e81a441a0223d7f668b80c89674ebdf8c932a04e5a19cf2",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 3500,
+      "committed_samples": 896000,
+      "checkpoint_sha256": "252960cb20e92cf52e14fe8474e2721adf71fd098c083d308a669e50dccd5a6b",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-3600.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "9e79677907ce697f4154d97db3c99e12705bb0d8bbb2d51cbb9dc6d2d7ac00cc",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 3600,
+      "committed_samples": 921600,
+      "checkpoint_sha256": "bf3b14409c63a5bb9b23ceffa6d78e627fe5c5c79ce42a62114fd513a4ab18d0",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-3700.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "35684d9cfb9cf17eaf156fa99c540fc11607a78a5db8220d393354f0ece6d9dd",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 3700,
+      "committed_samples": 947200,
+      "checkpoint_sha256": "afde63c3b050fb1140e0589852dd8584e093ef5f980820ee7f7ba29822c4df50",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-3800.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "b3557785617c788300a00cc3ccb41aaebd9523bfc0e0ef3641ff49235a692c90",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 3800,
+      "committed_samples": 972800,
+      "checkpoint_sha256": "eec213726195294c77ac597323f272c6f1ea88bb5c7535a947aae923137d94c3",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-3900.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "8889abf234e349ef1d7e0090c3c9a15a44b3d34ed7bd737ffaacf42b1ee5da45",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 3900,
+      "committed_samples": 998400,
+      "checkpoint_sha256": "a8fd05aec8271e1bf799757305a0310604240f1b8aa7f5f6b0f00b518b7ccd74",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4000.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "e55609b56161f13b7d51e8568e1500559446195df1c9c029a0043e699b0a22f4",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4000,
+      "committed_samples": 1024000,
+      "checkpoint_sha256": "e72ee44a16995130634386aafbee75af54f697e73958704edad4b46620da90c8",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4100.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "0908829824d680ef39a837ffee8feed0cfb97f7b608fdc944d3ba89dc816bf99",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4100,
+      "committed_samples": 1049600,
+      "checkpoint_sha256": "f1445b30f00ba0e75e5c77333bf3b3e8056b66b8476f1b81baae36f5b24e2739",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4200.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "e02f32cddaa6427793bcff6063dd1ee089bdb9208701b5c37af29e8423fe8784",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4200,
+      "committed_samples": 1075200,
+      "checkpoint_sha256": "7965a5f04280cbcd07d76cc7c07f0e73138f7d5aa414fa7829b7345c60c93657",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4300.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "dd412584af2000613783f45000b1cc0e9ca57f92627171c653c45ce75d65c4df",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4300,
+      "committed_samples": 1100800,
+      "checkpoint_sha256": "588dc03e4edde9cfc67e8e333e7e3b40f027de9def6b17832a1c2d71e4eacacd",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4400.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "f931a3af62da3cde2b1c9358ef3e498edeef1ea45bdc6fc3b640416fd1b047af",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4400,
+      "committed_samples": 1126400,
+      "checkpoint_sha256": "ff806a42ad8dfa3806f0a6f363f92b7a806a35d74fb336f3e9e9fcb1b14a444c",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4500.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "ca4820b78f6d56e06e12532e66584350512c3706d15c208fdcc19387676d3e77",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4500,
+      "committed_samples": 1152000,
+      "checkpoint_sha256": "fffa330e6d24d23ea0501227842fc341729054efb0f5b12f81fc529dba9ec055",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4600.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "9a502f465c0c4a97e1883ff672c3344df7322deb71b6b17d29802c9b6cfd76c5",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4600,
+      "committed_samples": 1177600,
+      "checkpoint_sha256": "ba68f3930ab2dc02cc232bfebdda2439933831d46efbb953b9bffec26c1f88ba",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4700.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "c2726294c469a0e842e5e91beb0ccb9842663281abd3e439e560a6463da6106f",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4700,
+      "committed_samples": 1203200,
+      "checkpoint_sha256": "85a185d3d42a1ef1122232af11f50f8fdb824ea6fce33d96de2b3aee6585f5b2",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4800.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "320dfb9276baf7d6b5326e5e66404d27a556e86036914b006a42979dfcf7df03",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4800,
+      "committed_samples": 1228800,
+      "checkpoint_sha256": "73774bbc295e2836cc990d8009dd72bf32152ac4fa6aae2821fdee6c28e6ec46",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4900.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "81aecfe0d8588430f4e53b2af951e3e4604d22126dca0d6e12f1464b0b32ec60",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4900,
+      "committed_samples": 1254400,
+      "checkpoint_sha256": "621e93415a3024a9bd99bc9fc3885123fae411a7c09536d479865922ce80d86c",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    },
+    {
+      "file": "checkpoint-4943.pt",
+      "bytes": 773264427,
+      "receipt_sha256": "fbf306577b8fba37d0a6b2d2642c5ecfe98f1ee8c2f69ea0e7165ba72fdeb348",
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "global_step": 4943,
+      "committed_samples": 1265235,
+      "checkpoint_sha256": "8d3cb52867e0c74b35c5931bfb9c90de3a7b6589fd9466fd68d00c9593431e38",
+      "checkpoint_hash_scope": "declared_by_receipt_not_recomputed_in_inventory"
+    }
+  ],
+  "scope": "Files, sizes and receipt/event agreement; only final checkpoint is read and hashed separately."
+}

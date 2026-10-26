@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-10-27",
+  "timezone": "Asia/Shanghai",
+  "provenance": "User personally ran inference and supplied the PowerShell output in this conversation; not rerun or independently captured by the assistant.",
+  "source_checkpoint_sha256": "8d3cb52867e0c74b35c5931bfb9c90de3a7b6589fd9466fd68d00c9593431e38",
+  "source_export_manifest_sha256": "14cf9c04a2af19aa33c5b0ef928fa17cdb8e78f9effe6904d371bc17a4ccb11c",
+  "conditions": {
+    "entrypoint": "load_model.py from native FP32 export v2",
+    "device": "cpu",
+    "dtype": "float32",
+    "decoding": "greedy",
+    "max_new_tokens": 32,
+    "prompt_format": "BOS + text prefix, no conversation template",
+    "display": "new continuation only",
+    "model_eval": true,
+    "gradient_enabled": false
+  },
+  "samples": [
+    {
+      "prompt": "春天的风吹过田野，",
+      "continuation": "树叶在微风中轻轻摇曳。小草在微风中轻轻摇曳，阳光照耀着大地，微",
+      "stop_reason": "not_recorded",
+      "observation": "Relevant short Chinese continuation with repetition and formulaic expression."
+    },
+    {
+      "prompt": "你好，",
+      "continuation": "我有一个问题想问。您好，欢迎来到这里。请问您有什么问题需要帮助吗？我最近在学习编程，但是不知道从",
+      "stop_reason": "not_recorded",
+      "observation": "Question/answer-like text with unstable speaker boundaries."
+    },
+    {
+      "prompt": "机器学习是什么，",
+      "continuation": "它如何工作？机器学习是一种人工智能的分支，它使用算法和统计模型来让计算机从数据中学习，并根据这些数据做出决策。",
+      "stop_reason": "not_recorded",
+      "observation": "Completes the question and follows it with a broadly reasonable definition; not a factual benchmark."
+    }
+  ],
+  "limitations": [
+    "Three ad hoc prompts, not a frozen independent evaluation or an accuracy estimate.",
+    "Similarity to training examples was not checked.",
+    "Actual generated token counts and stopping causes were not logged.",
+    "No claim of reliable chat, instruction following, broad knowledge, or safety performance."
+  ]
+}

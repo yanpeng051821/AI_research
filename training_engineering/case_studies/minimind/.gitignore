@@ -13,6 +13,7 @@ implementation/data/audit/
 implementation/data/source_samples/*.jsonl
 implementation/runs/
 implementation/checkpoints/
+implementation/exports/
 
 *.safetensors
 *.pth
