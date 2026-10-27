@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "format": "minimind-lab-native-fp32-v1",
+  "created_at_utc": "2026-10-27T00:56:03.919707+00:00",
+  "source": {
+    "checkpoint_file": "checkpoint-4943.pt",
+    "checkpoint_sha256": "8d3cb52867e0c74b35c5931bfb9c90de3a7b6589fd9466fd68d00c9593431e38",
+    "checkpoint_bytes": 773264427,
+    "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+    "freeze_sha256": "b496d4fb257bae495d6a3a86552d948206227bd5a8a78a08fbccfd425cc35828",
+    "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4",
+    "global_step": 4943,
+    "stage": "pretrain_from_random_initialization"
+  },
+  "runtime_versions": {
+    "torch": "2.14.0+cu130",
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.8.0"
+  },
+  "parameters": 63912192,
+  "model_state_sha256": "8d10d76090b2714c055a95123c3583c6941b1ecb6af84a10f0f68dbe21cb783f",
+  "weights_dtype": "float32",
+  "tied_weights": [
+    "backbone.embedding.weight",
+    "lm_head.weight"
+  ],
+  "export_script_sha256": "358229b407c735eb2f2ec354041e88cd0e82f1633f71a64fbf993178a182d229",
+  "loader_source_sha256": "3a1e8c7d3931cf099874b5d29a8d8fa486e64065a3558b542d96cacb709c74ae",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 16163,
+      "sha256": "09d502fd589c3851592fd0c89728c18d958131931a1a71a6e4e67e1f366b3299"
+    },
+    {
+      "path": "README_zh.md",
+      "bytes": 12848,
+      "sha256": "d8feb6b677a007e4b398b1206be7ea6b6ec76354c203ba9d49bed1ff30b55bbf"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 883,
+      "sha256": "5c8a3abd0e88cc54bee36c0c73642cd7dd61ff6b9110eb0549d50262b5067d16"
+    },
+    {
+      "path": "config.json",
+      "bytes": 440,
+      "sha256": "36f5c84fdd8d93ccbbc14671a6ca8028fd8b012edb40b78e4f5ec59a2aef2363"
+    },
+    {
+      "path": "evidence/export_verification.json",
+      "bytes": 1573,
+      "sha256": "8df6936b0d4cc5aaae73223587fbf09a6ce8b600e2375465ce7b96e849f4b0e7"
+    },
+    {
+      "path": "evidence/learning_curves.png",
+      "bytes": 190487,
+      "sha256": "0ad1ed5f3816d0f205e881fb9f88cd2094a20a00791e78f47b587ec3d12456d9"
+    },
+    {
+      "path": "evidence/manual_generation.json",
+      "bytes": 2210,
+      "sha256": "f1b7bb52c21eb664e550ad23faafcea31fcbd3a0a8fc7c00e468d41289b46423"
+    },
+    {
+      "path": "evidence/runtime_cost.json",
+      "bytes": 3364,
+      "sha256": "68f1dd6d7688b494d97bba58f1f91431deece9daa0d93fa39777e405fca61baa"
+    },
+    {
+      "path": "evidence/validation_history.json",
+      "bytes": 2441,
+      "sha256": "ae7c99767c45fd496092b3e9a32c087ee91ffa56139059aa4617388f110d74bb"
+    },
+    {
+      "path": "licenses/MiniMind-Apache-2.0.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "load_model.py",
+      "bytes": 7133,
+      "sha256": "3a1e8c7d3931cf099874b5d29a8d8fa486e64065a3558b542d96cacb709c74ae"
+    },
+    {
+      "path": "model.safetensors",
+      "bytes": 255659304,
+      "sha256": "3f1d1e6f585d516149d62d33670ef20cb29caa11c1759786586879e19fa3cc22"
+    },
+    {
+      "path": "recipes/contract.json",
+      "bytes": 6508,
+      "sha256": "6396450dddb0526927911bdcecf2ace5de4a0250a111512cfa3bb322784e2e61"
+    },
+    {
+      "path": "recipes/data_recipe.json",
+      "bytes": 3557,
+      "sha256": "f15974aea56b4b01e955635acc08cf8eea7a89cd742781a2427e881f2b032a0e"
+    },
+    {
+      "path": "recipes/training_config.json",
+      "bytes": 1314,
+      "sha256": "36d3978f54f2612c18ba4ad87070d2078d762fb9c4a885a3562cf0c864206876"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 136,
+      "sha256": "a39441c380d5a1198fd3554907c73e2c9070b704c1389f67f7f6753e4b421439"
+    },
+    {
+      "path": "runtime/minimind_lab/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runtime/minimind_lab/models/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runtime/minimind_lab/models/attention.py",
+      "bytes": 9606,
+      "sha256": "d0d5a3c3dd968b61f7c858618283739818b1009cbe236a2c78b0d9a4505404ba"
+    },
+    {
+      "path": "runtime/minimind_lab/models/block.py",
+      "bytes": 1723,
+      "sha256": "fffa78eb31efc59f5031f928a23dce806638fbdfc121d8c374c2086d0b04ed58"
+    },
+    {
+      "path": "runtime/minimind_lab/models/bpe.py",
+      "bytes": 4511,
+      "sha256": "3fc92e62fc1145b08f4901833c1e3b12be0ad29f36eae1859bd918405fabc285"
+    },
+    {
+      "path": "runtime/minimind_lab/models/config.py",
+      "bytes": 1159,
+      "sha256": "0335b8b3730c459e1e7145ccf042e34b40857182ce38bec59a02871d3b604529"
+    },
+    {
+      "path": "runtime/minimind_lab/models/embedding.py",
+      "bytes": 377,
+      "sha256": "eb2d1ebe10e11062aaf3cffe721c8506ee99dc6a59f386d664ca38d20342736b"
+    },
+    {
+      "path": "runtime/minimind_lab/models/feedforward.py",
+      "bytes": 668,
+      "sha256": "bfcf2e8768afdca1d3194444acab60cbe4305b4b4a62954d2dec483a55ba4954"
+    },
+    {
+      "path": "runtime/minimind_lab/models/generation.py",
+      "bytes": 974,
+      "sha256": "7e998937e67f2f4ffaa00d2505432b9a0359d82ed81d1efa9b30d871ebff510d"
+    },
+    {
+      "path": "runtime/minimind_lab/models/initialization.py",
+      "bytes": 559,
+      "sha256": "a97ef700cc2dbd3f2bc30cc7375f0cbc7fdbf39253b3a560567cfe9620f86c6d"
+    },
+    {
+      "path": "runtime/minimind_lab/models/loss.py",
+      "bytes": 1228,
+      "sha256": "d25bfe029b3a256626e34247bd314d3a0a05f5a33df0b9c01740c49609ee8657"
+    },
+    {
+      "path": "runtime/minimind_lab/models/model.py",
+      "bytes": 2196,
+      "sha256": "0a632bb110af1c9bfa3c75f92451f694b02c831477d4093553b1c7d221aeacae"
+    },
+    {
+      "path": "runtime/minimind_lab/models/rmsnorm.py",
+      "bytes": 532,
+      "sha256": "6577dd8f51187e4bd86d1b9877e2747dd83e2d19625735d30a0a83ca081095f5"
+    },
+    {
+      "path": "runtime/minimind_lab/models/rope.py",
+      "bytes": 3514,
+      "sha256": "ab5d1d98a73934a10477cd8a1e9c366f76a4c99c3a1c17445fcddd0107b047c8"
+    },
+    {
+      "path": "tokenizer/manifest.json",
+      "bytes": 377,
+      "sha256": "ba6d90df750b83465959c28fc4f756282cd25c5e39f803736d4e5082db6a73e4"
+    },
+    {
+      "path": "tokenizer/tokenizer.json",
+      "bytes": 482372,
+      "sha256": "8bf5868abfc7ea919186b57e2b411adefe3b0922b53052c5839937e166b9d395"
+    },
+    {
+      "path": "tokenizer/tokenizer_config.json",
+      "bytes": 13642,
+      "sha256": "e42b762555734279158ca292431c831fa387c48c35d9b1b205f4fc6c83b79d34"
+    }
+  ],
+  "scope": "Native model-only bundle; local verification is recorded separately. Not an AutoModel adapter.",
+  "public_release": {
+    "repo_id": "yanpeng051821/minimind-dense-64m-mini-pretrain",
+    "code_revision": "34a26c3b33ed91486343ac11964eac317e8ed72b",
+    "packaging_script_sha256": "f94601a15e51d4811193c26c57cff2b15df24a21820d86f8a768f40a58b97a18",
+    "source_export_manifest_sha256": "14cf9c04a2af19aa33c5b0ef928fa17cdb8e78f9effe6904d371bc17a4ccb11c",
+    "human_authorization": "User requested publication in this conversation on 2026-10-27.",
+    "license_status": "Declared uncertainty retained; no blanket license selected."
+  },
+  "documentation_update": {
+    "parent_hf_revision": "f764fe9f62c864caa5510fc73a5e8cd5af6cef07",
+    "kind": "English default card with linked Chinese version",
+    "changed_files": [
+      "README.md",
+      "README_zh.md",
+      "export_manifest.json"
+    ],
+    "update_script_sha256": "6986270a2f0a8f7cd9fa5e6fe0b2e1b89f3d83e0ac1ecd9b9961d7427eb475eb",
+    "model_runtime_or_weights_changed": false
+  }
+}

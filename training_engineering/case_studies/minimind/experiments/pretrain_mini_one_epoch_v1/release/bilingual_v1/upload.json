@@ -1,0 +1,11 @@
+{
+  "repo_id": "yanpeng051821/minimind-dense-64m-mini-pretrain",
+  "parent_revision": "f764fe9f62c864caa5510fc73a5e8cd5af6cef07",
+  "revision": "9e268f1bf9d74c087168ded4f6c461c281d6413b",
+  "changed_files": [
+    "README.md",
+    "README_zh.md",
+    "export_manifest.json"
+  ],
+  "export_manifest_sha256": "d4de031e90753b0ca20e5222b88992ec64a8b58fa684eacb98456e3fd6cc5034"
+}

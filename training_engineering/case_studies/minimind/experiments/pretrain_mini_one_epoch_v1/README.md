@@ -12,6 +12,8 @@
 
 [发布前审查与模型卡](release/README.md)保留审查过程，用户确认后已完成另建公开包及上传。[HF 模型与模型卡](https://huggingface.co/yanpeng051821/minimind-dense-64m-mini-pretrain)包含三条用户亲自运行的续写；[固定 revision 的 33 文件核对与加载结果](release/public_v1/download_verification.json)通过。许可不确定性在公开说明中保留，不改写历史报告的 pending 状态。
 
+当前模型卡默认英文，顶部链接可查看中文版，见[双语文档更新记录](release/bilingual_v1/README.md)。此次仅更新模型卡及清单，权重、配置与代码没有变化。
+
 ## 1. 先看关系
 
 ```text

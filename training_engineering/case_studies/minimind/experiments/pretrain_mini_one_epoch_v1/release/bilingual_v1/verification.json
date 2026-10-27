@@ -1,0 +1,20 @@
+{
+  "status": "documentation_updated_and_verified",
+  "repo_id": "yanpeng051821/minimind-dense-64m-mini-pretrain",
+  "parent_revision": "f764fe9f62c864caa5510fc73a5e8cd5af6cef07",
+  "revision": "9e268f1bf9d74c087168ded4f6c461c281d6413b",
+  "changed_files": [
+    "README.md",
+    "README_zh.md",
+    "export_manifest.json"
+  ],
+  "unchanged_remote_files_verified": 32,
+  "weight_lfs_sha256": "3f1d1e6f585d516149d62d33670ef20cb29caa11c1759786586879e19fa3cc22",
+  "english_source_sha256": "09d502fd589c3851592fd0c89728c18d958131931a1a71a6e4e67e1f366b3299",
+  "update_script_sha256": "6986270a2f0a8f7cd9fa5e6fe0b2e1b89f3d83e0ac1ecd9b9961d7427eb475eb",
+  "export_manifest_sha256": "d4de031e90753b0ca20e5222b88992ec64a8b58fa684eacb98456e3fd6cc5034",
+  "default_card_language": "English",
+  "chinese_card": "README_zh.md",
+  "navigation": "Markdown links between documents, not a native HF language setting",
+  "scope": "Fresh anonymous download of all three updated files; unchanged weight/runtime identities compared with the previously download-and-load-verified parent. No new training, weight conversion, full weight download, or inference run."
+}
