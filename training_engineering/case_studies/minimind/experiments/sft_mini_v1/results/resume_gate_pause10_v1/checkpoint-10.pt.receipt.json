@@ -1,0 +1,6 @@
+{
+  "contract_sha256": "e403c68bc3433e8071a6439179d24b6a2f14cdd9af5966ab9f5367bfaa32d914",
+  "checkpoint_sha256": "f332204f22db06d5a91e0ff1ac45e389470c4908a9772a3fd739b50db41d5982",
+  "global_step": 10,
+  "committed_samples": 160
+}

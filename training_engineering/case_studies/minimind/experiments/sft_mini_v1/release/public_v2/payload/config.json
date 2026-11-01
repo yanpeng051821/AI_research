@@ -1,0 +1,21 @@
+{
+  "format": "minimind-lab-native-fp32-v1",
+  "model": {
+    "vocab_size": 6400,
+    "hidden_size": 768,
+    "intermediate_size": 2432,
+    "rms_norm_eps": 1e-06,
+    "qk_norm": true,
+    "num_layers": 8,
+    "num_heads": 8,
+    "kv_heads": 4,
+    "rope_base": 1000000.0
+  },
+  "weights_dtype": "float32",
+  "trained_sequence_length": 768,
+  "special_token_ids": {
+    "bos_token_id": 1,
+    "eos_token_id": 2,
+    "pad_token_id": 0
+  }
+}

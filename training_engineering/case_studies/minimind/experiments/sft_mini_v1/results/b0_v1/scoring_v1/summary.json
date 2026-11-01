@@ -1,0 +1,93 @@
+{
+  "status": "assistant_initial_review_complete_not_independently_reviewed",
+  "reviewed_records": 36,
+  "by_tier": {
+    "core": {
+      "records": 32,
+      "pass": 3,
+      "fail": 29,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.09375,
+      "pass_rate_upper_bound": 0.09375
+    },
+    "supplementary": {
+      "records": 4,
+      "pass": 0,
+      "fail": 4,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.0
+    }
+  },
+  "by_category": {
+    "everyday": {
+      "records": 8,
+      "pass": 0,
+      "fail": 8,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.0
+    },
+    "instruction": {
+      "records": 8,
+      "pass": 0,
+      "fail": 8,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.0
+    },
+    "grounded": {
+      "records": 8,
+      "pass": 3,
+      "fail": 5,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.375,
+      "pass_rate_upper_bound": 0.375
+    },
+    "context": {
+      "records": 8,
+      "pass": 0,
+      "fail": 8,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.0
+    },
+    "tool": {
+      "records": 4,
+      "pass": 0,
+      "fail": 4,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.0
+    }
+  },
+  "quality_observation_counts": {
+    "repetitive_output": 36,
+    "placeholder_or_symbol_loop": 4,
+    "whitespace_only": 2,
+    "extra_incorrect_time_not_covered_by_frozen_checks": 1,
+    "location_only_request_not_enforced_by_frozen_checks": 1,
+    "unsupported_claim_already_purchased": 1,
+    "selection_exclusion_relation_reversed": 1
+  },
+  "rubric_gap_cases": [
+    "grounded-01"
+  ],
+  "task_pass_is_frozen_checklist_pass_not_overall_response_quality": true,
+  "termination_scored_separately": true,
+  "reviewer": "assistant_full_output_manual_review",
+  "independently_reviewed": false,
+  "user_reviewed": false,
+  "semantic_judgments_automatically_verified": false,
+  "source_coverage_hashes_checklists_and_quotes_verified": true,
+  "inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\probes.jsonl": "54688cdb406e4942022112e32cb6912900c5d802a69629da6d6947a952393d1c",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_config.json": "32318ef5592749b1fff9daa54f32851403b29a30590452298e67f9017e71dba7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_freeze.json": "f3b5bc996a4f465ae967565b1d54317b5c86888992a3406aeb6410a401cbe876",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\generations.jsonl": "9cb5cbc62b36b763519ece9252c11f796136ce4f3bfcf9c5b6eff1c198c031e7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\verification.json": "a66802c3890b1582316ee504cf22c750bbd84f0ccf55b847672f4453558c4887",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\scoring_v1\\reviews.assistant.jsonl": "d3c773b71c0e28d36585b6ff27277d33916bf054791b8f7a33f0b8f5601d5c3a",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\aggregate_sft_scores.py": "4631cc05c7a99ae81a033b7f5d1d4f9673c1deb215b05685f28fd6586a1f76ea"
+  },
+  "training_started": false
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "contract_sha256": "3ac716dee78ce33d5d418e7f1f5e7e6b176dcdad6d06c52ac608322172c1abe9",
+  "frozen_at_utc": "2026-10-31T09:39:36.429601+00:00",
+  "files": {
+    "training_config": {
+      "file": "training_config.json",
+      "sha256": "8e1bfe47bbf1d70b01cbc547376f1b220c195ac6ad4208b6bcebb10550128c33"
+    },
+    "acceptance": {
+      "file": "training_acceptance.json",
+      "sha256": "3a6751de9938387db56b60af4956428c736e7ee798c6e41a8e54bc6239c146ee"
+    },
+    "human_contract": {
+      "file": "TRAINING_CONTRACT.md",
+      "sha256": "bcde3a94d1862fa3f328da3d3ed996d88ccfc8355a71e3f037192ad5ac8b8d45"
+    },
+    "candidate": {
+      "file": "sft_mini_candidate.json",
+      "sha256": "e8d6e5627bffafd5ebeae936bb69088c96c41e3b616f1d21d56b57674d75145f"
+    },
+    "resume_comparison": {
+      "file": "../results/formal_resume_comparison_v1.json",
+      "sha256": "016fe95725c28c155edf07629ac5b7ce344d0e8b7902583815b1b05981394f9c"
+    },
+    "stability": {
+      "file": "../results/formal_gate_cont20_v1/result.json",
+      "sha256": "dc9e7dfb1d0bc3705b793f13378060b3889e3aeab449af0037552068f74af756"
+    },
+    "tests": {
+      "file": "../results/final_runtime_tests_v1.xml",
+      "sha256": "65555ba71f7d033ab33252fc291fa0dcfd765ce261af95ce916e14a43a32164b"
+    },
+    "dependency_lock": {
+      "file": "../../../implementation/uv.lock",
+      "sha256": "e48c4c186c2b2708a3321b516a20ec7071f09d63d40ff157f2a923f0575fe793"
+    },
+    "dependency_specification": {
+      "file": "../../../implementation/pyproject.toml",
+      "sha256": "c7c0984824c397d52a32c1694af625754ca28f6e62407bf473623be5450efa96"
+    },
+    "sft_formal_runtime.py": {
+      "file": "../../../implementation/scripts/sft_formal_runtime.py",
+      "sha256": "74258314b95ca474ee4cd056725e5f1c63d974900b11d05dacc50252b34195dc"
+    },
+    "train_frozen_sft.py": {
+      "file": "../../../implementation/scripts/train_frozen_sft.py",
+      "sha256": "49e7c854889c346c26f831b7f0cc164823c4e49c6262255f65fe118ba3c0cd32"
+    },
+    "freeze_sft_training.py": {
+      "file": "../../../implementation/scripts/freeze_sft_training.py",
+      "sha256": "9c6366fe3d7c9c41be79ab7c013419fcce9568d7eba4aa4a84abe51c90d140f2"
+    },
+    "objectives": {
+      "file": "../EXPERIMENT_OBJECTIVES.md",
+      "sha256": "9b076e574dbab04b3a79e5be5262a3ab3801d4bc98a78252f10e5e4700ea7b7c"
+    },
+    "evaluation_freeze": {
+      "file": "../evaluation_recipe/evaluation_freeze.json",
+      "sha256": "f3b5bc996a4f465ae967565b1d54317b5c86888992a3406aeb6410a401cbe876"
+    },
+    "scoring_patch": {
+      "file": "../evaluation_recipe/scoring_v2_patch.json",
+      "sha256": "77f1a8be6d8e70c301e52ec8b5bc3d4b362ce95fa86d27a5bd2654e6d58a52e0"
+    },
+    "operations_measurement": {
+      "file": "../results/operations_measurement_v1.json",
+      "sha256": "09eb9181849dffff08670ca7b58247b1c886fc086c0e150f468577233607a910"
+    },
+    "comparer": {
+      "file": "../../../implementation/scripts/compare_sft_resume.py",
+      "sha256": "37c5cbce45180101354ab90421b4e740272c0d459fb1b4727e703a97f64bfbc8"
+    },
+    "test_sft_formal_runtime.py": {
+      "file": "../../../implementation/tests/test_sft_formal_runtime.py",
+      "sha256": "4fd5c4a1782942492b3ef1183e8850468c6d025b62989a4dfc08d5fe260aba31"
+    },
+    "test_sft_training_entry.py": {
+      "file": "../../../implementation/tests/test_sft_training_entry.py",
+      "sha256": "0c08c84fc2c9fd3183cf981040043aedf7f8488d8a5debafa26563fdd602a362"
+    },
+    "test_sft_resume_comparison.py": {
+      "file": "../../../implementation/tests/test_sft_resume_comparison.py",
+      "sha256": "f5b44cc2d93235ee39089cb0224f2efd83bffad23cfaab4e7be300fc68b9dc2d"
+    },
+    "resolved_contract": {
+      "file": "contract.json",
+      "sha256": "99bac3db588bcb5aa12d9f4f76d35d86a15646c1549dc73d8a49c172c4d38465"
+    }
+  },
+  "formal_training_started": false,
+  "launch_requires_explicit_run": true,
+  "gates": {
+    "real_cuda_resume": "passed",
+    "stability_step": 20,
+    "regression_cases": 53
+  },
+  "expected_updates": 49087
+}

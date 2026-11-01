@@ -1,0 +1,18 @@
+{
+  "status": "gpu_two_token_smoke_passed_not_B0",
+  "device": "cuda",
+  "precision": "fp32_no_autocast_tf32_disabled",
+  "fixed_evaluation_cases_used": false,
+  "generated_tokens": 2,
+  "stop_reason": "length_limit",
+  "elapsed_seconds": 0.43918570000096224,
+  "state_unchanged": true,
+  "generated_ids": [
+    45,
+    256
+  ],
+  "scoring_performed": false,
+  "nll_computed": false,
+  "runner_sha256": "16e8277ea67b5aac05bd112080caa0206dadeafe3a8dafae86762f5eb2dbc6ba",
+  "model_state_sha256": "8d10d76090b2714c055a95123c3583c6941b1ecb6af84a10f0f68dbe21cb783f"
+}

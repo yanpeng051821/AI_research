@@ -1,0 +1,337 @@
+{
+  "version": "scoring_v2",
+  "status": "assistant_initial_review_not_independently_reviewed",
+  "by_tier": {
+    "core": {
+      "records": 32,
+      "pass": 2,
+      "fail": 30,
+      "uncertain": 0,
+      "pass_rate": 0.0625
+    },
+    "supplementary": {
+      "records": 4,
+      "pass": 0,
+      "fail": 4,
+      "uncertain": 0,
+      "pass_rate": 0.0
+    }
+  },
+  "by_category": {
+    "everyday": {
+      "records": 8,
+      "pass": 0,
+      "fail": 8,
+      "uncertain": 0,
+      "pass_rate": 0.0
+    },
+    "instruction": {
+      "records": 8,
+      "pass": 0,
+      "fail": 8,
+      "uncertain": 0,
+      "pass_rate": 0.0
+    },
+    "grounded": {
+      "records": 8,
+      "pass": 2,
+      "fail": 6,
+      "uncertain": 0,
+      "pass_rate": 0.25
+    },
+    "context": {
+      "records": 8,
+      "pass": 0,
+      "fail": 8,
+      "uncertain": 0,
+      "pass_rate": 0.0
+    },
+    "tool": {
+      "records": 4,
+      "pass": 0,
+      "fail": 4,
+      "uncertain": 0,
+      "pass_rate": 0.0
+    }
+  },
+  "changed_decisions": [
+    {
+      "id": "grounded-01",
+      "v1": "pass",
+      "v2": "fail"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "everyday-01",
+      "category": "everyday",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "everyday-02",
+      "category": "everyday",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "everyday-03",
+      "category": "everyday",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "everyday-04",
+      "category": "everyday",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "everyday-05",
+      "category": "everyday",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "everyday-06",
+      "category": "everyday",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "everyday-07",
+      "category": "everyday",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "everyday-08",
+      "category": "everyday",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "instruction-01",
+      "category": "instruction",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "instruction-02",
+      "category": "instruction",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "instruction-03",
+      "category": "instruction",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "instruction-04",
+      "category": "instruction",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "instruction-05",
+      "category": "instruction",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "instruction-06",
+      "category": "instruction",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "instruction-07",
+      "category": "instruction",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "instruction-08",
+      "category": "instruction",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "grounded-01",
+      "category": "grounded",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_plus_patch"
+    },
+    {
+      "id": "grounded-02",
+      "category": "grounded",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "grounded-03",
+      "category": "grounded",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "grounded-04",
+      "category": "grounded",
+      "tier": "core",
+      "task_outcome": "pass",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "grounded-05",
+      "category": "grounded",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "grounded-06",
+      "category": "grounded",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "grounded-07",
+      "category": "grounded",
+      "tier": "core",
+      "task_outcome": "pass",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "grounded-08",
+      "category": "grounded",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "context-01",
+      "category": "context",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "context-02",
+      "category": "context",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "context-03",
+      "category": "context",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "context-04",
+      "category": "context",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "context-05",
+      "category": "context",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "context-06",
+      "category": "context",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "context-07",
+      "category": "context",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "context-08",
+      "category": "context",
+      "tier": "core",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "tool-01",
+      "category": "tool",
+      "tier": "supplementary",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "tool-02",
+      "category": "tool",
+      "tier": "supplementary",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "tool-03",
+      "category": "tool",
+      "tier": "supplementary",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    },
+    {
+      "id": "tool-04",
+      "category": "tool",
+      "tier": "supplementary",
+      "task_outcome": "fail",
+      "checks_source": "v1_unchanged"
+    }
+  ],
+  "inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\probes.jsonl": "54688cdb406e4942022112e32cb6912900c5d802a69629da6d6947a952393d1c",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_config.json": "32318ef5592749b1fff9daa54f32851403b29a30590452298e67f9017e71dba7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_freeze.json": "f3b5bc996a4f465ae967565b1d54317b5c86888992a3406aeb6410a401cbe876",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\generations.jsonl": "9cb5cbc62b36b763519ece9252c11f796136ce4f3bfcf9c5b6eff1c198c031e7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\verification.json": "a66802c3890b1582316ee504cf22c750bbd84f0ccf55b847672f4453558c4887",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\scoring_v1\\reviews.assistant.jsonl": "d3c773b71c0e28d36585b6ff27277d33916bf054791b8f7a33f0b8f5601d5c3a",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\aggregate_sft_scores.py": "4631cc05c7a99ae81a033b7f5d1d4f9673c1deb215b05685f28fd6586a1f76ea",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\scoring_v1\\summary.json": "a6b0ff31858a02cf34995e0d91a620cebe1264666d5894f41d48dc82ac234cb2",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\scoring_v2_patch.json": "77f1a8be6d8e70c301e52ec8b5bc3d4b362ce95fa86d27a5bd2654e6d58a52e0",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\scoring_v2\\added_check.assistant.json": "937de1979069aa28827e0434d69d8a17b44cce8d34a105e2bec996cb30cf5424",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\apply_sft_scoring_patch.py": "b95ae3fbcb498ebd62b9e067040ebccb93e98f3a2367d9e1fe7dfb8c8a3bc083"
+  },
+  "independently_reviewed": false,
+  "user_approved_patch": true,
+  "user_reviewed_all_cases": false,
+  "semantic_judgments_automatically_verified": false,
+  "generation_rerun": false,
+  "training_started": false
+}

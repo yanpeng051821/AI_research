@@ -1,0 +1,144 @@
+{
+  "status": "completed",
+  "formal_training": false,
+  "comparisons": {
+    "sft": {
+      "manual": {
+        "status": "passed",
+        "nll": 2.848855495452881,
+        "valid_targets": 1668
+      },
+      "sdpa_masked_auto": {
+        "status": "measured_not_formal_equivalence_certification",
+        "nll": 2.8482837677001953,
+        "nll_abs_difference": 0.0005717277526855469,
+        "real_position_logits_max_abs_difference": 0.234375,
+        "real_position_logits_mean_abs_difference": 0.011159366928040981,
+        "gradient_global_l2_relative_difference": 0.015380225515269538,
+        "gradients_finite": true,
+        "pad_query_logits_compared": false
+      },
+      "flash_causal_right_padding": {
+        "status": "failed",
+        "error_type": "RuntimeError",
+        "error": "No available kernel. Aborting execution."
+      }
+    }
+  },
+  "performance": [
+    {
+      "backend": "manual",
+      "status": "passed",
+      "stage": "sft",
+      "micro_batch": 4,
+      "gradient_accumulation": 4,
+      "effective_batch": 16,
+      "measured_updates": 21,
+      "timed_records": 336,
+      "cached_update_median_seconds": 0.7207542000105605,
+      "cached_records_per_second": 22.19284532388151,
+      "online_update_median_seconds": 0.732116600003792,
+      "online_records_per_second": 21.861567091749823,
+      "online_encode_collate_median_seconds": 0.015019500016933307,
+      "supervised_targets_per_second": 9593.385792326922,
+      "peak_allocated_bytes": 4052571648,
+      "reserved_bytes": 4125097984,
+      "checkpoint_bytes": 767066795,
+      "checkpoint_save_seconds": 0.8337289999763016,
+      "checkpoint_sha256": "886165a8124ce04cfac982bf2136e918552e6f61238cfbcd2f541e369a1a5df1",
+      "checkpoint_hash_seconds": 0.6827902000222821,
+      "bf16_validation_64_records_seconds": 1.0826535999949556,
+      "bf16_validation_nll": 2.5793536652149376,
+      "total_case_seconds": 21.535134300007485,
+      "online_samples": [
+        {
+          "seconds": 0.732116600003792,
+          "encode_collate_seconds": 0.016113000019686297,
+          "valid_tokens": 7397
+        },
+        {
+          "seconds": 0.732178100006422,
+          "encode_collate_seconds": 0.015019500016933307,
+          "valid_tokens": 7156
+        },
+        {
+          "seconds": 0.7313392999931239,
+          "encode_collate_seconds": 0.014153500000247732,
+          "valid_tokens": 6247
+        }
+      ],
+      "limits": [
+        "Mini prepared-data sample, not cleaned full source distribution.",
+        "BF16 validation is throughput only, not held-out quality evaluation.",
+        "No formal sampler/resume/receipt gate or full-data recipe freeze.",
+        "Source PyTorch differs from the local training environment.",
+        "Cached timing excludes encoding; online includes encoding/collation but not full dataset I/O."
+      ]
+    },
+    {
+      "backend": "sdpa_masked_auto",
+      "status": "passed",
+      "stage": "sft",
+      "micro_batch": 4,
+      "gradient_accumulation": 4,
+      "effective_batch": 16,
+      "measured_updates": 37,
+      "timed_records": 592,
+      "cached_update_median_seconds": 0.4096985000069253,
+      "cached_records_per_second": 38.946009410290564,
+      "online_update_median_seconds": 0.42841340001905337,
+      "online_records_per_second": 37.36432371858521,
+      "online_encode_collate_median_seconds": 0.016831599990837276,
+      "supervised_targets_per_second": 17012.30109706672,
+      "peak_allocated_bytes": 3071768064,
+      "reserved_bytes": 3187671040,
+      "checkpoint_bytes": 767066795,
+      "checkpoint_save_seconds": 0.7734191999770701,
+      "checkpoint_sha256": "d94129f2dbad7293977f2a7edc6346ef34bbb0123952a846bd0508ff91770251",
+      "checkpoint_hash_seconds": 0.7055642000050284,
+      "bf16_validation_64_records_seconds": 0.4947956000105478,
+      "bf16_validation_nll": 2.5479364543724543,
+      "total_case_seconds": 19.34445279999636,
+      "online_samples": [
+        {
+          "seconds": 0.42386149999219924,
+          "encode_collate_seconds": 0.016831599990837276,
+          "valid_tokens": 7664
+        },
+        {
+          "seconds": 0.42841340001905337,
+          "encode_collate_seconds": 0.0165434000082314,
+          "valid_tokens": 7707
+        },
+        {
+          "seconds": 0.43237299998872913,
+          "encode_collate_seconds": 0.017298499995376915,
+          "valid_tokens": 7398
+        }
+      ],
+      "limits": [
+        "Mini prepared-data sample, not cleaned full source distribution.",
+        "BF16 validation is throughput only, not held-out quality evaluation.",
+        "No formal sampler/resume/receipt gate or full-data recipe freeze.",
+        "Source PyTorch differs from the local training environment.",
+        "Cached timing excludes encoding; online includes encoding/collation but not full dataset I/O."
+      ]
+    }
+  ],
+  "environment": {
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "gpu": "NVIDIA GeForce RTX 4060 Ti",
+    "total_memory": 8585216000,
+    "cpu_threads": 4,
+    "tf32": false,
+    "deterministic_algorithms": true
+  },
+  "invariant": "Strict right padding, causal self-attention, positionwise remaining blocks, ignored padding targets.",
+  "limits": [
+    "No returned attention weights in candidate backends.",
+    "Floating-point operation order changes; not bitwise-equivalent training or an approved resume backend.",
+    "All correctness comparisons use real token positions; pad-query outputs can differ.",
+    "Performance sample is prepared mini data, not a full-data quality experiment."
+  ]
+}

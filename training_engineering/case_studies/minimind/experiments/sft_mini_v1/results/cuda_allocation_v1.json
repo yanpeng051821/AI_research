@@ -1,0 +1,196 @@
+{
+  "status": "allocation_cap_reached",
+  "error": null,
+  "rows": [
+    {
+      "label": "cuda_initialized",
+      "system_commit_bytes": 28908990464,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 5252820992,
+      "physical_available_bytes": 1902419968,
+      "cuda_free_bytes": 7406092288,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 0,
+      "torch_reserved_bytes": 0
+    },
+    {
+      "label": "allocated_64_MiB",
+      "system_commit_bytes": 29267267584,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4894543872,
+      "physical_available_bytes": 1815912448,
+      "cuda_free_bytes": 7320109056,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 67108864,
+      "torch_reserved_bytes": 67108864
+    },
+    {
+      "label": "allocated_128_MiB",
+      "system_commit_bytes": 29335097344,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4826714112,
+      "physical_available_bytes": 1815834624,
+      "cuda_free_bytes": 7253000192,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 134217728,
+      "torch_reserved_bytes": 134217728
+    },
+    {
+      "label": "allocated_192_MiB",
+      "system_commit_bytes": 29402206208,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4759605248,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 7185891328,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 201326592,
+      "torch_reserved_bytes": 201326592
+    },
+    {
+      "label": "allocated_256_MiB",
+      "system_commit_bytes": 29469315072,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4692496384,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 7118782464,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 268435456,
+      "torch_reserved_bytes": 268435456
+    },
+    {
+      "label": "allocated_320_MiB",
+      "system_commit_bytes": 29536423936,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4625387520,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 7051673600,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 335544320,
+      "torch_reserved_bytes": 335544320
+    },
+    {
+      "label": "allocated_384_MiB",
+      "system_commit_bytes": 29603532800,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4558278656,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 6984564736,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 402653184,
+      "torch_reserved_bytes": 402653184
+    },
+    {
+      "label": "allocated_448_MiB",
+      "system_commit_bytes": 29671231488,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4490579968,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 6917455872,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 469762048,
+      "torch_reserved_bytes": 469762048
+    },
+    {
+      "label": "allocated_512_MiB",
+      "system_commit_bytes": 29738340352,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4423471104,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 6850347008,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 536870912,
+      "torch_reserved_bytes": 536870912
+    },
+    {
+      "label": "allocated_576_MiB",
+      "system_commit_bytes": 29805449216,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4356362240,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 6783238144,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 603979776,
+      "torch_reserved_bytes": 603979776
+    },
+    {
+      "label": "allocated_640_MiB",
+      "system_commit_bytes": 29872558080,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4289253376,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 6716129280,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 671088640,
+      "torch_reserved_bytes": 671088640
+    },
+    {
+      "label": "allocated_704_MiB",
+      "system_commit_bytes": 29939666944,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4222144512,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 6649020416,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 738197504,
+      "torch_reserved_bytes": 738197504
+    },
+    {
+      "label": "allocated_768_MiB",
+      "system_commit_bytes": 30006775808,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4155035648,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 6581911552,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 805306368,
+      "torch_reserved_bytes": 805306368
+    },
+    {
+      "label": "allocated_832_MiB",
+      "system_commit_bytes": 30074785792,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4087025664,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 6514802688,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 872415232,
+      "torch_reserved_bytes": 872415232
+    },
+    {
+      "label": "allocated_896_MiB",
+      "system_commit_bytes": 30142550016,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 4019261440,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 6447693824,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 939524096,
+      "torch_reserved_bytes": 939524096
+    },
+    {
+      "label": "allocated_960_MiB",
+      "system_commit_bytes": 30209658880,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 3952152576,
+      "physical_available_bytes": 1815830528,
+      "cuda_free_bytes": 6380584960,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 1006632960,
+      "torch_reserved_bytes": 1006632960
+    },
+    {
+      "label": "allocated_1024_MiB",
+      "system_commit_bytes": 30276710400,
+      "system_commit_limit_bytes": 34161811456,
+      "system_commit_available_bytes": 3885101056,
+      "physical_available_bytes": 1816047616,
+      "cuda_free_bytes": 6313476096,
+      "cuda_total_bytes": 8585216000,
+      "torch_allocated_bytes": 1073741824,
+      "torch_reserved_bytes": 1073741824
+    }
+  ],
+  "training_started": false,
+  "max_requested_mib": 1024,
+  "limitations": "Isolated allocation diagnostic, not model forward or backward."
+}

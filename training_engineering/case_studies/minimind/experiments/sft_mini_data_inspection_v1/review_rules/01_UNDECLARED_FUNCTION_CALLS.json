@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "policy_id": "sft_mini_768_undeclared_function_call_quarantine_v1",
+  "confirmed_on": "2026-10-31",
+  "status": "user_confirmed",
+  "action": "exclude_whole_record_to_quarantine",
+  "issue_code": "undeclared_function_call",
+  "source_sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+  "audit_report_sha256": "029b1cddd78f71ae0613b9155660793555c942c465017ee491cbaf6d88c0f955",
+  "candidate_report_sha256": "a719404ebab48c063f8a775253e2b0bd1826aeee4243e22ece8c321c183182b9",
+  "match": "Original source line and raw source-line SHA256 from the fixed audit; intersect with the current candidate.",
+  "already_excluded": "Do not exclude twice; verify prior exact exclusions against the same source-line hash.",
+  "preserve": "Other records, original files and record bytes/order; retain quarantined records and lineage.",
+  "prohibited": ["inventing tool declarations", "blanket exclusion of tool records", "keyword-based deletion"],
+  "confirmation": "User accepted quarantining the remaining records with undeclared structured function calls."
+}

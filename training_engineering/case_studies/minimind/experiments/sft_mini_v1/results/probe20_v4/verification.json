@@ -1,0 +1,38 @@
+{
+  "status": "passed_saved_evidence_checks_not_resume_test",
+  "inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\result.json": "a566f940e718720c9c611e443ca950d599e2e5fa3b0c2965c1b1a9761e201fea",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\run_manifest.json": "4cf083c8f8923d2efdedf5fa4b6cfe62f14b47e2b8065bffe0515b49d69ed449",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\candidate_contract.json": "469f56b12d868feae03b5d27a07d8c3bffe0b848010b9dd590c71dabe97f6bea",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\metrics.jsonl": "bad135c42af10d65ae127deb20c8f997cce8cd03736d536347e341eef6b11d88",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\checkpoint-20.pt": "e28317613ee01128d67ebe8ea3c1dfbac17a336b71e722933f81ea2224964b73",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\checkpoint-20.pt.receipt.json": "29c2a309a0908546b65ce316033442a105bc63c3998c31b8b6f63961a48cc6ed",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\verify_sft_probe.py": "f7fdf690639b682666d7c4f1850d3ef312f4be7bb9819a64ca9d98ef0e82d78d"
+  },
+  "global_step": 20,
+  "updates_this_launch": 20,
+  "committed_samples": 320,
+  "valid_tokens_seen": 128859,
+  "checkpoint_bytes": 770864235,
+  "median_update_seconds_excluding_first": 0.7325662999937776,
+  "median_window_seconds_excluding_first": 0.7480918999935966,
+  "rough_pure_training_hours": 10.200440859718244,
+  "estimate_excludes": [
+    "validation",
+    "checkpoint",
+    "startup",
+    "long_run_throughput_variation"
+  ],
+  "peak_allocated_gib": 3.7726035118103027,
+  "last_reserved_gib": 3.884765625,
+  "last_allocated_gib": 0.7885599136352539,
+  "initial_validation": {
+    "nll": 2.8312329279284945,
+    "valid_tokens": 27337
+  },
+  "final_validation": {
+    "nll": 2.599189177521251,
+    "valid_tokens": 27337
+  },
+  "actual_resume_test_completed": false
+}

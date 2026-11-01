@@ -1,0 +1,16 @@
+{
+  "status": "completed",
+  "created_at_utc": "2026-10-30T15:42:40.519491+00:00",
+  "source_sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+  "expected_records": 905718,
+  "processed_records": 905718,
+  "workers": 4,
+  "chunk_size": 1000,
+  "details_dir": "data\\audit\\sft_full_encoding_v1",
+  "filtering_executed": false,
+  "training_started": false,
+  "flagged_records": 0,
+  "elapsed_seconds": 279.0270945000011,
+  "diagnostic_status": "full_candidate_encoding_diagnostics_clear",
+  "report_sha256": "3e0ef0cd659490aa2b3224d6402f589a6add793c0b738ca5c70ced0e39bf63a3"
+}

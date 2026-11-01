@@ -1,0 +1,195 @@
+{
+  "status": "candidate_prepared_pending_semantic_and_user_acceptance",
+  "actions": {
+    "hold": 21066,
+    "keep": 787418,
+    "rewrite_identity": 14,
+    "duplicate": 15
+  },
+  "input": {
+    "records": 808513,
+    "bytes": 1537731790,
+    "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_tool_quarantine_768_v1\\reviewed_candidate.jsonl",
+    "sha256": "3ce282774693db1c403a3afb984e36193c471303c4dc1f5d6231b2a02f7e44a6"
+  },
+  "original_source": {
+    "path": "data\\raw\\minimind\\sft_t2t_mini.jsonl",
+    "size": 1739201170,
+    "sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+    "reference_report_sha256": "11b5f3b038a41da55ac64a4db93cb6b4f1802e3c0a03658c5d53506708611bb4",
+    "identity_checked_before_and_during_run": true,
+    "records": 905718
+  },
+  "issues_by_record": {
+    "identity_upstream_context_requires_review": 20417,
+    "unexpected_assistant": 51,
+    "conversation_not_finished_by_assistant": 175,
+    "possible_third_party_self_claim_requires_review": 423,
+    "invalid_tool_arguments": 2,
+    "unfinished_tool_exchange": 24
+  },
+  "notices_by_record": {
+    "anonymous_tool_result_block_not_semantically_matched": 42451
+  },
+  "outputs": {
+    "accepted": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v1\\accepted.jsonl",
+      "records": 787432,
+      "bytes": 1498179378,
+      "sha256": "45439ccb45838563d87113406811f8bd85a734a6e55114f980b19be11c5c5815"
+    },
+    "review_hold": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v1\\review_hold.jsonl",
+      "records": 21066,
+      "bytes": 39543530,
+      "sha256": "c1b53023787935cc2e7364f73ea3e7317e41128417a15e81ddb98da37dccaff3"
+    },
+    "duplicates": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v1\\postrewrite_duplicates.jsonl",
+      "records": 15,
+      "bytes": 5262,
+      "sha256": "3dae5cf56da926c4b1e792f45c8891b96bfec2b8c1e738c7a84753b3aad228f6"
+    },
+    "lineage": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v1\\lineage.jsonl",
+      "records": 808513,
+      "bytes": 354933002,
+      "sha256": "effcbd3a59b9521b434b74e558ec990e6668e96b8453a003fdb8e87787b41c55"
+    },
+    "encoding_index": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v1\\encoding_index.jsonl",
+      "records": 787432,
+      "bytes": 154711151,
+      "sha256": "3b5bc0640588a7126fff20b3ebb1f9f619b051f676d749f131d25c09e0ea6a04"
+    },
+    "train": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v1\\train.jsonl",
+      "records": 785384,
+      "bytes": 1494423115,
+      "sha256": "39ccf546580f8f5625c26a4b6c1678d667619db3cf7c8c9860e58c50eb9fdfe7"
+    },
+    "validation": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v1\\validation.jsonl",
+      "records": 2048,
+      "bytes": 3756263,
+      "sha256": "c024f217894b3828c6cdf58dbd5e1c8d9da588d51e234aed14fd345443c15e3d"
+    },
+    "split_index": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v1\\split_index.jsonl",
+      "records": 787432,
+      "bytes": 128013300,
+      "sha256": "0a4dc54c65ba8c4a2f0333689abecd22425b710bd1863e167eb2e6ada7117541"
+    },
+    "quality_review_sample": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v1\\quality_review_sample.jsonl",
+      "records": 24,
+      "bytes": 48025,
+      "sha256": "055f4559621d39fed546d4853cadaec59d45b43e20d8f11a484f2a136d9099e6"
+    }
+  },
+  "split_summary": {
+    "train": {
+      "records": 785384,
+      "strata": {
+        "reasoning_only": 220405,
+        "plain": 516816,
+        "tool_only": 48163
+      },
+      "input_length": {
+        "min": 30,
+        "max": 768,
+        "mean": 480.93928320413966,
+        "percentiles": {
+          "p50": 492.0,
+          "p90": 666.0,
+          "p95": 708.0,
+          "p99": 754.0
+        }
+      },
+      "targets_after_shift": {
+        "min": 8,
+        "max": 751,
+        "mean": 415.4058104061198,
+        "percentiles": {
+          "p50": 439.0,
+          "p90": 607.0,
+          "p95": 648.0,
+          "p99": 702.0
+        }
+      },
+      "total_input_tokens": 377722018,
+      "total_targets_after_shift": 326253077
+    },
+    "validation": {
+      "records": 2048,
+      "strata": {
+        "reasoning_only": 519,
+        "plain": 1413,
+        "tool_only": 116
+      },
+      "input_length": {
+        "min": 45,
+        "max": 767,
+        "mean": 468.734375,
+        "percentiles": {
+          "p50": 479.0,
+          "p90": 653.0,
+          "p95": 700.0,
+          "p99": 750.0
+        }
+      },
+      "targets_after_shift": {
+        "min": 9,
+        "max": 741,
+        "mean": 406.763671875,
+        "percentiles": {
+          "p50": 430.0,
+          "p90": 596.3,
+          "p95": 641.6499999999999,
+          "p99": 709.0
+        }
+      },
+      "total_input_tokens": 959968,
+      "total_targets_after_shift": 833052
+    }
+  },
+  "grouping": {
+    "records": 787432,
+    "groups": 659191,
+    "largest_group": 30197,
+    "validation_groups": 1868,
+    "development_source_lines": 1173,
+    "no_component_cross_split": true,
+    "semantic_paraphrase_isolation_claimed": false
+  },
+  "fixed_inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_data_inspection_v1\\tool_quarantine_768_v1\\report.json": "85dc232fc72fc0fb2db9c52b7825413b3aa351e085276cb9c4b628e3ece1b456",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\data_recipe\\processing_policy.json": "0e3cf9c2fb57f308daea89ee3cc57003518179a9bde6081d7053e014c85043e7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_data_inspection_v1\\identity_template_groups_768_v1\\report.json": "be7e99ebff36ecb93f0ab1c93d1a2a23cea532456602d94968b99a07e29f6721",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_candidate_inspection_v1\\random_sample.jsonl": "6d5afb5706ac7e2f68c4f32448dba5f88802a55ce513fa7117b20069ca79723e",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_candidate_inspection_v1\\plain_examples.jsonl": "3915da950c32ea2bd4ba068d2ff8aaa6056062dd0c1b6e03c7cdb2280f4a8f36",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_candidate_inspection_v1\\reasoning_only_examples.jsonl": "bf0c70d1e3e6e347dfc83b04b13bb5b7eccd59d3fd9f2cfba773090772e79391",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_candidate_inspection_v1\\tool_only_examples.jsonl": "9601f5bc6ad1ae3640330daa2574163dfdaca9c1d3dba6c6296cfc08a462e175",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\audit\\sft_identity_inventory_768_v1\\samples.jsonl": "1a744b06c5fa8d98304c2ccf1465df269dfc458f3b685472d0a1a846e27cf850",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\audit\\sft_identity_groups_768_v1\\top_group_contexts.jsonl": "b885d82eeeea7cbbb48095f373cc1dab20234bde0e06c25dd88a484bc0d17f3d"
+  },
+  "pipeline_identity": {
+    "runtime_files_sha256": {
+      "scripts/prepare_sft_recipe.py": "014e0c9ad0fc290c724f11410671b8ff0e50b0a88b8c297e5feb99e3c2a3e3e2",
+      "scripts/sft_candidate_lineage.py": "ed023bf3bbaee6364b64024a489fd61c76c98b47f35ee8ba35c7d23d2321f371",
+      "scripts/inspect_sft_encoding.py": "e53e5cbaeb37efbe92461ea3b2cf6162a07b157b442254c9f899a6eff79d0911",
+      "scripts/inspect_sft_full_encoding.py": "538024c7706b0b2b465c694bf13fae9d6040d5e6c63e7030df2215858a952bd8",
+      "src/minimind_lab/data/sft.py": "9c295491e14a2801a7b22aca3da7102803be09d645f668772f6ff6c110879baf",
+      "src/minimind_lab/data/sft_protocol.py": "62a34f326db14d28b1bf624879c78d08c1b523a3ebb9163d0c00c3351f49acf9",
+      "src/minimind_lab/data/validator.py": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46",
+      "pyproject.toml": "c7c0984824c397d52a32c1694af625754ca28f6e62407bf473623be5450efa96",
+      "uv.lock": "e48c4c186c2b2708a3321b516a20ec7071f09d63d40ff157f2a923f0575fe793"
+    },
+    "tokenizer_files_sha256": {
+      "manifest.json": "ba6d90df750b83465959c28fc4f756282cd25c5e39f803736d4e5082db6a73e4",
+      "tokenizer.json": "8bf5868abfc7ea919186b57e2b411adefe3b0922b53052c5839937e166b9d395",
+      "tokenizer_config.json": "e42b762555734279158ca292431c831fa387c48c35d9b1b205f4fc6c83b79d34"
+    }
+  },
+  "elapsed_seconds": 293.1919735000047
+}

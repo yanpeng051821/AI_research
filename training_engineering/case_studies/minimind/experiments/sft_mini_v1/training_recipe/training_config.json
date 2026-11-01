@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "purpose": "sft_formal_recipe",
+  "base_candidate": "../experiments/sft_mini_v1/training_recipe/sft_mini_candidate.json",
+  "operations": {
+    "checkpoint_interval": 1000,
+    "validation_interval": 5000,
+    "validation_batch_size": 4,
+    "validation_precision": "bf16",
+    "checkpoint_dir": "E:/AI_research_checkpoints/minimind/sft_mini_v1/formal",
+    "checkpoint_retention": "keep_all",
+    "wall_clock_budget_hours": 14,
+    "budget_scope": "cumulative_active_launch_time_excluding_paused_downtime_soft_update_boundary",
+    "minimum_checkpoint_free_gib": 40
+  }
+}

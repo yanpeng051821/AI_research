@@ -1,0 +1,27 @@
+[
+  {
+    "stage": "apt_update",
+    "exit": 0,
+    "seconds": 25.46669020000263
+  },
+  {
+    "stage": "python_venv",
+    "exit": 0,
+    "seconds": 46.36314870000933
+  },
+  {
+    "stage": "create_venv",
+    "exit": 0,
+    "seconds": 2.3199438999872655
+  },
+  {
+    "stage": "scratch_dir",
+    "exit": 0,
+    "seconds": 0.635851700004423
+  },
+  {
+    "stage": "torch_install",
+    "exit": 2,
+    "seconds": 335.19806059999974
+  }
+]

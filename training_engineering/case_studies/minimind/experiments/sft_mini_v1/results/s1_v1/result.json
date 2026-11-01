@@ -1,0 +1,39 @@
+{
+  "status": "evaluation_completed_scoring_pending",
+  "device": "cuda",
+  "precision": "fp32_no_autocast_tf32_disabled",
+  "torch": "2.14.0+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA GeForce RTX 4060 Ti",
+  "parameters": 63912192,
+  "model_state_sha256": "733c18c9775eadd7f67330fabb0568ab61103f9d5fba995e6d967405c904cc62",
+  "weight_file_sha256": "4fdc2b4d4f2bbc1f85ca0a7a68eb615fea96cfaf3c7ddcf9cb9c8e03dcb995b5",
+  "pretrain_source": {
+    "stage": "supervised_fine_tuning",
+    "global_step": 49087,
+    "checkpoint_file": "checkpoint-49087.pt",
+    "checkpoint_sha256": "181ce5bbc64c0c6ad0f3b79682f71df33206665c8212182422ce1363fec1e03a",
+    "checkpoint_bytes": 770864235,
+    "contract_sha256": "3ac716dee78ce33d5d418e7f1f5e7e6b176dcdad6d06c52ac608322172c1abe9",
+    "freeze_sha256": "1f59ed017e91a824c17ef7084c0785867380a43fc10c553ffc3f599ef993577f",
+    "initial_model_state_sha256": "8d10d76090b2714c055a95123c3583c6941b1ecb6af84a10f0f68dbe21cb783f",
+    "data_contract_sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d"
+  },
+  "data_check": {
+    "status": "passed",
+    "data_contract_sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d",
+    "train_records": 785377,
+    "validation_records": 2048,
+    "training_started": false
+  },
+  "probes_checked": 36,
+  "generation_performed": true,
+  "nll_computed": true,
+  "model_eval_mode": true,
+  "tied_embedding_lm_head": true,
+  "training_started": false,
+  "validation": {
+    "nll": 1.7210819774489265,
+    "valid_tokens": 833052
+  }
+}

@@ -1,0 +1,493 @@
+{
+  "schema_version": 1,
+  "status": "length_policy_impact_analyzed_no_policy_selected",
+  "created_at_utc": "2026-10-30T16:04:35.466298+00:00",
+  "input": {
+    "encoding_report_sha256": "3e0ef0cd659490aa2b3224d6402f589a6add793c0b738ca5c70ced0e39bf63a3",
+    "details_sha256": "44f63d8a5406b1a918b5c05a12268b169e1d1f29f4b2a541d777566ea0e6cd4a",
+    "source_sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+    "records": 905718,
+    "input_positions": 448479517,
+    "targets_after_shift": 377330100,
+    "long_records_reencoded": 49187
+  },
+  "candidate_limits": [
+    768,
+    1024,
+    1536,
+    2048
+  ],
+  "comparisons": {
+    "768": {
+      "whole_record_exclusion": {
+        "dropped_records": 49187,
+        "dropped_input_positions": 42698502,
+        "dropped_targets_after_shift": 36978625,
+        "retained_records": 856531,
+        "retained_targets_after_shift": 340351475,
+        "dropped_record_fraction": 0.05430719053833533,
+        "dropped_target_fraction": 0.09800072933487151
+      },
+      "head_slicing": {
+        "truncated_records": 49187,
+        "lost_targets_after_shift": 4713661,
+        "retained_targets_after_shift": 372616439,
+        "lost_target_fraction": 0.012492141496265471,
+        "records_losing_targets": 49179,
+        "records_with_zero_retained_targets": 7,
+        "cut_ending_states": {
+          "assistant_without_eos": 45864,
+          "assistant_eos_without_newline": 661,
+          "outside_assistant_supervision": 2662
+        }
+      },
+      "by_stratum_exclusion": {
+        "plain": {
+          "dropped_records": 15320,
+          "dropped_input_positions": 13874162,
+          "dropped_targets_after_shift": 12143134,
+          "retained_records": 531697,
+          "retained_targets_after_shift": 214306939,
+          "dropped_record_fraction": 0.02800644221294768,
+          "dropped_target_fraction": 0.0536238908609228
+        },
+        "reasoning_only": {
+          "dropped_records": 32091,
+          "dropped_input_positions": 27297101,
+          "dropped_targets_after_shift": 24041158,
+          "retained_records": 241778,
+          "retained_targets_after_shift": 116276433,
+          "dropped_record_fraction": 0.1171764602784543,
+          "dropped_target_fraction": 0.1713338850009191
+        },
+        "tool_only": {
+          "dropped_records": 1776,
+          "dropped_input_positions": 1527239,
+          "dropped_targets_after_shift": 794333,
+          "retained_records": 83056,
+          "retained_targets_after_shift": 9768103,
+          "dropped_record_fraction": 0.020935496039230478,
+          "dropped_target_fraction": 0.07520357993175059
+        }
+      },
+      "cut_examples": [
+        {
+          "source_line": 2,
+          "source_line_sha256": "3ee66122b61770338058051a64221fc8a47b6df23e2c8c30d838ab7dd7dbe0e0",
+          "stratum": "reasoning_only",
+          "input_tokens": 809,
+          "targets_before": 687,
+          "targets_retained": 646,
+          "targets_lost": 41,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 7,
+          "source_line_sha256": "c776e9d903f6315ba7e026b5f53a199c2c14da6a047d1974430a5f28e0127fa8",
+          "stratum": "reasoning_only",
+          "input_tokens": 807,
+          "targets_before": 656,
+          "targets_retained": 620,
+          "targets_lost": 36,
+          "ending_state": "outside_assistant_supervision",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 14,
+          "source_line_sha256": "8aa0fd34c15bfb1a71f85dd597de657bd28fa116d6677de22ef87e414001d0a0",
+          "stratum": "reasoning_only",
+          "input_tokens": 786,
+          "targets_before": 624,
+          "targets_retained": 606,
+          "targets_lost": 18,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 23,
+          "source_line_sha256": "3b871b0861d41200b33e896e64b856cdb3048a4d2dc963627001e1ae44c0677f",
+          "stratum": "reasoning_only",
+          "input_tokens": 850,
+          "targets_before": 744,
+          "targets_retained": 662,
+          "targets_lost": 82,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 25,
+          "source_line_sha256": "29f218f43406cd2d33ac24a45d9c59068ece98990f760240b0dcf1eae8c6f8bb",
+          "stratum": "reasoning_only",
+          "input_tokens": 825,
+          "targets_before": 718,
+          "targets_retained": 669,
+          "targets_lost": 49,
+          "ending_state": "outside_assistant_supervision",
+          "zero_targets_after_cut": false
+        }
+      ]
+    },
+    "1024": {
+      "whole_record_exclusion": {
+        "dropped_records": 3395,
+        "dropped_input_positions": 4312024,
+        "dropped_targets_after_shift": 3914726,
+        "retained_records": 902323,
+        "retained_targets_after_shift": 373415374,
+        "dropped_record_fraction": 0.0037484073409162675,
+        "dropped_target_fraction": 0.010374804448412676
+      },
+      "head_slicing": {
+        "truncated_records": 3395,
+        "lost_targets_after_shift": 828597,
+        "retained_targets_after_shift": 376501503,
+        "lost_target_fraction": 0.0021959472620922634,
+        "records_losing_targets": 3391,
+        "records_with_zero_retained_targets": 2,
+        "cut_ending_states": {
+          "assistant_without_eos": 3319,
+          "assistant_eos_without_newline": 21,
+          "outside_assistant_supervision": 55
+        }
+      },
+      "by_stratum_exclusion": {
+        "plain": {
+          "dropped_records": 2234,
+          "dropped_input_positions": 2706720,
+          "dropped_targets_after_shift": 2365406,
+          "retained_records": 544783,
+          "retained_targets_after_shift": 224084667,
+          "dropped_record_fraction": 0.004083968139929838,
+          "dropped_target_fraction": 0.010445596102766547
+        },
+        "reasoning_only": {
+          "dropped_records": 1154,
+          "dropped_input_positions": 1597784,
+          "dropped_targets_after_shift": 1546676,
+          "retained_records": 272715,
+          "retained_targets_after_shift": 138770915,
+          "dropped_record_fraction": 0.004213693408162297,
+          "dropped_target_fraction": 0.011022680684419675
+        },
+        "tool_only": {
+          "dropped_records": 7,
+          "dropped_input_positions": 7520,
+          "dropped_targets_after_shift": 2644,
+          "retained_records": 84825,
+          "retained_targets_after_shift": 10559792,
+          "dropped_record_fraction": 8.251603168615616e-05,
+          "dropped_target_fraction": 0.00025032104336537517
+        }
+      },
+      "cut_examples": [
+        {
+          "source_line": 2612,
+          "source_line_sha256": "901c66907d37129b7c13f21e58f848f39b4a88745ec8e5331873d304e5381c57",
+          "stratum": "reasoning_only",
+          "input_tokens": 1029,
+          "targets_before": 850,
+          "targets_retained": 845,
+          "targets_lost": 5,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 12930,
+          "source_line_sha256": "43a2bafeda61357500924a247cfc505bb6ead390816036241454d139836cbd3d",
+          "stratum": "reasoning_only",
+          "input_tokens": 1052,
+          "targets_before": 878,
+          "targets_retained": 850,
+          "targets_lost": 28,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 13788,
+          "source_line_sha256": "bab0b0634c612b3512343b6ecfbb61466fb493d0ef746de2036e245f4ee0e9b0",
+          "stratum": "reasoning_only",
+          "input_tokens": 1026,
+          "targets_before": 849,
+          "targets_retained": 847,
+          "targets_lost": 2,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 14574,
+          "source_line_sha256": "fc0bbf1b25844d245420d22b07d61c9f66950b3fc1fff1c3dbe43d7757aee6d1",
+          "stratum": "reasoning_only",
+          "input_tokens": 1039,
+          "targets_before": 804,
+          "targets_retained": 789,
+          "targets_lost": 15,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 15774,
+          "source_line_sha256": "1448479a2bde8cb65437860d26d69bda371393620dc85b688fc0b0eab5328b1b",
+          "stratum": "reasoning_only",
+          "input_tokens": 1032,
+          "targets_before": 772,
+          "targets_retained": 764,
+          "targets_lost": 8,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        }
+      ]
+    },
+    "1536": {
+      "whole_record_exclusion": {
+        "dropped_records": 531,
+        "dropped_input_positions": 946535,
+        "dropped_targets_after_shift": 892154,
+        "retained_records": 905187,
+        "retained_targets_after_shift": 376437946,
+        "dropped_record_fraction": 0.0005862751982405119,
+        "dropped_target_fraction": 0.00236438598457955
+      },
+      "head_slicing": {
+        "truncated_records": 531,
+        "lost_targets_after_shift": 130587,
+        "retained_targets_after_shift": 377199513,
+        "lost_target_fraction": 0.00034608158744823164,
+        "records_losing_targets": 531,
+        "records_with_zero_retained_targets": 0,
+        "cut_ending_states": {
+          "assistant_without_eos": 529,
+          "assistant_eos_without_newline": 2,
+          "outside_assistant_supervision": 0
+        }
+      },
+      "by_stratum_exclusion": {
+        "plain": {
+          "dropped_records": 228,
+          "dropped_input_positions": 388944,
+          "dropped_targets_after_shift": 346017,
+          "retained_records": 546789,
+          "retained_targets_after_shift": 226104056,
+          "dropped_record_fraction": 0.00041680605904386884,
+          "dropped_target_fraction": 0.0015280056898016544
+        },
+        "reasoning_only": {
+          "dropped_records": 303,
+          "dropped_input_positions": 557591,
+          "dropped_targets_after_shift": 546137,
+          "retained_records": 273566,
+          "retained_targets_after_shift": 139771454,
+          "dropped_record_fraction": 0.0011063683732003256,
+          "dropped_target_fraction": 0.003892149203160137
+        },
+        "tool_only": {
+          "dropped_records": 0,
+          "dropped_input_positions": 0,
+          "dropped_targets_after_shift": 0,
+          "retained_records": 84832,
+          "retained_targets_after_shift": 10562436,
+          "dropped_record_fraction": 0.0,
+          "dropped_target_fraction": 0.0
+        }
+      },
+      "cut_examples": [
+        {
+          "source_line": 87340,
+          "source_line_sha256": "38d7312017b9ad91332f1debefb5b99e7124648489a986c1a30a9122a3f819ea",
+          "stratum": "plain",
+          "input_tokens": 1604,
+          "targets_before": 1538,
+          "targets_retained": 1470,
+          "targets_lost": 68,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 88626,
+          "source_line_sha256": "334d8a56f03a8327f1b511970eeb32446790f21ed3d743d681443bd93cc5a202",
+          "stratum": "plain",
+          "input_tokens": 1826,
+          "targets_before": 1780,
+          "targets_retained": 1490,
+          "targets_lost": 290,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 92025,
+          "source_line_sha256": "2a5331eee886fe2017308a43641a56d5c6b499882255930b457fdf767dbbbc87",
+          "stratum": "plain",
+          "input_tokens": 1596,
+          "targets_before": 1453,
+          "targets_retained": 1393,
+          "targets_lost": 60,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 92466,
+          "source_line_sha256": "1d6fdef17e46fdcfae1c805a2b43b6008ed3a15d973a2ec6b9fd4d4e6dc73ba9",
+          "stratum": "plain",
+          "input_tokens": 1566,
+          "targets_before": 1505,
+          "targets_retained": 1475,
+          "targets_lost": 30,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 95294,
+          "source_line_sha256": "dab8a8bf19d158f652ed6f5bd21aeec385de879c78443bc88df13cd34be9d1bc",
+          "stratum": "plain",
+          "input_tokens": 1667,
+          "targets_before": 1585,
+          "targets_retained": 1454,
+          "targets_lost": 131,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        }
+      ]
+    },
+    "2048": {
+      "whole_record_exclusion": {
+        "dropped_records": 73,
+        "dropped_input_positions": 164259,
+        "dropped_targets_after_shift": 160859,
+        "retained_records": 905645,
+        "retained_targets_after_shift": 377169241,
+        "dropped_record_fraction": 8.059903855283874e-05,
+        "dropped_target_fraction": 0.00042630842331422804
+      },
+      "head_slicing": {
+        "truncated_records": 73,
+        "lost_targets_after_shift": 14546,
+        "retained_targets_after_shift": 377315554,
+        "lost_target_fraction": 3.8549800294225136e-05,
+        "records_losing_targets": 73,
+        "records_with_zero_retained_targets": 0,
+        "cut_ending_states": {
+          "assistant_without_eos": 73,
+          "assistant_eos_without_newline": 0,
+          "outside_assistant_supervision": 0
+        }
+      },
+      "by_stratum_exclusion": {
+        "plain": {
+          "dropped_records": 8,
+          "dropped_input_positions": 21245,
+          "dropped_targets_after_shift": 20403,
+          "retained_records": 547009,
+          "retained_targets_after_shift": 226429670,
+          "dropped_record_fraction": 1.4624774001539257e-05,
+          "dropped_target_fraction": 9.009933063700094e-05
+        },
+        "reasoning_only": {
+          "dropped_records": 65,
+          "dropped_input_positions": 143014,
+          "dropped_targets_after_shift": 140456,
+          "retained_records": 273804,
+          "retained_targets_after_shift": 140177135,
+          "dropped_record_fraction": 0.0002373397500264725,
+          "dropped_target_fraction": 0.0010009863980632336
+        },
+        "tool_only": {
+          "dropped_records": 0,
+          "dropped_input_positions": 0,
+          "dropped_targets_after_shift": 0,
+          "retained_records": 84832,
+          "retained_targets_after_shift": 10562436,
+          "dropped_record_fraction": 0.0,
+          "dropped_target_fraction": 0.0
+        }
+      },
+      "cut_examples": [
+        {
+          "source_line": 356192,
+          "source_line_sha256": "1718b3f421acb7014576d797fb3b400f836f5291fb717920fe158df3a361c8ab",
+          "stratum": "plain",
+          "input_tokens": 2155,
+          "targets_before": 2014,
+          "targets_retained": 1907,
+          "targets_lost": 107,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 359564,
+          "source_line_sha256": "0a6d61a1035a0721003b77b2a39a2bbe7cfbd455fbffcd1a8dc252ccb334c342",
+          "stratum": "plain",
+          "input_tokens": 2116,
+          "targets_before": 1985,
+          "targets_retained": 1917,
+          "targets_lost": 68,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 401384,
+          "source_line_sha256": "f3dac56d93811921e1521eefa0fc0ddbb306a68e78df0eb17d8c7c7ad1895b80",
+          "stratum": "plain",
+          "input_tokens": 2526,
+          "targets_before": 2386,
+          "targets_retained": 1908,
+          "targets_lost": 478,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 545384,
+          "source_line_sha256": "2ceb2cca05482919aa7a358e012c723601d559f0dcfdb31d081174aee4c9c4c3",
+          "stratum": "plain",
+          "input_tokens": 2440,
+          "targets_before": 2109,
+          "targets_retained": 1926,
+          "targets_lost": 183,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        },
+        {
+          "source_line": 845147,
+          "source_line_sha256": "04dbfb1ffbcde436edbe4dc31ca6e4a00943213105d4824c64109d900616578f",
+          "stratum": "reasoning_only",
+          "input_tokens": 2137,
+          "targets_before": 2099,
+          "targets_retained": 2010,
+          "targets_lost": 89,
+          "ending_state": "assistant_without_eos",
+          "zero_targets_after_cut": false
+        }
+      ]
+    }
+  },
+  "method": {
+    "whole_record_exclusion": "simulate omission when full input length > limit",
+    "head_slicing": "simulate input_ids[:limit], labels[:limit]; no replacement/appended EOS",
+    "target_count": "count non--100 labels[1:]",
+    "ending_state": "use current contiguous supervised span across cut; distinguish retained EOS from lost newline",
+    "no_claim_of_complete_tool_trajectory_after_cut": true
+  },
+  "pipeline": {
+    "code_sha256": {
+      "full_inspection": "538024c7706b0b2b465c694bf13fae9d6040d5e6c63e7030df2215858a952bd8",
+      "sample_inspection_helpers": "e53e5cbaeb37efbe92461ea3b2cf6162a07b157b442254c9f899a6eff79d0911",
+      "encoder": "0bd1138a45062962cbfaae5feb44e9d326a24bf7862180db4005c5610b4a97a3",
+      "validator": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46"
+    },
+    "tokenizer_files_sha256": {
+      "manifest.json": "ba6d90df750b83465959c28fc4f756282cd25c5e39f803736d4e5082db6a73e4",
+      "tokenizer.json": "8bf5868abfc7ea919186b57e2b411adefe3b0922b53052c5839937e166b9d395",
+      "tokenizer_config.json": "e42b762555734279158ca292431c831fa387c48c35d9b1b205f4fc6c83b79d34"
+    }
+  },
+  "analysis_code_sha256": "f955590ec36039aaef096718640faee5d05870d8d92c9b7f2b84e800b969ef06",
+  "elapsed_seconds": 78.25103339999987,
+  "scope": {
+    "current_unfiltered_candidate_only": true,
+    "quality_acceptance_claimed": false,
+    "truncation_applied": false,
+    "filtering_applied": false,
+    "split_created": false,
+    "final_length_selected": false,
+    "training_started": false
+  }
+}

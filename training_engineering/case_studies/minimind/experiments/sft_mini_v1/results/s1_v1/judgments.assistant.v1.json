@@ -1,0 +1,707 @@
+[
+  {
+    "id": "everyday-01",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "没有解释接触空气面积与蒸发，转而把湿度、毛孔等混乱说法作为原因。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有给出精确干燥时间，也没有明确声称任何条件下必然更快；其他错误由第一项记录。"
+      }
+    ],
+    "evidence_quotes": [
+      "毛孔大小的差异可能导致毛孔大小不一"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "incorrect_explanation"
+    ]
+  },
+  {
+    "id": "everyday-02",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "未说明光源、遮挡与承接表面，仅反复说地面明显。"
+      },
+      {
+        "status": "fail",
+        "reason": "解释未实质回答影子形成，主要是无关同义重复。"
+      }
+    ],
+    "evidence_quotes": [
+      "地面是地面上最明显的部分"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "nonresponsive"
+    ]
+  },
+  {
+    "id": "everyday-03",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "反复声称冰的密度比水大，与要求的小于关系相反，也未正确说明浮力。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有把原因说成冰没有重量；错误密度关系由第一项判失败。"
+      }
+    ],
+    "evidence_quotes": [
+      "冰块的密度比水的密度大"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "incorrect_density_relation"
+    ]
+  },
+  {
+    "id": "everyday-04",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "未解释另存可恢复副本与移除原文件的区别，多次混用文件类型和用途。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有承诺任何删除均可恢复，也未明确把改名等同可靠备份；其他自相矛盾内容另记。"
+      }
+    ],
+    "evidence_quotes": [
+      "小竹可能只需要一次性备份，不需要额外的文件。"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "incorrect_explanation"
+    ]
+  },
+  {
+    "id": "everyday-05",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "只泛称路线不明确，没有说明地图距离不独自决定耗时及相关因素。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有编造具体路线或实际耗时。"
+      }
+    ],
+    "evidence_quotes": [
+      "比如地图上的路线不够明确"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "insufficient_explanation"
+    ]
+  },
+  {
+    "id": "everyday-06",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "原样复述有20个橘子、每盒4个的问题，没有回答5盒。"
+      },
+      {
+        "status": "fail",
+        "reason": "没有提供20除以4的解释。"
+      }
+    ],
+    "evidence_quotes": [
+      "总共需要多少盒？"
+    ],
+    "quality_observations": [
+      "question_echo"
+    ]
+  },
+  {
+    "id": "everyday-07",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "用实时信息和知识截止日期拒答，没有给出19页。"
+      },
+      {
+        "status": "pass",
+        "reason": "未把页数改成时间，也没有增加阅读量；缺少答案由第一项记录。"
+      }
+    ],
+    "evidence_quotes": [
+      "我的知识截止日期是2023年10月"
+    ],
+    "quality_observations": [
+      "unwarranted_refusal",
+      "unsupported_identity_claim"
+    ]
+  },
+  {
+    "id": "everyday-08",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "复制用户整段要求，没有解释看懂与独立完成的区别。"
+      },
+      {
+        "status": "pass",
+        "reason": "未侮辱用户或保证一次掌握；引用用户原话不是助手另行保证。"
+      }
+    ],
+    "evidence_quotes": [
+      "请温和地说明理解示范与独立完成之间的区别。"
+    ],
+    "quality_observations": [
+      "question_echo"
+    ]
+  },
+  {
+    "id": "instruction-01",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "输出为长篇说明，整个回复不是合法JSON对象。"
+      },
+      {
+        "status": "fail",
+        "reason": "没有输出恰好city、count及规定值的对象。"
+      }
+    ],
+    "evidence_quotes": [
+      "假设用户请求是“青禾镇”"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "format_violation"
+    ]
+  },
+  {
+    "id": "instruction-02",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "输出含多段说明及第四、第五等项，不是三行。"
+      },
+      {
+        "status": "fail",
+        "reason": "带序号及大量额外解释，不是指定三行原文。"
+      }
+    ],
+    "evidence_quotes": [
+      "4. 清理原件"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "format_violation"
+    ]
+  },
+  {
+    "id": "instruction-03",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "输出解释和错误排序代码，而非4,11,17；代码还使用reverse=True。"
+      }
+    ],
+    "evidence_quotes": [
+      "return sorted(numbers, reverse=True)"
+    ],
+    "quality_observations": [
+      "format_violation",
+      "incorrect_code"
+    ]
+  },
+  {
+    "id": "instruction-04",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "未仅输出是，反复把9大于6称为汉语成语。"
+      }
+    ],
+    "evidence_quotes": [
+      "“9大于6”是一个汉语成语"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "format_violation",
+      "fabricated_explanation"
+    ]
+  },
+  {
+    "id": "instruction-05",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "未输出规定替换后的完整句子，而是反复讨论替换是否正确。"
+      }
+    ],
+    "evidence_quotes": [
+      "需要根据上下文来判断"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "format_violation"
+    ]
+  },
+  {
+    "id": "instruction-06",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "虽保留先后动作，但没有输出两条编号步骤，且加入自我介绍。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有添加第三项操作，也没有颠倒关水和擦桌面的先后。"
+      }
+    ],
+    "evidence_quotes": [
+      "请您先关闭水龙头，再擦干桌面"
+    ],
+    "quality_observations": [
+      "format_violation",
+      "irrelevant_self_introduction"
+    ]
+  },
+  {
+    "id": "instruction-07",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "不是只输出紫色，还把石头、紫色、台灯一起说成颜色并大量重复。"
+      }
+    ],
+    "evidence_quotes": [
+      "石头、紫色、台灯是颜色的一种"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "format_violation",
+      "incorrect_classification"
+    ]
+  },
+  {
+    "id": "instruction-08",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "没有仅输出午后读书，而是自我介绍并给出长篇重复解释。"
+      }
+    ],
+    "evidence_quotes": [
+      "我是您的中文助手"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "format_violation"
+    ]
+  },
+  {
+    "id": "grounded-01",
+    "checks": [
+      {
+        "status": "pass",
+        "reason": "输出明确包含二楼东侧。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有新增具体地点或改变楼层；给出的时间也与本题材料一致。"
+      },
+      {
+        "status": "fail",
+        "reason": "附加开放日期、开始及结束时间，违反已批准的只回答地点补丁。"
+      }
+    ],
+    "evidence_quotes": [
+      "青禾图书角周三开放，开始时间14:20，结束时间17:10，地点是二楼东侧。"
+    ],
+    "quality_observations": [
+      "location_only_constraint_violated"
+    ]
+  },
+  {
+    "id": "grounded-02",
+    "checks": [
+      {
+        "status": "pass",
+        "reason": "首句确实列出阿沐负责白板笔；不因命中人名就判整题通过，矛盾归入第二项。"
+      },
+      {
+        "status": "fail",
+        "reason": "同时反复把阿澄说成负责白板笔的人，与材料冲突。"
+      }
+    ],
+    "evidence_quotes": [
+      "阿澄负责带白板笔，阿沐负责带白板笔"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "contradicts_given_assignment"
+    ]
+  },
+  {
+    "id": "grounded-03",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "多次复制库存数据，没有给出合计7件及5加2的计算。"
+      },
+      {
+        "status": "pass",
+        "reason": "未给出把铅笔计入的合计或新库存数；重复铅笔原始记录不等于已把它加进结果。"
+      }
+    ],
+    "evidence_quotes": [
+      "铅笔8支，橡皮5块，直尺2把。"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "question_not_answered"
+    ]
+  },
+  {
+    "id": "grounded-04",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "只讨论是否接收与通知占位，没有明确说饼干不在范围。"
+      },
+      {
+        "status": "fail",
+        "reason": "未依据不接收食品得出结论，反而凭空说将收到邮件。"
+      }
+    ],
+    "evidence_quotes": [
+      "如果在接收范围内，我们将收到一封邮件"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "lost_grounded_decision",
+      "unsupported_notification_claim"
+    ]
+  },
+  {
+    "id": "grounded-05",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "只复制人数与台灯计划，没有明确说明缺少年龄无法计算。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有捏造年龄或具体平均值。"
+      }
+    ],
+    "evidence_quotes": [
+      "星桥小组共有三个人，本周计划修好一盏台灯。"
+    ],
+    "quality_observations": [
+      "context_echo",
+      "missing_required_clarification"
+    ]
+  },
+  {
+    "id": "grounded-06",
+    "checks": [
+      {
+        "status": "pass",
+        "reason": "保留了阿岚、更换电池和收音机恢复工作的核心因果信息。"
+      },
+      {
+        "status": "fail",
+        "reason": "没有更改部件，但逐字复述原材料为两个完整句子，没有完成原检查点要求的一句简洁概括。"
+      }
+    ],
+    "evidence_quotes": [
+      "阿岚试着修理旧收音机，发现是电池没电。换上新电池后，收音机重新响了。"
+    ],
+    "quality_observations": [
+      "context_echo",
+      "one_sentence_constraint_violated"
+    ]
+  },
+  {
+    "id": "grounded-07",
+    "checks": [
+      {
+        "status": "uncertain",
+        "reason": "开头重述移到书架顶层的材料，随后复制问题并重复假如丢失才移动的条件句；没有清楚独立回答最终位置。窄检查点是否接受这种正确材料复述有歧义，留待人工复核，不按关键词直接判通过，也不因重复另加否决。"
+      },
+      {
+        "status": "pass",
+        "reason": "未把绿色盒子作为最终位置；后文提及的位置一直为书架顶层。"
+      }
+    ],
+    "evidence_quotes": [
+      "记录二：小许把同一把钥匙移到书架顶层。",
+      "只根据这两条记录，钥匙最后放在哪里。",
+      "如果发现钥匙丢失，小许将钥匙移到书架顶层"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "context_and_question_echo",
+      "manual_adjudication_needed"
+    ]
+  },
+  {
+    "id": "grounded-08",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "虽复制含订单B的材料，最终却把订单编号说成6本，没有给出一致正确的订单标识。"
+      },
+      {
+        "status": "fail",
+        "reason": "没有把A明确说成6本，但把数量6本冒充订单编号，引入不存在的标识。"
+      }
+    ],
+    "evidence_quotes": [
+      "订单编号为6本"
+    ],
+    "quality_observations": [
+      "quantity_identifier_confusion"
+    ]
+  },
+  {
+    "id": "context-01",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "地点正确但时间写成周日下午三点，而要求周日下午两点。"
+      },
+      {
+        "status": "fail",
+        "reason": "残留旧的三点时间，违反更新后的通知要求。"
+      }
+    ],
+    "evidence_quotes": [
+      "周日下午三点到三楼讨论室开会"
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "partial_context_update_wrong_time"
+    ]
+  },
+  {
+    "id": "context-02",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "只说预算40元、购物数量不变，未从历史恢复并列出两本笔记本。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有继续用60元，也没有推荐商品。"
+      }
+    ],
+    "evidence_quotes": [
+      "预算改为40元，购物数量不变"
+    ],
+    "quality_observations": [
+      "partial_context_update_missing_quantity",
+      "repetitive_output"
+    ]
+  },
+  {
+    "id": "context-03",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "讨论红色和蓝色是什么，没有指出红色是被排除者，不能凭出现红色判通过。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有把蓝色明确说成被排除的颜色。"
+      }
+    ],
+    "evidence_quotes": [
+      "红色和蓝色是两种不同的颜色"
+    ],
+    "quality_observations": [
+      "nonresponsive"
+    ]
+  },
+  {
+    "id": "context-04",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "仍使用他，没有将指代换为小林，与B0相同的第一项失败。"
+      },
+      {
+        "status": "pass",
+        "reason": "未换成别的人或日期，仍是周五。"
+      }
+    ],
+    "evidence_quotes": [
+      "他会在周五归还这本书。"
+    ],
+    "quality_observations": [
+      "pronoun_replacement_not_done"
+    ]
+  },
+  {
+    "id": "context-05",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "未指出未收到代码并要求提供，反而声称请看下面的输出。"
+      },
+      {
+        "status": "fail",
+        "reason": "在缺少代码时冒充给出输出，尽管具体内容只是反复的空代码块，也不是如实澄清。"
+      }
+    ],
+    "evidence_quotes": [
+      "好的，请看下面的输出："
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "pretends_to_provide_missing_program_output"
+    ]
+  },
+  {
+    "id": "context-06",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "复制用户改为两条列表的要求，没有保留核对数量和确认包装的实际要点。"
+      },
+      {
+        "status": "pass",
+        "reason": "未实际颠倒步骤或新增第三条；完全未执行转换由第一项判失败。"
+      }
+    ],
+    "evidence_quotes": [
+      "把刚才的要点改成两条编号列表，内容不变。"
+    ],
+    "quality_observations": [
+      "question_echo"
+    ]
+  },
+  {
+    "id": "context-07",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "复述应留下哪一种的疑问，没有回答保留黄瓜、排除花生。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有推荐花生，也未编造其他配料。"
+      }
+    ],
+    "evidence_quotes": [
+      "应该留下哪一种呢？"
+    ],
+    "quality_observations": [
+      "question_echo"
+    ]
+  },
+  {
+    "id": "context-08",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "没有用更新后的4人乘2给出8张，继续复述6人的问题。"
+      },
+      {
+        "status": "fail",
+        "reason": "继续沿用6个人，未接受用户更正；即便未明确写12张也不满足不得按6人计算的约束。"
+      }
+    ],
+    "evidence_quotes": [
+      "如果是6个人，每人至少需要2张卡片"
+    ],
+    "quality_observations": [
+      "question_echo",
+      "stale_context_count"
+    ]
+  },
+  {
+    "id": "tool-01",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "tool_call块未闭合、JSON递归嵌套未完成，参数a为字符串而非23，缺少整数b=18。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有声称已执行得到结果，也没有实际调用另一未声明工具；无效格式由第一项记录。"
+      }
+    ],
+    "evidence_quotes": [
+      "<tool_call>",
+      "\"a\": \"add_numbers\""
+    ],
+    "quality_observations": [
+      "repetitive_output",
+      "malformed_tool_call"
+    ]
+  },
+  {
+    "id": "tool-02",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "未说明现有工具不支持天气，还试图使用工具查询。"
+      },
+      {
+        "status": "fail",
+        "reason": "明确调用lookup_book查询天气，正是冻结检查点禁止的用途。"
+      }
+    ],
+    "evidence_quotes": [
+      "\"name\": \"lookup_book\"",
+      "\"title\": \"星桥镇天气\""
+    ],
+    "quality_observations": [
+      "unsupported_tool_use"
+    ]
+  },
+  {
+    "id": "tool-03",
+    "checks": [
+      {
+        "status": "pass",
+        "reason": "准确报告给定的18°C和多云；但新增湿度、风速是不受支持的内容，单列观察，不将原检查点改成新全局规则。"
+      },
+      {
+        "status": "fail",
+        "reason": "没有明确说明缺少降雨预报、无法判断是否下雨；未报降雨概率也不能补足这个正向要求。"
+      }
+    ],
+    "evidence_quotes": [
+      "松石镇当前天气是多云，温度为18°C，湿度为18%，风速为18公里/小时。"
+    ],
+    "quality_observations": [
+      "invented_weather_attributes",
+      "missing_required_forecast_clarification"
+    ]
+  },
+  {
+    "id": "tool-04",
+    "checks": [
+      {
+        "status": "fail",
+        "reason": "未利用已给available=0说明不能发出1件，反而说还需查询实时数据。"
+      },
+      {
+        "status": "pass",
+        "reason": "没有编造补货时间、声称发货或下单；捏造官网等另记，不扩大原检查点。"
+      }
+    ],
+    "evidence_quotes": [
+      "我无法直接查询库存或发出1件库存",
+      "https://www.bk-42.com/"
+    ],
+    "quality_observations": [
+      "ignores_provided_tool_result",
+      "fabricated_website",
+      "repetitive_output"
+    ]
+  }
+]

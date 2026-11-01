@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "status": "declaration_audit_completed_flags_require_review",
+  "created_at_utc": "2026-10-30T16:57:59.615017+00:00",
+  "input": {
+    "records": 809713,
+    "bytes": 1539525786,
+    "targets_after_shift": 334943065,
+    "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_dedup_768_v1\\unique_candidate.jsonl",
+    "sha256": "a8953341f7c0f77b311b9f62a8bafccf4c246b3903cc4dec3489300f80ee6096"
+  },
+  "original_source_sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+  "dedup_report_sha256": "97ad8af9b85faa2907bc5bed6789fcf6b67c7d1c541f656615216c88a4d6020b",
+  "code_sha256": {
+    "audit_entry": "f5f60782bd2b2c0a3fe491b05032b9cf0c184d89b78c4df1ba49ca101bb42aa2",
+    "lineage_reader": "ed023bf3bbaee6364b64024a489fd61c76c98b47f35ee8ba35c7d23d2321f371",
+    "sft_adapter": "0bd1138a45062962cbfaae5feb44e9d326a24bf7862180db4005c5610b4a97a3",
+    "validator": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46"
+  },
+  "counts": {
+    "records_checked": 809713,
+    "tool_records": 47584,
+    "function_calls": 50820,
+    "flagged_records": 1199
+  },
+  "records_by_issue": {
+    "undeclared_function_call": 1199
+  },
+  "example_flags": [
+    {
+      "candidate_line": 717950,
+      "source_line": 771194,
+      "source_line_sha256": "fb777874f6773ecd16debd9e314f93eb03565077207988e1aed1cf552611a163",
+      "tool_record": true,
+      "calls": 1,
+      "issues": [
+        {
+          "code": "undeclared_function_call",
+          "message_index": 2,
+          "call_index": 0,
+          "called_name": "get_current_weather",
+          "declared_names": [
+            "web_search"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_line": 717970,
+      "source_line": 771215,
+      "source_line_sha256": "3f4373f700711c65dc49d10dfeebf7ab80639822a230db032a7e4fe95544d3f7",
+      "tool_record": true,
+      "calls": 1,
+      "issues": [
+        {
+          "code": "undeclared_function_call",
+          "message_index": 2,
+          "call_index": 0,
+          "called_name": "get_current_weather",
+          "declared_names": [
+            "translate_text",
+            "web_search"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_line": 717974,
+      "source_line": 771220,
+      "source_line_sha256": "a14ddaaec6de1a91aa4cc91a8e934a2587ec358ab603879cf0d6790b7bd8026b",
+      "tool_record": true,
+      "calls": 1,
+      "issues": [
+        {
+          "code": "undeclared_function_call",
+          "message_index": 2,
+          "call_index": 0,
+          "called_name": "get_exchange_rate",
+          "declared_names": [
+            "calculate_math",
+            "get_news"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_line": 718099,
+      "source_line": 771364,
+      "source_line_sha256": "03604d6b44bd56d4abb108b3ee4c83f8d0d5f44e2824cab168f0783c3cbe1395",
+      "tool_record": true,
+      "calls": 2,
+      "issues": [
+        {
+          "code": "undeclared_function_call",
+          "message_index": 2,
+          "call_index": 0,
+          "called_name": "get_current_weather",
+          "declared_names": [
+            "get_current_time",
+            "web_search"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_line": 718145,
+      "source_line": 771421,
+      "source_line_sha256": "9020c92cc154adf675e308b1bb0fd0b136ebeb926d0a7eb854c5a34abacd919b",
+      "tool_record": true,
+      "calls": 2,
+      "issues": [
+        {
+          "code": "undeclared_function_call",
+          "message_index": 2,
+          "call_index": 1,
+          "called_name": "get_current_weather",
+          "declared_names": [
+            "get_current_time"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_line": 718158,
+      "source_line": 771437,
+      "source_line_sha256": "51b0b180b28e667e8e927af6723bcba29678b1f6f726f1465612cb1b609484fd",
+      "tool_record": true,
+      "calls": 1,
+      "issues": [
+        {
+          "code": "undeclared_function_call",
+          "message_index": 2,
+          "call_index": 0,
+          "called_name": "get_current_weather",
+          "declared_names": [
+            "calculate_math",
+            "translate_text"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_line": 718176,
+      "source_line": 771459,
+      "source_line_sha256": "571e18e45047ca62395267d25034d1c03a8e49ab3caa1e8aeb14640e1b0761f7",
+      "tool_record": true,
+      "calls": 2,
+      "issues": [
+        {
+          "code": "undeclared_function_call",
+          "message_index": 2,
+          "call_index": 0,
+          "called_name": "get_current_weather",
+          "declared_names": [
+            "calculate_math",
+            "web_search"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_line": 718195,
+      "source_line": 771483,
+      "source_line_sha256": "57b19c7e0b4a368984c39cf8d507d44e64e4078ae9d735ce7e3fcc849a752f0f",
+      "tool_record": true,
+      "calls": 2,
+      "issues": [
+        {
+          "code": "undeclared_function_call",
+          "message_index": 2,
+          "call_index": 0,
+          "called_name": "get_current_weather",
+          "declared_names": [
+            "calculate_math",
+            "text_length"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_line": 718209,
+      "source_line": 771501,
+      "source_line_sha256": "37c71ee8dd04505adc5290be965fcda414960cf3369e4d363510546414b13e36",
+      "tool_record": true,
+      "calls": 1,
+      "issues": [
+        {
+          "code": "undeclared_function_call",
+          "message_index": 2,
+          "call_index": 0,
+          "called_name": "get_current_weather",
+          "declared_names": [
+            "text_length",
+            "web_search"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_line": 718287,
+      "source_line": 771599,
+      "source_line_sha256": "ab33397ed99dfedfeb48b3332b3d6331e85f9ddc176abdd2bb90d572b8267fcc",
+      "tool_record": true,
+      "calls": 1,
+      "issues": [
+        {
+          "code": "undeclared_function_call",
+          "message_index": 2,
+          "call_index": 0,
+          "called_name": "get_current_weather",
+          "declared_names": [
+            "translate_text"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues_file": {
+    "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\audit\\sft_tool_declarations_768_v1\\issues.jsonl",
+    "records": 1199,
+    "bytes": 390776,
+    "sha256": "3c24a5d7ae3dd42b3d4e26a4686e6020ad338f6b5b461619d933466d441e79fe"
+  },
+  "scope": {
+    "source_modified": false,
+    "filtering_applied": false,
+    "checked": [
+      "adapter_representational_checks",
+      "duplicate_declared_names",
+      "structured_call_name_in_declared_names"
+    ],
+    "not_checked": [
+      "full_argument_JSON_Schema",
+      "call_result_matching",
+      "tool_execution_truth",
+      "answer_quality",
+      "tool_calls_embedded_only_in_text"
+    ],
+    "data_recipe_frozen": false
+  },
+  "elapsed_seconds": 20.592179000001124
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "files": {
+    "contract": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\data_recipe\\DATA_CONTRACT.json",
+      "sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d"
+    },
+    "candidate": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\data_recipe\\DATA_CONTRACT.candidate.v3.json",
+      "sha256": "57c0116fd0e9f4e1f120220c735e8d5513e969fc864a528ce335747fe646c109"
+    },
+    "acceptance": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\data_recipe\\acceptance.json",
+      "sha256": "ca8e9671222634b60dca06be174ff5a2be26e99801d1e4fac97603439c730129"
+    },
+    "policy": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\data_recipe\\processing_policy.v3.json",
+      "sha256": "f953e0798d9b78a3f4849cf9d9f7923f01c85514ffb9896a18c824e9ec000515"
+    },
+    "preparation_report": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_data_inspection_v1\\preparation_768_v3\\report.json",
+      "sha256": "fcffa914df11de26e86d9aa12654b25daa92e20d70b098f3aa200d46541a554a"
+    },
+    "verification": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_data_inspection_v1\\preparation_768_v3\\verification.frozen.json",
+      "sha256": "256bb33ae5225e728090949a930a784e4d6e8831714630ffd09773e68c3c0db4"
+    },
+    "freezer": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\freeze_sft_data_recipe.py",
+      "sha256": "17ebaafc35e7787dd0fc1434dd1bac26b83d77627de400dd3c076e0340d6023b"
+    },
+    "verifier": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\verify_sft_recipe.py",
+      "sha256": "ef1bf5e0cd344d443ff40463f9f9cd74581340b297e10050ae8af13568867d31"
+    }
+  },
+  "frozen_at_utc": "2026-10-31T04:12:13.932852+00:00",
+  "data_ready_not_training_authorization": true,
+  "training_started": false
+}

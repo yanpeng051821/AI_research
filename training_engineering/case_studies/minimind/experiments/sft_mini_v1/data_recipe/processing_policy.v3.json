@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "policy_id": "mini_sft_768_bounded_preparation_v3",
+  "input_candidate_sha256": "3ce282774693db1c403a3afb984e36193c471303c4dc1f5d6231b2a02f7e44a6",
+  "exact_review_holds": {
+    "6590": "C04/C05: invented system requirements in supervised reasoning",
+    "10723": "C04/C05: unsupported personal eating experience and inconsistent self-description",
+    "352889": "C04/C06: contradictory card-game instructions",
+    "407293": "C05: unsupported self-capability assertions",
+    "668039": "C04/C06: distracting invented context in supervised reasoning",
+    "758280": "C04/C06: incoherent mixed text and unsupported entities",
+    "796065": "C03/C04: missing target paragraph replaced with the user question itself"
+  },
+  "status": "user_authorized_bounded_data_finalization",
+  "max_length": 768,
+  "overlength": "hold_whole_record_no_truncation",
+  "reasoning": "preserve_except_exact_identity_and_content_revisions_use_empty_reasoning",
+  "identity": {
+    "scope": "single_turn_known_top10_reply_and_allowlisted_identity_question_only",
+    "reply": "我是一个由 yanpeng 基于 MiniMind 开源项目及其作者提供的架构训练的小型语言模型。我的预训练权重从随机初始化开始训练，并非接续官方预训练权重。",
+    "unresolved_upstream_mentions": "hold_for_review_not_declared_incorrect",
+    "third_party_self_claims": "hold_for_review_not_global_replacement",
+    "unrelated_answers": "hold_no_generated_replacement_answers",
+    "allowed_normalized_questions": [
+      "你是谁",
+      "你叫什么名字",
+      "你的名字叫什么",
+      "你的名字是什么",
+      "你叫什么",
+      "请问你是谁",
+      "请问你叫什么名字",
+      "请介绍自己",
+      "请介绍一下自己",
+      "介绍下自己",
+      "介绍一下自己",
+      "介绍下你自己",
+      "介绍一下你自己",
+      "请介绍一下您自己",
+      "请介绍一下yourself",
+      "请用简洁的语言介绍你自己",
+      "你可以和我先进行自我介绍吗",
+      "你是谁介绍一下自己",
+      "你是谁介绍下自己",
+      "你是谁介绍下你自己",
+      "介绍一下你是谁",
+      "你是谁你叫什么名字",
+      "你是谁我应该称呼你什么",
+      "你叫什么名字大模型"
+    ]
+  },
+  "protocol": {
+    "parameter_schema": "jsonschema_validator_for_declared_dialect_default_draft202012_no_network",
+    "invalid_records": "hold_whole_record",
+    "anonymous_bundled_results": "accept_ordered_block_with_explicit_semantic_mapping_limit",
+    "special_role_boundary_literals": "reject_not_escape_or_silently_relabel",
+    "zero_targets_after_causal_shift": "reject"
+  },
+  "collection": {
+    "exact_duplicate": "canonical_full_conversations_keep_first",
+    "grouping": "connected_components_shared_normalized_user_message_or_normalized_full_conversation",
+    "normalization": "unicode_NFKC_casefold_whitespace_collapse_grouping_only",
+    "semantic_near_duplicate_detection": "not_claimed",
+    "validation_records_target": 2048,
+    "split_seed": 20261031,
+    "selection": "hash_ordered_whole_components_fit_remaining_budget",
+    "development_samples": "force_whole_component_to_train",
+    "blind_test": "none_this_split_is_validation_not_final_blind_evaluation"
+  },
+  "acceptance_limits": [
+    "No whole-corpus factual correctness guarantee; sampled semantic checks only.",
+    "Held names may include valid quotations or objective references; hold is reversible, not a bad-data label.",
+    "No semantic paraphrase or external benchmark contamination clearance is claimed.",
+    "Source-level licensing and downstream public release permissions are not fully resolved.",
+    "Only the two exact hash-bound content revisions are permitted; other failed demonstrations are held, not regenerated.",
+    "Freezing approves this bounded teaching data version, not training execution or public data redistribution."
+  ],
+  "exact_content_revisions": {
+    "624568": {
+      "source_line_sha256": "e901b1b9955005dccdfac3b6c2c7a0c17f0d1081b1cc7df44f9d221871749d86",
+      "assistant_message_index": 1,
+      "original_message_sha256": "a951c2ca58aaa8c135e3e49f134b53582d75e9dbfedf5d6c8bf1dd7db7e69008",
+      "replacement_message": {
+        "role": "assistant",
+        "content": "应选择音乐社团。合唱和乐团演奏都属于音乐活动，与音乐社团的活动内容直接相关。",
+        "reasoning_content": ""
+      },
+      "reason": "Correct option with a coherent explanation; remove erroneous explanation and invented reasoning.",
+      "authorization": "User selected revision and accepted the proposed answer."
+    },
+    "836051": {
+      "source_line_sha256": "e51ae23d22cfebe9f77c517820c258929f1e56bc22981b3961b6d9ed3136be9b",
+      "assistant_message_index": 4,
+      "original_message_sha256": "797043736692e246dc8e56446514779fb0cbfc863084a7bdae9ad82de0665ec2",
+      "replacement_message": {
+        "role": "assistant",
+        "content": "工具返回的信息是：北京目前多云，温度15°C，湿度60%，风速3km/h。结果中没有降雨预报，不能据此判断今天是否会下雨。出门前还需要查看降雨预报，并结合你的出行安排作决定。",
+        "reasoning_content": ""
+      },
+      "reason": "Limit final claims to supplied current-weather output; do not infer a precipitation forecast.",
+      "authorization": "Assistant revision under user-delegated finalization after typical-case review."
+    }
+  }
+}

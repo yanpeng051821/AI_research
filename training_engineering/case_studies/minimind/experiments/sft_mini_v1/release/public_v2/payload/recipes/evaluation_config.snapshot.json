@@ -1,0 +1,65 @@
+{
+  "publication_note": "Path-redacted historical snapshot, not the byte-identical frozen contract. Authorization/status flags describe the source's creation time. See training_audit and model card for actual final execution status.",
+  "original_sha256": "32318ef5592749b1fff9daa54f32851403b29a30590452298e67f9017e71dba7",
+  "snapshot": {
+    "schema_version": 1,
+    "status": "frozen",
+    "purpose": "Paired diagnostic probes of assistant behavior, not an independent benchmark.",
+    "system_prompt": "你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。",
+    "generation": {
+      "strategy": "greedy",
+      "do_sample": false,
+      "open_thinking": false,
+      "max_new_tokens": 256,
+      "context_budget": 768,
+      "eos_token_id": 2,
+      "batch_size": 1,
+      "device_and_precision": "cuda_fp32",
+      "model_eval_mode": true
+    },
+    "scoring": {
+      "method": "manual_per_case_checklist",
+      "check_values": [
+        "pass",
+        "fail",
+        "uncertain"
+      ],
+      "task_pass": "all checks pass",
+      "uncertain": "report separately; report confirmed passes and possible-pass upper bound, do not silently drop",
+      "paired_outcomes": [
+        "both_pass",
+        "B0_only_pass",
+        "S1_only_pass",
+        "both_nonpass",
+        "uncertain"
+      ],
+      "termination": "EOS and length-limit separately; length-limit is not automatically a task failure",
+      "raw_outputs_retained": true,
+      "core_and_supplementary_reported_separately": true,
+      "task_failure": "any check fails",
+      "task_uncertain": "no failed checks but at least one uncertain check"
+    },
+    "acceptance": {
+      "success_thresholds": "pending_before_training_and_before_S1_results",
+      "baseline_not_run": true,
+      "training_authorized": false,
+      "evaluation_run_authorized": true
+    },
+    "data_contract": "../data_recipe/DATA_CONTRACT.json",
+    "data_contract_sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d",
+    "validation": {
+      "records": 2048,
+      "batch_size": 4,
+      "precision": "fp32",
+      "autocast": false,
+      "expected_valid_tokens": 833052,
+      "aggregation": "total_loss_sum / total_valid_tokens"
+    },
+    "runtime": {
+      "deterministic_algorithms": true,
+      "tf32": false,
+      "cpu_threads": 1,
+      "cublas_workspace_config": ":4096:8"
+    }
+  }
+}

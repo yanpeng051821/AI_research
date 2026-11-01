@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "source_checkpoint_sha256": "e28317613ee01128d67ebe8ea3c1dfbac17a336b71e722933f81ea2224964b73",
+  "source_contract_sha256": "e403c68bc3433e8071a6439179d24b6a2f14cdd9af5966ab9f5367bfaa32d914",
+  "source_run_dir": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4",
+  "checkpoint_copy": "E:\\AI_research_checkpoints\\minimind\\sft_mini_v1\\engineering_storage_probe\\checkpoint-20.pt",
+  "checkpoint_bytes": 770864235,
+  "copy_flush_seconds": 22.159150000006775,
+  "copy_sha256_verified": true,
+  "validation": {
+    "records": 2048,
+    "batch_size": 4,
+    "precision": "bf16",
+    "seconds": 40.79789860000892,
+    "nll": 2.217793935496784,
+    "valid_tokens": 833052
+  },
+  "parameter_updates": 0,
+  "script_sha256": "ee258cf9be20fbd1fd4e715aa1cd43d5e61f367332142ec573b6a3c1d3eaa3c9",
+  "limitations": [
+    "Flushed disk copy does not include GPU-to-CPU serialization overhead.",
+    "Step20 BF16 engineering validation is not final S1 FP32 evaluation."
+  ]
+}

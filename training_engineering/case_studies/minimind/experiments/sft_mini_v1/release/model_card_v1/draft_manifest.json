@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "status": "local_model_card_draft_not_approved_for_upload",
+  "updated_date": "2026-11-01",
+  "files": [
+    {
+      "file": "experiments/sft_mini_v1/release/model_card_v1/README.md",
+      "sha256": "e5654814e0c4b433eca7d5d5a2a15d2dd7ded919967f45dc61136556b734e389",
+      "bytes": 17611
+    },
+    {
+      "file": "experiments/sft_mini_v1/release/model_card_v1/README_zh.md",
+      "sha256": "30ad3ae3cab36887ae2fdc7a3bad68346e31c6c04f9ee75d295f9604546beca5",
+      "bytes": 15065
+    },
+    {
+      "file": "experiments/sft_mini_v1/release/model_card_v1/chat.py",
+      "sha256": "73e2923792c52bfe27f2c3ffec7a53d64e164cc217d0ebcb155b0994e13fb9c2",
+      "bytes": 3368
+    },
+    {
+      "file": "experiments/sft_mini_v1/release/model_card_v1/local_tests.xml",
+      "sha256": "c2c02af7d26d8f2e09fad308a31986aad62517358fb2a5f9613d144e45624a0e",
+      "bytes": 1298
+    },
+    {
+      "file": "experiments/sft_mini_v1/results/paired_analysis_v1/summary.json",
+      "sha256": "5217098e7842d08884b48fad56e593a11a46deadd55978fac824954f8a3b44e5",
+      "bytes": 14366
+    },
+    {
+      "file": "experiments/sft_mini_v1/results/final_run_v1/training_audit.json",
+      "sha256": "2a2d5a376916de1fc25dad50053fdd091b21257d4132849965d37a34d94de3bb",
+      "bytes": 6889
+    },
+    {
+      "file": "experiments/sft_mini_v1/results/final_run_v1/export_verification.json",
+      "sha256": "5f3331503c6c0a76f0c48c4d4021d94cc9ad6947d2a1e876760402a976ce46f7",
+      "bytes": 1718
+    },
+    {
+      "file": "experiments/sft_mini_v1/results/identity_diagnostic_v1/run_manifest.json",
+      "sha256": "792bcbf17559c1b402c9bce080eaaafb0c9d75fe886c772b1a556b10315be045",
+      "bytes": 2219
+    },
+    {
+      "file": "experiments/sft_mini_v1/data_recipe/DATA_CONTRACT.json",
+      "sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d",
+      "bytes": 9671
+    },
+    {
+      "file": "experiments/sft_mini_v1/training_recipe/contract.json",
+      "sha256": "99bac3db588bcb5aa12d9f4f76d35d86a15646c1549dc73d8a49c172c4d38465",
+      "bytes": 8804
+    }
+  ],
+  "metadata": {
+    "language": [
+      "zh"
+    ],
+    "base_model": "yanpeng051821/minimind-dense-64m-mini-pretrain",
+    "base_model_relation": "finetune",
+    "license_selected": false
+  },
+  "source_bundle": {
+    "directory": "implementation/exports/sft_mini_one_epoch_v1_fp32_v1",
+    "export_manifest_sha256": "22097e902d69e9b86adea833f96db6e8c9d61fc861ea96ca40d0f757e338e354",
+    "verified_existing_manifest_entries": 22,
+    "modified": false
+  },
+  "checks": {
+    "focused_tests": 8,
+    "pytest": "passed",
+    "chat_prompt_and_token_ids_match_existing_identity_diagnostic": true,
+    "exact_context_boundary_and_invalid_budgets_checked": true,
+    "cpu_isolated_process_smoke": {
+      "status": "passed",
+      "prompt": "你是谁？",
+      "max_new_tokens": 2,
+      "stdout": "作为一个",
+      "scope": "Native bundle loading and short single-turn template generation only; not ability scoring or clean-environment validation."
+    },
+    "credential_and_absolute_path_scan": {
+      "files": [
+        "README.md",
+        "README_zh.md",
+        "chat.py"
+      ],
+      "findings": [],
+      "scope": "Pattern scan of public draft text only; no PII, history, licensing or model-memorization clearance."
+    }
+  },
+  "publication": {
+    "hf_repository_created": false,
+    "hf_upload": "not_performed",
+    "git_push": "not_performed",
+    "checkpoint_deleted": false,
+    "full_upload_payload_assembled": false,
+    "proposed_hf_model_id": null,
+    "public_payload_allowlist_from_this_directory": [
+      "README.md",
+      "README_zh.md",
+      "chat.py"
+    ],
+    "local_only_control_files": [
+      "REVIEW.md",
+      "draft_manifest.json",
+      "local_tests.xml"
+    ]
+  },
+  "outstanding": [
+    "User review of bilingual wording and selected semantic grading boundaries, especially the unresolved key-location case.",
+    "Confirm source/weight redistribution and original-contribution terms; no blanket license inferred.",
+    "Select the separate S1 Hub repository and approve upload.",
+    "Stage a new public payload and manifest without modifying the evaluated native bundle, preserving applicable attribution.",
+    "Push source/evidence only when authorized and pin an accessible commit; then upload and validate a pinned download."
+  ],
+  "sources_consulted": [
+    "https://huggingface.co/docs/hub/model-cards",
+    "https://huggingface.co/datasets/jingyaogong/minimind_dataset/raw/312afb4f76391145c6902f765bb51691c09a12f5/README.md"
+  ]
+}

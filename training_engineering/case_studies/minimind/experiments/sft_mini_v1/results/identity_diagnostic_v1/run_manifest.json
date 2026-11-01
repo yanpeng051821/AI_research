@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "started_at_utc": "2026-11-01T01:56:40.398978+00:00",
+  "purpose": "Post-hoc diagnostic; not a new blind test, not added to the 36 main cases.",
+  "inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_config.json": "32318ef5592749b1fff9daa54f32851403b29a30590452298e67f9017e71dba7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\data_recipe\\DATA_CONTRACT.json": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\final_run_v1\\export_verification.json": "5f3331503c6c0a76f0c48c4d4021d94cc9ad6947d2a1e876760402a976ce46f7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\exports\\sft_mini_one_epoch_v1_fp32_v1\\export_manifest.json": "22097e902d69e9b86adea833f96db6e8c9d61fc861ea96ca40d0f757e338e354",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\inspect_sft_identity_responses.py": "595920a592ffcd94405e01f3f61a68942d8beac80d0bee1c4590a27a3138ac69",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\evaluate_sft.py": "16e8277ea67b5aac05bd112080caa0206dadeafe3a8dafae86762f5eb2dbc6ba",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\inspect_sft_eval_draft.py": "aa35a6ee42035793a4a178e17a44364946e0c3e1402c0297a7824579cc997301"
+  },
+  "training_performed": false,
+  "completed_at_utc": "2026-11-01T01:56:55.708005+00:00",
+  "records": 3,
+  "model_state_sha256": "733c18c9775eadd7f67330fabb0568ab61103f9d5fba995e6d967405c904cc62",
+  "files": {
+    "cases.jsonl": "a3d40de4362419820b7eb84cb411b4b02e054dbadfca547a75666b95725e8bb0",
+    "diagnostic_config.json": "6c80c5404b72c70cd41b08afb2af814811bcff2b9ea2353135bc100d52aeb296",
+    "generations.jsonl": "46e73380cc4228a5ec2de5358027ddca16e1a2364d4e73d527db8d5e33ccae40"
+  }
+}

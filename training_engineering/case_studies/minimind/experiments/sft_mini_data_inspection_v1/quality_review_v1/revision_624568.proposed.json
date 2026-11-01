@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "source_sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+  "source_line": 624568,
+  "source_line_sha256": "e901b1b9955005dccdfac3b6c2c7a0c17f0d1081b1cc7df44f9d221871749d86",
+  "original_conversations_sha256": "5615d0e77e2ecfae8bd83ceff8c02e580953cbfaa25f72640154de57e89c94f8",
+  "original_assistant_message_sha256": "a951c2ca58aaa8c135e3e49f134b53582d75e9dbfedf5d6c8bf1dd7db7e69008",
+  "action": "revise",
+  "action_selection": "user_selected_revise_after_discussing_full_example",
+  "replacement_status": "assistant_proposal_pending_content_review",
+  "message_index": 1,
+  "replacement_assistant": {
+    "role": "assistant",
+    "content": "应选择音乐社团。合唱和乐团演奏都属于音乐活动，与音乐社团的活动内容直接相关。",
+    "reasoning_content": ""
+  },
+  "reasoning_policy": "clear_faulty_reasoning_no_generated_chain_of_thought",
+  "user_message_changed": false,
+  "replacement_conversations_sha256": "2a1ad62df7b535d921c1a3c66d5d0cd89c301170b260e0ffad02b3cb1f044558",
+  "encoding_check": {"input_tokens": 86, "targets_after_shift": 36, "max_length": 768},
+  "applied_to_candidate": false,
+  "current_candidate_action": "still_in_review_hold_until_replacement_is_accepted_and_new_version_is_built",
+  "note": "The user's revision choice does not establish a blanket rewrite rule for all erroneous or uncertain examples."
+}

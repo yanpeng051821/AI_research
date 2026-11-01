@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "contract_sha256": "e403c68bc3433e8071a6439179d24b6a2f14cdd9af5966ab9f5367bfaa32d914",
+  "pause_step": 10,
+  "final_step": 20,
+  "comparison": "continuous20_vs_10_then_resume_to20",
+  "checkpoint_state_exact_equal": true,
+  "checked_states": [
+    "model",
+    "optimizer",
+    "scheduler",
+    "global_step",
+    "torch_rng_state",
+    "cuda_rng_state_all",
+    "sampler_state",
+    "metadata"
+  ],
+  "update_metrics_exact_equal": true,
+  "final_validation_exact_equal": true,
+  "checkpoint_file_sha256_equal": true,
+  "inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\compare_sft_resume.py": "37c5cbce45180101354ab90421b4e740272c0d459fb1b4727e703a97f64bfbc8",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\result.json": "a566f940e718720c9c611e443ca950d599e2e5fa3b0c2965c1b1a9761e201fea",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\checkpoint-20.pt": "e28317613ee01128d67ebe8ea3c1dfbac17a336b71e722933f81ea2224964b73",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\checkpoint-20.pt.receipt.json": "29c2a309a0908546b65ce316033442a105bc63c3998c31b8b6f63961a48cc6ed",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\metrics.jsonl": "bad135c42af10d65ae127deb20c8f997cce8cd03736d536347e341eef6b11d88",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\probe20_v4\\candidate_contract.json": "469f56b12d868feae03b5d27a07d8c3bffe0b848010b9dd590c71dabe97f6bea",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_pause10_v1\\result.json": "43554aadef970b4ef983989665c9b67886b630c06ea263ec25d2983fee2bf3a1",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_pause10_v1\\checkpoint-10.pt": "f332204f22db06d5a91e0ff1ac45e389470c4908a9772a3fd739b50db41d5982",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_pause10_v1\\checkpoint-10.pt.receipt.json": "f8acef7254ec60e6a211017a03f1a40d8d6a08400b2bef94443e6dd15b5d072c",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_pause10_v1\\metrics.jsonl": "b5afdd4bdba75027f870b6f4752698c7dde2a716712f1cf0c9a5645b132ac0ff",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_pause10_v1\\candidate_contract.json": "469f56b12d868feae03b5d27a07d8c3bffe0b848010b9dd590c71dabe97f6bea",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_to20_v1\\result.json": "5f0b44639d229f6ac42cb7bba2a72fc7e3f0bcd20f086bd66f4feb4b33190fbf",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_to20_v1\\checkpoint-20.pt": "e28317613ee01128d67ebe8ea3c1dfbac17a336b71e722933f81ea2224964b73",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_to20_v1\\checkpoint-20.pt.receipt.json": "29c2a309a0908546b65ce316033442a105bc63c3998c31b8b6f63961a48cc6ed",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_to20_v1\\metrics.jsonl": "a2bfa268b11c072856bd03ad7e3250dfc98dc46dcf24ba06a31d35b8bf4c2fb0",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_to20_v1\\candidate_contract.json": "469f56b12d868feae03b5d27a07d8c3bffe0b848010b9dd590c71dabe97f6bea"
+  },
+  "formal_training_started": false,
+  "limitations": "Same-device short-run determinism; not proof of cross-device determinism or long-run stability."
+}

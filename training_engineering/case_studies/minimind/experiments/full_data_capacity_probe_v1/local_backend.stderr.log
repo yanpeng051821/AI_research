@@ -1,0 +1,14 @@
+C:\Users\Administrator\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\contextlib.py:105: FutureWarning: `torch.backends.cuda.sdp_kernel()` is deprecated. In the future, this context manager will be removed. Please see `torch.nn.attention.sdpa_kernel()` for the new context manager, with updated signature.
+  self.gen = func(*args, **kwds)
+D:\pythonlearning\AI_research\training_engineering\case_studies\minimind\implementation\scripts\benchmark_attention_backends.py:45: UserWarning: Memory efficient kernel not used because: (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:1240.)
+  return F.scaled_dot_product_attention(q, k, v, dropout_p=0.0, is_causal=True), None
+D:\pythonlearning\AI_research\training_engineering\case_studies\minimind\implementation\scripts\benchmark_attention_backends.py:45: UserWarning: Memory Efficient attention has been runtime disabled. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen/native/transformers/sdp_utils_cpp.h:600.)
+  return F.scaled_dot_product_attention(q, k, v, dropout_p=0.0, is_causal=True), None
+D:\pythonlearning\AI_research\training_engineering\case_studies\minimind\implementation\scripts\benchmark_attention_backends.py:45: UserWarning: Flash attention kernel not used because: (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:1242.)
+  return F.scaled_dot_product_attention(q, k, v, dropout_p=0.0, is_causal=True), None
+D:\pythonlearning\AI_research\training_engineering\case_studies\minimind\implementation\scripts\benchmark_attention_backends.py:45: UserWarning: Torch was not compiled with flash attention. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:1050.)
+  return F.scaled_dot_product_attention(q, k, v, dropout_p=0.0, is_causal=True), None
+D:\pythonlearning\AI_research\training_engineering\case_studies\minimind\implementation\scripts\benchmark_attention_backends.py:45: UserWarning: cuDNN attention kernel not used because: (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:1244.)
+  return F.scaled_dot_product_attention(q, k, v, dropout_p=0.0, is_causal=True), None
+D:\pythonlearning\AI_research\training_engineering\case_studies\minimind\implementation\scripts\benchmark_attention_backends.py:45: UserWarning: cuDNN SDPA is not deterministic. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:934.)
+  return F.scaled_dot_product_attention(q, k, v, dropout_p=0.0, is_causal=True), None

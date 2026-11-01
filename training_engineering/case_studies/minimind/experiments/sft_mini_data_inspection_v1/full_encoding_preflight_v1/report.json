@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "status": "full_candidate_encoding_diagnostics_clear",
+  "source": {
+    "path": "data\\raw\\minimind\\sft_t2t_mini.jsonl",
+    "size": 1739201170,
+    "sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+    "reference_report_sha256": "11b5f3b038a41da55ac64a4db93cb6b4f1802e3c0a03658c5d53506708611bb4",
+    "identity_checked_before_and_during_run": true
+  },
+  "overall": {
+    "records": 905718,
+    "encoded_records": 905718,
+    "records_without_encoding_flags": 905718,
+    "flagged_records": 0,
+    "issues": {},
+    "input_tokens": {
+      "min": 30,
+      "max": 3216,
+      "mean": 495.16462850467803,
+      "percentiles": {
+        "p50": 495.0,
+        "p90": 710.0,
+        "p95": 776.0,
+        "p99": 919.0
+      }
+    },
+    "targets_after_shift": {
+      "min": 8,
+      "max": 3193,
+      "mean": 416.60881201433557,
+      "percentiles": {
+        "p50": 439.0,
+        "p90": 642.0,
+        "p95": 696.0,
+        "p99": 808.8299999999581
+      }
+    },
+    "total_input_positions": 448479517,
+    "total_shifted_positions": 447573799,
+    "total_targets_after_shift": 377330100,
+    "supervised_fraction_of_shifted_positions": 0.8430567223618914,
+    "records_exceeding_length": {
+      "512": 408981,
+      "768": 49187,
+      "1024": 3395,
+      "1536": 531,
+      "2048": 73,
+      "4096": 0
+    },
+    "statistics_scope": "encoded_records_including_flagged_records_not_accepted_training_data"
+  },
+  "by_stratum": {
+    "plain": {
+      "records": 547017,
+      "encoded_records": 547017,
+      "records_without_encoding_flags": 547017,
+      "flagged_records": 0,
+      "issues": {},
+      "input_tokens": {
+        "min": 30,
+        "max": 3216,
+        "mean": 463.0288309138473,
+        "percentiles": {
+          "p50": 476.0,
+          "p90": 645.0,
+          "p95": 708.0,
+          "p99": 900.0
+        }
+      },
+      "targets_after_shift": {
+        "min": 8,
+        "max": 3193,
+        "mean": 413.97264253213336,
+        "percentiles": {
+          "p50": 432.0,
+          "p90": 589.0,
+          "p95": 646.0,
+          "p99": 808.0
+        }
+      },
+      "total_input_positions": 253284642,
+      "total_shifted_positions": 252737625,
+      "total_targets_after_shift": 226450073,
+      "supervised_fraction_of_shifted_positions": 0.895988767006891,
+      "records_exceeding_length": {
+        "512": 210725,
+        "768": 15320,
+        "1024": 2234,
+        "1536": 228,
+        "2048": 8,
+        "4096": 0
+      },
+      "statistics_scope": "encoded_records_including_flagged_records_not_accepted_training_data"
+    },
+    "reasoning_only": {
+      "records": 273869,
+      "encoded_records": 273869,
+      "records_without_encoding_flags": 273869,
+      "flagged_records": 0,
+      "issues": {},
+      "input_tokens": {
+        "min": 34,
+        "max": 2723,
+        "mean": 563.7770430388251,
+        "percentiles": {
+          "p50": 578.0,
+          "p90": 781.0,
+          "p95": 829.0,
+          "p99": 940.0
+        }
+      },
+      "targets_after_shift": {
+        "min": 16,
+        "max": 2680,
+        "mean": 512.3529534193356,
+        "percentiles": {
+          "p50": 529.0,
+          "p90": 701.0,
+          "p95": 739.0,
+          "p99": 824.0
+        }
+      },
+      "total_input_positions": 154401055,
+      "total_shifted_positions": 154127186,
+      "total_targets_after_shift": 140317591,
+      "supervised_fraction_of_shifted_positions": 0.9104013032457493,
+      "records_exceeding_length": {
+        "512": 173303,
+        "768": 32091,
+        "1024": 1154,
+        "1536": 303,
+        "2048": 65,
+        "4096": 0
+      },
+      "statistics_scope": "encoded_records_including_flagged_records_not_accepted_training_data"
+    },
+    "tool_only": {
+      "records": 84832,
+      "encoded_records": 84832,
+      "records_without_encoding_flags": 84832,
+      "flagged_records": 0,
+      "issues": {},
+      "input_tokens": {
+        "min": 79,
+        "max": 1128,
+        "mean": 480.87773481705017,
+        "percentiles": {
+          "p50": 466.0,
+          "p90": 649.0,
+          "p95": 696.0,
+          "p99": 865.0
+        }
+      },
+      "targets_after_shift": {
+        "min": 14,
+        "max": 784,
+        "mean": 124.51004337985665,
+        "percentiles": {
+          "p50": 100.0,
+          "p90": 190.0,
+          "p95": 266.0,
+          "p99": 567.0
+        }
+      },
+      "total_input_positions": 40793820,
+      "total_shifted_positions": 40708988,
+      "total_targets_after_shift": 10562436,
+      "supervised_fraction_of_shifted_positions": 0.25946201364671606,
+      "records_exceeding_length": {
+        "512": 24953,
+        "768": 1776,
+        "1024": 7,
+        "1536": 0,
+        "2048": 0,
+        "4096": 0
+      },
+      "statistics_scope": "encoded_records_including_flagged_records_not_accepted_training_data"
+    }
+  },
+  "longest_examples": [
+    {
+      "source_line": 847378,
+      "source_line_sha256": "9a0ad9fe1fdd5f1003cb8ccebb35257530845be5b788660ec667760d3193f048",
+      "stratum": "plain",
+      "issues": [],
+      "input_tokens": 3216,
+      "targets_after_shift": 3193
+    },
+    {
+      "source_line": 847840,
+      "source_line_sha256": "9a0ad9fe1fdd5f1003cb8ccebb35257530845be5b788660ec667760d3193f048",
+      "stratum": "plain",
+      "issues": [],
+      "input_tokens": 3216,
+      "targets_after_shift": 3193
+    },
+    {
+      "source_line": 881302,
+      "source_line_sha256": "1865f284379c7f3b658ad81d6e93e7e5c91d56830cf4e94cab6d9d2ba2d3a45c",
+      "stratum": "plain",
+      "issues": [],
+      "input_tokens": 3108,
+      "targets_after_shift": 3083
+    },
+    {
+      "source_line": 892309,
+      "source_line_sha256": "664894f77dbfc99409ac994b94edea45b4b37e8573184621e9dbde6211e4a999",
+      "stratum": "reasoning_only",
+      "issues": [],
+      "input_tokens": 2723,
+      "targets_after_shift": 2680
+    },
+    {
+      "source_line": 401384,
+      "source_line_sha256": "f3dac56d93811921e1521eefa0fc0ddbb306a68e78df0eb17d8c7c7ad1895b80",
+      "stratum": "plain",
+      "issues": [],
+      "input_tokens": 2526,
+      "targets_after_shift": 2386
+    },
+    {
+      "source_line": 852719,
+      "source_line_sha256": "ac834891c9fb57325de0a086b37932da31db16c6c06442e80f971c25d6024f26",
+      "stratum": "reasoning_only",
+      "issues": [],
+      "input_tokens": 2491,
+      "targets_after_shift": 2443
+    },
+    {
+      "source_line": 860206,
+      "source_line_sha256": "d4b50ed19968dc90e81d2729e3aaee8c753bdcb4de4b6b438a132ee7f2c745ea",
+      "stratum": "plain",
+      "issues": [],
+      "input_tokens": 2468,
+      "targets_after_shift": 2440
+    },
+    {
+      "source_line": 857565,
+      "source_line_sha256": "6a410940fb80635a5c32269a36b7389b317a43206706c57f8683bc30db4b25fe",
+      "stratum": "reasoning_only",
+      "issues": [],
+      "input_tokens": 2466,
+      "targets_after_shift": 2417
+    },
+    {
+      "source_line": 865164,
+      "source_line_sha256": "0c9c5afd0f8a0702151557f333a787c7869f4ba76befb3a26d562448abdc6403",
+      "stratum": "reasoning_only",
+      "issues": [],
+      "input_tokens": 2460,
+      "targets_after_shift": 2422
+    },
+    {
+      "source_line": 545384,
+      "source_line_sha256": "2ceb2cca05482919aa7a358e012c723601d559f0dcfdb31d081174aee4c9c4c3",
+      "stratum": "plain",
+      "issues": [],
+      "input_tokens": 2440,
+      "targets_after_shift": 2109
+    }
+  ],
+  "flagged_examples": [],
+  "files": {
+    "records": {
+      "path": "data\\audit\\sft_full_encoding_v1\\records.jsonl",
+      "bytes": 181028384,
+      "sha256": "44f63d8a5406b1a918b5c05a12268b169e1d1f29f4b2a541d777566ea0e6cd4a"
+    },
+    "issues": {
+      "path": "data\\audit\\sft_full_encoding_v1\\issues.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "encoding": {
+    "entry": "encode_sft_conversation",
+    "truncation": false,
+    "padding": false,
+    "retained_thinking_supervised": true,
+    "ending": "EOS plus trailing newline",
+    "percentile_method": "numpy linear"
+  },
+  "pipeline": {
+    "code_sha256": {
+      "full_inspection": "538024c7706b0b2b465c694bf13fae9d6040d5e6c63e7030df2215858a952bd8",
+      "sample_inspection_helpers": "e53e5cbaeb37efbe92461ea3b2cf6162a07b157b442254c9f899a6eff79d0911",
+      "encoder": "0bd1138a45062962cbfaae5feb44e9d326a24bf7862180db4005c5610b4a97a3",
+      "validator": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46"
+    },
+    "tokenizer_files_sha256": {
+      "manifest.json": "ba6d90df750b83465959c28fc4f756282cd25c5e39f803736d4e5082db6a73e4",
+      "tokenizer.json": "8bf5868abfc7ea919186b57e2b411adefe3b0922b53052c5839937e166b9d395",
+      "tokenizer_config.json": "e42b762555734279158ca292431c831fa387c48c35d9b1b205f4fc6c83b79d34"
+    }
+  },
+  "execution": {
+    "workers": 4,
+    "chunk_size": 1000,
+    "elapsed_seconds": 279.0228724000008,
+    "device": "CPU; no model or CUDA execution"
+  },
+  "runtime": {
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "numpy": "2.5.3"
+  },
+  "scope": {
+    "full_candidate_source_checked": true,
+    "final_training_data_accepted": false,
+    "quality_acceptance_claimed": false,
+    "complete_tool_protocol_verified": false,
+    "boundary_detection_is_conservative_not_complete": true,
+    "training_runtime_gates_changed": false,
+    "filtering_executed": false,
+    "identity_rewriting_applied": false,
+    "training_recipe_frozen": false,
+    "training_started": false
+  }
+}

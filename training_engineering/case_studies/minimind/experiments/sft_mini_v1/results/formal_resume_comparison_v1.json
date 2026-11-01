@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "contract_sha256": "3ac716dee78ce33d5d418e7f1f5e7e6b176dcdad6d06c52ac608322172c1abe9",
+  "final_step": 20,
+  "pause_step": 10,
+  "checkpoint_state_exact_equal": true,
+  "update_metrics_exact_equal": true,
+  "final_validation_exact_equal": true,
+  "checked_states": [
+    "model",
+    "optimizer",
+    "scheduler",
+    "global_step",
+    "torch_rng_state",
+    "cuda_rng_state_all",
+    "sampler_state",
+    "metadata"
+  ],
+  "checkpoint_file_sha256_equal": true,
+  "inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\compare_formal_sft_resume.py": "aafdfd945d4d3f9ac43561e0314af1dab889cd002acd91814a876d365ac471ae",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\compare_sft_resume.py": "37c5cbce45180101354ab90421b4e740272c0d459fb1b4727e703a97f64bfbc8",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_cont20_v1\\checkpoint-20.pt": "c3c6ecd58824a13c44010ecc2866748aee17fc3786a20cfc9e7bd7bb0c355955",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_cont20_v1\\checkpoint-20.pt.receipt.json": "ba6abed688df9c5785a99130204d3ef02ada460cbc0c8799dcb3ba00958d26f7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_cont20_v1\\result.json": "dc9e7dfb1d0bc3705b793f13378060b3889e3aeab449af0037552068f74af756",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_cont20_v1\\metrics.jsonl": "7182b238f14ca504f333295b8e7de0c552dca1cf13af3b5ca2db4288041e82ba",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_cont20_v1\\contract.json": "99bac3db588bcb5aa12d9f4f76d35d86a15646c1549dc73d8a49c172c4d38465",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_pause10_v1\\checkpoint-10.pt": "7164bdaac60c32549bdc4b5981f6e719cb9234e34d1ce96a6cc9c24a6980b2e2",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_pause10_v1\\checkpoint-10.pt.receipt.json": "41746ef5f8a5f21e59e42f949a621a137821e685d92e7f9e461d9f00b9e105f3",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_pause10_v1\\result.json": "ff1189a5641fe52e0c37bb6b5abc48e9d1c106bcf7c157440674ef034bfcfb5b",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_pause10_v1\\metrics.jsonl": "28fb0093d02170b561ceac67d585e85991294415b4ffd1166c14a4968d486ce0",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_pause10_v1\\contract.json": "99bac3db588bcb5aa12d9f4f76d35d86a15646c1549dc73d8a49c172c4d38465",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_resume20_v1\\checkpoint-20.pt": "c3c6ecd58824a13c44010ecc2866748aee17fc3786a20cfc9e7bd7bb0c355955",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_resume20_v1\\checkpoint-20.pt.receipt.json": "bff87fc0793b77486fa1f76d5bfdb5070c38b1368bc03bd00ac267729f7f16e7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_resume20_v1\\result.json": "2d2f7224495fc85a420d3be9eeca321c0f26b0f6871a7db044f5dc6103f20e64",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_resume20_v1\\metrics.jsonl": "6f48accb7d51e2c26704f5f02047685dc80a6576e40f775df38c2584eabe15a8",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\formal_gate_resume20_v1\\contract.json": "99bac3db588bcb5aa12d9f4f76d35d86a15646c1549dc73d8a49c172c4d38465"
+  },
+  "formal_training_started": false
+}

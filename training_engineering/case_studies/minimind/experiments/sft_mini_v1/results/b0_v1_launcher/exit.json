@@ -1,0 +1,29 @@
+{
+  "training_started": false,
+  "completed_at_utc": "2026-10-31T08:09:41.3039158Z",
+  "status": "completed",
+  "evaluation_freeze_sha256": "f3b5bc996a4f465ae967565b1d54317b5c86888992a3406aeb6410a401cbe876",
+  "exit_code": 0,
+  "started_at_utc": "2026-10-31T08:03:41.7908766Z",
+  "working_directory": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation",
+  "python": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\.venv\\Scripts\\python.exe",
+  "arguments": [
+    "-X",
+    "utf8",
+    "-u",
+    "scripts/evaluate_sft.py",
+    "--run",
+    "--config",
+    "../experiments/sft_mini_v1/evaluation_recipe/evaluation_config.json",
+    "--cases",
+    "../experiments/sft_mini_v1/evaluation_recipe/probes.jsonl",
+    "--inspection",
+    "../experiments/sft_mini_v1/evaluation_recipe/inspection.frozen.json",
+    "--bundle",
+    "exports/pretrain_mini_one_epoch_v1_fp32_v2",
+    "--device",
+    "cuda",
+    "--output-dir",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1"
+  ]
+}

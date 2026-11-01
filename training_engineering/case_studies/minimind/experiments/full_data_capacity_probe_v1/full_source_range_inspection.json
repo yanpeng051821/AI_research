@@ -1,0 +1,156 @@
+{
+  "purpose": "bounded_sampling_not_full_audit_or_freeze",
+  "source_repo": "jingyaogong/minimind_dataset",
+  "source_revision": "312afb4f76391145c6902f765bb51691c09a12f5",
+  "files": {
+    "pretrain": {
+      "filename": "pretrain_t2t.jsonl",
+      "source_bytes": 8275074893,
+      "ranges": [
+        {
+          "start": 827507489,
+          "end": 828556064,
+          "sha256": "b3eb2a48787a7fbac6979c6b523cc27782bf0d86c4822e3bc9b6fc0da69be753",
+          "content_range": "bytes 827507489-828556064/8275074893",
+          "complete_bytes": 1048203,
+          "records": 2626,
+          "structural_length_accepted": 2626,
+          "mean_accepted_length": 107.56892612338157
+        },
+        {
+          "start": 2482522467,
+          "end": 2483571042,
+          "sha256": "adfe1fd3496caa1dff0d698e5c2a103e1cef6d0fac1c562013a84b1084418904",
+          "content_range": "bytes 2482522467-2483571042/8275074893",
+          "complete_bytes": 1047651,
+          "records": 1436,
+          "structural_length_accepted": 1436,
+          "mean_accepted_length": 205.26323119777157
+        },
+        {
+          "start": 4137537446,
+          "end": 4138586021,
+          "sha256": "b62bae455dfa3920bef2a192aac55df3e0992f168fbd42063a359bbfe6c5f2e6",
+          "content_range": "bytes 4137537446-4138586021/8275074893",
+          "complete_bytes": 1046909,
+          "records": 883,
+          "structural_length_accepted": 883,
+          "mean_accepted_length": 317.8357870894677
+        },
+        {
+          "start": 5792552425,
+          "end": 5793601000,
+          "sha256": "465c301c75fcd1713ef4fd4b8b9684d9a6953c4082af092412fff0763fd57306",
+          "content_range": "bytes 5792552425-5793601000/8275074893",
+          "complete_bytes": 1038626,
+          "records": 176,
+          "structural_length_accepted": 176,
+          "mean_accepted_length": 768
+        },
+        {
+          "start": 7447567403,
+          "end": 7448615978,
+          "sha256": "1777d3e79f5d4806d14209e904c2f3dfc1f7510f5b74e82b0783326f63043831",
+          "content_range": "bytes 7447567403-7448615978/8275074893",
+          "complete_bytes": 1046791,
+          "records": 1111,
+          "structural_length_accepted": 1111,
+          "mean_accepted_length": 256.5229522952295
+        }
+      ],
+      "sampled_records": 6232,
+      "sample_accepted_records": 6232,
+      "sample_rejections": {},
+      "estimated_raw_records": 9863904.213928364,
+      "regional_raw_estimate_min_max": [
+        1402249.8774034157,
+        20731047.96400888
+      ],
+      "estimated_structural_length_accepted_records": 9863904.213928364,
+      "regional_accepted_estimate_min_max": [
+        1402249.8774034157,
+        20731047.96400888
+      ],
+      "mean_accepted_encoded_length": 205.0783055198973
+    },
+    "sft": {
+      "filename": "sft_t2t.jsonl",
+      "source_bytes": 14096018369,
+      "ranges": [
+        {
+          "start": 1409601836,
+          "end": 1410650411,
+          "sha256": "5fbe38aa8660a46a601c0085774400c08bdcd20d1fad8571d76531f9502c9e2b",
+          "content_range": "bytes 1409601836-1410650411/14096018369",
+          "complete_bytes": 1045896,
+          "records": 479,
+          "structural_length_accepted": 414,
+          "mean_accepted_length": 507.7487922705314
+        },
+        {
+          "start": 4228805510,
+          "end": 4229854085,
+          "sha256": "a31aad88ad5628674b842e940ed2bd00e1c80ba77c773f1f20ce316d3e54c057",
+          "content_range": "bytes 4228805510-4229854085/14096018369",
+          "complete_bytes": 1044760,
+          "records": 497,
+          "structural_length_accepted": 441,
+          "mean_accepted_length": 513.4580498866213
+        },
+        {
+          "start": 7048009184,
+          "end": 7049057759,
+          "sha256": "3046a82318d2d9d418395e72c9d536f4f2ce32ff54ddcba78ece36ebe1875ec1",
+          "content_range": "bytes 7048009184-7049057759/14096018369",
+          "complete_bytes": 1047990,
+          "records": 231,
+          "structural_length_accepted": 0,
+          "mean_accepted_length": null
+        },
+        {
+          "start": 9867212858,
+          "end": 9868261433,
+          "sha256": "b8db0e6093af34765647130581274b3d7ef5e8021e36a47ab5934518c43f579d",
+          "content_range": "bytes 9867212858-9868261433/14096018369",
+          "complete_bytes": 1046514,
+          "records": 367,
+          "structural_length_accepted": 1,
+          "mean_accepted_length": 628
+        },
+        {
+          "start": 12686416532,
+          "end": 12687465107,
+          "sha256": "4cc3efa0c4a0fba737f30e80ed8f8609f7e45b4344a47a9840c4f541f5fc415a",
+          "content_range": "bytes 12686416532-12687465107/14096018369",
+          "complete_bytes": 1047923,
+          "records": 595,
+          "structural_length_accepted": 354,
+          "mean_accepted_length": 417.16101694915255
+        }
+      ],
+      "sampled_records": 2169,
+      "sample_accepted_records": 1210,
+      "sample_rejections": {
+        "overlength_768": 506,
+        "ValueError": 453
+      },
+      "estimated_raw_records": 5842495.493069955,
+      "regional_raw_estimate_min_max": [
+        3107071.8644634015,
+        8003575.57717027
+      ],
+      "estimated_structural_length_accepted_records": 3259299.007199007,
+      "regional_accepted_estimate_min_max": [
+        0.0,
+        5950021.153881274
+      ],
+      "mean_accepted_encoded_length": 483.42644628099174
+    }
+  },
+  "limitations": [
+    "Byte-stratified range samples, not uniform record samples or a complete line count.",
+    "Estimates can miss regional heterogeneity; no statistical confidence interval is claimed.",
+    "SFT structural encoding and length only; content/name holds, deduplication and split not applied.",
+    "No new training authorized by this report."
+  ]
+}

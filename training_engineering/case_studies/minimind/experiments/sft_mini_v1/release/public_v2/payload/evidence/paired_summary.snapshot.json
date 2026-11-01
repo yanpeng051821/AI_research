@@ -1,0 +1,474 @@
+{
+  "publication_note": "Path-redacted historical snapshot, not the byte-identical frozen contract. Authorization/status flags describe the source's creation time. See training_audit and model card for actual final execution status.",
+  "original_sha256": "5217098e7842d08884b48fad56e593a11a46deadd55978fac824954f8a3b44e5",
+  "snapshot": {
+    "status": "paired_assistant_initial_review_complete_not_independently_reviewed",
+    "scoring_version": "scoring_v2",
+    "by_tier_S1": {
+      "core": {
+        "records": 32,
+        "pass": 0,
+        "fail": 31,
+        "uncertain": 1,
+        "pass_rate_lower_bound": 0.0,
+        "pass_rate_upper_bound": 0.03125
+      },
+      "supplementary": {
+        "records": 4,
+        "pass": 0,
+        "fail": 4,
+        "uncertain": 0,
+        "pass_rate_lower_bound": 0.0,
+        "pass_rate_upper_bound": 0.0
+      }
+    },
+    "by_category_S1": {
+      "everyday": {
+        "records": 8,
+        "pass": 0,
+        "fail": 8,
+        "uncertain": 0,
+        "pass_rate_lower_bound": 0.0,
+        "pass_rate_upper_bound": 0.0
+      },
+      "instruction": {
+        "records": 8,
+        "pass": 0,
+        "fail": 8,
+        "uncertain": 0,
+        "pass_rate_lower_bound": 0.0,
+        "pass_rate_upper_bound": 0.0
+      },
+      "grounded": {
+        "records": 8,
+        "pass": 0,
+        "fail": 7,
+        "uncertain": 1,
+        "pass_rate_lower_bound": 0.0,
+        "pass_rate_upper_bound": 0.125
+      },
+      "context": {
+        "records": 8,
+        "pass": 0,
+        "fail": 8,
+        "uncertain": 0,
+        "pass_rate_lower_bound": 0.0,
+        "pass_rate_upper_bound": 0.0
+      },
+      "tool": {
+        "records": 4,
+        "pass": 0,
+        "fail": 4,
+        "uncertain": 0,
+        "pass_rate_lower_bound": 0.0,
+        "pass_rate_upper_bound": 0.0
+      }
+    },
+    "paired_by_tier": {
+      "core": {
+        "both_nonpass": 30,
+        "B0_only_pass": 1,
+        "uncertain": 1
+      },
+      "supplementary": {
+        "both_nonpass": 4
+      }
+    },
+    "nll": {
+      "B0_fp32": 2.3954561616642405,
+      "S1_fp32": 1.7210819774489265,
+      "absolute_delta": -0.6743741842153139,
+      "relative_delta": -0.2815222399005596,
+      "valid_targets_each": 833052
+    },
+    "behavior": {
+      "B0": {
+        "stop_reasons": {
+          "length_limit": 36
+        },
+        "generated_tokens": 9216,
+        "mean_generated_tokens": 256,
+        "median_generated_tokens": 256.0,
+        "mean_duplicate_fourgram_fraction": 0.9569609134826527,
+        "note": "Repeated token 4-gram fraction is a descriptive diagnostic, not a new pass/fail rule."
+      },
+      "S1": {
+        "stop_reasons": {
+          "length_limit": 19,
+          "eos": 17
+        },
+        "generated_tokens": 5587,
+        "mean_generated_tokens": 155.19444444444446,
+        "median_generated_tokens": 256.0,
+        "mean_duplicate_fourgram_fraction": 0.3801509494312325,
+        "note": "Repeated token 4-gram fraction is a descriptive diagnostic, not a new pass/fail rule."
+      }
+    },
+    "decisions": [
+      {
+        "id": "everyday-01",
+        "tier": "core",
+        "category": "everyday",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "everyday-02",
+        "tier": "core",
+        "category": "everyday",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "everyday-03",
+        "tier": "core",
+        "category": "everyday",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "everyday-04",
+        "tier": "core",
+        "category": "everyday",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "everyday-05",
+        "tier": "core",
+        "category": "everyday",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "everyday-06",
+        "tier": "core",
+        "category": "everyday",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "everyday-07",
+        "tier": "core",
+        "category": "everyday",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "everyday-08",
+        "tier": "core",
+        "category": "everyday",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "instruction-01",
+        "tier": "core",
+        "category": "instruction",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "instruction-02",
+        "tier": "core",
+        "category": "instruction",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "instruction-03",
+        "tier": "core",
+        "category": "instruction",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "instruction-04",
+        "tier": "core",
+        "category": "instruction",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "instruction-05",
+        "tier": "core",
+        "category": "instruction",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "instruction-06",
+        "tier": "core",
+        "category": "instruction",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "instruction-07",
+        "tier": "core",
+        "category": "instruction",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "instruction-08",
+        "tier": "core",
+        "category": "instruction",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "grounded-01",
+        "tier": "core",
+        "category": "grounded",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "grounded-02",
+        "tier": "core",
+        "category": "grounded",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "grounded-03",
+        "tier": "core",
+        "category": "grounded",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "grounded-04",
+        "tier": "core",
+        "category": "grounded",
+        "B0": "pass",
+        "S1": "fail",
+        "paired_outcome": "B0_only_pass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "grounded-05",
+        "tier": "core",
+        "category": "grounded",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "grounded-06",
+        "tier": "core",
+        "category": "grounded",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "grounded-07",
+        "tier": "core",
+        "category": "grounded",
+        "B0": "pass",
+        "S1": "uncertain",
+        "paired_outcome": "uncertain",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "grounded-08",
+        "tier": "core",
+        "category": "grounded",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "context-01",
+        "tier": "core",
+        "category": "context",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "context-02",
+        "tier": "core",
+        "category": "context",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "context-03",
+        "tier": "core",
+        "category": "context",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "context-04",
+        "tier": "core",
+        "category": "context",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "context-05",
+        "tier": "core",
+        "category": "context",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "context-06",
+        "tier": "core",
+        "category": "context",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "context-07",
+        "tier": "core",
+        "category": "context",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "context-08",
+        "tier": "core",
+        "category": "context",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "tool-01",
+        "tier": "supplementary",
+        "category": "tool",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      },
+      {
+        "id": "tool-02",
+        "tier": "supplementary",
+        "category": "tool",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "tool-03",
+        "tier": "supplementary",
+        "category": "tool",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "eos"
+      },
+      {
+        "id": "tool-04",
+        "tier": "supplementary",
+        "category": "tool",
+        "B0": "fail",
+        "S1": "fail",
+        "paired_outcome": "both_nonpass",
+        "B0_stop": "length_limit",
+        "S1_stop": "length_limit"
+      }
+    ],
+    "exact_paired_input_ids_and_prompts": true,
+    "independently_reviewed": false,
+    "user_reviewed": false,
+    "semantic_judgments_automatically_verified": false
+  }
+}

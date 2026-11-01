@@ -1,0 +1,12 @@
+{
+  "status": "failed",
+  "started_at_utc": "2026-10-31T09:13:27.554021+00:00",
+  "training_started": true,
+  "formal_training_authorized": false,
+  "global_step": 0,
+  "contract_sha256": "e403c68bc3433e8071a6439179d24b6a2f14cdd9af5966ab9f5367bfaa32d914",
+  "committed_samples": 0,
+  "run_kind": "engineering_probe_not_formal_sft",
+  "error_type": "OutOfMemoryError",
+  "error": "CUDA out of memory. Tried to allocate 72.00 MiB. GPU 0 has a total capacity of 8.00 GiB of which 4.51 GiB is free. Process 1676 has 17179869184.00 GiB memory in use. Process 9464 has 17179869184.00 GiB memory in use. Process 11092 has 17179869184.00 GiB memory in use. Process 11084 has 17179869184.00 GiB memory in use. Process 14096 has 17179869184.00 GiB memory in use. Process 13756 has 17179869184.00 GiB memory in use. Process 3248 has 17179869184.00 GiB memory in use. Process 18240 has 17179869184.00 GiB memory in use. Process 9652 has 17179869184.00 GiB memory in use. Process 20444 has 17179869184.00 GiB memory in use. Process 19732 has 17179869184.00 GiB memory in use. Process 24060 has 17179869184.00 GiB memory in use. Process 25960 has 17179869184.00 GiB memory in use. Process 33344 has 17179869184.00 GiB memory in use. Process 32952 has 17179869184.00 GiB memory in use. Process 18232 has 17179869184.00 GiB memory in use. Process 8092 has 17179869184.00 GiB memory in use. Process 28928 has 17179869184.00 GiB memory in use. Including non-PyTorch memory, this process has 17179869184.00 GiB memory in use. Of the allocated memory 2.26 GiB is allocated by PyTorch, and 73.94 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)"
+}

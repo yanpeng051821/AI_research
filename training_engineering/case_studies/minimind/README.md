@@ -8,6 +8,10 @@
 每周安排、当前状态、数据合同、设备预算与验收统一见 [实践路线](PRACTICE_ROADMAP.md)。
 当前使用自己的工程对齐 MiniMind-3 Dense，采用官方 mini 数据路线推进 Pretrain/SFT；后续再按阶段确定 LoRA、蒸馏、DPO、在线 RL 和 Agent 实验。本次单轮预训练、分析、归档、模型导出及研究发布已完成，[HF 模型](https://huggingface.co/yanpeng051821/minimind-dense-64m-mini-pretrain)的固定 revision 下载加载核对通过。许可范围仍未全部确立，独立恢复备份未验证；运行证据、配方和发布说明统一见[实验目录](experiments/pretrain_mini_one_epoch_v1/README.md)。
 
+[第七周教程](practice_notes/week_07_pretrain_experiment.md)已收尾。[第八周教程](practice_notes/week_08_sft_data_and_training.md)已完成数据/训练/评测冻结、完整一轮SFT、最终模型独立加载与B0/S1固定FP32评测。2026-11-01初步结果：NLL从2.395456降至1.721082，EOS从0/36变为17/36，但核心题助手初评为0确定通过、31失败、1待裁定，未超过B0的2/32。
+
+当前依据[配对分析](experiments/sft_mini_v1/results/paired_analysis_v1/README.md)讨论结论，不自动推进额外训练或宣称能力改善。数据质量限制、评分未独立复核及工具风险均保留；本地S1模型与50份checkpoint已归档，[独立SFT模型](https://huggingface.co/yanpeng051821/minimind-dense-64m-mini-sft)已发布并通过固定版本下载重载，尚未推送Git。详细产物见[SFT实验入口](experiments/sft_mini_v1/README.md)，当前任务仍统一维护在实践路线中。
+
 ## 目录
 
 本案例的文档与实现统一在这里归档。每周实践教程的交付标准是：读者不依赖原对话，也能按顺序实现、运行、检查和排错；当前任务统一维护在实践路线中。
@@ -104,6 +108,7 @@ uv run --locked python scripts/inspect_pretrain_batch.py
 - [第 4 周：Attention 与完整 Decoder](practice_notes/week_04_attention_and_decoder.md)，验收完成：模型、单步训练、greedy 生成与 tiny 序列过拟合通过，全项目 221 项测试通过。
 - [第 5 周：单设备训练系统](practice_notes/week_05_training_system.md)，验收完成：整批与累积更新对齐，整轮循环和尾部更新通过；训练测试 8 项，全项目 229 项通过。下一步进入第 6 周验证与保存恢复。
 - [第 6 周：验证与训练恢复](practice_notes/week_06_validation_and_checkpoint.md)，2026-10-18 教学工程验收完成：验证、随机状态、样本位置、更新边界恢复和最小入口接通，新增回归 19 项、全项目 249 项通过。下一步进入第七周真实语料子集与实验合同准备；周期保存和数据身份门禁尚未接入，不能视为生产级训练入口。
-- [第 7 周：真实语料预训练实验](practice_notes/week_07_pretrain_experiment.md)，进行中：模型对照、数据与训练配方冻结、正式尺寸恢复短跑通过；2026-10-25 10:43 已后台启动一个 epoch。正式输入为训练 1,265,235 条、验证 5,000 条，长度 768，共 4,943 次更新。教程按模型、数据、候选配方、短跑、最终冻结、启动和验收顺序组织；完整训练与结果验收尚未完成。
+- [第 7 周：真实语料预训练实验](practice_notes/week_07_pretrain_experiment.md)，已完成：模型对照、数据与训练配方冻结、恢复短跑、一个 epoch 预训练、结果分析、导出与发布。训练 1,265,235 条、验证 5,000 条，长度 768，共 4,943 次更新；公开包固定版本下载与加载核对通过，未完成的许可与独立恢复备份核验仍保留说明。
+- [第 8 周：对话数据与 SFT](practice_notes/week_08_sft_data_and_training.md)，已完成数据/训练/评测冻结、完整一轮训练、固定FP32配对评测和研究模型发布；工程验收及固定版本下载重载通过，核心任务初评未超过B0。评分未独立复核，数据质量与许可限制继续保留。
 
 前期以学习者在带练中亲手实现核心模块为主，助手负责讲解、审查与核验。自第七周本轮数据构造收尾起，按用户明确委托，后续由助手先解释目的、流程和关键实现，再承担工程编写、运行、测试与文档维护；学习者重点理解设计、实验条件和结果。需要亲手练习的关键小段再单独约定，不以逐行写完所有代码作为阶段完成标准。

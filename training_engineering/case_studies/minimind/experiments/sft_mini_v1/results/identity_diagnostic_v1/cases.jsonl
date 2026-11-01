@@ -1,0 +1,3 @@
+{"id": "identity-01", "category": "identity", "tier": "posthoc_diagnostic", "messages": [{"role": "user", "content": "你是谁？"}], "tools": [], "checks": []}
+{"id": "identity-02", "category": "identity", "tier": "posthoc_diagnostic", "messages": [{"role": "user", "content": "你是由谁训练的？"}], "tools": [], "checks": []}
+{"id": "identity-03", "category": "identity", "tier": "posthoc_diagnostic", "messages": [{"role": "user", "content": "你的预训练权重是从随机初始化开始训练的，还是接续官方预训练权重？"}], "tools": [], "checks": []}

@@ -1,0 +1,20 @@
+{
+  "member": "S1",
+  "status": "completed",
+  "created_at_utc": "2026-10-31T21:05:33.289449+00:00",
+  "scoring_version": "scoring_v2",
+  "initial_B0_model_state_sha256": "8d10d76090b2714c055a95123c3583c6941b1ecb6af84a10f0f68dbe21cb783f",
+  "S1_model_state_sha256": "733c18c9775eadd7f67330fabb0568ab61103f9d5fba995e6d967405c904cc62",
+  "inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_freeze.json": "f3b5bc996a4f465ae967565b1d54317b5c86888992a3406aeb6410a401cbe876",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\scoring_v2_patch.json": "77f1a8be6d8e70c301e52ec8b5bc3d4b362ce95fa86d27a5bd2654e6d58a52e0",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\training_recipe\\training_freeze.json": "1f59ed017e91a824c17ef7084c0785867380a43fc10c553ffc3f599ef993577f",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\final_run_v1\\training_audit.json": "2a2d5a376916de1fc25dad50053fdd091b21257d4132849965d37a34d94de3bb",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\final_run_v1\\export_verification.json": "5f3331503c6c0a76f0c48c4d4021d94cc9ad6947d2a1e876760402a976ce46f7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\exports\\sft_mini_one_epoch_v1_fp32_v1\\export_manifest.json": "22097e902d69e9b86adea833f96db6e8c9d61fc861ea96ca40d0f757e338e354",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\evaluate_sft_pair_member.py": "69bc81656a6710965844527862299426ef93b3ac60a5de6b1c95d0ff50724089"
+  },
+  "evaluation_engine": "unchanged evaluate_sft.run and generate_case",
+  "only_experimental_model_variable": "final S1 weights with verified source",
+  "note": "The reused engine calls its generic provenance field pretrain_source; its S1 stage is recorded here."
+}

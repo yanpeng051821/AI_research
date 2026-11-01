@@ -1,0 +1,82 @@
+{
+  "status": "baseline_generation_and_nll_verified_scoring_pending",
+  "model": "B0_pretrain_step4943",
+  "evaluation_freeze_sha256": "f3b5bc996a4f465ae967565b1d54317b5c86888992a3406aeb6410a401cbe876",
+  "data_contract_sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d",
+  "generation_records": 36,
+  "core_records": 32,
+  "supplementary_records": 4,
+  "stop_reasons": {
+    "length_limit": 36
+  },
+  "generated_tokens": 9216,
+  "generation_seconds": 274.12576799996896,
+  "validation": {
+    "nll": 2.3954561616642405,
+    "valid_tokens": 833052,
+    "records": 2048,
+    "batch_size": 4,
+    "elapsed_seconds": 60.38374200000544
+  },
+  "wall_clock_seconds_including_preflight": 359.513039,
+  "exact_input_ids_and_prompt_match": true,
+  "model_state_unchanged_gate_passed": true,
+  "data_postcheck": "passed",
+  "evaluation_postcheck": "frozen_evaluation_verified_not_run",
+  "exit_code": 0,
+  "manual_scoring_completed": false,
+  "task_pass_rate": null,
+  "training_started": false,
+  "files": {
+    "generations.jsonl": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\generations.jsonl",
+      "sha256": "9cb5cbc62b36b763519ece9252c11f796136ce4f3bfcf9c5b6eff1c198c031e7",
+      "bytes": 152325
+    },
+    "validation.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\validation.json",
+      "sha256": "189dc6801354b2936da6f46b6e45c0350a59a2bfda63bfa200375f6851c27ad4",
+      "bytes": 136
+    },
+    "result.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\result.json",
+      "sha256": "e7f9d4ce7e001df62ddb08eb1ae09785903713ef74652262a6c089b15d664c53",
+      "bytes": 1457
+    },
+    "run_manifest.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\run_manifest.json",
+      "sha256": "b14ccf8dd2f7be37161865fa035e0cc5fa732ce1b1eec347f84babf374c4cda3",
+      "bytes": 5684
+    },
+    "launcher/launch.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1_launcher\\launch.json",
+      "sha256": "f1d4bb5eb70e64784fa3bc3f20ed4bc671b4d9963a04140c72deddd46748922c",
+      "bytes": 1093
+    },
+    "launcher/exit.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1_launcher\\exit.json",
+      "sha256": "6b9bfb87518431a862e4ffdea8df1c4c884360be3f3b8c04c1310010e9d99546",
+      "bytes": 1169
+    },
+    "launcher/stdout.log": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1_launcher\\stdout.log",
+      "sha256": "2cfe1e7bc2e58ce42c32c00f8b84e31561c64602099fbf648696d688de51d753",
+      "bytes": 1495
+    },
+    "launcher/stderr.log": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1_launcher\\stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "launcher/preflight.stdout.log": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1_launcher\\preflight.stdout.log",
+      "sha256": "9729f9ab375a3fece98fd4e59aefa5b44876f5c0b8ff19351a296451b90b77b3",
+      "bytes": 144
+    },
+    "launcher/preflight.stderr.log": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1_launcher\\preflight.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

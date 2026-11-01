@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "confirmed_exclusions_applied_not_final_training_data",
+  "created_at_utc": "2026-10-30T16:58:04.128781+00:00",
+  "input": {
+    "records": 809713,
+    "bytes": 1539525786,
+    "targets_after_shift": 334943065,
+    "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_dedup_768_v1\\unique_candidate.jsonl",
+    "sha256": "a8953341f7c0f77b311b9f62a8bafccf4c246b3903cc4dec3489300f80ee6096"
+  },
+  "original_source": {
+    "path": "data\\raw\\minimind\\sft_t2t_mini.jsonl",
+    "size": 1739201170,
+    "sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+    "reference_report_sha256": "11b5f3b038a41da55ac64a4db93cb6b4f1802e3c0a03658c5d53506708611bb4",
+    "identity_checked_before_and_during_run": true,
+    "records": 905718
+  },
+  "dedup_report_sha256": "97ad8af9b85faa2907bc5bed6789fcf6b67c7d1c541f656615216c88a4d6020b",
+  "decisions_sha256": "aa1e5994b7352d29b0407e36bc395995ed2fdd49defa7d402788c9981a2a2579",
+  "code_sha256": {
+    "entry": "acb2b17b6209a42c67b24712614d77f4a36abfb6f062e19321d34b1e3ad67fd8",
+    "lineage_reader": "ed023bf3bbaee6364b64024a489fd61c76c98b47f35ee8ba35c7d23d2321f371"
+  },
+  "outputs": {
+    "candidate": {
+      "records": 809711,
+      "bytes": 1539522945,
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_reviewed_768_v1\\reviewed_candidate.jsonl",
+      "sha256": "cd203f2996197e67dc476efa7a2167bc31029141d9fc47341a4eb90c70c2a593"
+    },
+    "excluded": {
+      "records": 2,
+      "bytes": 2841,
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_reviewed_768_v1\\review_excluded.jsonl",
+      "sha256": "76de8735479bd2b909a49bceb58a1a68dbdc22466f643d1aed08bdbb54f2c2aa"
+    },
+    "lineage": {
+      "records": 809713,
+      "bytes": 167218129,
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_reviewed_768_v1\\lineage.jsonl",
+      "sha256": "4fcb370d81679d4184722dcffeb9bec49283d02e71f253d3b9396d5d14a242d6"
+    }
+  },
+  "applied_decisions": [
+    {
+      "source_line": 731011,
+      "candidate_line": 678855,
+      "source_line_sha256": "ca0b11556f702e090f855021fb37e9c6295256b76b5d50fc94205205a72a92de",
+      "reason": "The complete record asks for code output without providing code; assistant reasoning and answer invent inputs and execution results."
+    },
+    {
+      "source_line": 776360,
+      "candidate_line": 721544,
+      "source_line_sha256": "b84d0783b56633f28056a8df77c3b099069f51759e8683325458a01bf27a5511",
+      "reason": "Structured call get_current_weather is not present in the record's declared tools get_current_time and unit_converter."
+    }
+  ],
+  "scope": {
+    "input_modified": false,
+    "confirmed_exclusions_applied": 2,
+    "other_flags_automatically_excluded": false,
+    "identity_rewrite_applied": false,
+    "remaining_records_quality_accepted": false,
+    "split_created": false,
+    "data_recipe_frozen": false
+  }
+}

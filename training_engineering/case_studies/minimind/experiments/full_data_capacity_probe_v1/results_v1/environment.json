@@ -1,0 +1,11 @@
+{
+  "torch": "2.2.2",
+  "cuda": "12.1",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "total_memory": 51002015744,
+  "sm_count": 128,
+  "cpu_threads": 4,
+  "deterministic": true,
+  "tf32": false,
+  "formal_training": false
+}

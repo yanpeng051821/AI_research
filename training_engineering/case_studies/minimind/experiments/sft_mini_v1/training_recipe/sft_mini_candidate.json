@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "candidate_not_frozen",
+  "purpose": "sft",
+  "data_freeze": "../experiments/sft_mini_v1/data_recipe/data_freeze.json",
+  "data_freeze_sha256": "764a84bd38f658f8c53906685aa3ff9609adb7af25ec9cb701f35b08dcaff29a",
+  "data_contract_sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d",
+  "initial_bundle": "exports/pretrain_mini_one_epoch_v1_fp32_v2",
+  "initial_model_state_sha256": "8d10d76090b2714c055a95123c3583c6941b1ecb6af84a10f0f68dbe21cb783f",
+  "scoring_patch": "../experiments/sft_mini_v1/evaluation_recipe/scoring_v2_patch.json",
+  "scoring_patch_sha256": "77f1a8be6d8e70c301e52ec8b5bc3d4b362ce95fa86d27a5bd2654e6d58a52e0",
+  "training": {
+    "epochs": 1,
+    "device": "cuda",
+    "precision": "bf16",
+    "seed": 42,
+    "sampler_seed": 42,
+    "micro_batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 1e-5,
+    "weight_decay": 0.01,
+    "betas": [0.9, 0.999],
+    "eps": 1e-8,
+    "foreach": false,
+    "fused": false,
+    "warmup_updates": 0,
+    "min_lr_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "num_workers": 0
+  },
+  "operations": {
+    "checkpoint_interval": null,
+    "validation_interval": null,
+    "checkpoint_dir": null,
+    "checkpoint_retention": null,
+    "wall_clock_budget_hours": null,
+    "formal_training_authorized": false
+  },
+  "pending_confirmation": [
+    "full_epoch_wall_clock_budget_after_probe",
+    "checkpoint_and_validation_frequency_and_storage",
+    "seed42_and_sampler_seed42_inherited_engineering_candidates"
+  ]
+}

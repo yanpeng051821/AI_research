@@ -1,0 +1,161 @@
+{
+  "status": "frozen",
+  "schema_version": 1,
+  "frozen_at_utc": "2026-10-31T08:03:02.860036+00:00",
+  "files": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_config.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_config.json",
+      "sha256": "32318ef5592749b1fff9daa54f32851403b29a30590452298e67f9017e71dba7"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\probes.jsonl": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\probes.jsonl",
+      "sha256": "54688cdb406e4942022112e32cb6912900c5d802a69629da6d6947a952393d1c"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\inspection.frozen.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\inspection.frozen.json",
+      "sha256": "bbbb58a8884f729afc04ef78172f0bbd9093d07c9471be2539ecf47932d90c6e"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_acceptance.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_acceptance.json",
+      "sha256": "0c5316e56fd13cfc8984ab00f0b07edf6d5b6b2891c01d2d64f07441a358ece8"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\EVALUATION_CONTRACT.md": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\EVALUATION_CONTRACT.md",
+      "sha256": "329b83a55a4f338021c40de3c8f08ec3162862780974a4d7d8870901ea965e8d"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\freeze_sft_evaluation.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\freeze_sft_evaluation.py",
+      "sha256": "d17e56eb17495931e07b7f82f542ac4a62bc4fc0596b2163d93c32ae1ab273a3"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\evaluate_sft.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\evaluate_sft.py",
+      "sha256": "16e8277ea67b5aac05bd112080caa0206dadeafe3a8dafae86762f5eb2dbc6ba"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\inspect_sft_eval_draft.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\inspect_sft_eval_draft.py",
+      "sha256": "aa35a6ee42035793a4a178e17a44364946e0c3e1402c0297a7824579cc997301"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\load_exported_pretrain.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\load_exported_pretrain.py",
+      "sha256": "3a1e8c7d3931cf099874b5d29a8d8fa486e64065a3558b542d96cacb709c74ae"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\prepare_sft_recipe.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\prepare_sft_recipe.py",
+      "sha256": "7ea2ca72b1c50fa77137b6d2844f08b5dc471703457ab6eeb95de69168ddb6a0"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\pyproject.toml": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\pyproject.toml",
+      "sha256": "c7c0984824c397d52a32c1694af625754ca28f6e62407bf473623be5450efa96"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\uv.lock": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\uv.lock",
+      "sha256": "e48c4c186c2b2708a3321b516a20ec7071f09d63d40ff157f2a923f0575fe793"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\data_recipe\\data_freeze.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\data_recipe\\data_freeze.json",
+      "sha256": "764a84bd38f658f8c53906685aa3ff9609adb7af25ec9cb701f35b08dcaff29a"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\exports\\pretrain_mini_one_epoch_v1_fp32_v2\\export_manifest.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\exports\\pretrain_mini_one_epoch_v1_fp32_v2\\export_manifest.json",
+      "sha256": "14cf9c04a2af19aa33c5b0ef928fa17cdb8e78f9effe6904d371bc17a4ccb11c"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\exports\\pretrain_mini_one_epoch_v1_fp32_v2\\config.json": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\exports\\pretrain_mini_one_epoch_v1_fp32_v2\\config.json",
+      "sha256": "36f5c84fdd8d93ccbbc14671a6ca8028fd8b012edb40b78e4f5ec59a2aef2363"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\exports\\pretrain_mini_one_epoch_v1_fp32_v2\\model.safetensors": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\exports\\pretrain_mini_one_epoch_v1_fp32_v2\\model.safetensors",
+      "sha256": "3f1d1e6f585d516149d62d33670ef20cb29caa11c1759786586879e19fa3cc22"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\attention.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\attention.py",
+      "sha256": "d0d5a3c3dd968b61f7c858618283739818b1009cbe236a2c78b0d9a4505404ba"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\block.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\block.py",
+      "sha256": "fffa78eb31efc59f5031f928a23dce806638fbdfc121d8c374c2086d0b04ed58"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\bpe.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\bpe.py",
+      "sha256": "3fc92e62fc1145b08f4901833c1e3b12be0ad29f36eae1859bd918405fabc285"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\config.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\config.py",
+      "sha256": "0335b8b3730c459e1e7145ccf042e34b40857182ce38bec59a02871d3b604529"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\embedding.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\embedding.py",
+      "sha256": "eb2d1ebe10e11062aaf3cffe721c8506ee99dc6a59f386d664ca38d20342736b"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\feedforward.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\feedforward.py",
+      "sha256": "bfcf2e8768afdca1d3194444acab60cbe4305b4b4a62954d2dec483a55ba4954"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\generation.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\generation.py",
+      "sha256": "7e998937e67f2f4ffaa00d2505432b9a0359d82ed81d1efa9b30d871ebff510d"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\initialization.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\initialization.py",
+      "sha256": "a97ef700cc2dbd3f2bc30cc7375f0cbc7fdbf39253b3a560567cfe9620f86c6d"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\loss.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\loss.py",
+      "sha256": "d25bfe029b3a256626e34247bd314d3a0a05f5a33df0b9c01740c49609ee8657"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\model.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\model.py",
+      "sha256": "0a632bb110af1c9bfa3c75f92451f694b02c831477d4093553b1c7d221aeacae"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\rmsnorm.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\rmsnorm.py",
+      "sha256": "6577dd8f51187e4bd86d1b9877e2747dd83e2d19625735d30a0a83ca081095f5"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\rope.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\rope.py",
+      "sha256": "ab5d1d98a73934a10477cd8a1e9c366f76a4c99c3a1c17445fcddd0107b047c8"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\__init__.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\models\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\data\\sft.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\data\\sft.py",
+      "sha256": "53d246772ac5734f48ac0d1b4825be87193fcf9abc8895533746c1f8f36e3422"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\data\\sft_protocol.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\data\\sft_protocol.py",
+      "sha256": "62a34f326db14d28b1bf624879c78d08c1b523a3ebb9163d0c00c3351f49acf9"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\data\\validator.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\data\\validator.py",
+      "sha256": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46"
+    },
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\training\\evaluate.py": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\src\\minimind_lab\\training\\evaluate.py",
+      "sha256": "0a72642f541ed2a907d53121c80c5e7d9af0f09d57990d1f254dcc91bc5b8f33"
+    }
+  },
+  "runtime_versions": {
+    "torch": "2.14.0+cu130",
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.8.0",
+    "numpy": "2.5.3"
+  },
+  "baseline": {
+    "model_state_sha256": "8d10d76090b2714c055a95123c3583c6941b1ecb6af84a10f0f68dbe21cb783f",
+    "source": {
+      "checkpoint_file": "checkpoint-4943.pt",
+      "checkpoint_sha256": "8d3cb52867e0c74b35c5931bfb9c90de3a7b6589fd9466fd68d00c9593431e38",
+      "checkpoint_bytes": 773264427,
+      "contract_sha256": "b8c2d23cbecfb1d0c92aaa00c40ffb0d0af9ef0a379bae1b487ac9de23d4bf58",
+      "freeze_sha256": "b496d4fb257bae495d6a3a86552d948206227bd5a8a78a08fbccfd425cc35828",
+      "initialization_sha256": "272d31cc9061d16cf6a00f2486ba97de6777eda428fcd08c061faeb10cde1ab4",
+      "global_step": 4943,
+      "stage": "pretrain_from_random_initialization"
+    }
+  },
+  "scope": "Paired evaluation inputs, scoring and execution; capability thresholds pending pre-training calibration.",
+  "training_authorized": false
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "stage": "pip_upgrade",
+    "exit": 0,
+    "seconds": 6.122714700002689
+  },
+  {
+    "stage": "torch_install_retry",
+    "exit": 0,
+    "seconds": 955.9091088999994
+  },
+  {
+    "stage": "runtime_install",
+    "exit": 0,
+    "seconds": 102.30133210000349
+  }
+]

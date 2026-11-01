@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "exact_deduplication_completed_not_final_training_data",
+  "created_at_utc": "2026-10-30T16:46:58.419469+00:00",
+  "policy": {
+    "max_length": 768,
+    "overlength_policy": "exclude_whole_record",
+    "deduplication": "exact_conversations_keep_first_in_source_order",
+    "key": "canonical conversations SHA256; preserves message order and every message field",
+    "ignored": "outer JSON formatting, object key order and top-level non-conversation metadata"
+  },
+  "input": {
+    "records": 856531,
+    "bytes": 1583975632,
+    "targets_after_shift": 340351475,
+    "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_length_768_v1\\length_eligible.jsonl",
+    "sha256": "45262dc172255c8eee953a28cdaae1998607969fc0b1355a8498d6925a15e7ad"
+  },
+  "original_source": {
+    "path": "data\\raw\\minimind\\sft_t2t_mini.jsonl",
+    "size": 1739201170,
+    "sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+    "reference_report_sha256": "11b5f3b038a41da55ac64a4db93cb6b4f1802e3c0a03658c5d53506708611bb4",
+    "identity_checked_before_and_during_run": true,
+    "records": 905718
+  },
+  "length_report_sha256": "9d0a92becbcbfa27517cb843a7b7f2e24701a586dad8b54c06f73941c4228009",
+  "encoding_report_sha256": "3e0ef0cd659490aa2b3224d6402f589a6add793c0b738ca5c70ced0e39bf63a3",
+  "encoding_details_sha256": "44f63d8a5406b1a918b5c05a12268b169e1d1f29f4b2a541d777566ea0e6cd4a",
+  "code_sha256": {
+    "deduplication_entry": "3da4b1fdc04d6b375121a4bbb4ebaf61a12b874acef27c12680f3b92dc8983ec",
+    "conversation_key": "c838af757fef00d59b4bf5cb07592c160cea310821e1a603d99ff0439d27c335",
+    "validator": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46"
+  },
+  "pipeline": {
+    "code_sha256": {
+      "full_inspection": "538024c7706b0b2b465c694bf13fae9d6040d5e6c63e7030df2215858a952bd8",
+      "sample_inspection_helpers": "e53e5cbaeb37efbe92461ea3b2cf6162a07b157b442254c9f899a6eff79d0911",
+      "encoder": "0bd1138a45062962cbfaae5feb44e9d326a24bf7862180db4005c5610b4a97a3",
+      "validator": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46"
+    },
+    "tokenizer_files_sha256": {
+      "manifest.json": "ba6d90df750b83465959c28fc4f756282cd25c5e39f803736d4e5082db6a73e4",
+      "tokenizer.json": "8bf5868abfc7ea919186b57e2b411adefe3b0922b53052c5839937e166b9d395",
+      "tokenizer_config.json": "e42b762555734279158ca292431c831fa387c48c35d9b1b205f4fc6c83b79d34"
+    }
+  },
+  "input_records": 856531,
+  "unique_conversations": 809713,
+  "duplicate_groups": 8632,
+  "records_in_duplicate_groups": 55450,
+  "max_group_size": 804,
+  "outputs": {
+    "unique": {
+      "records": 809713,
+      "bytes": 1539525786,
+      "targets_after_shift": 334943065,
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_dedup_768_v1\\unique_candidate.jsonl",
+      "sha256": "a8953341f7c0f77b311b9f62a8bafccf4c246b3903cc4dec3489300f80ee6096"
+    },
+    "duplicates": {
+      "records": 46818,
+      "bytes": 44449846,
+      "targets_after_shift": 5408410,
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_dedup_768_v1\\duplicate_records.jsonl",
+      "sha256": "19f01ab04deafbccd53c9dea0860fecc8e41f058f7305bfe28e0b5d2963784df"
+    },
+    "lineage": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_dedup_768_v1\\lineage.jsonl",
+      "records": 856531,
+      "bytes": 254025782,
+      "sha256": "c46828c216cf725e11036d3d07ce1b23d13dc5dadcfea4d1be993a4b5e17e23d"
+    }
+  },
+  "scope": {
+    "input_modified": false,
+    "raw_record_bytes_preserved": true,
+    "relative_source_order_preserved": true,
+    "exact_deduplication_applied": true,
+    "content_quality_accepted": false,
+    "identity_rewrite_applied": false,
+    "near_duplicates_checked": false,
+    "shared_prompt_isolation_checked": false,
+    "split_created": false,
+    "data_recipe_frozen": false
+  },
+  "elapsed_seconds": 29.91830899999877
+}

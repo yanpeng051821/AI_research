@@ -1,0 +1,125 @@
+{
+  "identity": {
+    "candidate": {
+      "schema_version": 1,
+      "status": "candidate_not_frozen",
+      "purpose": "sft",
+      "data_freeze": "../experiments/sft_mini_v1/data_recipe/data_freeze.json",
+      "data_freeze_sha256": "764a84bd38f658f8c53906685aa3ff9609adb7af25ec9cb701f35b08dcaff29a",
+      "data_contract_sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d",
+      "initial_bundle": "exports/pretrain_mini_one_epoch_v1_fp32_v2",
+      "initial_model_state_sha256": "8d10d76090b2714c055a95123c3583c6941b1ecb6af84a10f0f68dbe21cb783f",
+      "scoring_patch": "../experiments/sft_mini_v1/evaluation_recipe/scoring_v2_patch.json",
+      "scoring_patch_sha256": "77f1a8be6d8e70c301e52ec8b5bc3d4b362ce95fa86d27a5bd2654e6d58a52e0",
+      "training": {
+        "epochs": 1,
+        "device": "cuda",
+        "precision": "bf16",
+        "seed": 42,
+        "sampler_seed": 42,
+        "micro_batch_size": 4,
+        "gradient_accumulation_steps": 4,
+        "learning_rate": 1e-05,
+        "weight_decay": 0.01,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "foreach": false,
+        "fused": false,
+        "warmup_updates": 0,
+        "min_lr_ratio": 0.1,
+        "max_grad_norm": 1.0,
+        "num_workers": 0
+      },
+      "operations": {
+        "checkpoint_interval": null,
+        "validation_interval": null,
+        "checkpoint_dir": null,
+        "checkpoint_retention": null,
+        "wall_clock_budget_hours": null,
+        "formal_training_authorized": false
+      },
+      "pending_confirmation": [
+        "full_epoch_wall_clock_budget_after_probe",
+        "checkpoint_and_validation_frequency_and_storage",
+        "seed42_and_sampler_seed42_inherited_engineering_candidates"
+      ]
+    },
+    "model": {
+      "format": "minimind-lab-native-fp32-v1",
+      "model": {
+        "vocab_size": 6400,
+        "hidden_size": 768,
+        "intermediate_size": 2432,
+        "rms_norm_eps": 1e-06,
+        "qk_norm": true,
+        "num_layers": 8,
+        "num_heads": 8,
+        "kv_heads": 4,
+        "rope_base": 1000000.0
+      },
+      "weights_dtype": "float32",
+      "trained_sequence_length": 768,
+      "special_token_ids": {
+        "bos_token_id": 1,
+        "eos_token_id": 2,
+        "pad_token_id": 0
+      }
+    },
+    "bundle_manifest_sha256": "14cf9c04a2af19aa33c5b0ef928fa17cdb8e78f9effe6904d371bc17a4ccb11c",
+    "sample_order_sha256": "2be3d525881942f4bc3501d15902a1bd539d9e4c8170a9e7ed6e64ef76d27396",
+    "train_records": 785377,
+    "validation_records": 2048,
+    "planned_updates": 49087,
+    "effective_batch_records": 16,
+    "loss_normalization": "sum loss / valid assistant causal targets in the entire update window",
+    "runtime": {
+      "torch": "2.14.0+cu130",
+      "transformers": "4.57.6",
+      "tokenizers": "0.22.2",
+      "safetensors": "0.8.0"
+    },
+    "code_sha256": {
+      "src/minimind_lab/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/minimind_lab/audit_cli.py": "34f7d62068d10667d1895a27753611cdb27056141362969f0aeb6323f7bb4c97",
+      "src/minimind_lab/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/minimind_lab/data/pipeline.py": "1e53808ca1f32558c989e643e4f4a5458d53d749855a3545a24c9af3352ac425",
+      "src/minimind_lab/data/pretrain.py": "e0800dae5dda1c3db54ed87afee18316499b69bd3752ce1b4795376649b67e0a",
+      "src/minimind_lab/data/reader.py": "c57236120266ddb608ac86def96935c149a0e1c492d92b55fcbaf69b879b2448",
+      "src/minimind_lab/data/sampler.py": "987bd45af537ebab0ac9e4ea1c34eb3185aba39f41888e1c7d9530dcde9c35ce",
+      "src/minimind_lab/data/sft.py": "53d246772ac5734f48ac0d1b4825be87193fcf9abc8895533746c1f8f36e3422",
+      "src/minimind_lab/data/sft_protocol.py": "62a34f326db14d28b1bf624879c78d08c1b523a3ebb9163d0c00c3351f49acf9",
+      "src/minimind_lab/data/validator.py": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46",
+      "src/minimind_lab/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/minimind_lab/models/attention.py": "d0d5a3c3dd968b61f7c858618283739818b1009cbe236a2c78b0d9a4505404ba",
+      "src/minimind_lab/models/block.py": "fffa78eb31efc59f5031f928a23dce806638fbdfc121d8c374c2086d0b04ed58",
+      "src/minimind_lab/models/bpe.py": "3fc92e62fc1145b08f4901833c1e3b12be0ad29f36eae1859bd918405fabc285",
+      "src/minimind_lab/models/config.py": "0335b8b3730c459e1e7145ccf042e34b40857182ce38bec59a02871d3b604529",
+      "src/minimind_lab/models/embedding.py": "eb2d1ebe10e11062aaf3cffe721c8506ee99dc6a59f386d664ca38d20342736b",
+      "src/minimind_lab/models/feedforward.py": "bfcf2e8768afdca1d3194444acab60cbe4305b4b4a62954d2dec483a55ba4954",
+      "src/minimind_lab/models/generation.py": "7e998937e67f2f4ffaa00d2505432b9a0359d82ed81d1efa9b30d871ebff510d",
+      "src/minimind_lab/models/initialization.py": "a97ef700cc2dbd3f2bc30cc7375f0cbc7fdbf39253b3a560567cfe9620f86c6d",
+      "src/minimind_lab/models/loss.py": "d25bfe029b3a256626e34247bd314d3a0a05f5a33df0b9c01740c49609ee8657",
+      "src/minimind_lab/models/model.py": "0a632bb110af1c9bfa3c75f92451f694b02c831477d4093553b1c7d221aeacae",
+      "src/minimind_lab/models/rmsnorm.py": "6577dd8f51187e4bd86d1b9877e2747dd83e2d19625735d30a0a83ca081095f5",
+      "src/minimind_lab/models/rope.py": "ab5d1d98a73934a10477cd8a1e9c366f76a4c99c3a1c17445fcddd0107b047c8",
+      "src/minimind_lab/training/checkpoint.py": "c17509cbdfe3ec47557b61206ce6aa58ac5ee732a2688f59c2d1cdb0880b9a19",
+      "src/minimind_lab/training/evaluate.py": "0a72642f541ed2a907d53121c80c5e7d9af0f09d57990d1f254dcc91bc5b8f33",
+      "src/minimind_lab/training/experiment.py": "9662918bea93c108d28f0842fc9f9b03d7b2d599c5375e4ccd27c6ba412f7524",
+      "src/minimind_lab/training/loop.py": "8d2c366efcde494f3ca285996bd78a976ddff569384ccf1363a8f608a3df366e",
+      "src/minimind_lab/training/microbatch_benchmark.py": "b4835c86adecd8a366369b440a761fd9e4312966ea577bace63ce181b0a15e62",
+      "src/minimind_lab/training/recovery.py": "12c6577889fa667cd984344b019f89263dcabf86023155c6e45fa16cf4eb93f7",
+      "src/minimind_lab/training/step.py": "962acf7a90d3b5e963dd05eea4fdcd557708815a05b24f12eb7f123b99223a98",
+      "scripts/train_sft.py": "08e174985b8cf7bc13970b63c0875c7ddc46f441c75621e62135db171d23a6b8",
+      "scripts/evaluate_sft.py": "16e8277ea67b5aac05bd112080caa0206dadeafe3a8dafae86762f5eb2dbc6ba",
+      "scripts/freeze_sft_data_recipe.py": "17ebaafc35e7787dd0fc1434dd1bac26b83d77627de400dd3c076e0340d6023b",
+      "scripts/load_exported_pretrain.py": "3a1e8c7d3931cf099874b5d29a8d8fa486e64065a3558b542d96cacb709c74ae",
+      "scripts/inspect_sft_eval_draft.py": "aa35a6ee42035793a4a178e17a44364946e0c3e1402c0297a7824579cc997301"
+    }
+  },
+  "contract_sha256": "e403c68bc3433e8071a6439179d24b6a2f14cdd9af5966ab9f5367bfaa32d914",
+  "status": "candidate_prepared_not_frozen",
+  "training_started": false
+}

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "scan": {
+    "text_files_checked": 46,
+    "findings": [],
+    "scope": "Candidate bundle text plus model-card draft only; not full Git history, raw training data, PII analysis, or memorization testing. No matching secret values are included in this report."
+  },
+  "files": 47,
+  "payload_bytes": 256668187,
+  "manifest_sha256": "777f70145a9800600d136e3cd33cd6e796b8fc212057d34634ff1c0b46aab117"
+}

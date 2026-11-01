@@ -1,0 +1,17 @@
+{
+  "observed_on": "2026-10-31",
+  "status": "passed",
+  "command": "uv run --locked pytest -q",
+  "working_directory": "implementation",
+  "full_suite_passed": 480,
+  "elapsed_seconds": 143.67,
+  "targeted_recipe_command": "uv run --locked pytest tests/test_sft_recipe.py -q",
+  "targeted_recipe_passed": 4,
+  "targeted_recipe_elapsed_seconds": 75.18,
+  "new_coverage": [
+    "Exact content revision rejects changed source bytes or assistant-message identity and preserves other context.",
+    "Freeze verifies final contract bytes, refuses overwrites and separates data readiness from training authorization.",
+    "Read-only freeze gate rejects changed input data; verifier rejects changed encoding semantics."
+  ],
+  "training_started": false
+}

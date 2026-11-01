@@ -1,0 +1,11 @@
+{
+  "status": "user_authorized_evaluation_only",
+  "authorization": "User instructed: 开始吧",
+  "scope": "Freeze the discussed evaluation settings and run B0; no training authorization.",
+  "draft_inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_config.draft.json": "33bd7e067b5c2da8ec81bd837692556c7c5b02da1d06211d38bac374836793db",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\probes.draft.jsonl": "54688cdb406e4942022112e32cb6912900c5d802a69629da6d6947a952393d1c"
+  },
+  "training_authorized": false,
+  "capability_success_thresholds": "Set after B0 calibration and before SFT; not after seeing S1."
+}

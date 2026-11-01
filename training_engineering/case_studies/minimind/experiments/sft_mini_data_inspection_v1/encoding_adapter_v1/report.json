@@ -1,0 +1,55 @@
+{
+  "recorded_on": "2026-10-30",
+  "status": "adapter_implemented_sample_encoding_verified_recipe_pending",
+  "implemented_by": "assistant_at_user_request",
+  "implementation": {
+    "path_relative_to_implementation": "src/minimind_lab/data/sft.py",
+    "sha256": "0bd1138a45062962cbfaae5feb44e9d326a24bf7862180db4005c5610b4a97a3",
+    "adapter": "prepare_sft_messages",
+    "entry": "encode_sft_conversation",
+    "source_mutation": false,
+    "argument_json_string_format_preserved": true,
+    "tool_protocol_or_content_acceptance_claimed": false
+  },
+  "inputs": {
+    "source_revision": "312afb4f76391145c6902f765bb51691c09a12f5",
+    "source_sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+    "source_sha256_rechecked": true,
+    "sample_identity_reference": "../full_structure_v1/structure_report.json",
+    "stratum_sample_file_hashes_verified": true,
+    "prefix_sha256": "525420d6d82b484ddc8e8cb88032b89acefc060e51d31be004b8e64716007d18"
+  },
+  "tests": {
+    "targeted_passed": 45,
+    "targeted_seconds": 3.06,
+    "full_suite_passed": 395,
+    "full_suite_seconds": 47.53
+  },
+  "real_encoding": {
+    "stratum_examples_passed": {"plain": 16, "reasoning_only": 16, "tool_only": 16},
+    "ordinary_prefix_records_identical_to_previous_path": 20,
+    "batch_shape": [2, 809],
+    "batch_real_lengths": [549, 809],
+    "batch_targets_after_shift": [414, 687],
+    "unit_example": {
+      "source_line": 794513,
+      "source_line_sha256": "d9a9288be635207d192928099dd97f24d19f6b5aecc5a04f45296bfb3a61b838",
+      "tokens": 462,
+      "targets_after_shift": 86,
+      "assistant_spans": [[327, 393], [442, 462]],
+      "tool_call_selected": true,
+      "tool_response_selected": false
+    }
+  },
+  "scope": {
+    "full_source_encoding_verified": false,
+    "full_source_dataset_loading_verified": false,
+    "full_length_distribution_measured": false,
+    "boundary_literal_issue_resolved": false,
+    "zero_target_gate_implemented": false,
+    "quality_decisions_applied": false,
+    "identity_rewriting_applied": false,
+    "training_recipe_frozen": false,
+    "training_started": false
+  }
+}

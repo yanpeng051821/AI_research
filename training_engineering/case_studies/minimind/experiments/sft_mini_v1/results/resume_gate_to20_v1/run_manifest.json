@@ -1,0 +1,22 @@
+{
+  "status": "paused",
+  "started_at_utc": "2026-10-31T09:24:41.895951+00:00",
+  "training_started": true,
+  "formal_training_authorized": false,
+  "run_kind": "engineering_probe_not_formal_sft",
+  "global_step": 20,
+  "planned_updates": 49087,
+  "committed_samples": 320,
+  "valid_tokens_seen": 128859,
+  "contract_sha256": "e403c68bc3433e8071a6439179d24b6a2f14cdd9af5966ab9f5367bfaa32d914",
+  "resume_from": "..\\experiments\\sft_mini_v1\\results\\resume_gate_pause10_v1\\checkpoint-10.pt",
+  "checkpoint": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_to20_v1\\checkpoint-20.pt",
+  "initial_or_resume_validation": {
+    "nll": 2.670298436706947,
+    "valid_tokens": 27337
+  },
+  "final_validation": {
+    "nll": 2.599189177521251,
+    "valid_tokens": 27337
+  }
+}

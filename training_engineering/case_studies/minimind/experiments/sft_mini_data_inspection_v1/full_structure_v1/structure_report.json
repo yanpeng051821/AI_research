@@ -1,0 +1,120 @@
+{
+  "status": "source_structure_scanned_not_accepted_for_training",
+  "source": {
+    "path": "data\\raw\\minimind\\sft_t2t_mini.jsonl",
+    "size": 1739201170,
+    "sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518"
+  },
+  "counts": {
+    "assistant_messages_with_empty_content": 33441,
+    "bytes": 1739201170,
+    "content_characters": 489116662,
+    "parsed_records": 905718,
+    "reasoning_characters": 142865728,
+    "total_lines": 905718,
+    "valid_records": 905718
+  },
+  "roles_in_valid_records": {
+    "assistant": 1249691,
+    "system": 84832,
+    "tool": 77784,
+    "user": 1172003
+  },
+  "record_key_presence": {
+    "conversations": 905718
+  },
+  "message_field_types": {
+    "content:str": 2584310,
+    "reasoning_content:str": 1657872,
+    "role:str": 2584310,
+    "tool_calls:str": 77784,
+    "tools:str": 84832
+  },
+  "tool_field_shapes": {
+    "tool_calls:parsed_list": 77784,
+    "tools:parsed_list": 84832
+  },
+  "record_flags": {
+    "author_name_in_content": 1362,
+    "author_name_in_reasoning_content": 1248,
+    "empty_assistant_content": 33161,
+    "inline_thinking": 53,
+    "reasoning_content": 273823,
+    "tool_calls": 76574,
+    "tool_role": 76574,
+    "tools": 84832
+  },
+  "exclusive_strata_in_valid_records": {
+    "plain": 547017,
+    "reasoning_only": 273869,
+    "tool_only": 84832,
+    "reasoning_and_tool": 0
+  },
+  "message_count_histogram": {
+    "2": 698064,
+    "3": 6362,
+    "4": 62914,
+    "5": 76462,
+    "6": 24304,
+    "7": 1252,
+    "8": 13931,
+    "9": 130,
+    "10": 8954,
+    "11": 672,
+    "12": 5956,
+    "13": 115,
+    "14": 3812,
+    "15": 13,
+    "16": 2771,
+    "20": 3,
+    "22": 3
+  },
+  "issues": {},
+  "issue_examples": [],
+  "sampling": {
+    "seed": 20261029,
+    "method": "reservoir over structurally valid records",
+    "random_sample_requested": 1000,
+    "random_sample_actual": 1000,
+    "per_stratum_requested": 16,
+    "per_stratum_actual": {
+      "plain": 16,
+      "reasoning_only": 16,
+      "tool_only": 16,
+      "reasoning_and_tool": 0
+    },
+    "sample_line_hash_includes_original_newline": true,
+    "stratum_samples_are_not_population_weighted": true
+  },
+  "scope": {
+    "token_lengths_computed": false,
+    "quality_audited": false,
+    "identity_rewritten": false,
+    "training_recipe_frozen": false,
+    "flags_are_content_markers_not_verified_task_quality": true
+  },
+  "sample_files": {
+    "random": {
+      "path": "data\\processed\\sft_candidate_inspection_v1\\random_sample.jsonl",
+      "sha256": "6d5afb5706ac7e2f68c4f32448dba5f88802a55ce513fa7117b20069ca79723e"
+    },
+    "plain": {
+      "path": "data\\processed\\sft_candidate_inspection_v1\\plain_examples.jsonl",
+      "sha256": "3915da950c32ea2bd4ba068d2ff8aaa6056062dd0c1b6e03c7cdb2280f4a8f36"
+    },
+    "reasoning_only": {
+      "path": "data\\processed\\sft_candidate_inspection_v1\\reasoning_only_examples.jsonl",
+      "sha256": "bf0c70d1e3e6e347dfc83b04b13bb5b7eccd59d3fd9f2cfba773090772e79391"
+    },
+    "tool_only": {
+      "path": "data\\processed\\sft_candidate_inspection_v1\\tool_only_examples.jsonl",
+      "sha256": "9601f5bc6ad1ae3640330daa2574163dfdaca9c1d3dba6c6296cfc08a462e175"
+    },
+    "reasoning_and_tool": {
+      "path": "data\\processed\\sft_candidate_inspection_v1\\reasoning_and_tool_examples.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "generated_at_utc": "2026-10-29T15:45:44.747432+00:00",
+  "script_sha256": "799ea42fc25f152bced085fefd3d7a411b3e15bfa06eb7ba542792d5f6727ec3"
+}

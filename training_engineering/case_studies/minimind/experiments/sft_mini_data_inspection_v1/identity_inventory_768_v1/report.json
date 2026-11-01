@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "identity_lexical_inventory_completed_no_rewrite",
+  "created_at_utc": "2026-10-30T17:17:46.895798+00:00",
+  "input": {
+    "records": 808513,
+    "bytes": 1537731790,
+    "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_tool_quarantine_768_v1\\reviewed_candidate.jsonl",
+    "sha256": "3ce282774693db1c403a3afb984e36193c471303c4dc1f5d6231b2a02f7e44a6"
+  },
+  "original_source": {
+    "path": "data\\raw\\minimind\\sft_t2t_mini.jsonl",
+    "size": 1739201170,
+    "sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+    "reference_report_sha256": "11b5f3b038a41da55ac64a4db93cb6b4f1802e3c0a03658c5d53506708611bb4",
+    "identity_checked_before_and_during_run": true,
+    "records": 905718
+  },
+  "candidate_report_sha256": "85dc232fc72fc0fb2db9c52b7825413b3aa351e085276cb9c4b628e3ece1b456",
+  "code_sha256": {
+    "entry": "6ceac3f10aea204afee6a12a53cfd00e50dda47d0e29396ddbbdececac9c91d0",
+    "lineage_reader": "ed023bf3bbaee6364b64024a489fd61c76c98b47f35ee8ba35c7d23d2321f371"
+  },
+  "patterns": {
+    "upstream_author": "jingyaogong",
+    "upstream_model": "mini[ _-]?mind",
+    "target_trainer": "yanpeng",
+    "other_model_or_provider": "chatgpt|openai|deepseek|qwen|通义千问|claude|anthropic",
+    "question": "你是谁|你叫什么|你的(?:名字|名称|身份|作者|开发者|开发团队|训练者|创造者|真实来源|模型)|谁(?:开发|训练|创建|创造)(?:了)?你|你.{0,12}(?:由谁|谁开发|谁训练|哪家公司)|who (?:are you|created you|developed you|trained you)|which (?:model|company)",
+    "self": "我(?:是|叫|由)|我的(?:名字|身份|开发者|训练者)|作为.{0,16}(?:AI|语言模型|人工智能)|\\bi am\\b|\\bi'm\\b|\\bi was (?:trained|developed|created)\\b|\\bmy (?:name|developer)\\b",
+    "training": "我的训练数据|本模型的?训练数据|my training data",
+    "system": "你是|你的名字|you are|your name"
+  },
+  "records_checked": 808513,
+  "review_hit_records": 55991,
+  "no_cue_records": 752522,
+  "records_by_signal": {
+    "assistant_identity_phrase": 33256,
+    "other_model_or_provider": 2468,
+    "reasoning_identity_phrase": 31664,
+    "training_data_self_claim": 576,
+    "upstream_author": 1811,
+    "upstream_model": 20046,
+    "user_identity_question": 894
+  },
+  "field_hits_by_signal": {
+    "assistant.content:assistant_identity_phrase": 39759,
+    "assistant.content:other_model_or_provider": 1936,
+    "assistant.content:training_data_self_claim": 352,
+    "assistant.content:upstream_author": 1182,
+    "assistant.content:upstream_model": 12797,
+    "assistant.reasoning_content:other_model_or_provider": 470,
+    "assistant.reasoning_content:reasoning_identity_phrase": 34176,
+    "assistant.reasoning_content:training_data_self_claim": 300,
+    "assistant.reasoning_content:upstream_author": 1063,
+    "assistant.reasoning_content:upstream_model": 21131,
+    "tool.content:other_model_or_provider": 83,
+    "user.content:other_model_or_provider": 1090,
+    "user.content:training_data_self_claim": 5,
+    "user.content:upstream_author": 2,
+    "user.content:upstream_model": 3,
+    "user.content:user_identity_question": 895
+  },
+  "exclusive_review_buckets": {
+    "target_name_present": 0,
+    "upstream_with_identity_cue": 15992,
+    "upstream_without_identity_cue": 4616,
+    "other_name_with_identity_cue": 864,
+    "identity_cue_without_named_model": 33027,
+    "other_name_without_identity_cue": 1492
+  },
+  "sampling": {
+    "seed": 20261031,
+    "per_bucket_capacity": 8,
+    "selection": "seeded reservoir within each lexical bucket; not proportional or quality scoring"
+  },
+  "files": {
+    "review_index": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\audit\\sft_identity_inventory_768_v1\\review_index.jsonl",
+      "records": 55991,
+      "bytes": 23419956,
+      "sha256": "3059f706ceb4b1321ec1a84fdef969ba4573b3efd4e6b35673e666b4ec7799da"
+    },
+    "samples": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\audit\\sft_identity_inventory_768_v1\\samples.jsonl",
+      "records": 40,
+      "bytes": 95308,
+      "sha256": "1a744b06c5fa8d98304c2ccf1465df269dfc458f3b685472d0a1a846e27cf850"
+    }
+  },
+  "scope": {
+    "source_modified": false,
+    "identity_rewrite_applied": false,
+    "filtering_applied": false,
+    "lexical_cues_not_semantic_verdicts": true,
+    "inventory_exhaustive_for_all_identity_expressions": false,
+    "not_scanned": [
+      "top-level metadata",
+      "tools/tool_calls payloads",
+      "unlisted aliases"
+    ],
+    "content_quality_accepted": false,
+    "data_recipe_frozen": false
+  },
+  "elapsed_seconds": 91.84286750000138
+}

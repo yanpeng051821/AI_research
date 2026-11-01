@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "draft_pending_user_review_not_frozen",
+  "purpose": "Paired diagnostic probes of assistant behavior, not an independent benchmark.",
+  "system_prompt": "你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。",
+  "generation": {
+    "strategy": "greedy",
+    "do_sample": false,
+    "open_thinking": false,
+    "max_new_tokens": 256,
+    "context_budget": 768,
+    "eos_token_id": 2,
+    "batch_size": 1,
+    "device_and_precision": "pending_same_setting_for_B0_and_S1",
+    "model_eval_mode": true
+  },
+  "scoring": {
+    "method": "manual_per_case_checklist",
+    "check_values": [
+      "pass",
+      "fail",
+      "uncertain"
+    ],
+    "task_pass": "all checks pass",
+    "uncertain": "report separately; report confirmed passes and possible-pass upper bound, do not silently drop",
+    "paired_outcomes": [
+      "both_pass",
+      "B0_only_pass",
+      "S1_only_pass",
+      "both_nonpass",
+      "uncertain"
+    ],
+    "termination": "EOS and length-limit separately; length-limit is not automatically a task failure",
+    "raw_outputs_retained": true,
+    "core_and_supplementary_reported_separately": true
+  },
+  "acceptance": {
+    "success_thresholds": "pending_before_training_and_before_S1_results",
+    "baseline_not_run": true,
+    "training_authorized": false,
+    "evaluation_run_authorized": false
+  },
+  "data_contract": "../data_recipe/DATA_CONTRACT.json",
+  "data_contract_sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d"
+}

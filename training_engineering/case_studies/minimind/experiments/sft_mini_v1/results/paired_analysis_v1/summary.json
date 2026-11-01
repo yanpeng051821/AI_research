@@ -1,0 +1,487 @@
+{
+  "status": "paired_assistant_initial_review_complete_not_independently_reviewed",
+  "scoring_version": "scoring_v2",
+  "by_tier_S1": {
+    "core": {
+      "records": 32,
+      "pass": 0,
+      "fail": 31,
+      "uncertain": 1,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.03125
+    },
+    "supplementary": {
+      "records": 4,
+      "pass": 0,
+      "fail": 4,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.0
+    }
+  },
+  "by_category_S1": {
+    "everyday": {
+      "records": 8,
+      "pass": 0,
+      "fail": 8,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.0
+    },
+    "instruction": {
+      "records": 8,
+      "pass": 0,
+      "fail": 8,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.0
+    },
+    "grounded": {
+      "records": 8,
+      "pass": 0,
+      "fail": 7,
+      "uncertain": 1,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.125
+    },
+    "context": {
+      "records": 8,
+      "pass": 0,
+      "fail": 8,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.0
+    },
+    "tool": {
+      "records": 4,
+      "pass": 0,
+      "fail": 4,
+      "uncertain": 0,
+      "pass_rate_lower_bound": 0.0,
+      "pass_rate_upper_bound": 0.0
+    }
+  },
+  "paired_by_tier": {
+    "core": {
+      "both_nonpass": 30,
+      "B0_only_pass": 1,
+      "uncertain": 1
+    },
+    "supplementary": {
+      "both_nonpass": 4
+    }
+  },
+  "nll": {
+    "B0_fp32": 2.3954561616642405,
+    "S1_fp32": 1.7210819774489265,
+    "absolute_delta": -0.6743741842153139,
+    "relative_delta": -0.2815222399005596,
+    "valid_targets_each": 833052
+  },
+  "behavior": {
+    "B0": {
+      "stop_reasons": {
+        "length_limit": 36
+      },
+      "generated_tokens": 9216,
+      "mean_generated_tokens": 256,
+      "median_generated_tokens": 256.0,
+      "mean_duplicate_fourgram_fraction": 0.9569609134826527,
+      "note": "Repeated token 4-gram fraction is a descriptive diagnostic, not a new pass/fail rule."
+    },
+    "S1": {
+      "stop_reasons": {
+        "length_limit": 19,
+        "eos": 17
+      },
+      "generated_tokens": 5587,
+      "mean_generated_tokens": 155.19444444444446,
+      "median_generated_tokens": 256.0,
+      "mean_duplicate_fourgram_fraction": 0.3801509494312325,
+      "note": "Repeated token 4-gram fraction is a descriptive diagnostic, not a new pass/fail rule."
+    }
+  },
+  "decisions": [
+    {
+      "id": "everyday-01",
+      "tier": "core",
+      "category": "everyday",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "everyday-02",
+      "tier": "core",
+      "category": "everyday",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "everyday-03",
+      "tier": "core",
+      "category": "everyday",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "everyday-04",
+      "tier": "core",
+      "category": "everyday",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "everyday-05",
+      "tier": "core",
+      "category": "everyday",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "everyday-06",
+      "tier": "core",
+      "category": "everyday",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "everyday-07",
+      "tier": "core",
+      "category": "everyday",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "everyday-08",
+      "tier": "core",
+      "category": "everyday",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "instruction-01",
+      "tier": "core",
+      "category": "instruction",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "instruction-02",
+      "tier": "core",
+      "category": "instruction",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "instruction-03",
+      "tier": "core",
+      "category": "instruction",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "instruction-04",
+      "tier": "core",
+      "category": "instruction",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "instruction-05",
+      "tier": "core",
+      "category": "instruction",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "instruction-06",
+      "tier": "core",
+      "category": "instruction",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "instruction-07",
+      "tier": "core",
+      "category": "instruction",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "instruction-08",
+      "tier": "core",
+      "category": "instruction",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "grounded-01",
+      "tier": "core",
+      "category": "grounded",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "grounded-02",
+      "tier": "core",
+      "category": "grounded",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "grounded-03",
+      "tier": "core",
+      "category": "grounded",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "grounded-04",
+      "tier": "core",
+      "category": "grounded",
+      "B0": "pass",
+      "S1": "fail",
+      "paired_outcome": "B0_only_pass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "grounded-05",
+      "tier": "core",
+      "category": "grounded",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "grounded-06",
+      "tier": "core",
+      "category": "grounded",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "grounded-07",
+      "tier": "core",
+      "category": "grounded",
+      "B0": "pass",
+      "S1": "uncertain",
+      "paired_outcome": "uncertain",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "grounded-08",
+      "tier": "core",
+      "category": "grounded",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "context-01",
+      "tier": "core",
+      "category": "context",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "context-02",
+      "tier": "core",
+      "category": "context",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "context-03",
+      "tier": "core",
+      "category": "context",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "context-04",
+      "tier": "core",
+      "category": "context",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "context-05",
+      "tier": "core",
+      "category": "context",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "context-06",
+      "tier": "core",
+      "category": "context",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "context-07",
+      "tier": "core",
+      "category": "context",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "context-08",
+      "tier": "core",
+      "category": "context",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "tool-01",
+      "tier": "supplementary",
+      "category": "tool",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    },
+    {
+      "id": "tool-02",
+      "tier": "supplementary",
+      "category": "tool",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "tool-03",
+      "tier": "supplementary",
+      "category": "tool",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "eos"
+    },
+    {
+      "id": "tool-04",
+      "tier": "supplementary",
+      "category": "tool",
+      "B0": "fail",
+      "S1": "fail",
+      "paired_outcome": "both_nonpass",
+      "B0_stop": "length_limit",
+      "S1_stop": "length_limit"
+    }
+  ],
+  "exact_paired_input_ids_and_prompts": true,
+  "independently_reviewed": false,
+  "user_reviewed": false,
+  "semantic_judgments_automatically_verified": false,
+  "inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_freeze.json": "f3b5bc996a4f465ae967565b1d54317b5c86888992a3406aeb6410a401cbe876",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_config.json": "32318ef5592749b1fff9daa54f32851403b29a30590452298e67f9017e71dba7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\probes.jsonl": "54688cdb406e4942022112e32cb6912900c5d802a69629da6d6947a952393d1c",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\scoring_v2_patch.json": "77f1a8be6d8e70c301e52ec8b5bc3d4b362ce95fa86d27a5bd2654e6d58a52e0",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\generations.jsonl": "9cb5cbc62b36b763519ece9252c11f796136ce4f3bfcf9c5b6eff1c198c031e7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\validation.json": "189dc6801354b2936da6f46b6e45c0350a59a2bfda63bfa200375f6851c27ad4",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\verification.json": "a66802c3890b1582316ee504cf22c750bbd84f0ccf55b847672f4453558c4887",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\b0_v1\\scoring_v2\\summary.json": "f26be20843dc596bbd75eec3fe2cc74cdafa630674ef7ca0acbcc95ce0c7fbfb",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\s1_v1\\generations.jsonl": "822767841e9a1daf23b9849670bf997450352e5607a77c518149e6e15d013972",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\s1_v1\\validation.json": "83c0b921b4a1b666d208814e00ea6c34655475a28f1216533e0236ef0d3234f9",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\s1_v1\\result.json": "56145996857ea191bba858987951874441b0cf5ede17a199a30ac5f14d097c23",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\s1_v1\\run_manifest.json": "bf5236b30d19409f10b07af68c2af82dd389cf7ee4791c05c1e812345a92a16c",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\s1_v1\\evaluation_member.json": "f1d1ef632c5d46cb114ab1ea63b7f2f73228a5f461537646c7a1f0710790a9bb",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\s1_v1\\judgments.assistant.v1.json": "3462a189826e2f4ca231b0ffabf187c2f298293704e34be5863efeb964145ccd",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\analyze_sft_pair.py": "49767ec865879b43302619e2a18f3985aa275b8e0d6dbe4890a454a46e1e871e"
+  }
+}

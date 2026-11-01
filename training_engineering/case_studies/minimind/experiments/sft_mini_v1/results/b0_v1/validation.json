@@ -1,0 +1,7 @@
+{
+  "nll": 2.3954561616642405,
+  "valid_tokens": 833052,
+  "records": 2048,
+  "batch_size": 4,
+  "elapsed_seconds": 60.38374200000544
+}

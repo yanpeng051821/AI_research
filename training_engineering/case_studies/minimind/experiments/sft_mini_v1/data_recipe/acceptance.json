@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "user_authorized_bounded_data_freeze",
+  "observed_on": "2026-10-31",
+  "candidate_sha256": "57c0116fd0e9f4e1f120220c735e8d5513e969fc864a528ce335747fe646c109",
+  "policy_sha256": "f953e0798d9b78a3f4849cf9d9f7923f01c85514ffb9896a18c824e9ec000515",
+  "authorization_basis": "User requested a few typical-case examples, delegated remaining implementation, and requested freezing the data recipe.",
+  "review_scope": "User selected 768 and whole-record overlength exclusion, confirmed original exact exclusions and the music-club revision. Assistant completed bounded processing and the weather revision under delegated finalization; user did not personally review every record.",
+  "content_revisions": [
+    624568,
+    836051
+  ],
+  "held_records": 21073,
+  "accepted_records": 787425,
+  "accepted_limits": [
+    "No whole-corpus factual correctness guarantee; sampled semantic checks only.",
+    "Held names may include valid quotations or objective references; hold is reversible, not a bad-data label.",
+    "No semantic paraphrase or external benchmark contamination clearance is claimed.",
+    "Source-level licensing and downstream public release permissions are not fully resolved.",
+    "Only the two exact hash-bound content revisions are permitted; other failed demonstrations are held, not regenerated.",
+    "Freezing approves this bounded teaching data version, not training execution or public data redistribution."
+  ],
+  "training_execution_authorized": false,
+  "public_data_upload_authorized": false
+}

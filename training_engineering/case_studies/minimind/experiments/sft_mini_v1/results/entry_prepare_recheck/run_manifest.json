@@ -1,0 +1,8 @@
+{
+  "status": "prepared_not_trained",
+  "started_at_utc": "2026-10-31T09:19:25.580113+00:00",
+  "training_started": false,
+  "formal_training_authorized": false,
+  "contract_sha256": "e403c68bc3433e8071a6439179d24b6a2f14cdd9af5966ab9f5367bfaa32d914",
+  "planned_updates": 49087
+}

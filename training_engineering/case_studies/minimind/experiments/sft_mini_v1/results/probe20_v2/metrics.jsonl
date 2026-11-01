@@ -1,0 +1,1 @@
+{"event": "initial_or_resume_validation", "global_step": 0, "records": 64, "scope": "fixed_prefix_engineering_probe_not_final_paired_evaluation", "precision": "bf16", "seconds": 2.622577599991928, "nll": 2.8312329279284945, "valid_tokens": 27337}

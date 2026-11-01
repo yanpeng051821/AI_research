@@ -1,0 +1,5 @@
+# Select the PyTorch build/index appropriate to your platform.
+torch==2.14.0
+transformers==4.57.6
+tokenizers==0.22.2
+safetensors==0.8.0

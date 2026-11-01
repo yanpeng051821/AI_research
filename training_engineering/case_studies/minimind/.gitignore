@@ -10,6 +10,7 @@ implementation/data/raw/
 implementation/data/processed/
 implementation/data/download_chunks/
 implementation/data/audit/
+implementation/data/benchmarks/
 implementation/data/source_samples/*.jsonl
 implementation/runs/
 implementation/checkpoints/

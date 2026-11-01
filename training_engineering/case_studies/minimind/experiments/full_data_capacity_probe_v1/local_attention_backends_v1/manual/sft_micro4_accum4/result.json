@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "stage": "sft",
+  "micro_batch": 4,
+  "gradient_accumulation": 4,
+  "effective_batch": 16,
+  "measured_updates": 21,
+  "timed_records": 336,
+  "cached_update_median_seconds": 0.7207542000105605,
+  "cached_records_per_second": 22.19284532388151,
+  "online_update_median_seconds": 0.732116600003792,
+  "online_records_per_second": 21.861567091749823,
+  "online_encode_collate_median_seconds": 0.015019500016933307,
+  "supervised_targets_per_second": 9593.385792326922,
+  "peak_allocated_bytes": 4052571648,
+  "reserved_bytes": 4125097984,
+  "checkpoint_bytes": 767066795,
+  "checkpoint_save_seconds": 0.8337289999763016,
+  "checkpoint_sha256": "886165a8124ce04cfac982bf2136e918552e6f61238cfbcd2f541e369a1a5df1",
+  "checkpoint_hash_seconds": 0.6827902000222821,
+  "bf16_validation_64_records_seconds": 1.0826535999949556,
+  "bf16_validation_nll": 2.5793536652149376,
+  "total_case_seconds": 21.535134300007485,
+  "online_samples": [
+    {
+      "seconds": 0.732116600003792,
+      "encode_collate_seconds": 0.016113000019686297,
+      "valid_tokens": 7397
+    },
+    {
+      "seconds": 0.732178100006422,
+      "encode_collate_seconds": 0.015019500016933307,
+      "valid_tokens": 7156
+    },
+    {
+      "seconds": 0.7313392999931239,
+      "encode_collate_seconds": 0.014153500000247732,
+      "valid_tokens": 6247
+    }
+  ],
+  "limits": [
+    "Mini prepared-data sample, not cleaned full source distribution.",
+    "BF16 validation is throughput only, not held-out quality evaluation.",
+    "No formal sampler/resume/receipt gate or full-data recipe freeze.",
+    "Source PyTorch differs from the local training environment.",
+    "Cached timing excludes encoding; online includes encoding/collation but not full dataset I/O."
+  ]
+}

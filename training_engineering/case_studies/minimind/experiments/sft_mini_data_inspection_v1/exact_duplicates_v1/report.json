@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "status": "exact_conversation_duplicates_audited_no_filtering",
+  "created_at_utc": "2026-10-30T16:37:39.521622+00:00",
+  "source": {
+    "size": 1739201170,
+    "sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+    "records": 905718
+  },
+  "method": {
+    "key": "SHA256 of conversations serialized with sorted object keys and compact JSON",
+    "preserved": "message/list order, every message field, text whitespace and JSON strings",
+    "ignored": "top-level fields other than conversations and outer JSON formatting",
+    "not_checked": [
+      "near duplicates",
+      "shared prompts with different answers",
+      "shared source documents",
+      "semantic equivalence of tool JSON strings"
+    ]
+  },
+  "counts": {
+    "unique_conversations": 858856,
+    "duplicate_groups": 8675,
+    "records_in_duplicate_groups": 55537,
+    "duplicates_beyond_first": 46862,
+    "max_group_size": 804
+  },
+  "example_pairs": [
+    {
+      "conversation_sha256": "1e26c3b7bd7762a501705a4fb15d3264a7fc2e5149edeff353104d66d122640a",
+      "first_source_line": 79633,
+      "duplicate_source_line": 79634
+    },
+    {
+      "conversation_sha256": "1e26c3b7bd7762a501705a4fb15d3264a7fc2e5149edeff353104d66d122640a",
+      "first_source_line": 79633,
+      "duplicate_source_line": 79637
+    },
+    {
+      "conversation_sha256": "1e26c3b7bd7762a501705a4fb15d3264a7fc2e5149edeff353104d66d122640a",
+      "first_source_line": 79633,
+      "duplicate_source_line": 79651
+    },
+    {
+      "conversation_sha256": "f23fa48410f85e187c03271c6b9a1f9d7de6ce5624f5a9f30c6ecb51cf3fa831",
+      "first_source_line": 79645,
+      "duplicate_source_line": 79653
+    },
+    {
+      "conversation_sha256": "6944ade0e6ca9e0c523a2d66b05b6e29c774b4f3cde9d98b789d286b30b26252",
+      "first_source_line": 79642,
+      "duplicate_source_line": 79657
+    },
+    {
+      "conversation_sha256": "a3c725e0133a72530977627b1b89779e0fc5de63e6e17049ed5e563054c6833e",
+      "first_source_line": 79650,
+      "duplicate_source_line": 79662
+    },
+    {
+      "conversation_sha256": "fb46d797eb990ba0d56ad32620e364c3e1b9058b59a40e91756a5fcc9e000882",
+      "first_source_line": 79669,
+      "duplicate_source_line": 79674
+    },
+    {
+      "conversation_sha256": "6944ade0e6ca9e0c523a2d66b05b6e29c774b4f3cde9d98b789d286b30b26252",
+      "first_source_line": 79642,
+      "duplicate_source_line": 79675
+    },
+    {
+      "conversation_sha256": "1e26c3b7bd7762a501705a4fb15d3264a7fc2e5149edeff353104d66d122640a",
+      "first_source_line": 79633,
+      "duplicate_source_line": 79678
+    },
+    {
+      "conversation_sha256": "d38a186d27bf53f45e18ab1c6d669cf0a0278a608b4e9226d8098a2625b2756b",
+      "first_source_line": 79644,
+      "duplicate_source_line": 79679
+    }
+  ],
+  "scope": {
+    "source_modified": false,
+    "filtering_executed": false,
+    "split_created": false,
+    "content_quality_acceptance_claimed": false
+  },
+  "elapsed_seconds": 18.092596200000116,
+  "source_report_sha256": "11b5f3b038a41da55ac64a4db93cb6b4f1802e3c0a03658c5d53506708611bb4",
+  "analysis_code_sha256": "c838af757fef00d59b4bf5cb07592c160cea310821e1a603d99ff0439d27c335"
+}

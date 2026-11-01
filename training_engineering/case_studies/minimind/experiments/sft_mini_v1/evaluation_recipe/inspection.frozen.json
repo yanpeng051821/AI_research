@@ -1,0 +1,334 @@
+{
+  "status": "draft_inputs_inspected_not_approved_or_run",
+  "draft_inputs_sha256": {
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\probes.jsonl": "54688cdb406e4942022112e32cb6912900c5d802a69629da6d6947a952393d1c",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\evaluation_recipe\\evaluation_config.json": "32318ef5592749b1fff9daa54f32851403b29a30590452298e67f9017e71dba7",
+    "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\scripts\\inspect_sft_eval_draft.py": "aa35a6ee42035793a4a178e17a44364946e0c3e1402c0297a7824579cc997301"
+  },
+  "data_contract_sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d",
+  "cases": 36,
+  "categories": {
+    "everyday": 8,
+    "instruction": 8,
+    "grounded": 8,
+    "context": 8,
+    "tool": 4
+  },
+  "core_cases": 32,
+  "supplementary_cases": 4,
+  "max_prompt_tokens": 373,
+  "max_reserved_total_tokens": 629,
+  "split_records_scanned": {
+    "train": 785377,
+    "validation": 2048
+  },
+  "normalized_user_text_overlap": {
+    "train": {
+      "matched_user_messages": 0,
+      "examples": []
+    },
+    "validation": {
+      "matched_user_messages": 0,
+      "examples": []
+    }
+  },
+  "semantic_near_duplicate_or_pretraining_contamination_clearance": false,
+  "model_weights_loaded": false,
+  "generation_performed": false,
+  "rubric_semantic_quality_approved": false,
+  "evaluation_recipe_frozen": false,
+  "prompt_details": [
+    {
+      "id": "everyday-01",
+      "input_tokens": 93,
+      "reserved_total_tokens": 349,
+      "input_ids_sha256": "295acd33d20e82f1825503ddfae97c24e8502a940fdada3d7ee377f6ae930f16",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n小禾把同样湿的两块毛巾分别摊开和揉成一团晾晒。在其他条件相同的情况下，为什么摊开的通常干得更快？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "everyday-02",
+      "input_tokens": 86,
+      "reserved_total_tokens": 342,
+      "input_ids_sha256": "89f3e18dc95ce3b78c322cb18a5f9ebd4d12b22ec266d8addee6fc071753db1b",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n小远在晴天发现自己站到树荫里之后，地上看不见完整的人影了。请简单解释影子形成需要什么条件。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "everyday-03",
+      "input_tokens": 78,
+      "reserved_total_tokens": 334,
+      "input_ids_sha256": "67be27f2c7b723cbf974302a4ff9c732dd5a35f4653508a6091e894c3be96085",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n把一块普通冰块放进水里，它通常浮在水面上。请用容易理解的话解释原因。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "everyday-04",
+      "input_tokens": 76,
+      "reserved_total_tokens": 332,
+      "input_ids_sha256": "ca8379109e7010360ecba61b65096dea3b4f0f13f9177b1e81077772d203f2f4",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n小竹准备清理电脑文件。她问：备份文件和直接删除文件有什么区别？请用日常语言回答。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "everyday-05",
+      "input_tokens": 89,
+      "reserved_total_tokens": 345,
+      "input_ids_sha256": "d4d6a10cd1b5dbf0d5528ea44e1fbad07784d2afec582963c9077b43cacd2998",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n小岚把一张纸质地图当成了真实道路，认为地图上画得短的路走起来一定更省时间。这个想法哪里不完整？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "everyday-06",
+      "input_tokens": 85,
+      "reserved_total_tokens": 341,
+      "input_ids_sha256": "e062a0079a07068dddcee8f9eeea7be9ce4562d4efa0b8ec52d18bb7e40be39b",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n小园有20个橘子，每盒放4个，所有橘子都装完需要多少盒？请给出答案和一句解释。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "everyday-07",
+      "input_tokens": 84,
+      "reserved_total_tokens": 340,
+      "input_ids_sha256": "ce10f1bbb2da15805cca66337101f8a71ed0dfbf0bdfbdc621037c642a4f5c86",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n小帆上午读了12页书，下午读了7页，没有重复阅读。今天一共读了多少页？请简短回答。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "everyday-08",
+      "input_tokens": 87,
+      "reserved_total_tokens": 343,
+      "input_ids_sha256": "f36080cd02adc1b1c4157fcc174dd062be94c6770e97525d38383e132dea5ffa",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n小青说：我已经看懂了示范，所以不用自己做也一定能做好。请温和地说明理解示范与独立完成之间的区别。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "instruction-01",
+      "input_tokens": 79,
+      "reserved_total_tokens": 335,
+      "input_ids_sha256": "9f77e406a34909b63c658e5cebefa29d6c76bb6d3a6bb540f9e42bcfe0d30444",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n只输出一个合法JSON对象，键为city和count，值分别为“青禾镇”和3，不要解释。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "instruction-02",
+      "input_tokens": 84,
+      "reserved_total_tokens": 340,
+      "input_ids_sha256": "e55ba382da85335361d00bb833d53d49f99c843405153a3ce91e09326eec27ea",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n请恰好写三行，依次为“备份文件”“核对副本”“清理原件”。不要加序号或其他文字。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "instruction-03",
+      "input_tokens": 77,
+      "reserved_total_tokens": 333,
+      "input_ids_sha256": "f4306dfbe7b5ebec38a2459944f1b3481aac779b3951b11a384ec1f1c0ec2d90",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n将以下数字按从小到大排列，只输出用英文逗号分隔的数字：17、4、11。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "instruction-04",
+      "input_tokens": 73,
+      "reserved_total_tokens": 329,
+      "input_ids_sha256": "70b41cebac4cc6cc3fd11a9b36ed3c323bb93dd82e0eea799819ac3923deea6d",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n请判断“9大于6”是否成立。只输出“是”或“否”中的一个字。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "instruction-05",
+      "input_tokens": 82,
+      "reserved_total_tokens": 338,
+      "input_ids_sha256": "3fa02d2bc816d5003bd364265218877b189b3471625d01b7219f2935c98fb000",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n把“周二下午整理图书”中的“周二”替换成“周四”，其他内容不变，只输出修改后的句子。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "instruction-06",
+      "input_tokens": 94,
+      "reserved_total_tokens": 350,
+      "input_ids_sha256": "0715963454212a26ca54631d087d2d430b7f9d966ab9114917cbfb1ffed22bdb",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n请给“先关闭水龙头，再擦干桌面”这两步编号。只输出两行，格式分别为“1. …”和“2. …”。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "instruction-07",
+      "input_tokens": 73,
+      "reserved_total_tokens": 329,
+      "input_ids_sha256": "448076bc7861cdc85349283e7240af45ae2091cfd4aa166a7c8413996dff5ac5",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n下面三个词中，哪个表示颜色：石头、紫色、台灯？只输出这个词。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "instruction-08",
+      "input_tokens": 75,
+      "reserved_total_tokens": 331,
+      "input_ids_sha256": "b7bec90bfb64b1e7221f6ed486b03d5b2502651306c38dc076322f70773c3034",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n请只输出下面句子的前四个汉字，不要标点或解释：午后读书很安静。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "grounded-01",
+      "input_tokens": 90,
+      "reserved_total_tokens": 346,
+      "input_ids_sha256": "ec6ecbc27e19a12ada3d999c38b6c4b886b4bf23781eac49bd53827674a4cab7",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n记录：青禾图书角周三开放，开始时间14:20，结束时间17:10，地点是二楼东侧。根据这份记录，只回答开放地点。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "grounded-02",
+      "input_tokens": 95,
+      "reserved_total_tokens": 351,
+      "input_ids_sha256": "462c5133d55063c973dc29b0346f4a9d19d256f0ae20e703f96e1f2eeaa2f8ce",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n便条写着：阿澄负责带蓝色文件夹，阿沐负责带白板笔，阿桥负责带计时器。根据便条，谁负责带白板笔？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "grounded-03",
+      "input_tokens": 88,
+      "reserved_total_tokens": 344,
+      "input_ids_sha256": "338087c7d2cac2d56001c321aa6d87c0b83317da11472a7498ea47851ad932b8",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n库存记录：铅笔8支，橡皮5块，直尺2把。只根据这份记录回答：橡皮和直尺合计多少件？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "grounded-04",
+      "input_tokens": 90,
+      "reserved_total_tokens": 346,
+      "input_ids_sha256": "5200d9c74b9a0cc22f262697089634d2a842f94a5d82ad45c2ebc106179e74a4",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n通知：本次交换会只接收图书和文具，不接收食品。小叶想带饼干来交换。根据通知，饼干是否在接收范围内？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "grounded-05",
+      "input_tokens": 90,
+      "reserved_total_tokens": 346,
+      "input_ids_sha256": "cfbbb9df9f34cf628c5ca578aef63a9ea34b3777102c1d985174f5a0250c43cb",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n材料：星桥小组共有三个人，本周计划修好一盏台灯。材料没有记录任何人的年龄。根据材料，组员的平均年龄是多少？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "grounded-06",
+      "input_tokens": 96,
+      "reserved_total_tokens": 352,
+      "input_ids_sha256": "7692fb65cfc6233c1000734628e97730421a8aeb8b3b3dd8ff10e07069786537",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n请把下面的活动记录概括成一句话，保留人物和结果：阿岚试着修理旧收音机，发现是电池没电。换上新电池后，收音机重新响了。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "grounded-07",
+      "input_tokens": 105,
+      "reserved_total_tokens": 361,
+      "input_ids_sha256": "33513c0e1adc956c1a6ba367bd7ce608a723c65dfc2856fffadf41efd36ce5d5",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n记录一：周一，小许把钥匙放进绿色盒子。记录二：周二，小许把同一把钥匙移到书架顶层。只根据这两条记录，钥匙最后放在哪里？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "grounded-08",
+      "input_tokens": 94,
+      "reserved_total_tokens": 350,
+      "input_ids_sha256": "3a4934b46dafbaf1a3be2ff6a824a23927d2196cdbac852fd76266d87742f81d",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n配送单：订单A装有2本练习册，订单B装有6本练习册。请只根据配送单，指出装有6本练习册的订单编号。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "context-01",
+      "input_tokens": 131,
+      "reserved_total_tokens": 387,
+      "input_ids_sha256": "318a3d469bf05a8bd2d9d625f5d4cc9ac343bf3cf9d67a8bfd6fd4c194ebdd6a",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n请写一条通知：周六下午三点在三楼讨论室开会。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n通知：请于周六下午三点到三楼讨论室开会。<|im_end|>\n<|im_start|>user\n把时间改成周日下午两点，活动地点不变。只写修改后的通知。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "context-02",
+      "input_tokens": 123,
+      "reserved_total_tokens": 379,
+      "input_ids_sha256": "57756948503ac1ffe61fe2b8d9ae44f3d943c31880b7eecdfde6921fd0a648dc",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n我准备花60元买两本笔记本，请先记下这两个条件。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n记下了：预算60元，购买两本笔记本。<|im_end|>\n<|im_start|>user\n预算改为40元，购物数量不变。请重新列出这两个条件，不要推荐商品。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "context-03",
+      "input_tokens": 111,
+      "reserved_total_tokens": 367,
+      "input_ids_sha256": "6938142926c136c7803be37d3f0bb95c0e647c37ce1eb944683c959edd7d7e38",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n我在红色和蓝色文件夹中选择，先排除红色。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n好的，你先排除了红色文件夹。<|im_end|>\n<|im_start|>user\n那我刚才排除的是哪种颜色？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "context-04",
+      "input_tokens": 110,
+      "reserved_total_tokens": 366,
+      "input_ids_sha256": "de2b8eb01c357a30e8e0d54b50706f1531d992ca1bd74be24abe552c3d2248a1",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n请帮我保留这句话：小林说，他会在周五归还这本书。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n他会在周五归还这本书。<|im_end|>\n<|im_start|>user\n把“他”换成名字，其他内容不变。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "context-05",
+      "input_tokens": 102,
+      "reserved_total_tokens": 358,
+      "input_ids_sha256": "9d9a85c385834e8f101f7174a706cb2cc99b0be8b43ea3ff2ab3b9abf4f85f2a",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n等会儿我会发一段代码，请你帮我看输出。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n好的，请把代码发给我。<|im_end|>\n<|im_start|>user\n现在请判断上面那段代码会输出什么。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "context-06",
+      "input_tokens": 119,
+      "reserved_total_tokens": 375,
+      "input_ids_sha256": "7192cec373bfdddc1dd87dd4090337604500a1567864b43d4652e0ab9f258adc",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n检查这批物品时，先核对数量，再确认包装完整。请记下。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n先核对数量，再确认包装完整。<|im_end|>\n<|im_start|>user\n把刚才的要点改成两条编号列表，内容不变。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "context-07",
+      "input_tokens": 121,
+      "reserved_total_tokens": 377,
+      "input_ids_sha256": "dc92fdc1ea78f852e87f62d047f533d24c34c488a146c8202c0e008233d19a2f",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n这次沙拉我在黄瓜和花生中选择，但不想放花生。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n明白，这次沙拉不放花生。<|im_end|>\n<|im_start|>user\n做沙拉时，刚才说的两种配料里应该留下哪一种？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "context-08",
+      "input_tokens": 120,
+      "reserved_total_tokens": 376,
+      "input_ids_sha256": "445b4bf1226c9726ebb3ceff6b12075772e389310da905671d8d685d964c3917",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。<|im_end|>\n<|im_start|>user\n活动有6个人，每人领2张卡片。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n按6个人计算，需要12张卡片。<|im_end|>\n<|im_start|>user\n补充一下：不是6个人，而是4个人。每人仍领2张卡片，一共要准备多少张？<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "tool-01",
+      "input_tokens": 289,
+      "reserved_total_tokens": 545,
+      "input_ids_sha256": "7b8fbcee1240651134d9858728f469d1e35d64d34c58932dd91740bf12e72613",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。\n\n# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools> XML tags:\n<tools>\n{\"type\": \"function\", \"function\": {\"name\": \"add_numbers\", \"description\": \"Return the sum of two integers.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"a\": {\"type\": \"integer\"}, \"b\": {\"type\": \"integer\"}}, \"required\": [\"a\", \"b\"], \"additionalProperties\": false}}}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call><|im_end|>\n<|im_start|>user\n请使用提供的工具计算23加18。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "tool-02",
+      "input_tokens": 281,
+      "reserved_total_tokens": 537,
+      "input_ids_sha256": "ff54b1ac3224a77b044891ba07f2e09117c53816d642a2390c9bcbf2d19f8292",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。\n\n# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools> XML tags:\n<tools>\n{\"type\": \"function\", \"function\": {\"name\": \"lookup_book\", \"description\": \"Look up a book by title; cannot query weather.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"title\": {\"type\": \"string\"}}, \"required\": [\"title\"], \"additionalProperties\": false}}}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call><|im_end|>\n<|im_start|>user\n请调用工具查询星桥镇此刻的天气。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": []
+    },
+    {
+      "id": "tool-03",
+      "input_tokens": 362,
+      "reserved_total_tokens": 618,
+      "input_ids_sha256": "2c7f16d26430ce5e660c1108bea88dfc64c7e6932b20e89e0bab3d8af9855732",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。\n\n# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools> XML tags:\n<tools>\n{\"type\": \"function\", \"function\": {\"name\": \"current_weather\", \"description\": \"Return current conditions, not a forecast.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"place\": {\"type\": \"string\"}}, \"required\": [\"place\"], \"additionalProperties\": false}}}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call><|im_end|>\n<|im_start|>user\n请查一下松石镇当前天气，并告诉我今天会不会下雨。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n<tool_call>\n{\"name\": \"current_weather\", \"arguments\": {\"place\": \"松石镇\"}}\n</tool_call><|im_end|>\n<|im_start|>user\n<tool_response>\n{\"place\":\"松石镇\",\"temperature_c\":18,\"condition\":\"多云\"}\n</tool_response><|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": [
+        "anonymous_tool_result_block_not_semantically_matched"
+      ]
+    },
+    {
+      "id": "tool-04",
+      "input_tokens": 373,
+      "reserved_total_tokens": 629,
+      "input_ids_sha256": "6775d5ac5dcce41c2d014a0e50ca843936520183c8eb8b54d85c68602e53bbc6",
+      "rendered_prompt": "<|im_start|>system\n你是一个中文助手。请根据用户请求和已提供的信息回答，不确定或缺少必要信息时如实说明。\n\n# Tools\n\nYou may call one or more functions to assist with the user query.\n\nYou are provided with function signatures within <tools></tools> XML tags:\n<tools>\n{\"type\": \"function\", \"function\": {\"name\": \"get_inventory\", \"description\": \"Return available inventory.\", \"parameters\": {\"type\": \"object\", \"properties\": {\"sku\": {\"type\": \"string\"}}, \"required\": [\"sku\"], \"additionalProperties\": false}}}\n</tools>\n\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\n<tool_call>\n{\"name\": <function-name>, \"arguments\": <args-json-object>}\n</tool_call><|im_end|>\n<|im_start|>user\n请查询编号BK-42的库存，看看现在能否按现有库存发出1件。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n<tool_call>\n{\"name\": \"get_inventory\", \"arguments\": {\"sku\": \"BK-42\"}}\n</tool_call><|im_end|>\n<|im_start|>user\n<tool_response>\n{\"sku\":\"BK-42\",\"available\":0}\n</tool_response><|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "protocol_notices": [
+        "anonymous_tool_result_block_not_semantically_matched"
+      ]
+    }
+  ]
+}

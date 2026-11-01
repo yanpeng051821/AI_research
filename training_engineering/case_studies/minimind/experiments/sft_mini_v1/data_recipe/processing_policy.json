@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "policy_id": "mini_sft_768_bounded_preparation_v2",
+  "input_candidate_sha256": "3ce282774693db1c403a3afb984e36193c471303c4dc1f5d6231b2a02f7e44a6",
+  "exact_review_holds": {
+    "352889": "C04/C06: contradictory card-game instructions",
+    "407293": "C05: unsupported self-capability assertions",
+    "6590": "C04/C05: invented system requirements in supervised reasoning",
+    "10723": "C04/C05: unsupported personal eating experience and inconsistent self-description",
+    "624568": "C02/C06: correct option with erroneous and incoherent supporting explanation",
+    "758280": "C04/C06: incoherent mixed text and unsupported entities",
+    "668039": "C04/C06: distracting invented context in supervised reasoning",
+    "836051": "C04: unsupported forecast inference from current-weather-only output",
+    "796065": "C03/C04: missing target paragraph replaced with the user question itself"
+  },
+  "status": "assistant_prepared_candidate_pending_user_acceptance",
+  "max_length": 768,
+  "overlength": "hold_whole_record_no_truncation",
+  "reasoning": "preserve_except_rewritten_identity_turns_use_empty_reasoning",
+  "identity": {
+    "scope": "single_turn_known_top10_reply_and_allowlisted_identity_question_only",
+    "reply": "我是一个由 yanpeng 基于 MiniMind 开源项目及其作者提供的架构训练的小型语言模型。我的预训练权重从随机初始化开始训练，并非接续官方预训练权重。",
+    "unresolved_upstream_mentions": "hold_for_review_not_declared_incorrect",
+    "third_party_self_claims": "hold_for_review_not_global_replacement",
+    "unrelated_answers": "hold_no_generated_replacement_answers",
+    "allowed_normalized_questions": [
+      "你是谁", "你叫什么名字", "你的名字叫什么", "你的名字是什么", "你叫什么",
+      "请问你是谁", "请问你叫什么名字", "请介绍自己", "请介绍一下自己", "介绍下自己",
+      "介绍一下自己", "介绍下你自己", "介绍一下你自己", "请介绍一下您自己",
+      "请介绍一下yourself", "请用简洁的语言介绍你自己", "你可以和我先进行自我介绍吗",
+      "你是谁介绍一下自己", "你是谁介绍下自己", "你是谁介绍下你自己", "介绍一下你是谁",
+      "你是谁你叫什么名字", "你是谁我应该称呼你什么", "你叫什么名字大模型"
+    ]
+  },
+  "protocol": {
+    "parameter_schema": "jsonschema_validator_for_declared_dialect_default_draft202012_no_network",
+    "invalid_records": "hold_whole_record",
+    "anonymous_bundled_results": "accept_ordered_block_with_explicit_semantic_mapping_limit",
+    "special_role_boundary_literals": "reject_not_escape_or_silently_relabel",
+    "zero_targets_after_causal_shift": "reject"
+  },
+  "collection": {
+    "exact_duplicate": "canonical_full_conversations_keep_first",
+    "grouping": "connected_components_shared_normalized_user_message_or_normalized_full_conversation",
+    "normalization": "unicode_NFKC_casefold_whitespace_collapse_grouping_only",
+    "semantic_near_duplicate_detection": "not_claimed",
+    "validation_records_target": 2048,
+    "split_seed": 20261031,
+    "selection": "hash_ordered_whole_components_fit_remaining_budget",
+    "development_samples": "force_whole_component_to_train",
+    "blind_test": "none_this_split_is_validation_not_final_blind_evaluation"
+  },
+  "acceptance_limits": [
+    "No whole-corpus factual correctness guarantee; sampled semantic checks only.",
+    "Held names may include valid quotations or objective references; hold is reversible, not a bad-data label.",
+    "No generated substantive answers replace failed demonstrations.",
+    "No semantic paraphrase or external benchmark contamination clearance is claimed.",
+    "Source-level licensing and downstream public release permissions are not fully resolved.",
+    "Do not launch training or publish data before reviewing this candidate contract."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "device": "cpu",
+  "dtype": "float32",
+  "cpu_threads": 1,
+  "autocast": false,
+  "fresh_process": true,
+  "offline": true,
+  "runtime_loaded_from_bundle": true,
+  "parameter_state_exact": true,
+  "parameter_state_sha256": "733c18c9775eadd7f67330fabb0568ab61103f9d5fba995e6d967405c904cc62",
+  "embedding_lm_head_same_parameter": true,
+  "parameters": 63912192,
+  "standalone_cli_utf8_success": true,
+  "exact_probe_equality": {
+    "input_ids": true,
+    "attention_mask": true,
+    "logits": true,
+    "generated_ids": true
+  },
+  "max_abs_logit_difference": 0.0,
+  "input_shape": [
+    2,
+    12
+  ],
+  "logits_shape": [
+    2,
+    12,
+    6400
+  ],
+  "probe_texts": [
+    "春天的风吹过田野，",
+    "人工智能"
+  ],
+  "generated_ids": [
+    [
+      1,
+      3102,
+      993,
+      296,
+      1018,
+      335,
+      153,
+      472,
+      321,
+      144,
+      4507,
+      294,
+      2373,
+      3039,
+      369,
+      1018,
+      388,
+      1845,
+      265,
+      491
+    ]
+  ],
+  "scope": "Two short right-padded prefixes and one 8-token-budget greedy continuation; not full validation NLL, CUDA/BF16 parity, or downstream ability evaluation.",
+  "chat_cli": {
+    "status": "passed",
+    "offline": true,
+    "max_new_tokens": 2,
+    "output": "作为一个",
+    "scope": "entry-point smoke, not identity accuracy"
+  }
+}

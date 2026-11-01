@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "contract_sha256": "55bea98df2af3f6105fc03e06711b2602ba38e678b412720dcfff928e9f1da4d",
+  "all_artifact_hashes_counts_and_sizes_verified": true,
+  "all_input_actions_and_written_bytes_verified": true,
+  "exact_conversation_duplicates_after_rewrite": 0,
+  "normalized_prompt_cross_split_overlap": 0,
+  "normalized_conversation_cross_split_overlap": 0,
+  "development_records_in_validation": 0,
+  "validation_records_independently_reencoded": 2048,
+  "splits": {
+    "train": 785377,
+    "validation": 2048
+  },
+  "targets_after_shift": {
+    "train": 326249045,
+    "validation": 833052
+  },
+  "dataset_checks": {
+    "train": {
+      "records_loaded": 785377,
+      "selected_indices_encoded": [
+        0,
+        392688,
+        785376
+      ],
+      "collator_shape": [
+        3,
+        768
+      ]
+    },
+    "validation": {
+      "records_loaded": 2048,
+      "selected_indices_encoded": [
+        0,
+        1024,
+        2047
+      ],
+      "collator_shape": [
+        3,
+        768
+      ]
+    }
+  },
+  "semantic_factual_quality_verified": false,
+  "training_started": false,
+  "verifier_sha256": "ef1bf5e0cd344d443ff40463f9f9cd74581340b297e10050ae8af13568867d31",
+  "elapsed_seconds": 111.91654380000546
+}

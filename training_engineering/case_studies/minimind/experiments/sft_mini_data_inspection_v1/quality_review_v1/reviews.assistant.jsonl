@@ -1,0 +1,24 @@
+{"source_line":352889,"status":"assistant_proposal","action":"hold","items":["C04","C06"],"evidence":"规则允许2至4人，却把52张牌平均分配固定写成每人13张；要求把手牌出完，后面又按剩余牌计分，操作与胜负判定冲突。"}
+{"source_line":564361,"status":"assistant_proposal","action":"retain_with_limits","items":["C02","C03"],"evidence":"文章与后续提取优点基本切题；历史时间与优劣措辞未查外部依据，不标为事实全通过。"}
+{"source_line":574607,"status":"assistant_proposal","action":"defer_fact_judgment","items":["C02","C03"],"evidence":"主题与后续摘要相关，但营养和疾病风险等医学性陈述未独立核实；本轮不作正确性结论。"}
+{"source_line":407293,"status":"assistant_proposal","action":"hold","items":["C05"],"evidence":"用户询问假设是否成立，回答直接自述为具备完整意识的AI，并描述感知表情等能力，没有本模型能力依据；不是明确的虚构角色扮演。"}
+{"source_line":194218,"status":"assistant_proposal","action":"defer_fact_judgment","items":["C02","C05"],"evidence":"涉及危险专业活动，含专业人员及公众避险边界；未作专业技术或安全可靠性验收，不能标为正确示范全通过。"}
+{"source_line":376388,"status":"assistant_proposal","action":"retain_with_limits","items":["C03","C06"],"evidence":"虚构人物包含外貌与性格，任务基本完成；虚构设定不作为现实事实审查，没有因角色名不同而改名。"}
+{"source_line":883400,"status":"assistant_proposal","action":"defer_fact_judgment","items":["C03","C05"],"evidence":"说明无实时访问能力有合理边界，但同时宣称无法进行货币换算计算，能力限制表述可能过宽；未静默改写为有联网工具。"}
+{"source_line":541406,"status":"assistant_proposal","action":"retain_with_limits","items":["C02","C03"],"evidence":"回答涵盖种植工具步骤与小阳台追问；具体园艺建议未由专业来源逐项验真。"}
+{"source_line":6590,"status":"assistant_proposal","action":"hold","items":["C04","C05"],"evidence":"中间助手思考声称有不透露身份、200至300字等系统规则，但完整记录没有这些系统要求；并有持续学习自身能力的无依据自述。"}
+{"source_line":639713,"status":"assistant_proposal","action":"retain_with_limits","items":["C03","C04"],"evidence":"用户未提供具体对话，助手请求补充，没有补造缺失的对话输入；思考偏长不自动证明推理有效。"}
+{"source_line":10723,"status":"assistant_proposal","action":"hold","items":["C04","C05"],"evidence":"助手自述今天吃了面包牛奶，后面又说明作为AI没有实际工作经历；完整上下文没有饮食角色扮演设定，并有凭空引用规则的思考。"}
+{"source_line":624568,"status":"assistant_proposal","action":"hold","items":["C02","C06"],"evidence":"选音乐这一结论合题，但附带解释称写作不属艺术，并出现送影子观影等混乱表达；不能只因最终选项正确接受全部监督内容。"}
+{"source_line":745643,"status":"assistant_proposal","action":"defer_fact_judgment","items":["C02","C03"],"evidence":"最终邀请补充两个词，没有编造具体词对，但判断方法中笔误、近义关系等说明不够严谨，保留复核，不据此做全量规则。"}
+{"source_line":758280,"status":"assistant_proposal","action":"hold","items":["C04","C06"],"evidence":"正文夹杂失去句义的中英文碎片、未由输入支持的主体与数字，思考又引入不同公司；依据是明显语义混乱，不对具体金融事实作外部判断。"}
+{"source_line":1890,"status":"assistant_proposal","action":"retain_with_limits","items":["C02","C03"],"evidence":"两轮均回应创造力与伦理问题；法律框架与监管细节未外部核实，不能作为法律事实已验真的例子。"}
+{"source_line":668039,"status":"assistant_proposal","action":"hold","items":["C04","C06"],"evidence":"最终句子基本符合请求，但受监督思考大篇幅猜测餐厅接单、订餐等无关背景，未服务于简单造句任务；不只审最终正文。"}
+{"source_line":802093,"status":"assistant_proposal","action":"retain_with_limits","items":["C02","C04","F02"],"evidence":"独立Python len核对指定文本为13字符，split为1项，与工具结果一致；100公里换算输出与回答一致。匿名合并结果没有调用ID，未宣称语义匹配器验证全部结果。"}
+{"source_line":792764,"status":"assistant_proposal","action":"retain_with_limits","items":["C02","C03"],"evidence":"独立计算36*7+24=276，工具结果与最终回答一致；没有执行语料中的表达式解释器或外部工具。"}
+{"source_line":783703,"status":"assistant_proposal","action":"defer_fact_judgment","items":["C02","C04"],"evidence":"最终回答概括了给定搜索片段，但未验证搜索结果是否真实、新闻时间和法规事实是否正确；工具记录是示范文本，不是本次真实检索证据。"}
+{"source_line":836051,"status":"assistant_proposal","action":"hold","items":["C04"],"evidence":"工具只返回当前多云等信息，没有降雨概率或预报，助手却据此断言今天大概率不会下雨；将没有预报误作不下雨证据。"}
+{"source_line":896525,"status":"assistant_proposal","action":"defer_fact_judgment","items":["C04","C05"],"evidence":"工具只有成功状态，没有可检查的图片或资源引用；不执行生成，不把这段记录当作已验证图片交付，只保留工具文本示范层面的观察。"}
+{"source_line":796065,"status":"assistant_proposal","action":"hold","items":["C03","C04"],"evidence":"用户提到这个段落却没有另给段落，助手把用户提问本身传给计数字符工具。独立核对该提问确为35字符、2个空白分隔项，但计算正确不能证明取对了待分析输入。"}
+{"source_line":895957,"status":"assistant_proposal","action":"defer_fact_judgment","items":["C04","C05"],"evidence":"返回文本成功状态，不含图片或下载资源，却称可查看或下载；缺少交付物依据，记录为不确定，不能因格式通过验收图像能力。"}
+{"source_line":897272,"status":"assistant_proposal","action":"defer_fact_judgment","items":["C04","C05"],"evidence":"工具文本仅称生成完毕；没有图像可供判断场景是否符合请求，未执行生成或把描述当成实际图像证据。"}

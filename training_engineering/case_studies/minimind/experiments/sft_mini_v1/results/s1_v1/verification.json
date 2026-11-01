@@ -1,0 +1,31 @@
+{
+  "status": "generation_nll_and_pair_inputs_verified",
+  "generation_records": 36,
+  "evaluation_freeze_sha256": "f3b5bc996a4f465ae967565b1d54317b5c86888992a3406aeb6410a401cbe876",
+  "scoring_patch_sha256": "77f1a8be6d8e70c301e52ec8b5bc3d4b362ce95fa86d27a5bd2654e6d58a52e0",
+  "exact_input_ids_and_prompt_match": true,
+  "model_state_unchanged_gate_passed": true,
+  "files": {
+    "generations.jsonl": {
+      "sha256": "822767841e9a1daf23b9849670bf997450352e5607a77c518149e6e15d013972",
+      "bytes": 119319
+    },
+    "validation.json": {
+      "sha256": "83c0b921b4a1b666d208814e00ea6c34655475a28f1216533e0236ef0d3234f9",
+      "bytes": 136
+    },
+    "result.json": {
+      "sha256": "56145996857ea191bba858987951874441b0cf5ede17a199a30ac5f14d097c23",
+      "bytes": 1547
+    },
+    "run_manifest.json": {
+      "sha256": "bf5236b30d19409f10b07af68c2af82dd389cf7ee4791c05c1e812345a92a16c",
+      "bytes": 5679
+    },
+    "evaluation_member.json": {
+      "sha256": "f1d1ef632c5d46cb114ab1ea63b7f2f73228a5f461537646c7a1f0710790a9bb",
+      "bytes": 2174
+    }
+  },
+  "semantic_judgments_automatically_verified": false
+}

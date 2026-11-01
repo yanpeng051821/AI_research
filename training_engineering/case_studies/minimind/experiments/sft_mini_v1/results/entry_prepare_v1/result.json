@@ -1,0 +1,7 @@
+{
+  "status": "prepared_not_trained",
+  "training_started": false,
+  "contract_sha256": "e403c68bc3433e8071a6439179d24b6a2f14cdd9af5966ab9f5367bfaa32d914",
+  "planned_updates": 49087,
+  "formal_training_authorized": false
+}

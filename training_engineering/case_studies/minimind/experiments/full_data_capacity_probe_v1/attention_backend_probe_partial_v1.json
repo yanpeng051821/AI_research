@@ -1,0 +1,66 @@
+{
+  "status": "partial_observations_not_complete_server_result",
+  "recorded_at_beijing": "2026-11-01T11:21:12+08:00",
+  "purpose": "isolated_backend_probe_not_formal_training",
+  "provenance": "Values observed in successful SSH reads of the server summary. Complete backend files were not downloaded before both SSH endpoints began resetting connections.",
+  "baseline": {
+    "source": "results_v1/summary.json",
+    "stage": "pretrain",
+    "micro_batch": 16,
+    "gradient_accumulation": 16,
+    "online_records_per_second": 74.73350419209385,
+    "cached_records_per_second": 76.37791032028753,
+    "peak_allocated_bytes": 12377978368
+  },
+  "observed_candidate": {
+    "stage": "pretrain",
+    "backend": "sdpa_masked_auto",
+    "status_reported_by_server": "passed",
+    "micro_batch": 16,
+    "gradient_accumulation": 16,
+    "online_records_per_second": 118.32871453090893,
+    "cached_records_per_second": 123.34648654042739,
+    "peak_allocated_bytes": 8493004288,
+    "backend_note": "SDPA with explicit boolean causal-plus-padding mask. Automatic kernel selection; not certified as FlashAttention."
+  },
+  "observed_pretrain_numerical_comparison": {
+    "batch_size": 4,
+    "valid_targets": 518,
+    "manual_nll": 8.907537460327148,
+    "sdpa_masked_auto": {
+      "nll": 8.907465934753418,
+      "nll_abs_difference": 0.00007152557373046875,
+      "real_position_logits_max_abs_difference": 0.03125,
+      "real_position_logits_mean_abs_difference": 0.004201478790491819,
+      "gradient_global_l2_relative_difference": 0.011964665153961865,
+      "gradients_finite": true
+    },
+    "flash_causal_right_padding": {
+      "nll": 8.907425880432129,
+      "nll_abs_difference": 0.00011157989501953125,
+      "real_position_logits_max_abs_difference": 0.03125,
+      "real_position_logits_mean_abs_difference": 0.0041997297666966915,
+      "gradient_global_l2_relative_difference": 0.011932404839851094,
+      "gradients_finite": true
+    },
+    "scope": "One fixed pretrain batch, real token positions only. Not bitwise equivalence, long-run stability, capability evaluation or resume acceptance."
+  },
+  "execution": {
+    "script": "implementation/scripts/benchmark_attention_backends.py",
+    "server_workdir": "/root/minimind_capacity_v1",
+    "server_output": "attention_backends_v1",
+    "pid_reported_at_launch": 3742,
+    "hard_timeout_seconds": 600,
+    "remote_final_status": "unknown_after_connection_loss",
+    "possible_expiration": "Connection reset occurred close to one hour after initial connection; instance expiration not independently confirmed."
+  },
+  "missing": [
+    "Complete backend summary, per-update logs and errors from server",
+    "Forced Flash causal backend pretrain throughput",
+    "SFT backend comparison and throughput",
+    "Final process and GPU status",
+    "Formal acceptance of numerical differences and new execution recipe"
+  ],
+  "historical_source_files_modified": false,
+  "formal_training_launched": false
+}

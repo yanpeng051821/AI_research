@@ -1,0 +1,5 @@
+{
+  "exit": 0,
+  "stdout": "{\"torch\": \"2.14.0+cu130\", \"cuda\": \"13.0\", \"gpu\": \"NVIDIA GeForce RTX 4060 Ti\", \"flash_compiled\": true, \"forced_flash_forward_backward\": true}\n",
+  "stderr": "wsl: 检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。\r\n"
+}

@@ -1,0 +1,481 @@
+{
+  "scope": "D:\\pythonlearning",
+  "threshold_bytes": 104857600,
+  "large_files": [
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/raw/minimind/sft_t2t_mini.jsonl",
+      "bytes": 1739201170,
+      "runtime_or_git": false
+    },
+    {
+      "path": "minimind/dataset/sft_t2t_mini.jsonl",
+      "bytes": 1739201170,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_length_768_v1/length_eligible.jsonl",
+      "bytes": 1583975632,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_dedup_768_v1/unique_candidate.jsonl",
+      "bytes": 1539525786,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_reviewed_768_v1/reviewed_candidate.jsonl",
+      "bytes": 1539522945,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_tool_quarantine_768_v1/reviewed_candidate.jsonl",
+      "bytes": 1537731790,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v1/accepted.jsonl",
+      "bytes": 1498179378,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v3/accepted.jsonl",
+      "bytes": 1498160490,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v2/accepted.jsonl",
+      "bytes": 1498158828,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v1/train.jsonl",
+      "bytes": 1494423115,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v3/train.jsonl",
+      "bytes": 1494404227,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v2/train.jsonl",
+      "bytes": 1494402565,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/pretrain_mini_v1/split_seed43_v1/train.jsonl",
+      "bytes": 1265364275,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/raw/minimind/pretrain_t2t_mini.jsonl",
+      "bytes": 1241043656,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".research-temp/codecrafters-course-audit-20261012/sqlite-tester/companies.db",
+      "bytes": 1033211904,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".research-temp/codecrafters-course-audit-20261012/sqlite-tester/.git/lfs/objects/2c/78/2c78c2c4d08d5e1fb23fd6e36e76ef7262657f2cb48d4c6f55feffb46813814a",
+      "bytes": 1033211904,
+      "runtime_or_git": true
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/raw/minimind/.cache/huggingface/download/sKd-nhv1KGSRryWPxAJ_nHwWCu8=.abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518.incomplete",
+      "bytes": 891289600,
+      "runtime_or_git": false
+    },
+    {
+      "path": "ChatGPT-Codex-package.msix",
+      "bytes": 830456199,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/runs/pretrain_mini_probe_continuous_v1/checkpoint-4.pt",
+      "bytes": 773267947,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/runs/pretrain_mini_probe_continuous_v1/checkpoint-8.pt",
+      "bytes": 773267947,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/runs/pretrain_mini_probe_paused_v1/checkpoint-3.pt",
+      "bytes": 773267947,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/runs/pretrain_mini_probe_resumed_v1/checkpoint-4.pt",
+      "bytes": 773267947,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/runs/pretrain_mini_probe_resumed_v1/checkpoint-8.pt",
+      "bytes": 773267947,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/experiments/sft_mini_v1/results/formal_gate_cont20_v1/checkpoint-20.pt",
+      "bytes": 770864235,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/experiments/sft_mini_v1/results/formal_gate_pause10_v1/checkpoint-10.pt",
+      "bytes": 770864235,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/experiments/sft_mini_v1/results/formal_gate_resume20_v1/checkpoint-20.pt",
+      "bytes": 770864235,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/experiments/sft_mini_v1/results/probe20_v4/checkpoint-20.pt",
+      "bytes": 770864235,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/experiments/sft_mini_v1/results/resume_gate_to20_v1/checkpoint-20.pt",
+      "bytes": 770864235,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/experiments/sft_mini_v1/results/resume_gate_pause10_v1/checkpoint-10.pt",
+      "bytes": 770864171,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/experiments/full_data_capacity_probe_v1/local_attention_backends_v1/manual/sft_micro4_accum4/probe_checkpoint.pt",
+      "bytes": 767066795,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/experiments/full_data_capacity_probe_v1/local_attention_backends_v1/sdpa_masked_auto/sft_micro4_accum4/probe_checkpoint.pt",
+      "bytes": 767066795,
+      "runtime_or_git": false
+    },
+    {
+      "path": "DeepTutor/web/.next-deeptutor/cache/webpack/server-production/0.pack",
+      "bytes": 505294742,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/.venv/Lib/site-packages/torch/lib/cublasLt64_13.dll",
+      "bytes": 477896816,
+      "runtime_or_git": true
+    },
+    {
+      "path": "DeepTutor/web/.next-deeptutor/cache/webpack/client-production/0.pack",
+      "bytes": 449973515,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/raw/minimind/sft_t2t_mini.jsonl.download",
+      "bytes": 442332123,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/.venv/Lib/site-packages/torch/lib/torch_cuda.dll",
+      "bytes": 422658048,
+      "runtime_or_git": true
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v1/lineage.jsonl",
+      "bytes": 354933002,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v3/lineage.jsonl",
+      "bytes": 354932528,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v2/lineage.jsonl",
+      "bytes": 354932404,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/.venv/Lib/site-packages/torch/lib/torch_cpu.dll",
+      "bytes": 306006528,
+      "runtime_or_git": true
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/.venv/Lib/site-packages/torch/lib/cufft64_12.dll",
+      "bytes": 284331040,
+      "runtime_or_git": true
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/experiments/sft_mini_v1/release/public_v1/payload/model.safetensors",
+      "bytes": 255659304,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/experiments/sft_mini_v1/release/public_v2/payload/model.safetensors",
+      "bytes": 255659304,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/benchmarks/capacity_backend_local_v1/pretrained.safetensors",
+      "bytes": 255659304,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/exports/pretrain_mini_one_epoch_v1_fp32/model.safetensors",
+      "bytes": 255659304,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/exports/pretrain_mini_one_epoch_v1_fp32_v2/model.safetensors",
+      "bytes": 255659304,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/exports/pretrain_mini_one_epoch_v1_public_v1/model.safetensors",
+      "bytes": 255659304,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/exports/sft_mini_one_epoch_v1_fp32_v1/model.safetensors",
+      "bytes": 255659304,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_dedup_768_v1/lineage.jsonl",
+      "bytes": 254025782,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/.venv/Lib/site-packages/torch/lib/cudnn_engines_precompiled64_9.dll",
+      "bytes": 221832304,
+      "runtime_or_git": true
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/blobs/dd7d2f0f04d80b3ae08484b706c4f7fd9dd29eeff4038c36257a307c77b877e9",
+      "bytes": 216773329,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/snapshots/e4e141ec9dea9f8326f4d347be56105859b2bd68/data/train-00003-of-00010.parquet",
+      "bytes": 216773329,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/blobs/e358157990d7744643e25f1e692556ac5fd4a2212c008cf67475b14e040861ea",
+      "bytes": 214835490,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/snapshots/e4e141ec9dea9f8326f4d347be56105859b2bd68/data/train-00004-of-00010.parquet",
+      "bytes": 214835490,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/blobs/a44a2354bfa752541ab768b62edf01f3df4b9b2a7660774ab1eb6e7f19f0a86b",
+      "bytes": 214585972,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/snapshots/e4e141ec9dea9f8326f4d347be56105859b2bd68/data/train-00002-of-00010.parquet",
+      "bytes": 214585972,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/blobs/a7d3eb54d97f7e1237a872947f2246de54a104be224646f62f588abdf6c7db60",
+      "bytes": 214580713,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/snapshots/e4e141ec9dea9f8326f4d347be56105859b2bd68/data/train-00001-of-00010.parquet",
+      "bytes": 214580713,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/blobs/30254d14d17b63d1f7963488d53a2d26aa22070f71baa2fe601201b081e38060",
+      "bytes": 214488314,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/snapshots/e4e141ec9dea9f8326f4d347be56105859b2bd68/data/train-00005-of-00010.parquet",
+      "bytes": 214488314,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/blobs/ccc3a95e4875dc4cff9bec2f0fb1c93e4c9cbb24fb24853fd0b96c416e1a263c",
+      "bytes": 213636225,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".cache/huggingface/hub/datasets--open-r1--OpenR1-Math-220k/snapshots/e4e141ec9dea9f8326f4d347be56105859b2bd68/data/train-00000-of-00010.parquet",
+      "bytes": 213636225,
+      "runtime_or_git": false
+    },
+    {
+      "path": "sites/codecrafters-study/work/toolchains/rustup/toolchains/stable-x86_64-pc-windows-msvc/bin/rustc_driver-9cc664dca72b379e.dll",
+      "bytes": 206020096,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/audit/sft_full_encoding_v1/records.jsonl",
+      "bytes": 181028384,
+      "runtime_or_git": false
+    },
+    {
+      "path": "cs336/lectures/.git/objects/pack/pack-4834dfde898c0df280a1e629bd5c4985bdab8d6f.pack",
+      "bytes": 175399007,
+      "runtime_or_git": true
+    },
+    {
+      "path": "agentport/.sandbox/server.git/objects/pack/pack-a4c5ee365f06a4493f51465ec6ed251d885dfeb4.pack",
+      "bytes": 168505757,
+      "runtime_or_git": false
+    },
+    {
+      "path": "agentport/.sandbox/store-b/.git/objects/pack/pack-a4c5ee365f06a4493f51465ec6ed251d885dfeb4.pack",
+      "bytes": 168505757,
+      "runtime_or_git": true
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_tool_quarantine_768_v1/lineage.jsonl",
+      "bytes": 167224891,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_reviewed_768_v1/lineage.jsonl",
+      "bytes": 167218129,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_length_768_v1/overlength_excluded.jsonl",
+      "bytes": 155225538,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v1/encoding_index.jsonl",
+      "bytes": 154711151,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v3/encoding_index.jsonl",
+      "bytes": 154709745,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v2/encoding_index.jsonl",
+      "bytes": 154709355,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/.venv/Lib/site-packages/torch/lib/cusparse64_12.dll",
+      "bytes": 150326304,
+      "runtime_or_git": true
+    },
+    {
+      "path": "DeepTutor/web/node_modules/@next/swc-win32-x64-msvc/next-swc.win32-x64-msvc.node",
+      "bytes": 136826880,
+      "runtime_or_git": false
+    },
+    {
+      "path": "cs336/assignment5-alignment/.git/objects/pack/pack-7a9380b15a99b43fdf2cc5499c96ca95a4883db3.pack",
+      "bytes": 135219876,
+      "runtime_or_git": true
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v1/split_index.jsonl",
+      "bytes": 128013300,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v3/split_index.jsonl",
+      "bytes": 128012170,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/data/processed/sft_prepared_768_v2/split_index.jsonl",
+      "bytes": 128011844,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/.venv/Lib/site-packages/torch/lib/cusolver64_12.dll",
+      "bytes": 126421024,
+      "runtime_or_git": true
+    },
+    {
+      "path": ".research-temp/codecrafters-course-audit-20261012/kafka/kafka_2.13-4.0.0-SNAPSHOT.tgz",
+      "bytes": 123047288,
+      "runtime_or_git": false
+    },
+    {
+      "path": ".research-temp/codecrafters-course-audit-20261012/kafka/.git/lfs/objects/52/46/5246e62350bcef59a8f9222fcdd77d87db57b39b41fa9580e5265d0f026ee0ca",
+      "bytes": 123047288,
+      "runtime_or_git": true
+    },
+    {
+      "path": "sites/codecrafters-study/work/toolchains/rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/x86_64-pc-windows-msvc/bin/rust-lld.exe",
+      "bytes": 122606592,
+      "runtime_or_git": false
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/.venv/Lib/site-packages/torch/lib/cudnn_graph64_9.dll",
+      "bytes": 110908016,
+      "runtime_or_git": true
+    },
+    {
+      "path": "AI_research/training_engineering/case_studies/minimind/implementation/.venv/Lib/site-packages/torch/lib/cudnn_adv64_9.dll",
+      "bytes": 106547312,
+      "runtime_or_git": true
+    },
+    {
+      "path": "sites/codecrafters-study/node_modules/@next/swc-win32-x64-msvc/next-swc.win32-x64-msvc.node",
+      "bytes": 106190336,
+      "runtime_or_git": false
+    }
+  ],
+  "top_level_bytes": {
+    "AI_research": 40547095537,
+    "sites": 3365769052,
+    "DeepTutor": 3021870215,
+    ".research-temp": 2912363654,
+    ".cache": 2578105753,
+    "minimind": 1791563398,
+    "deeptutor-1.7.0": 1089788913,
+    "agentport": 862284095,
+    "ChatGPT-Codex-package.msix": 830456199,
+    "cs336": 654778286,
+    "rea": 430454120,
+    "_reference": 231180276,
+    "MiniCPM": 222063242,
+    "DeepTutor-runtime-170": 109335227,
+    "DeepTutor-runtime": 101956248,
+    "training_artifacts": 95671649,
+    "minimind-practice": 93248697,
+    "small_model_post_training": 77555937,
+    "minicpm5-local": 66925196,
+    "python-books-2e": 58068299,
+    "learningAI": 46766717,
+    "zhifou_minglan_corpus": 24595375,
+    "dlsyscourse-hw0": 23162967,
+    "流畅的Python.eng.(z-lib.org).pdf": 17752721,
+    "流畅的Python.pdf": 13885981,
+    ".tool-cache": 4228281,
+    ".worktrees": 3428886,
+    "small_model_post_training_push_20260913": 1612962,
+    "open-r1": 1254831,
+    "small_model_post_training-configfix-20260912": 1017518,
+    "training-data-gate": 178196,
+    "codecrafters-shell-python": 163206,
+    "exercism": 136213,
+    "career_transition": 107441,
+    "formal-s1-git-patches": 100075,
+    "agent-session-portability.md": 31636,
+    "python-coding-practice": 14753,
+    ".pytest_cache": 11130,
+    "data": 917,
+    "mnist_first_image.png": 853
+  },
+  "errors": [],
+  "scan_seconds": 61.72671410001931,
+  "moves_started": false
+}

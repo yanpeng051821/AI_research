@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "started_at_utc": "2026-10-31T03:28:58.609299+00:00",
+  "candidate_sha256": "3ce282774693db1c403a3afb984e36193c471303c4dc1f5d6231b2a02f7e44a6",
+  "training_started": false,
+  "completed_at_utc": "2026-10-31T03:34:26.129364+00:00",
+  "actions": {
+    "hold": 21075,
+    "keep": 787409,
+    "rewrite_identity": 14,
+    "duplicate": 15
+  },
+  "ready_for_training": false
+}

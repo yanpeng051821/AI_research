@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "contract_id": "minimind_mini_sft_data_768_v1_candidate",
+  "status": "candidate_pending_review_not_frozen",
+  "ready_for_training": false,
+  "training_started": false,
+  "created_at_utc": "2026-10-31T03:34:26.121362+00:00",
+  "source": {
+    "path": "data\\raw\\minimind\\sft_t2t_mini.jsonl",
+    "size": 1739201170,
+    "sha256": "abb1e76b2056e14728beb78db96b7b3c491a0bef1ed3e34a9b381b28f29fa518",
+    "reference_report_sha256": "11b5f3b038a41da55ac64a4db93cb6b4f1802e3c0a03658c5d53506708611bb4",
+    "identity_checked_before_and_during_run": true,
+    "records": 905718
+  },
+  "input_candidate": {
+    "records": 808513,
+    "bytes": 1537731790,
+    "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_tool_quarantine_768_v1\\reviewed_candidate.jsonl",
+    "sha256": "3ce282774693db1c403a3afb984e36193c471303c4dc1f5d6231b2a02f7e44a6"
+  },
+  "policy": {
+    "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\data_recipe\\processing_policy.json",
+    "sha256": "e1c5b94a752469afac78cd66d1e904715f766d48651c90d6818c4e9b359693fe"
+  },
+  "preparation_report": {
+    "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_data_inspection_v1\\preparation_768_v2\\report.json",
+    "sha256": "fca438e981bba19daf36793f8031dfd713fe0a6d5b91b8af804d8da78b8642f0"
+  },
+  "artifacts": {
+    "accepted": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v2\\accepted.jsonl",
+      "records": 787423,
+      "bytes": 1498158828,
+      "sha256": "b6b439104a00654fdb2899007d73ffe11cebef4183712ab0375dbf8136630c2f"
+    },
+    "review_hold": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v2\\review_hold.jsonl",
+      "records": 21075,
+      "bytes": 39564080,
+      "sha256": "4f3b887a2d3e74fda54430ab4bae0a16e20f1684f06879d9bff53c3be8a9352e"
+    },
+    "duplicates": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v2\\postrewrite_duplicates.jsonl",
+      "records": 15,
+      "bytes": 5262,
+      "sha256": "3dae5cf56da926c4b1e792f45c8891b96bfec2b8c1e738c7a84753b3aad228f6"
+    },
+    "lineage": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v2\\lineage.jsonl",
+      "records": 808513,
+      "bytes": 354932404,
+      "sha256": "d78f9ecf3dfe646d92905997f675eb2284db97fb0a4d1a259d67180813d75d3f"
+    },
+    "encoding_index": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v2\\encoding_index.jsonl",
+      "records": 787423,
+      "bytes": 154709355,
+      "sha256": "fbccef9bcd3a99dc1bf173a7deffb1fa9c3497c39c11fe621aafa025b9353de7"
+    },
+    "train": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v2\\train.jsonl",
+      "records": 785375,
+      "bytes": 1494402565,
+      "sha256": "ead9f5890cb5419cbc08105989dfeb48dea2e0f9b115850bc986db6de7481c7b"
+    },
+    "validation": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v2\\validation.jsonl",
+      "records": 2048,
+      "bytes": 3756263,
+      "sha256": "c024f217894b3828c6cdf58dbd5e1c8d9da588d51e234aed14fd345443c15e3d"
+    },
+    "split_index": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v2\\split_index.jsonl",
+      "records": 787423,
+      "bytes": 128011844,
+      "sha256": "ddfdef98df6ce1b43a9d1c69126eae636213092761316620b3cd0cd190998d4f"
+    },
+    "quality_review_sample": {
+      "path": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\implementation\\data\\processed\\sft_prepared_768_v2\\quality_review_sample.jsonl",
+      "records": 24,
+      "bytes": 49683,
+      "sha256": "060c557de4cb46dd636a74214691e7f8f1a4fd19786482bc4cd51ca109b45b51"
+    }
+  },
+  "split_statistics": {
+    "train": {
+      "records": 785375,
+      "strata": {
+        "reasoning_only": 220400,
+        "plain": 516814,
+        "tool_only": 48161
+      },
+      "input_length": {
+        "min": 30,
+        "max": 768,
+        "mean": 480.9381072735954,
+        "percentiles": {
+          "p50": 492.0,
+          "p90": 666.0,
+          "p95": 708.0,
+          "p99": 754.0
+        }
+      },
+      "targets_after_shift": {
+        "min": 8,
+        "max": 751,
+        "mean": 415.4052459016393,
+        "percentiles": {
+          "p50": 439.0,
+          "p90": 607.0,
+          "p95": 648.0,
+          "p99": 702.0
+        }
+      },
+      "total_input_tokens": 377716766,
+      "total_targets_after_shift": 326248895
+    },
+    "validation": {
+      "records": 2048,
+      "strata": {
+        "reasoning_only": 519,
+        "plain": 1413,
+        "tool_only": 116
+      },
+      "input_length": {
+        "min": 45,
+        "max": 767,
+        "mean": 468.734375,
+        "percentiles": {
+          "p50": 479.0,
+          "p90": 653.0,
+          "p95": 700.0,
+          "p99": 750.0
+        }
+      },
+      "targets_after_shift": {
+        "min": 9,
+        "max": 741,
+        "mean": 406.763671875,
+        "percentiles": {
+          "p50": 430.0,
+          "p90": 596.3,
+          "p95": 641.6499999999999,
+          "p99": 709.0
+        }
+      },
+      "total_input_tokens": 959968,
+      "total_targets_after_shift": 833052
+    }
+  },
+  "grouping": {
+    "records": 787423,
+    "groups": 659186,
+    "largest_group": 30195,
+    "validation_groups": 1868,
+    "development_source_lines": 1197,
+    "no_component_cross_split": true,
+    "semantic_paraphrase_isolation_claimed": false
+  },
+  "encoding": {
+    "vocabulary_size": 6400,
+    "special_token_ids": {"bos": 1, "eos": 2, "pad": 0},
+    "max_length": 768,
+    "add_special_tokens": false,
+    "chat_template": "tokenizer_config.json exact hashed template",
+    "assistant_only": true,
+    "role_headers_supervised": false,
+    "thinking_and_tool_calls_supervised": true,
+    "tool_results_supervised": false,
+    "end_sequence": "<|im_end|>\\n",
+    "padding": "right_to_768",
+    "padding_labels": -100,
+    "loss_alignment": "logits[..., :-1, :] vs labels[..., 1:]",
+    "truncation": false,
+    "zero_target_records": "reject",
+    "reasoning": "preserve_except_rewritten_identity_turns_use_empty_reasoning"
+  },
+  "pipeline_identity": {
+    "runtime_files_sha256": {
+      "scripts/prepare_sft_recipe.py": "57f1d7bce39da63fac37cdd89d898d4998bf030bc1ee296e18f239674362975b",
+      "scripts/sft_candidate_lineage.py": "ed023bf3bbaee6364b64024a489fd61c76c98b47f35ee8ba35c7d23d2321f371",
+      "scripts/inspect_sft_encoding.py": "e53e5cbaeb37efbe92461ea3b2cf6162a07b157b442254c9f899a6eff79d0911",
+      "scripts/inspect_sft_full_encoding.py": "538024c7706b0b2b465c694bf13fae9d6040d5e6c63e7030df2215858a952bd8",
+      "src/minimind_lab/data/sft.py": "53d246772ac5734f48ac0d1b4825be87193fcf9abc8895533746c1f8f36e3422",
+      "src/minimind_lab/data/sft_protocol.py": "62a34f326db14d28b1bf624879c78d08c1b523a3ebb9163d0c00c3351f49acf9",
+      "src/minimind_lab/data/validator.py": "e70037a3040b13751744664787a65be47f52855912fde17afac5c983ff774d46",
+      "pyproject.toml": "c7c0984824c397d52a32c1694af625754ca28f6e62407bf473623be5450efa96",
+      "uv.lock": "e48c4c186c2b2708a3321b516a20ec7071f09d63d40ff157f2a923f0575fe793"
+    },
+    "tokenizer_files_sha256": {
+      "manifest.json": "ba6d90df750b83465959c28fc4f756282cd25c5e39f803736d4e5082db6a73e4",
+      "tokenizer.json": "8bf5868abfc7ea919186b57e2b411adefe3b0922b53052c5839937e166b9d395",
+      "tokenizer_config.json": "e42b762555734279158ca292431c831fa387c48c35d9b1b205f4fc6c83b79d34"
+    }
+  },
+  "runtime": {
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "jsonschema": "4.26.0",
+    "torch": "2.14.0+cu130",
+    "numpy": "2.5.3"
+  },
+  "limits": [
+    "No whole-corpus factual correctness guarantee; sampled semantic checks only.",
+    "Held names may include valid quotations or objective references; hold is reversible, not a bad-data label.",
+    "No generated substantive answers replace failed demonstrations.",
+    "No semantic paraphrase or external benchmark contamination clearance is claimed.",
+    "Source-level licensing and downstream public release permissions are not fully resolved.",
+    "Do not launch training or publish data before reviewing this candidate contract."
+  ],
+  "approval": {
+    "identity_policy_previously_confirmed": true,
+    "new_processing_and_split_choices_reviewed": false,
+    "independent_output_verification_completed": true,
+    "factual_quality_of_all_records_verified": false,
+    "public_redistribution_permissions_resolved": false
+  }
+}

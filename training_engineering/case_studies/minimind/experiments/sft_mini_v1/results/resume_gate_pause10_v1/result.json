@@ -1,0 +1,20 @@
+{
+  "status": "paused",
+  "run_kind": "engineering_probe_not_formal_sft",
+  "global_step": 10,
+  "planned_updates": 49087,
+  "committed_samples": 160,
+  "valid_tokens_seen": 65480,
+  "contract_sha256": "e403c68bc3433e8071a6439179d24b6a2f14cdd9af5966ab9f5367bfaa32d914",
+  "training_started": true,
+  "resume_from": null,
+  "checkpoint": "D:\\pythonlearning\\AI_research\\training_engineering\\case_studies\\minimind\\experiments\\sft_mini_v1\\results\\resume_gate_pause10_v1\\checkpoint-10.pt",
+  "initial_or_resume_validation": {
+    "nll": 2.8312329279284945,
+    "valid_tokens": 27337
+  },
+  "final_validation": {
+    "nll": 2.670298436706947,
+    "valid_tokens": 27337
+  }
+}

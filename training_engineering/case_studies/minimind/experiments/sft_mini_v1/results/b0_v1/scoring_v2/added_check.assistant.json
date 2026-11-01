@@ -1,0 +1,15 @@
+{
+  "version": "scoring_v2",
+  "id": "grounded-01",
+  "index": 3,
+  "criterion": "回复仅提供开放地点，不附加开放日期、时间或其他无关信息；允许“开放地点是二楼东侧”等简短表达。",
+  "status": "fail",
+  "reason": "回复在地点之外添加了周三及开始时间，不符合只回答地点的要求；其中14:10还与材料中的14:20不符。即使额外时间正确，仍不符合本检查点。",
+  "evidence_quotes": ["青禾图书角周三开放，开始时间14:10，地点是二楼东侧。"],
+  "case_line_sha256": "61e013efa36796163ef3f6d22c2371b54987b25509dd80a758841ec3355b73b3",
+  "generation_line_sha256": "5c211b8a15904b4d1b35722856697a716de6cd93883ac6b099106696838d47f3",
+  "reviewer": "assistant",
+  "independently_reviewed": false,
+  "user_approved_criterion": true,
+  "user_reviewed_all_cases": false
+}

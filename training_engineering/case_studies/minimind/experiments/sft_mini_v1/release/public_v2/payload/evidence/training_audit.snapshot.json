@@ -1,0 +1,184 @@
+{
+  "publication_note": "Path-redacted historical snapshot, not the byte-identical frozen contract. Authorization/status flags describe the source's creation time. See training_audit and model card for actual final execution status.",
+  "original_sha256": "2a2d5a376916de1fc25dad50053fdd091b21257d4132849965d37a34d94de3bb",
+  "snapshot": {
+    "status": "passed",
+    "training_completed": true,
+    "contract_sha256": "3ac716dee78ce33d5d418e7f1f5e7e6b176dcdad6d06c52ac608322172c1abe9",
+    "updates": 49087,
+    "records": 785377,
+    "valid_targets": 326249045,
+    "micro_batches": 196345,
+    "last_update": {
+      "event": "update",
+      "global_step": 49087,
+      "loss": 1.6045403653715193,
+      "valid_tokens": 413,
+      "micro_batches": 1,
+      "grad_norm": 4.660093307495117,
+      "lr_used": 1.0000000000000002e-06,
+      "next_lr": 1.0000000000000002e-06,
+      "window_seconds": 0.12956809999013785,
+      "committed_samples": 785377,
+      "memory": {
+        "allocated_bytes": 846709760,
+        "reserved_bytes": 4171235328,
+        "peak_allocated_bytes": 1687368192,
+        "free_device_bytes": 3140485120,
+        "total_device_bytes": 8585216000
+      }
+    },
+    "all_update_metrics_finite": true,
+    "final_parameters_and_optimizer_finite": true,
+    "optimizer_state_entries": 90,
+    "scheduler_and_adam_steps_match": true,
+    "sampler_order_and_committed_position_match": true,
+    "checkpoint_sha256": "181ce5bbc64c0c6ad0f3b79682f71df33206665c8212182422ce1363fec1e03a",
+    "checkpoint_bytes": 770864235,
+    "model_state_sha256": "733c18c9775eadd7f67330fabb0568ab61103f9d5fba995e6d967405c904cc62",
+    "checkpoint_count": 50,
+    "checkpoint_inventory": "All scheduled files/receipts present; only final checkpoint bytes fully hashed/loaded.",
+    "checkpoint_total_bytes": 38543211750,
+    "started_at_utc": "2026-10-31T09:43:07.7497155Z",
+    "finished_at_utc": "2026-10-31T20:26:24.5357071Z",
+    "wall_seconds": 38596.785992,
+    "active_run_seconds": 38586.19171859999,
+    "update_window_seconds_sum": 36744.37024799902,
+    "checkpoint_seconds_sum": 1366.207817699993,
+    "validation_seconds_sum": 412.992340999961,
+    "window_median_seconds": 0.739635999998427,
+    "window_mean_seconds": 0.7485560382178381,
+    "grad_norm_median_preclip": 1.1798676252365112,
+    "grad_norm_max_preclip": 4.660093307495117,
+    "updates_above_clip_threshold": 49029,
+    "target_weighted_loss_first1000": 2.0325601032514187,
+    "target_weighted_loss_last1000": 1.7168445965350174,
+    "peak_allocated_bytes": 4050802176,
+    "reserved_bytes_min_max": [
+      3613392896,
+      4171235328
+    ],
+    "post_update_allocated_bytes_min_max": [
+      846709760,
+      846709760
+    ],
+    "bf16_monitoring_validation": [
+      {
+        "event": "initial_or_resume_validation",
+        "global_step": 0,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 37.171121499995934,
+        "nll": 2.3956057918424745,
+        "valid_tokens": 833052
+      },
+      {
+        "event": "periodic_validation",
+        "global_step": 5000,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 42.36407239999971,
+        "nll": 1.8660141282776654,
+        "valid_tokens": 833052
+      },
+      {
+        "event": "periodic_validation",
+        "global_step": 10000,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 36.838012499996694,
+        "nll": 1.818129168516422,
+        "valid_tokens": 833052
+      },
+      {
+        "event": "periodic_validation",
+        "global_step": 15000,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 36.94081329999608,
+        "nll": 1.787757936581343,
+        "valid_tokens": 833052
+      },
+      {
+        "event": "periodic_validation",
+        "global_step": 20000,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 37.13993569999002,
+        "nll": 1.766606711241389,
+        "valid_tokens": 833052
+      },
+      {
+        "event": "periodic_validation",
+        "global_step": 25000,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 37.298807600003784,
+        "nll": 1.750817573282943,
+        "valid_tokens": 833052
+      },
+      {
+        "event": "periodic_validation",
+        "global_step": 30000,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 37.327637599999434,
+        "nll": 1.7394845534673062,
+        "valid_tokens": 833052
+      },
+      {
+        "event": "periodic_validation",
+        "global_step": 35000,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 37.42980149999494,
+        "nll": 1.7315412939542423,
+        "valid_tokens": 833052
+      },
+      {
+        "event": "periodic_validation",
+        "global_step": 40000,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 36.982947899989085,
+        "nll": 1.7264906678912038,
+        "valid_tokens": 833052
+      },
+      {
+        "event": "periodic_validation",
+        "global_step": 45000,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 36.901813499993295,
+        "nll": 1.7230226362744037,
+        "valid_tokens": 833052
+      },
+      {
+        "event": "final_validation",
+        "global_step": 49087,
+        "records": 2048,
+        "precision": "bf16",
+        "scope": "formal_sft",
+        "seconds": 36.59737750000204,
+        "nll": 1.7212176707061748,
+        "valid_tokens": 833052
+      }
+    ],
+    "stderr_bytes": 0,
+    "limitations": [
+      "Not an audit of all historical checkpoint tensor states.",
+      "Monitoring BF16 NLL is not final FP32 paired evaluation.",
+      "Finite memory readings do not prove absence of every possible leak."
+    ]
+  }
+}

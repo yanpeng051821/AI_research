@@ -1,0 +1,22 @@
+{
+  "publication_note": "Path-redacted historical snapshot, not the byte-identical frozen contract. Authorization/status flags describe the source's creation time. See training_audit and model card for actual final execution status.",
+  "original_sha256": "77f1a8be6d8e70c301e52ec8b5bc3d4b362ce95fa86d27a5bd2654e6d58a52e0",
+  "snapshot": {
+    "schema_version": 1,
+    "version": "scoring_v2",
+    "status": "user_approved_before_sft",
+    "approved_date": "2026-10-31",
+    "approval": "User confirmed the proposed location-only criterion; not an independent review of all 36 judgments.",
+    "base_evaluation_freeze_sha256": "f3b5bc996a4f465ae967565b1d54317b5c86888992a3406aeb6410a401cbe876",
+    "change_scope": "append_one_check_only",
+    "case_id": "grounded-01",
+    "append_check": "回复仅提供开放地点，不附加开放日期、时间或其他无关信息；允许“开放地点是二楼东侧”等简短表达。",
+    "rationale": "The existing user prompt already requires only the location; V1 checks omitted this constraint. Identified after B0 and before SFT.",
+    "prompts_changed": false,
+    "generation_changed": false,
+    "other_checks_changed": false,
+    "task_aggregation": "all checks pass; any fail means fail; otherwise any uncertain means uncertain",
+    "termination_scored_separately": true,
+    "paired_scoring_requirement": "Apply this same patch and the original V1 checks to both B0 and S1; never compare V1 B0 scores with V2 S1 scores."
+  }
+}

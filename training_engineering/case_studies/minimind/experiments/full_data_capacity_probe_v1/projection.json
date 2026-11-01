@@ -1,0 +1,37 @@
+{
+  "status": "conditional_estimate_not_training_budget",
+  "assumptions": [
+    "Five fixed 1MiB byte ranges per source, not complete line counts.",
+    "Same 768 padding/encoding and current protocol rejection rules; no final dedup/content processing.",
+    "Fastest measured online records/s on mini prepared sample is transferable only approximately.",
+    "Excludes data preparation, startup, full validation, checkpoint receipts, evaluation and release.",
+    "No formal training launched."
+  ],
+  "stages": {
+    "pretrain": {
+      "estimated_records": 9863904.213928364,
+      "records_per_second": 74.73350419209385,
+      "micro_batch": 16,
+      "accumulation": 16,
+      "pure_update_hours": 36.663253280818914,
+      "approximate_updates": 38531,
+      "approximate_checkpoints_if_original_intervals_kept": 386,
+      "measured_cached_updates": 9,
+      "measured_cached_seconds": 30.165789956000022
+    },
+    "sft": {
+      "estimated_records": 3259299.007199007,
+      "records_per_second": 71.16333899256924,
+      "micro_batch": 8,
+      "accumulation": 2,
+      "pure_update_hours": 12.722292800617378,
+      "approximate_updates": 203707,
+      "approximate_checkpoints_if_original_intervals_kept": 204,
+      "measured_cached_updates": 30,
+      "measured_cached_seconds": 6.278197925000086
+    }
+  },
+  "conditional_pure_update_hours": 49.38554608143629,
+  "approximate_checkpoint_gib_if_all_kept": 423.57472577132285,
+  "conclusion": "Do not commit to a ten-hour full-data run under this implementation based on this probe."
+}
