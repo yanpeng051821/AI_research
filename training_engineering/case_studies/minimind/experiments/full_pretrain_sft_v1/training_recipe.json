@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "confirmed_pending_data_and_runtime_gates",
+  "official_reference": {
+    "repository": "https://github.com/jingyaogong/minimind",
+    "git_commit": "233d00fa068ec2b8c0d4f07b703934d6391a5a73",
+    "dataset_repository": "jingyaogong/minimind_dataset",
+    "dataset_revision": "312afb4f76391145c6902f765bb51691c09a12f5"
+  },
+  "user_confirmation": {
+    "epochs": 2,
+    "order": ["pretrain", "sft"],
+    "accepts_duration_over_100_hours": true,
+    "confirmed_at": "2026-11-01"
+  },
+  "data": {
+    "pretrain": {
+      "filename": "pretrain_t2t.jsonl",
+      "size_bytes": 8275074893,
+      "lfs_sha256": "31efc9a6fa7430769c0e78cde1c8ec0273ac7bbad20614c0ee58bccef327cc9d",
+      "validation_fraction": 0.01,
+      "deduplication": "exact text SHA256 before split; same hash cannot cross train/validation"
+    },
+    "sft": {
+      "filename": "sft_t2t.jsonl",
+      "size_bytes": 14096018369,
+      "lfs_sha256": "b5dab3d590b3b4ae3bfeec891ba0c76b0de5acbec4f4b078dcd3912eb1735c79",
+      "validation_fraction": 0.01,
+      "deduplication": "canonical conversations SHA256 before split; same hash cannot cross train/validation"
+    },
+    "split_seed": 20261101
+  },
+  "model": {
+    "source": "own Dense model initialized from scratch for pretraining",
+    "vocab_size": 6400,
+    "hidden_size": 768,
+    "intermediate_size": 2432,
+    "rms_norm_eps": 0.000001,
+    "qk_norm": true,
+    "num_layers": 8,
+    "num_heads": 8,
+    "kv_heads": 4,
+    "rope_base": 1000000.0,
+    "tokenizer": "implementation/assets/minimind_tokenizer"
+  },
+  "pretrain": {
+    "epochs": 2,
+    "max_length": 340,
+    "official_entry_max_length": 340,
+    "official_readme_recommended_length_approx": 380,
+    "micro_batch_size": 4,
+    "gradient_accumulation_steps": 64,
+    "effective_batch_records": 256,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.01,
+    "betas": [0.9, 0.999],
+    "eps": 1e-8,
+    "scheduler": "official cosine schedule, decays to 0.1 * peak LR over all planned optimizer updates",
+    "max_grad_norm": 1.0,
+    "precision": "bf16 autocast with FP32 parameters",
+    "seed": 42,
+    "attention_backend": "forced CUDA FlashAttention; strict right padding and causal self-attention only"
+  },
+  "sft": {
+    "epochs": 2,
+    "max_length": 768,
+    "micro_batch_size": 4,
+    "gradient_accumulation_steps": 4,
+    "effective_batch_records": 16,
+    "learning_rate": 0.00001,
+    "weight_decay": 0.01,
+    "betas": [0.9, 0.999],
+    "eps": 1e-8,
+    "scheduler": "official cosine schedule, decays to 0.1 * peak LR over all planned optimizer updates",
+    "max_grad_norm": 1.0,
+    "precision": "bf16 autocast with FP32 parameters",
+    "seed": 42,
+    "attention_backend": "forced CUDA FlashAttention; strict right padding and causal self-attention only",
+    "initial_weights": "strictly the verified final checkpoint from this experiment's 2-epoch pretraining"
+  },
+  "checkpoint": {
+    "root": "E:/AI_research_checkpoints/minimind/full_pretrain_sft_v1",
+    "interval_updates": 200,
+    "retention": "keep latest 2 and epoch-boundary checkpoints per stage",
+    "resume_state": ["model", "optimizer", "scheduler", "torch_rng", "cuda_rng", "epoch", "sampler permutation", "committed sample position", "valid target count"]
+  },
+  "official_batch_basis": {
+    "pretrain": {"official_micro_batch": 32, "official_accumulation_steps": 8, "effective_batch_records": 256},
+    "sft": {"official_micro_batch": 16, "official_accumulation_steps": 1, "effective_batch_records": 16}
+  },
+  "explicit_differences_from_official_entry": [
+    "Official per-step batches are split into micro-batch 4 plus accumulation while preserving effective batches 256 (pretrain) and 16 (SFT).",
+    "Pretraining length 340 follows the official entry default; official README recommends approximately 380, so 340 is an explicitly recorded entry-default choice.",
+    "Training uses the learner's own Dense ~64M architecture/tokenizer/components, not the upstream model code.",
+    "Linux FlashAttention is explicitly forced by a new adapter; the historical hand-written attention and old run identity are not modified.",
+    "The local loss normalizes across valid target tokens in the entire accumulated update; this differs from averaging fixed-size upstream microbatch losses when padding varies.",
+    "A deterministic deduplicated 1% validation split is reserved from the full pinned source; all other eligible unique records are consumed for both epochs."
+  ],
+  "not_yet_frozen": [
+    "full-source audit reports and exact eligible/train/validation counts",
+    "derived data/index hashes",
+    "representative 340/768 runtime and memory measurements",
+    "final implementation and dependency hashes",
+    "formal resume-gate result"
+  ]
+}
