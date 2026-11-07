@@ -2,3 +2,5 @@
 .env.*
 !.env.example
 training_engineering/case_studies/minimind/implementation/data/reference/
+# Team internship plans are local-only, outside the research sync scope.
+/training_engineering/case_studies/hygon-testing-model-internship/
