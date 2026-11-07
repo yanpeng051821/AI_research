@@ -19,6 +19,8 @@ AI_research/
 其中[模型基础系列](model_architecture_and_algorithms/01_model_architecture/README.md)
 连接预测任务、基础组件、整体信息流和反向传播，与各案例的实践教程互补。
 
+技术文章与案例的编写、更新统一遵守[研究与技术文章写作规范](DOCUMENTATION_GUIDE.md)：按章节承接讨论，结合要点、表格和必要推导，保留思考与证据边界，减少重复陈述。
+
 - `AI_research` 保存研究问题、来源、证据、对比、假设和路线决定；从 2026-09-27 起，
   新训练工程的代码、测试与配置也统一在 `training_engineering/case_studies/<case>/` 下维护。
 - `small_model_post_training` 继续保存既有实验代码与产物。本次目录约定不迁移历史工程；

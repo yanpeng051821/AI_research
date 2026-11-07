@@ -12,6 +12,8 @@
 
 参数、前向、梯度和优化器状态的精度如何配合，见[训练数值精度与混合精度](03_optimization/02_NUMERICAL_PRECISION_AND_MIXED_PRECISION.md)。这篇从完整训练数据流出发，解释 FP32/BF16、敏感运算、autocast 与数值验证。
 
+已有模型怎样进行参数适配，见[参数适配目录](04_parameter_adaptation/README.md)：先读[LoRA：结构、低秩与参数更新](04_parameter_adaptation/01_LORA_STRUCTURE_AND_UPDATES.md)，再读[QLoRA：量化存储与训练计算](04_parameter_adaptation/02_QLORA_QUANTIZATION_AND_TRAINING.md)。两篇连接我们讨论的形状、秩、梯度、挂载范围与精度策略，不替代任务评测或实际训练配方。
+
 ## 分类原则
 
 按“正在解释什么”归类，而不是按“在哪一次聊天中提到”归类：

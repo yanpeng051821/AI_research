@@ -33,6 +33,10 @@ qwen-small-code-midtrain/
 
 ## 当前案例
 
+- [`hygon-testing-model-internship`](case_studies/hygon-testing-model-internship/README.md)：
+  团队训练流程实习：复用官方入口和成熟框架，完成海光环境验证、公开数据处理、
+  MiniMind dense 训练及代码缺陷分类 SFT，沉淀可独立复跑的团队配方。
+  文档分为总览、执行指南、冻结与验收规范、技术参考；当前为方案阶段。
 - [`minimind`](case_studies/minimind/README.md)：当前实践主线。以原理论笔记和 MiniMind
   源码为参照，由学习者独立实现算法、数据与训练工程，并亲自完成各阶段实验。
 - [`qwen3-0.6b-openr1-math-sft`](case_studies/qwen3-0.6b-openr1-math-sft/README.md)：
